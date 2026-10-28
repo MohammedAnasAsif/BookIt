@@ -40,16 +40,10 @@ class NllbModel {
       OrtEnv.instance.init();
       _envReady = true;
     }
-    OrtSessionOptions options() {
-      final o = OrtSessionOptions();
-      if (threads > 0) o.setIntraOpNumThreads(threads);
-      return o;
-    }
-
     return NllbModel._(
-      OrtSession.fromFile(File('$dir/$encoderFile'), options()),
-      OrtSession.fromFile(File('$dir/$firstDecoderFile'), options()),
-      OrtSession.fromFile(File('$dir/$decoderFile'), options()),
+      OrtTensors.openSession('$dir${Platform.pathSeparator}$encoderFile', threads: threads),
+      OrtTensors.openSession('$dir${Platform.pathSeparator}$firstDecoderFile', threads: threads),
+      OrtTensors.openSession('$dir${Platform.pathSeparator}$decoderFile', threads: threads),
       vocabSize,
     );
   }

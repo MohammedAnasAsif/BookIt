@@ -66,7 +66,12 @@ class JobProgress {
     return Duration(seconds: ((total - done) / blocksPerMinute * 60).round());
   }
 
-  Map<String, dynamic> toJson() => {'bookId': bookId, 'lang': lang, 'status': status.name};
+  Map<String, dynamic> toJson() => {
+        'bookId': bookId,
+        'lang': lang,
+        'status': status.name,
+        if (status == JobStatus.error && message.isNotEmpty) 'message': message,
+      };
 }
 
 class _Running {
@@ -118,6 +123,10 @@ class TranslationService extends ChangeNotifier {
           final status = JobStatus.values.asNameMap()[m['status']] ?? JobStatus.paused;
           final job = JobProgress(m['bookId'] as String, m['lang'] as String,
               status == JobStatus.done ? JobStatus.done : JobStatus.paused);
+          if (status == JobStatus.error) {
+            job.status = JobStatus.error;
+            job.message = (m['message'] as String?) ?? '';
+          }
           if (library.byId(job.bookId) == null) continue;
           _jobs[job.key] = job;
           await _refreshCounts(job);
@@ -370,8 +379,16 @@ class TranslationService extends ChangeNotifier {
         job.status = JobStatus.error;
         job.message = msg['message'] as String;
         debugPrint('Translation error: ${msg['message']}\n${msg['stack']}');
+        _logError('${DateTime.now().toIso8601String()} ${job.bookId} ${job.lang}: ${msg['message']}\n${msg['stack']}\n');
         _finish(r);
     }
+  }
+
+  void _logError(String text) {
+    try {
+      File('${AppPaths.root.path}${Platform.pathSeparator}translation_errors.log')
+          .writeAsStringSync(text, mode: FileMode.append);
+    } catch (_) {}
   }
 
   void _finish(_Running r) {
