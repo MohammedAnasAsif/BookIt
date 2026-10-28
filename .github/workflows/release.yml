@@ -1,0 +1,35 @@
+# Publishes a versioned release (e.g. v0.1.0) from the newest `latest` build.
+# Run it from the Actions tab: "Release" → "Run workflow" → enter a version.
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version number, e.g. 0.2.0"
+        required: true
+  push:
+    branches: [main]
+    paths:
+      - .github/release-version
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create release from the latest build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION="${{ github.event.inputs.version }}"
+          if [ -z "$VERSION" ]; then VERSION="$(tr -d ' \n' < .github/release-version)"; fi
+          TAG="v${VERSION#v}"
+          if gh release view "$TAG" >/dev/null 2>&1; then echo "$TAG already exists"; exit 0; fi
+          mkdir -p dist && gh release download latest --dir dist
+          ls -la dist
+          SHA=$(git rev-list -n 1 latest 2>/dev/null || git rev-parse HEAD)
+          gh release create "$TAG" dist/* --target "$SHA" --title "BookIt $TAG" --notes-file .github/release-notes.md
