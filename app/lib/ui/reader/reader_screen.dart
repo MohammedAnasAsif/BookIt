@@ -22,7 +22,8 @@ import 'reader_sheets.dart';
 /// the original text and its translations.
 class ReaderScreen extends StatefulWidget {
   final Book book;
-  const ReaderScreen({super.key, required this.book});
+  final bool startWithMenu;
+  const ReaderScreen({super.key, required this.book, this.startWithMenu = false});
 
   @override
   State<ReaderScreen> createState() => _ReaderScreenState();
@@ -60,6 +61,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
   void initState() {
     super.initState();
     _lang = book.readingLang;
+    _menu = widget.startWithMenu;
     _chapter = book.position.chapter;
     _anchorBlock = book.position.block;
     _anchorFraction = book.position.fraction;

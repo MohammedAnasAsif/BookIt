@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'data/library_store.dart';
 import 'data/settings_store.dart';
+import 'demo.dart';
+import 'ui/reader/reader_screen.dart';
+import 'ui/widgets/language_picker.dart';
 import 'ui/home_screen.dart';
 import 'ui/library_screen.dart';
 import 'ui/settings_screen.dart';
@@ -51,7 +55,8 @@ ThemeData _theme(Brightness brightness) {
 }
 
 class BookItApp extends StatelessWidget {
-  const BookItApp({super.key});
+  final DemoScreen? demo;
+  const BookItApp({super.key, this.demo});
 
   @override
   Widget build(BuildContext context) {
@@ -62,13 +67,14 @@ class BookItApp extends StatelessWidget {
       theme: _theme(Brightness.light),
       darkTheme: _theme(Brightness.dark),
       themeMode: mode,
-      home: const HomeShell(),
+      home: HomeShell(demo: demo),
     );
   }
 }
 
 class HomeShell extends StatefulWidget {
-  const HomeShell({super.key});
+  final DemoScreen? demo;
+  const HomeShell({super.key, this.demo});
 
   @override
   State<HomeShell> createState() => _HomeShellState();
@@ -76,6 +82,30 @@ class HomeShell extends StatefulWidget {
 
 class _HomeShellState extends State<HomeShell> {
   int _index = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    final demo = widget.demo;
+    if (demo == null) return;
+    _index = switch (demo) {
+      DemoScreen.library => 1,
+      DemoScreen.store => 2,
+      DemoScreen.settings => 3,
+      _ => 0,
+    };
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final book = context.read<LibraryStore>().byId(demoBookId);
+      if (book == null) return;
+      if (demo == DemoScreen.reader || demo == DemoScreen.readerDark || demo == DemoScreen.readerMenu) {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (_) => ReaderScreen(book: book, startWithMenu: demo == DemoScreen.readerMenu)));
+      } else if (demo == DemoScreen.languages) {
+        pickLanguage(context, title: 'Translate into…', exclude: 'eng_Latn', selected: 'tam_Taml');
+      }
+    });
+  }
 
   static const _destinations = [
     (Icons.home_outlined, Icons.home, 'Home'),

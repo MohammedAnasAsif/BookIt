@@ -5,9 +5,10 @@ import 'app.dart';
 import 'core/app_paths.dart';
 import 'data/library_store.dart';
 import 'data/settings_store.dart';
+import 'demo.dart';
 import 'translation/translation_service.dart';
 
-Future<void> main() async {
+Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   await AppPaths.init();
   final settings = SettingsStore();
@@ -17,6 +18,8 @@ Future<void> main() async {
   final translations = TranslationService(library)..accurate = settings.accurateTranslation;
   settings.addListener(() => translations.accurate = settings.accurateTranslation);
   await translations.init();
+  final demo = parseDemo(args);
+  if (demo != null) await seedDemo(demo, library, settings);
 
   runApp(MultiProvider(
     providers: [
@@ -24,6 +27,6 @@ Future<void> main() async {
       ChangeNotifierProvider.value(value: library),
       ChangeNotifierProvider.value(value: translations),
     ],
-    child: const BookItApp(),
+    child: BookItApp(demo: demo),
   ));
 }

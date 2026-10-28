@@ -98,8 +98,7 @@ class LibraryStore extends ChangeNotifier {
   Future<BookContent> content(String id) async {
     final cached = _contentCache[id];
     if (cached != null) return cached;
-    final path = AppPaths.bookContent(id).path;
-    final c = await Isolate.run(() => BookContent.fromJson(jsonDecode(File(path).readAsStringSync()) as Map<String, dynamic>));
+    final c = await Isolate.run(_ContentLoader(AppPaths.bookContent(id).path).call);
     if (_contentCache.length > 3) _contentCache.remove(_contentCache.keys.first);
     _contentCache[id] = c;
     return c;
@@ -214,14 +213,7 @@ class LibraryStore extends ChangeNotifier {
     String? languageHint,
     Uint8List? coverOverride,
   }) async {
-    final parsed = await Isolate.run(() {
-      if (isEpub) {
-        final r = EpubParser.parse(bytes);
-        return [r.content.toJson(), r.coverBytes, r.coverExtension];
-      }
-      final c = TxtParser.parse(TxtParser.decode(bytes), title: titleOverride ?? 'Untitled');
-      return [c.toJson(), null, null];
-    });
+    final parsed = await Isolate.run(_BookParser(bytes, isEpub, titleOverride ?? 'Untitled').call);
     var content = BookContent.fromJson(parsed[0] as Map<String, dynamic>);
     if (content.chapters.isEmpty) throw const FormatException('No readable text found in this book.');
     final title = (content.title == 'Untitled' || content.title.isEmpty) ? (titleOverride ?? content.title) : content.title;
@@ -260,7 +252,7 @@ class LibraryStore extends ChangeNotifier {
 
   /// Adds a `.bookit` edition (book + translation).
   Future<Book> addEdition(Uint8List bytes) async {
-    final ed = await Isolate.run(() => Edition.decode(bytes));
+    final ed = await Isolate.run(_EditionDecoder(bytes).call);
     final id = ed.gutenbergId != null ? 'pg${ed.gutenbergId}' : 'ed${DateTime.now().millisecondsSinceEpoch}';
     var book = byId(id);
     if (book == null) {
@@ -324,4 +316,35 @@ class LibraryStore extends ChangeNotifier {
   Future<void> saveBookmarks(String id, List<Bookmark> list) async {
     await AppPaths.bookmarks(id).writeAsString(jsonEncode([for (final b in list) b.toJson()]));
   }
+}
+
+// Work done on background isolates. These small classes hold only plain data,
+// so nothing else from the app gets copied into the isolate.
+
+class _ContentLoader {
+  final String path;
+  _ContentLoader(this.path);
+  BookContent call() => BookContent.fromJson(jsonDecode(File(path).readAsStringSync()) as Map<String, dynamic>);
+}
+
+class _BookParser {
+  final Uint8List bytes;
+  final bool isEpub;
+  final String title;
+  _BookParser(this.bytes, this.isEpub, this.title);
+
+  List<Object?> call() {
+    if (isEpub) {
+      final r = EpubParser.parse(bytes);
+      return [r.content.toJson(), r.coverBytes, r.coverExtension];
+    }
+    final c = TxtParser.parse(TxtParser.decode(bytes), title: title);
+    return [c.toJson(), null, null];
+  }
+}
+
+class _EditionDecoder {
+  final Uint8List bytes;
+  _EditionDecoder(this.bytes);
+  Edition call() => Edition.decode(bytes);
 }
