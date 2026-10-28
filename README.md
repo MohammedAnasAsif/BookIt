@@ -7,7 +7,7 @@ Android · Windows · 200 languages, including 20 Indian languages · works offl
 
 ---
 
-BookIt is a Kindle-style reading app with a built-in library of 70,000+ free classics. Pick any book, tap **Translate**, choose Tamil, Hindi, Bengali, Telugu, Marathi, Urdu or any of 90+ other languages, and BookIt translates the book **on your phone or PC** and saves it. After that you can read it anytime, without internet.
+BookIt is a Kindle-style reading app with a built-in library of 78,000+ free classics. Pick any book, tap **Translate**, choose Tamil, Hindi, Bengali, Telugu, Marathi, Urdu or any of 90+ other languages, and BookIt translates the book **on your phone or PC** and saves it. After that you can read it anytime, without internet.
 
 No accounts, no API keys, no subscriptions, no ads. Nothing you read is sent anywhere.
 
@@ -28,7 +28,7 @@ The `latest` pre-release is rebuilt automatically from the newest code.
 
 ## Features
 
-- **Free library** — browse and search Project Gutenberg's public-domain books by shelf (fiction, adventure, children, poetry, India…) and language; one tap to download.
+- **Free library** — the whole Project Gutenberg catalog (78,000+ public-domain books) is built into the app, so browsing and search by shelf (Indian, novels, adventure, children, poetry…) and language are instant, even offline. One tap downloads a book.
 - **Your own books** — open DRM-free EPUB and TXT files, or `.bookit` editions shared by others.
 - **Kindle-style reader** — real pages with tap zones and swipes, serif/sans fonts, text size, spacing, margins, justified text, white / sepia / gray / dark / black themes, chapter slider, table of contents, bookmarks, reading progress. Keyboard and mouse-wheel page turns on Windows.
 - **Translate any book** — into 90+ languages including Hindi, Bengali, Telugu, Marathi, Tamil, Urdu, Gujarati, Kannada, Malayalam, Odia, Punjabi, Assamese, Maithili, Sanskrit, Nepali, Sindhi, Kashmiri, Manipuri, Santali, and most European and world languages.
@@ -90,11 +90,12 @@ Every push to `main` is built by GitHub Actions ([`.github/workflows/build.yml`]
 ```
 app/                         Flutter app (Android + Windows)
   lib/books/                 EPUB/TXT parsing, EPUB writer, .bookit editions
-  lib/data/                  library storage, Gutendex catalog, settings
+  lib/data/                  library storage, bundled Gutenberg catalog, settings
   lib/translation/engine/    NLLB tokenizer (pure Dart), ONNX Runtime model, sentence splitting
   lib/translation/           background translation worker and job queue
   lib/ui/                    screens; lib/ui/reader/ is the paginated reader
 catalog/editions.json        community library index
+tools/build_catalog.py       builds the bundled Gutenberg catalog and featured shelves
 tools/translate_book.py      batch translation for the community library
 tools/engine_reference.py    reference data for the engine test
 .github/workflows/           builds, engine test, developer probes
@@ -112,7 +113,7 @@ Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
 ## Credits and licences
 
 - BookIt code: [Apache License 2.0](LICENSE).
-- Books: [Project Gutenberg](https://www.gutenberg.org) via the [Gutendex](https://gutendex.com) API. Gutenberg books are free and in the public domain in the USA; please check the laws of your country.
+- Books and catalog: [Project Gutenberg](https://www.gutenberg.org) (the bundled catalog is rebuilt monthly from Gutenberg's official catalog by [`tools/build_catalog.py`](tools/build_catalog.py)). Gutenberg books are free and in the public domain in the USA; please check the laws of your country.
 - Translation model: [NLLB-200](https://ai.meta.com/research/no-language-left-behind/) by Meta AI, licensed **CC-BY-NC 4.0** (free for non-commercial use), using the ONNX export by [Xenova](https://huggingface.co/Xenova/nllb-200-distilled-600M). Because of this licence, BookIt as distributed is for non-commercial use.
 - [ONNX Runtime](https://onnxruntime.ai) (MIT) via the [`onnxruntime`](https://pub.dev/packages/onnxruntime) Flutter plugin.
 - Optional tooling: [IndicTrans2](https://github.com/AI4Bharat/IndicTrans2) by AI4Bharat (MIT).
