@@ -118,25 +118,31 @@ BESTSELLERS = [
     ("The Psychology of Money", "Morgan Housel"), ("Ikigai", "Héctor García"),
     ("The White Tiger", "Aravind Adiga"), ("The God of Small Things", "Arundhati Roy"),
     ("Five Point Someone", "Chetan Bhagat"), ("The Immortals of Meluha", "Amish Tripathi"),
-    ("An Unequal Defense", "Zunker"), ("A Man Called Ove", "Backman"),
+    ("An Unequal Defense", "Chad Zunker"), ("A Man Called Ove", "Fredrik Backman"),
 ]
 
 
 def bestsellers():
     out = []
+    fields = "key,title,author_name,cover_i,first_publish_year,edition_count"
     for title, author in BESTSELLERS:
-        q = urllib.parse.urlencode({"title": title, "author": author, "limit": 5,
-                                    "fields": "key,title,author_name,cover_i,first_publish_year,edition_count"})
-        try:
-            docs = get_json(f"https://openlibrary.org/search.json?{q}", timeout=60).get("docs", [])
-        except Exception as e:  # noqa
-            log("bestseller lookup failed", title, e)
-            continue
-        docs = [d for d in docs if d.get("cover_i") and not SKIP_WORDS.search(d.get("title", ""))]
+        docs = []
+        for params in ({"title": title, "author": author}, {"q": f"{title} {author}"}):
+            q = urllib.parse.urlencode({**params, "limit": 10, "fields": fields})
+            try:
+                docs = get_json(f"https://openlibrary.org/search.json?{q}", timeout=60).get("docs", [])
+            except Exception as e:  # noqa
+                log("bestseller lookup failed", title, e)
+                docs = []
+            docs = [d for d in docs if d.get("cover_i") and not SKIP_WORDS.search(d.get("title", ""))]
+            if docs:
+                break
         if not docs:
             log("bestseller not found", title)
             continue
-        best = max(docs, key=lambda d: d.get("edition_count", 0))
+        want = re.sub(r"\W+", " ", title).strip().lower()
+        best = max(docs, key=lambda d: (re.sub(r"\W+", " ", d.get("title", "")).strip().lower() == want,
+                                        d.get("edition_count", 0)))
         item = ol_doc(best, "bestseller")
         if item:
             out.append(item)
