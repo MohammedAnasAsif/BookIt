@@ -90,6 +90,10 @@ class HomeShell extends StatefulWidget {
 class _HomeShellState extends State<HomeShell> {
   int _index = 0;
 
+  /// Tabs are only built once they are opened, so hidden screens don't start
+  /// downloading covers before the visible ones.
+  final Set<int> _opened = {0};
+
   @override
   void initState() {
     super.initState();
@@ -168,7 +172,10 @@ class _HomeShellState extends State<HomeShell> {
     (Icons.settings_outlined, Icons.settings, 'Settings'),
   ];
 
-  void _go(int i) => setState(() => _index = i);
+  void _go(int i) => setState(() {
+        _index = i;
+        _opened.add(i);
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -186,7 +193,11 @@ class _HomeShellState extends State<HomeShell> {
       const SettingsScreen(),
     ];
     final wide = MediaQuery.sizeOf(context).width >= 840;
-    final body = IndexedStack(index: _index, children: pages);
+    _opened.add(_index);
+    final body = IndexedStack(
+      index: _index,
+      children: [for (var i = 0; i < pages.length; i++) _opened.contains(i) ? pages[i] : const SizedBox.shrink()],
+    );
     if (wide) {
       return Scaffold(
         body: Row(children: [

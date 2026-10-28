@@ -14,7 +14,7 @@ class CoverCache {
   static final Map<String, Future<File?>> _inFlight = {};
   static final Set<String> _failed = {};
   static int _running = 0;
-  static const _maxParallel = 6;
+  static const _maxParallel = 8;
   static final Queue<Completer<void>> _waiting = Queue();
 
   static Directory get _dir => Directory(p.join(AppPaths.cache.path, 'covers'));
@@ -106,8 +106,9 @@ class CoverCache {
     _running++;
   }
 
+  /// Newest requests first: those are the covers currently on screen.
   static void _release() {
     _running--;
-    if (_waiting.isNotEmpty) _waiting.removeFirst().complete();
+    if (_waiting.isNotEmpty) _waiting.removeLast().complete();
   }
 }
