@@ -60,8 +60,11 @@ def get_json(url, **kw):
 
 # ----------------------------------------------------------------- trending
 
+SKIP_WORDS = re.compile(r"graphic novel|summary|workbook|study guide|analysis of|coloring book|journal", re.I)
+
+
 def ol_doc(d, reason):
-    if not d.get("cover_i") or not d.get("title"):
+    if not d.get("cover_i") or not d.get("title") or SKIP_WORDS.search(d["title"]):
         return None
     authors = d.get("author_name") or []
     return {
@@ -87,8 +90,9 @@ def trending():
             if year < 1990:
                 continue  # classics are already in the free library
             item = ol_doc(w, period)
-            if item and item["key"] not in seen:
-                seen.add(item["key"])
+            norm = re.sub(r"\W+", " ", (item or {}).get("title", "")).strip().lower()
+            if item and item["key"] not in seen and norm not in seen:
+                seen.update({item["key"], norm})
                 out.append(item)
     log("trending:", len(out))
     return out[:60]
@@ -99,7 +103,7 @@ BESTSELLERS = [
     ("It Ends With Us", "Colleen Hoover"), ("It Starts With Us", "Colleen Hoover"),
     ("Verity", "Colleen Hoover"), ("Reminders of Him", "Colleen Hoover"),
     ("Killing Floor", "Lee Child"), ("Persuader", "Lee Child"), ("Bad Luck and Trouble", "Lee Child"),
-    ("An Unequal Defense", "Chad Zunker"), ("Fourth Wing", "Rebecca Yarros"), ("Iron Flame", "Rebecca Yarros"),
+    ("Fourth Wing", "Rebecca Yarros"), ("Iron Flame", "Rebecca Yarros"),
     ("The Housemaid", "Freida McFadden"), ("A Court of Thorns and Roses", "Sarah J. Maas"),
     ("The Silent Patient", "Alex Michaelides"), ("Where the Crawdads Sing", "Delia Owens"),
     ("The Seven Husbands of Evelyn Hugo", "Taylor Jenkins Reid"), ("Lessons in Chemistry", "Bonnie Garmus"),
@@ -108,12 +112,13 @@ BESTSELLERS = [
     ("Tomorrow, and Tomorrow, and Tomorrow", "Gabrielle Zevin"), ("Normal People", "Sally Rooney"),
     ("Gone Girl", "Gillian Flynn"), ("The Girl on the Train", "Paula Hawkins"),
     ("The Hunger Games", "Suzanne Collins"), ("The Alchemist", "Paulo Coelho"),
-    ("The Kite Runner", "Khaled Hosseini"), ("A Man Called Ove", "Fredrik Backman"),
+    ("The Kite Runner", "Khaled Hosseini"),
     ("The Da Vinci Code", "Dan Brown"), ("The Thursday Murder Club", "Richard Osman"),
     ("Educated", "Tara Westover"), ("Atomic Habits", "James Clear"), ("Sapiens", "Yuval Noah Harari"),
     ("The Psychology of Money", "Morgan Housel"), ("Ikigai", "Héctor García"),
     ("The White Tiger", "Aravind Adiga"), ("The God of Small Things", "Arundhati Roy"),
     ("Five Point Someone", "Chetan Bhagat"), ("The Immortals of Meluha", "Amish Tripathi"),
+    ("An Unequal Defense", "Zunker"), ("A Man Called Ove", "Backman"),
 ]
 
 
@@ -127,7 +132,7 @@ def bestsellers():
         except Exception as e:  # noqa
             log("bestseller lookup failed", title, e)
             continue
-        docs = [d for d in docs if d.get("cover_i")]
+        docs = [d for d in docs if d.get("cover_i") and not SKIP_WORDS.search(d.get("title", ""))]
         if not docs:
             log("bestseller not found", title)
             continue

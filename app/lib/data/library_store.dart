@@ -157,12 +157,12 @@ class LibraryStore extends ChangeNotifier {
   /// Downloads a Project Gutenberg book. With [temporary] the book is only
   /// opened ("Read now") and not shown in the library until it is saved.
   Future<Book> addFromCatalog(CatalogBook cb, {bool temporary = false}) async {
-    final existing = byGutenbergId(cb.id);
+    final existing = byId(cb.key) ?? (cb.isGutenberg ? byGutenbergId(cb.id) : null);
     if (existing != null) {
       if (!temporary) await keep(existing);
       return existing;
     }
-    final id = 'pg${cb.id}';
+    final id = cb.key;
     pending[id] = 0;
     notifyListeners();
     try {
@@ -191,8 +191,8 @@ class LibraryStore extends ChangeNotifier {
       final coverFile = await CoverCache.get(cb.coverKey, cb.coverUrls);
       final book = await _addParsed(
         id: id,
-        source: 'gutenberg',
-        gutenbergId: cb.id,
+        source: cb.source,
+        gutenbergId: cb.isGutenberg ? cb.id : null,
         bytes: bytes,
         isEpub: true,
         titleOverride: cb.title,

@@ -5,9 +5,11 @@ import 'dart:typed_data';
 import 'package:archive/archive.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
-/// A free book from Project Gutenberg. Every Gutenberg book is in the public
-/// domain in the USA.
+/// A free book: from Project Gutenberg (public domain), Standard Ebooks
+/// (edited public-domain classics) or a modern novel its author released under
+/// a Creative Commons licence.
 class CatalogBook {
+  /// Project Gutenberg number (0 for other sources).
   final int id;
   final String title;
   final List<String> authors;
@@ -19,6 +21,17 @@ class CatalogBook {
   /// Popularity rank on Project Gutenberg (1 = most downloaded), 0 if unknown.
   final int rank;
 
+  /// `gutenberg`, `standard` (Standard Ebooks) or `free` (Creative Commons).
+  final String source;
+  final String? _key;
+  final List<String>? epubOverride;
+  final List<String>? coverOverride;
+  final String? licence;
+  final String? licenceUrl;
+  final String? sourcePage;
+  final String? genre;
+  final String? blurb;
+
   const CatalogBook({
     required this.id,
     required this.title,
@@ -26,24 +39,46 @@ class CatalogBook {
     required this.languages,
     this.shelves = '',
     this.rank = 0,
-  });
+    this.source = 'gutenberg',
+    String? key,
+    this.epubOverride,
+    this.coverOverride,
+    this.licence,
+    this.licenceUrl,
+    this.sourcePage,
+    this.genre,
+    this.blurb,
+  }) : _key = key;
 
   String get authorLine => authors.join(', ');
 
+  /// Unique id, also used as the book's id in the library.
+  String get key => _key ?? 'pg$id';
+  bool get isGutenberg => source == 'gutenberg';
+
   /// Text-only EPUB (small: usually under 1 MB), with a mirror as fallback.
-  List<String> get epubUrls => [
+  List<String> get epubUrls =>
+      epubOverride ??
+      [
         'https://www.gutenberg.org/cache/epub/$id/pg$id.epub',
         'https://www.gutenberg.org/ebooks/$id.epub.noimages',
         'https://gutenberg.pglaf.org/cache/epub/$id/pg$id.epub',
       ];
 
-  List<String> get coverUrls => [
+  List<String> get coverUrls =>
+      coverOverride ??
+      [
         'https://www.gutenberg.org/cache/epub/$id/pg$id.cover.medium.jpg',
         'https://gutenberg.pglaf.org/cache/epub/$id/pg$id.cover.medium.jpg',
       ];
 
-  String get coverUrl => coverUrls.first;
-  String get coverKey => 'pg$id';
+  String get coverKey => key;
+
+  String get sourceName => switch (source) {
+        'standard' => 'Standard Ebooks',
+        'free' => 'Free from the author',
+        _ => 'Project Gutenberg',
+      };
 }
 
 /// Topic shelves shown in the store, mapped to catalog shelf codes.

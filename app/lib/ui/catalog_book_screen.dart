@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../core/languages.dart';
 import '../data/catalog.dart';
@@ -39,8 +40,8 @@ class _CatalogBookScreenState extends State<CatalogBookScreen> {
   Widget build(BuildContext context) {
     final library = context.watch<LibraryStore>();
     final settings = context.watch<SettingsStore>();
-    final owned = library.byGutenbergId(widget.book.id);
-    final progress = library.pending['pg${widget.book.id}'];
+    final owned = library.byId(widget.book.key) ?? (widget.book.isGutenberg ? library.byGutenbergId(widget.book.id) : null);
+    final progress = library.pending[widget.book.key];
     final b = widget.book;
     final theme = Theme.of(context);
     final preferred = languageByCode(settings.preferredLang);
@@ -61,7 +62,7 @@ class _CatalogBookScreenState extends State<CatalogBookScreen> {
           Text(b.authorLine, textAlign: TextAlign.center, style: theme.textTheme.titleSmall),
           const SizedBox(height: 4),
           Text(
-            '${bookLang?.name ?? b.languages.join(', ')} · Free · Public domain',
+            '${bookLang?.name ?? b.languages.join(', ')} · Free · ${b.source == 'free' ? 'Shared by the author' : 'Public domain'}',
             textAlign: TextAlign.center,
             style: theme.textTheme.bodySmall,
           ),
@@ -151,10 +152,39 @@ class _CatalogBookScreenState extends State<CatalogBookScreen> {
               ]),
             ),
           ),
+          if (b.blurb != null) ...[
+            const SizedBox(height: 24),
+            Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 560),
+                child: Text(b.blurb!, textAlign: TextAlign.center, style: theme.textTheme.bodyLarge),
+              ),
+            ),
+          ],
           const SizedBox(height: 28),
           if (b.rank > 0)
             Text('#${b.rank} most downloaded on Project Gutenberg', style: theme.textTheme.bodySmall),
-          Text('Project Gutenberg book #${b.id}', style: theme.textTheme.bodySmall),
+          if (b.isGutenberg) Text('Project Gutenberg book #${b.id}', style: theme.textTheme.bodySmall),
+          if (!b.isGutenberg) ...[
+            Text('From ${b.sourceName}${b.licence != null ? ' · ${b.licence}' : ''}', style: theme.textTheme.bodySmall),
+            if (b.source == 'free')
+              Text(
+                '${b.authorLine} chose to share this book for free under a Creative Commons licence. '
+                'You may read, share and translate it for non-commercial use, crediting the author.',
+                style: theme.textTheme.bodySmall,
+              ),
+            if (b.sourcePage != null)
+              Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton.icon(
+                  icon: const Icon(Icons.open_in_new, size: 16),
+                  label: Text(b.source == 'standard' ? 'Support Standard Ebooks' : 'Visit the author\'s page'),
+                  onPressed: () => launchUrl(
+                      Uri.parse(b.source == 'standard' ? 'https://standardebooks.org/donate' : b.sourcePage!),
+                      mode: LaunchMode.externalApplication),
+                ),
+              ),
+          ],
         ],
       ),
     );

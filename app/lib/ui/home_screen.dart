@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import '../core/languages.dart';
 import '../data/community_catalog.dart';
 import '../data/catalog.dart';
+import '../data/discover.dart';
+import 'trending_book_screen.dart';
 import '../data/library_store.dart';
 import '../data/settings_store.dart';
 import '../models/book.dart';
@@ -28,6 +30,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   late Future<List<FeaturedBook>> _featured;
   late Future<List<CommunityEdition>> _editions;
+  DiscoverData _discover = DiscoverData.empty;
 
   @override
   void initState() {
@@ -37,6 +40,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void _load() {
     _featured = FeaturedBooks.load();
+    DiscoverData.load().then((d) {
+      if (mounted) setState(() => _discover = d);
+      DiscoverData.refresh().then((fresh) {
+        if (fresh != null && mounted) setState(() => _discover = fresh);
+      });
+    });
     _editions = CommunityCatalog.fetch().catchError((_) => <CommunityEdition>[]);
   }
 
@@ -99,6 +108,30 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
             for (final job in service.jobs.where((j) => j.active))
               _TranslationCard(job: job, book: library.byId(job.bookId)),
+            if (_discover.trending.isNotEmpty)
+              _TrendingShelf(
+                title: 'Trending now',
+                subtitle: 'What readers around the world are picking up this week',
+                books: _discover.trending,
+              ),
+            if (_discover.freeFiction.isNotEmpty)
+              _CatalogShelf(
+                title: 'Free modern fiction',
+                subtitle: 'Novels their authors chose to share for free — read and translate them',
+                books: _discover.freeFiction,
+              ),
+            if (_discover.bestsellers.isNotEmpty)
+              _TrendingShelf(
+                title: 'Bestsellers everyone is talking about',
+                subtitle: 'See where to buy or borrow them',
+                books: _discover.bestsellers,
+              ),
+            if (_discover.standardEbooks.isNotEmpty)
+              _CatalogShelf(
+                title: 'Beautiful classics',
+                subtitle: 'Carefully edited editions from Standard Ebooks — free',
+                books: _discover.standardEbooks.take(30).toList(),
+              ),
             FutureBuilder<List<CommunityEdition>>(
               future: _editions,
               builder: (context, snap) {
@@ -454,4 +487,50 @@ class CatalogTile extends StatelessWidget {
       ),
     );
   }
+}
+
+class _TrendingShelf extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final List<TrendingBook> books;
+  const _TrendingShelf({required this.title, required this.subtitle, required this.books});
+
+  @override
+  Widget build(BuildContext context) => Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        _SectionTitle(title, subtitle: subtitle),
+        SizedBox(
+          height: 236,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            children: [
+              for (final b in books)
+                Padding(padding: const EdgeInsets.only(right: 14), child: TrendingTile(book: b, width: 110)),
+            ],
+          ),
+        ),
+      ]);
+}
+
+class _CatalogShelf extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final List<CatalogBook> books;
+  const _CatalogShelf({required this.title, required this.subtitle, required this.books});
+
+  @override
+  Widget build(BuildContext context) => Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        _SectionTitle(title, subtitle: subtitle),
+        SizedBox(
+          height: 236,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            children: [
+              for (final b in books)
+                Padding(padding: const EdgeInsets.only(right: 14), child: CatalogTile(book: b, width: 110)),
+            ],
+          ),
+        ),
+      ]);
 }

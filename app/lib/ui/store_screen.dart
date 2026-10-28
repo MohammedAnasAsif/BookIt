@@ -1,6 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../data/catalog.dart';
+import '../data/discover.dart';
+import 'trending_book_screen.dart';
 import 'home_screen.dart';
 
 /// Bump to move to the store and put the cursor in its search box.
@@ -22,7 +26,16 @@ class _StoreScreenState extends State<StoreScreen> {
   final _searchFocus = FocusNode();
   final _scroll = ScrollController();
   LocalCatalog? _catalog;
+  static const _freeFiction = Shelf('Free modern fiction', '#ff');
+  static const _standard = Shelf('Standard Ebooks', '#se');
+  static final _shelves = [kShelves.first, _freeFiction, _standard, ...kShelves.skip(1)];
   Shelf _shelf = kShelves.first;
+  DiscoverData _discover = DiscoverData.empty;
+  List<TrendingBook> _storeHits = const [];
+  bool _storeLoading = false;
+  Timer? _storeTimer;
+  int _storeGeneration = 0;
+  int _extraCount = 0;
   String _language = 'en';
   List<CatalogBook> _books = const [];
   bool _more = false;
@@ -62,6 +75,11 @@ class _StoreScreenState extends State<StoreScreen> {
       _catalog = c;
       _refresh();
     });
+    DiscoverData.load().then((d) {
+      if (!mounted) return;
+      _discover = d;
+      if (_shelf.code.startsWith('#')) _refresh();
+    });
     _scroll.addListener(() {
       if (_more && _scroll.position.pixels > _scroll.position.maxScrollExtent - 800) _loadMore();
     });
@@ -70,6 +88,7 @@ class _StoreScreenState extends State<StoreScreen> {
   @override
   void dispose() {
     storeSearchRequest.removeListener(_focusSearch);
+    _storeTimer?.cancel();
     _searchFocus.dispose();
     _search.dispose();
     _scroll.dispose();
@@ -79,19 +98,71 @@ class _StoreScreenState extends State<StoreScreen> {
   void _refresh() {
     final c = _catalog;
     if (c == null) return;
-    final page = c.search(query: _search.text, shelf: _shelf.code, language: _language, limit: _pageSize);
-    setState(() {
-      _books = page;
+    List<CatalogBook> page;
+    if (_shelf.code.startsWith('#')) {
+      final list = _shelf == _freeFiction ? _discover.freeFiction : _discover.standardEbooks;
+      final words = _search.text.toLowerCase().split(RegExp(r'\s+')).where((w) => w.isNotEmpty);
+      page = [
+        for (final b in list)
+          if (words.every((w) => '${b.title} ${b.authorLine}'.toLowerCase().contains(w))) b
+      ];
+      _more = false;
+    } else {
+      page = c.search(query: _search.text, shelf: _shelf.code, language: _language, limit: _pageSize);
       _more = page.length == _pageSize;
-    });
+    }
+    // Free books from the other shelves that match the search too.
+    if (_search.text.trim().length >= 2 && !_shelf.code.startsWith('#')) {
+      final words = _search.text.toLowerCase().split(RegExp(r'\s+')).where((w) => w.isNotEmpty);
+      final extra = [
+        for (final b in [..._discover.freeFiction, ..._discover.standardEbooks])
+          if (words.every((w) => '${b.title} ${b.authorLine}'.toLowerCase().contains(w))) b
+      ];
+      _extraCount = extra.take(12).length;
+      page = [...extra.take(12), ...page];
+    } else {
+      _extraCount = 0;
+    }
+    setState(() => _books = page);
     if (_scroll.hasClients) _scroll.jumpTo(0);
+    _scheduleStoreSearch();
+  }
+
+  /// Looks the search up in Open Library too, to show where to buy or borrow
+  /// books that aren't free.
+  void _scheduleStoreSearch() {
+    _storeTimer?.cancel();
+    final q = _search.text.trim();
+    final gen = ++_storeGeneration;
+    if (q.length < 3) {
+      if (_storeHits.isNotEmpty || _storeLoading) {
+        setState(() {
+          _storeHits = const [];
+          _storeLoading = false;
+        });
+      }
+      return;
+    }
+    setState(() => _storeLoading = true);
+    _storeTimer = Timer(const Duration(milliseconds: 700), () async {
+      List<TrendingBook> hits = const [];
+      try {
+        hits = await searchStores(q);
+      } catch (_) {}
+      if (!mounted || gen != _storeGeneration) return;
+      final free = _books.map((b) => b.title.toLowerCase()).toSet();
+      setState(() {
+        _storeHits = hits.where((h) => !free.contains(h.title.toLowerCase())).toList();
+        _storeLoading = false;
+      });
+    });
   }
 
   void _loadMore() {
     final c = _catalog;
     if (c == null) return;
     final page = c.search(
-        query: _search.text, shelf: _shelf.code, language: _language, limit: _pageSize, offset: _books.length);
+        query: _search.text, shelf: _shelf.code, language: _language, limit: _pageSize, offset: _books.length - _extraCount);
     setState(() {
       _books = [..._books, ...page];
       _more = page.length == _pageSize;
@@ -164,7 +235,7 @@ class _StoreScreenState extends State<StoreScreen> {
                 scrollDirection: Axis.horizontal,
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 children: [
-                  for (final s in kShelves)
+                  for (final s in _shelves)
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 4),
                       child: ChoiceChip(
@@ -182,40 +253,78 @@ class _StoreScreenState extends State<StoreScreen> {
           ),
           if (_catalog == null)
             const SliverFillRemaining(hasScrollBody: false, child: Center(child: CircularProgressIndicator()))
-          else if (_books.isEmpty)
-            SliverFillRemaining(
-              hasScrollBody: false,
-              child: Center(
+          else ...[
+            if (_books.isEmpty)
+              SliverToBoxAdapter(
                 child: Padding(
-                  padding: const EdgeInsets.all(32),
+                  padding: const EdgeInsets.fromLTRB(24, 32, 24, 8),
                   child: Text(
-                    _language.isEmpty ? 'No books found.' : 'No books found. Try “Any language” or another search.',
+                    _search.text.trim().isEmpty
+                        ? 'No books here yet.'
+                        : 'No free books match “${_search.text.trim()}”.',
                     textAlign: TextAlign.center,
+                    style: theme.textTheme.titleMedium,
+                  ),
+                ),
+              )
+            else
+              SliverPadding(
+                padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+                sliver: SliverGrid(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: columns,
+                    mainAxisSpacing: 18,
+                    crossAxisSpacing: 14,
+                    childAspectRatio: 0.55,
+                  ),
+                  delegate: SliverChildBuilderDelegate(
+                    (context, i) => LayoutBuilder(builder: (_, c) => CatalogTile(book: _books[i], width: c.maxWidth)),
+                    childCount: _books.length,
                   ),
                 ),
               ),
-            )
-          else
-            SliverPadding(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-              sliver: SliverGrid(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: columns,
-                  mainAxisSpacing: 18,
-                  crossAxisSpacing: 14,
-                  childAspectRatio: 0.55,
-                ),
-                delegate: SliverChildBuilderDelegate(
-                  (context, i) => LayoutBuilder(builder: (_, c) => CatalogTile(book: _books[i], width: c.maxWidth)),
-                  childCount: _books.length,
+            if (_storeLoading || _storeHits.isNotEmpty)
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                    Text('Books you can buy or borrow',
+                        style: theme.textTheme.titleLarge?.copyWith(fontFamily: 'serif', fontWeight: FontWeight.w600)),
+                    const SizedBox(height: 2),
+                    Text(
+                      'Newer books are sold by their publishers. Tap one to see where to get it — then add your '
+                      'DRM-free copy to BookIt to read and translate it.',
+                      style: theme.textTheme.bodySmall,
+                    ),
+                    if (_storeLoading)
+                      const Padding(padding: EdgeInsets.all(16), child: Center(child: CircularProgressIndicator())),
+                  ]),
                 ),
               ),
-            ),
+            if (_storeHits.isNotEmpty)
+              SliverPadding(
+                padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+                sliver: SliverGrid(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: columns,
+                    mainAxisSpacing: 18,
+                    crossAxisSpacing: 14,
+                    childAspectRatio: 0.55,
+                  ),
+                  delegate: SliverChildBuilderDelegate(
+                    (context, i) =>
+                        LayoutBuilder(builder: (_, c) => TrendingTile(book: _storeHits[i], width: c.maxWidth)),
+                    childCount: _storeHits.length,
+                  ),
+                ),
+              ),
+          ],
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(24, 0, 24, 32),
               child: Text(
-                'Books come from Project Gutenberg, a volunteer library of free, public-domain e-books.',
+                'Free books come from Project Gutenberg, Standard Ebooks and authors who share their work. '
+                'Details of other books come from Open Library.',
                 textAlign: TextAlign.center,
                 style: theme.textTheme.bodySmall,
               ),
