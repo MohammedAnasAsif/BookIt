@@ -1,0 +1,28 @@
+00:00 +0: loading /home/runner/work/BookIt/BookIt/app/test/tokenizer_test.dart
+00:00 +0: /home/runner/work/BookIt/BookIt/app/test/tokenizer_test.dart: NllbTokenizer (setUpAll)
+00:01 +0: /home/runner/work/BookIt/BookIt/app/test/engine_test.dart: translates like the reference implementation
+00:01 +1: /home/runner/work/BookIt/BookIt/app/test/engine_test.dart: translates like the reference implementation
+00:01 +1: /home/runner/work/BookIt/BookIt/app/test/tokenizer_test.dart: NllbTokenizer broad agreement on book text
+tokenizer agreement: 603/603 = 100.00%
+00:01 +2: /home/runner/work/BookIt/BookIt/app/test/engine_test.dart: translates like the reference implementation
+00:01 +3: /home/runner/work/BookIt/BookIt/app/test/engine_test.dart: translates like the reference implementation
+00:01 +4: /home/runner/work/BookIt/BookIt/app/test/engine_test.dart: translates like the reference implementation
+00:01 +4 -1: /home/runner/work/BookIt/BookIt/app/test/engine_test.dart: translates like the reference implementation [E]
+  Invalid argument(s): Failed to load dynamic library 'libonnxruntime.so.1.15.1': libonnxruntime.so.1.15.1: cannot open shared object file: No such file or directory
+  dart:ffi                                                 new DynamicLibrary.open
+  package:onnxruntime/src/bindings/bindings.dart 23:27     _dylib.<fn>
+  package:onnxruntime/src/bindings/bindings.dart 27:2      _dylib
+  package:onnxruntime/src/bindings/bindings.dart           _dylib
+  package:onnxruntime/src/bindings/bindings.dart 30:48     onnxRuntimeBinding
+  package:onnxruntime/src/bindings/bindings.dart           onnxRuntimeBinding
+  package:onnxruntime/src/ort_env.dart 22:18               new OrtEnv._
+  package:onnxruntime/src/ort_env.dart 11:42               OrtEnv._instance
+  package:onnxruntime/src/ort_env.dart                     OrtEnv._instance
+  package:onnxruntime/src/ort_env.dart 13:33               OrtEnv.instance
+  package:bookit/translation/engine/nllb_model.dart 40:14  NllbModel.load
+  test/engine_test.dart 18:29                              main.<fn>
+  
+00:01 +4 -1: Some tests failed.
+
+Failing tests:
+  /home/runner/work/BookIt/BookIt/app/test/engine_test.dart: translates like the reference implementation
