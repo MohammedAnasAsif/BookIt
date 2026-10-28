@@ -1,0 +1,1 @@
+2026-10-28T14:36:46.484566 https://www.gutenberg.org/cache/epub/7166/pg7166.cover.medium.jpg: ClientException with SocketException: HTTP connection timed out after 0:00:20.000000, host: www.gutenberg.org, port: 443, uri=https://www.gutenberg.org/cache/epub/7166/pg7166.cover.medium.jpg
