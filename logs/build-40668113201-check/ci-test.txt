@@ -1,0 +1,44 @@
+00:00 +0: loading /home/runner/work/BookIt/BookIt/app/test/paginator_test.dart
+00:00 +0: /home/runner/work/BookIt/BookIt/app/test/paginator_test.dart: every character appears exactly once across pages
+00:00 +0 ~1: /home/runner/work/BookIt/BookIt/app/test/paginator_test.dart: every character appears exactly once across pages
+00:00 +1 ~1: /home/runner/work/BookIt/BookIt/app/test/paginator_test.dart: pages fit in the height
+00:00 +2 ~1: /home/runner/work/BookIt/BookIt/app/test/paginator_test.dart: pageFor finds the page of a block
+00:01 +3 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #1342 Pride and Prejudice
+00:01 +4 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #1342 Pride and Prejudice
+00:01 +5 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #1342 Pride and Prejudice
+00:01 +6 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #1342 Pride and Prejudice
+00:01 +7 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #1342 Pride and Prejudice
+00:01 +8 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #1342 Pride and Prejudice
+00:01 +9 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #1342 Pride and Prejudice
+00:01 +10 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #1342 Pride and Prejudice
+00:01 +11 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #1342 Pride and Prejudice
+00:01 +12 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #1342 Pride and Prejudice
+00:01 +13 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #1342 Pride and Prejudice
+00:01 +14 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #1342 Pride and Prejudice
+00:01 +15 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #1342 Pride and Prejudice
+#1342: 594 KB, 64 chapters, 2466 blocks, parsed in 417 ms, title "Pride and Prejudice", cover 273357 bytes, first chapters: The Project Gutenberg eBook of Pride and Prejudice | PRIDE. and PREJUDICE | Chapter I. | I hope Mr. Bingley will like it. CHAPTER II.
+  opens at chapter 1: "PRIDE. and PREJUDICE"
+00:02 +16 ~1: /home/runner/work/BookIt/BookIt/app/test/tokenizer_test.dart: NllbTokenizer (setUpAll)
+00:03 +16 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #37106 Little Women
+00:03 +17 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #37106 Little Women
+00:03 +18 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #37106 Little Women
+00:03 +19 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #37106 Little Women
+00:03 +20 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #37106 Little Women
+#37106: 550 KB, 57 chapters, 5300 blocks, parsed in 231 ms, title "Little Women; Or, Meg, Jo, Beth, and Amy", cover 62464 bytes, first chapters: The Project Gutenberg eBook of Little Women; Or, Meg, Jo, Beth, and Amy | LITTLE WOMEN. | Contents | Illustrations
+  opens at chapter 1: "LITTLE WOMEN."
+00:03 +21 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #11 Alice's Adventures in Wonderland
+#11: 133 KB, 17 chapters, 877 blocks, parsed in 53 ms, title "Alice's Adventures in Wonderland", cover 53578 bytes, first chapters: The Project Gutenberg eBook of Alice's Adventures in Wonderland | Alice’s Adventures in Wonderland | THE MILLENNIUM FULCRUM EDITION 3.0 | Contents
+  opens at chapter 3: "Contents"
+00:04 +22 ~1: /home/runner/work/BookIt/BookIt/app/test/catalog_test.dart: bundled catalog loads and searches
+00:04 +23 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #7164 Gitanjali
+00:04 +24 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #7164 Gitanjali
+#7164: 101 KB, 109 chapters, 592 blocks, parsed in 28 ms, title "Gitanjali", cover 57883 bytes, first chapters: The Project Gutenberg eBook of Gitanjali | Gitanjali | INTRODUCTION | II
+  opens at chapter 1: "Gitanjali"
+00:04 +25 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #236 The Jungle Book
+#236: 178 KB, 18 chapters, 1106 blocks, parsed in 79 ms, title "The Jungle Book", cover 47328 bytes, first chapters: The Project Gutenberg eBook of The Jungle Book | THE JUNGLE BOOK | Contents | Mowgli’s Brothers
+  opens at chapter 1: "THE JUNGLE BOOK"
+00:05 +26 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: downloads and parses #2600 War and Peace
+#2600: 1760 KB, 386 chapters, 12167 blocks, parsed in 907 ms, title "War and Peace", cover 56260 bytes, first chapters: The Project Gutenberg eBook of War and Peace | WAR AND PEACE | Contents | BOOK ONE: 1805
+  opens at chapter 2: "Contents"
+00:07 +27 ~1: /home/runner/work/BookIt/BookIt/app/test/gutenberg_network_test.dart: parses the large illustrated EPUB too
+00:10 +28 ~1: All tests passed!
