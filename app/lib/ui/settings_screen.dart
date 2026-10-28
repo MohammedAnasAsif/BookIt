@@ -112,6 +112,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
               'languages). Nothing you read is sent anywhere.',
             ),
           ),
+          SwitchListTile(
+            secondary: const Icon(Icons.high_quality_outlined),
+            title: const Text('Most accurate translation'),
+            subtitle: const Text('Translates one sentence at a time. About 3× slower. Applies to the next book you start.'),
+            value: settings.accurateTranslation,
+            onChanged: (v) => settings.update((s) => s.accurateTranslation = v),
+          ),
           for (final j in service.jobs.where((j) => j.active || j.status == JobStatus.paused))
             ListTile(
               leading: const Icon(Icons.pending_actions),

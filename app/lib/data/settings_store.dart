@@ -43,6 +43,10 @@ class SettingsStore extends ChangeNotifier {
   ReaderFont font = ReaderFont.serif;
   bool justify = true;
 
+  /// Translate one sentence at a time: identical to the reference model
+  /// output but about 3× slower than batched translation.
+  bool accurateTranslation = false;
+
   /// Preferred translation language (FLORES code), e.g. `tam_Taml`.
   String? preferredLang;
   ThemeMode appTheme = ThemeMode.system;
@@ -58,6 +62,7 @@ class SettingsStore extends ChangeNotifier {
       readerTheme = ReaderTheme.values.asNameMap()[j['readerTheme']] ?? readerTheme;
       font = ReaderFont.values.asNameMap()[j['font']] ?? font;
       justify = (j['justify'] as bool?) ?? justify;
+      accurateTranslation = (j['accurateTranslation'] as bool?) ?? accurateTranslation;
       preferredLang = j['preferredLang'] as String?;
       appTheme = ThemeMode.values.asNameMap()[j['appTheme']] ?? appTheme;
     } catch (_) {}
@@ -72,6 +77,7 @@ class SettingsStore extends ChangeNotifier {
         'readerTheme': readerTheme.name,
         'font': font.name,
         'justify': justify,
+        'accurateTranslation': accurateTranslation,
         'preferredLang': preferredLang,
         'appTheme': appTheme.name,
       }));

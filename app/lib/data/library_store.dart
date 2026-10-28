@@ -183,9 +183,12 @@ class LibraryStore extends ChangeNotifier {
   }
 
   /// Imports a local EPUB, TXT or `.bookit` edition file.
-  Future<Book> importFile(String path) async {
-    final ext = p.extension(path).toLowerCase();
-    final bytes = await File(path).readAsBytes();
+  Future<Book> importFile(String path) async => importBytes(p.basename(path), await File(path).readAsBytes());
+
+  /// Imports an EPUB, TXT or `.bookit` file given its name and contents.
+  Future<Book> importBytes(String fileName, Uint8List bytes) async {
+    final path = fileName;
+    final ext = p.extension(fileName).toLowerCase();
     if (ext == '.bookit') return addEdition(bytes);
     final id = 'imp${DateTime.now().millisecondsSinceEpoch}';
     if (ext != '.epub' && ext != '.txt') {

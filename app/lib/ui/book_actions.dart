@@ -1,9 +1,11 @@
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:file_picker/file_picker.dart';
+import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
+import 'package:path/path.dart' as p;
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart' show SharePlus, ShareParams;
 
 import '../books/edition.dart';
 import '../books/epub_writer.dart';
@@ -120,29 +122,36 @@ String _safeName(String s) {
 }
 
 Future<void> _saveBytes(BuildContext context, String name, Uint8List bytes) async {
-  String? path;
   if (Platform.isAndroid || Platform.isIOS) {
-    path = await FilePicker.saveFile(fileName: name, bytes: bytes);
-  } else {
-    path = await FilePicker.saveFile(fileName: name);
-    if (path != null) await File(path).writeAsBytes(bytes);
+    // Phones: hand the file to the share sheet (save to Files/Drive, send, …).
+    final dir = Directory(p.join(AppPaths.cache.path, 'export'));
+    await dir.create(recursive: true);
+    final file = File(p.join(dir.path, name));
+    await file.writeAsBytes(bytes, flush: true);
+    await SharePlus.instance.share(ShareParams(files: [XFile(file.path)], title: name));
+    return;
   }
-  if (path != null && context.mounted) showMessage(context, 'Saved $name');
+  final location = await getSaveLocation(suggestedName: name);
+  if (location == null) return;
+  await File(location.path).writeAsBytes(bytes, flush: true);
+  if (context.mounted) showMessage(context, 'Saved $name');
 }
 
-/// Opens a file picker and imports an EPUB, TXT or .bookit file.
+/// Opens a file chooser and imports an EPUB, TXT or .bookit file.
 Future<void> importBook(BuildContext context) async {
   final library = context.read<LibraryStore>();
-  final result = await FilePicker.pickFiles(
-    type: FileType.any,
-    allowMultiple: false,
+  final mobile = Platform.isAndroid || Platform.isIOS;
+  final file = await openFile(
+    acceptedTypeGroups: mobile
+        ? const <XTypeGroup>[]
+        : const [
+            XTypeGroup(label: 'Books (EPUB, TXT, BookIt)', extensions: ['epub', 'txt', 'bookit']),
+          ],
   );
-  final path = result?.files.single.path;
-  if (path == null) return;
-  if (!context.mounted) return;
+  if (file == null || !context.mounted) return;
   showMessage(context, 'Adding book…');
   try {
-    final book = await library.importFile(path);
+    final book = await library.importBytes(file.name, await file.readAsBytes());
     if (context.mounted) showMessage(context, 'Added “${book.title}” to your library');
   } catch (e) {
     if (context.mounted) showMessage(context, e is FormatException ? e.message : 'Could not open this file: $e');

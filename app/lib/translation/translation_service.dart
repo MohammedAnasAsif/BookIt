@@ -83,6 +83,9 @@ class TranslationService extends ChangeNotifier {
   final LibraryStore library;
   TranslationService(this.library);
 
+  /// When true, sentences are translated one at a time (more accurate, slower).
+  bool accurate = false;
+
   PackState packState = PackState.notInstalled;
   int packReceived = 0;
   String? packError;
@@ -323,7 +326,7 @@ class TranslationService extends ChangeNotifier {
       targetLang: job.lang,
       startChapter: job.chapter,
       threads: threads,
-      batchSize: mobile ? 4 : 8,
+      batchSize: accurate ? 1 : (mobile ? 4 : 8),
       engineName: ModelPack.id,
     );
 

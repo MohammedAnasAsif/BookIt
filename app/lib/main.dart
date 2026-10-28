@@ -14,7 +14,8 @@ Future<void> main() async {
   await settings.load();
   final library = LibraryStore();
   await library.load();
-  final translations = TranslationService(library);
+  final translations = TranslationService(library)..accurate = settings.accurateTranslation;
+  settings.addListener(() => translations.accurate = settings.accurateTranslation);
   await translations.init();
 
   runApp(MultiProvider(
