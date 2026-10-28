@@ -15,7 +15,7 @@ import '../core/languages.dart';
 import '../models/book.dart';
 import '../models/book_content.dart';
 import '../translation/translation_data.dart';
-import 'gutendex.dart';
+import 'catalog.dart';
 
 /// The user's books on this device.
 class LibraryStore extends ChangeNotifier {
@@ -147,7 +147,7 @@ class LibraryStore extends ChangeNotifier {
     notifyListeners();
     try {
       final tmp = File(p.join(AppPaths.cache.path, 'download-$id'));
-      final url = cb.epubUrl ?? cb.textUrl!;
+      final url = cb.epubUrl;
       await Downloader.toFile(url, tmp, onProgress: (r, t) {
         if (t > 0) {
           pending[id] = (r / t).clamp(0, 1).toDouble();
@@ -157,12 +157,10 @@ class LibraryStore extends ChangeNotifier {
       final bytes = await tmp.readAsBytes();
       await tmp.delete();
       Uint8List? cover;
-      if (cb.coverUrl != null) {
-        try {
-          cover = await Downloader.getBytes(cb.coverUrl!);
-        } catch (_) {}
-      }
-      final isEpub = cb.epubUrl != null;
+      try {
+        cover = await Downloader.getBytes(cb.coverUrl);
+      } catch (_) {}
+      const isEpub = true;
       final book = await _addParsed(
         id: id,
         source: 'gutenberg',

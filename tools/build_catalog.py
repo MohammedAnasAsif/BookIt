@@ -141,7 +141,7 @@ WANTED = [
     ("classics", "The Prophet", "gibran"), ("classics", "Meditations", "aurelius"),
     ("classics", "The Art of War", "sun"), ("classics", "The Picture of Dorian Gray", "wilde"),
     ("classics", "Moby Dick", "melville"), ("classics", "Don Quixote", "cervantes"),
-    ("classics", "Robinson Crusoe", "defoe"), ("classics", "Gulliver's Travels", "swift"),
+    ("classics", "The Life and Adventures of Robinson Crusoe", "defoe"), ("classics", "Gulliver's Travels into Several Remote Nations", "swift"),
     ("children", "Alice's Adventures in Wonderland", "carroll"), ("children", "Treasure Island", "stevenson"),
     ("children", "Peter Pan", "barrie"), ("children", "The Secret Garden", "burnett"),
     ("children", "Anne of Green Gables", "montgomery"), ("children", "Black Beauty", "sewell"),
@@ -149,23 +149,19 @@ WANTED = [
     ("children", "Andersen's Fairy Tales", "andersen"), ("children", "Aesop's Fables", "aesop"),
     ("children", "The Adventures of Tom Sawyer", "twain"), ("children", "The Wonderful Wizard of Oz", "baum"),
     ("children", "The Adventures of Pinocchio", "collodi"), ("children", "The Wind in the Willows", "grahame"),
-    ("children", "Just So Stories", "kipling"), ("children", "The Happy Prince and Other Tales", "wilde"),
+    ("children", "Just So Stories", "kipling"), ("children", "The Happy Prince", "wilde"),
     ("children", "The Velveteen Rabbit", "bianco"),
 ]
 featured = []
 for shelf, title, author in WANTED:
     t = title.lower()
-    candidates = [b for b in books
-                  if (b[1].lower() == t or b[1].lower().startswith(t + ":") or b[1].lower().startswith(t + ";")
-                      or b[1].lower().startswith(t + ","))
-                  and (not author or author in b[2].lower()) and "en" in b[3].split(",")]
-    if not candidates:
-        candidates = [b for b in books if b[1].lower().startswith(t) and (not author or author in b[2].lower())
-                      and "en" in b[3].split(",")]
+    candidates = [b for b in books if b[1].lower().startswith(t) and (not author or author in b[2].lower())
+                  and "en" in b[3].split(",")]
     if not candidates:
         print("NOT FOUND:", title, file=sys.stderr)
         continue
-    best = min(candidates, key=lambda b: (b[5] == 0, b[5] or 0, b[0]))
+    # Prefer popular editions, then the exact title, then the oldest (original) upload.
+    best = min(candidates, key=lambda b: (b[5] == 0, b[5] or 0, b[1].lower() != t, b[0]))
     featured.append({"id": best[0], "title": best[1], "authors": [best[2]] if best[2] else [],
                      "languages": best[3].split(","), "shelf": shelf, "rank": best[5]})
     print(f"{shelf:9} {best[0]:>6} #{best[5]:<5} {best[1][:50]} — {best[2][:30]}", file=sys.stderr)

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../core/languages.dart';
-import '../data/gutendex.dart';
+import '../data/catalog.dart';
 import '../data/library_store.dart';
 import '../data/settings_store.dart';
 import '../models/book.dart';
@@ -116,17 +116,10 @@ class _CatalogBookScreenState extends State<CatalogBookScreen> {
               },
             ),
           ],
-          if (b.subjects.isNotEmpty) ...[
-            const SizedBox(height: 28),
-            Text('Subjects', style: theme.textTheme.titleSmall),
-            const SizedBox(height: 8),
-            Wrap(spacing: 6, runSpacing: 6, children: [
-              for (final s in b.subjects.take(8))
-                Chip(label: Text(s.split(' -- ').first), visualDensity: VisualDensity.compact),
-            ]),
-          ],
-          const SizedBox(height: 20),
-          Text('${b.downloadCount} downloads on Project Gutenberg last month', style: theme.textTheme.bodySmall),
+          const SizedBox(height: 28),
+          if (b.rank > 0)
+            Text('#${b.rank} most downloaded on Project Gutenberg', style: theme.textTheme.bodySmall),
+          Text('Project Gutenberg book #${b.id}', style: theme.textTheme.bodySmall),
         ],
       ),
     );

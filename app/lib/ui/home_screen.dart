@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:provider/provider.dart';
 
 import '../core/languages.dart';
 import '../data/community_catalog.dart';
-import '../data/gutendex.dart';
+import '../data/catalog.dart';
 import '../data/library_store.dart';
 import '../data/settings_store.dart';
 import '../models/book.dart';
@@ -36,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _load() {
-    _featured = FeaturedBooks.load(rootBundle.loadString);
+    _featured = FeaturedBooks.load();
     _editions = CommunityCatalog.fetch().catchError((_) => <CommunityEdition>[]);
   }
 

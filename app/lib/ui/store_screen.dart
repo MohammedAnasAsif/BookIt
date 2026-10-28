@@ -1,12 +1,11 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
 
-import '../data/gutendex.dart';
+import '../data/catalog.dart';
 import 'home_screen.dart';
 
-/// Browse and search the free Project Gutenberg catalog.
+/// Browse and search every free Project Gutenberg book. The catalog is bundled
+/// with the app, so this is instant and works offline; only downloading a
+/// book needs the internet.
 class StoreScreen extends StatefulWidget {
   const StoreScreen({super.key});
 
@@ -15,17 +14,14 @@ class StoreScreen extends StatefulWidget {
 }
 
 class _StoreScreenState extends State<StoreScreen> {
+  static const _pageSize = 60;
   final _search = TextEditingController();
   final _scroll = ScrollController();
+  LocalCatalog? _catalog;
   Shelf _shelf = kShelves.first;
   String _language = 'en';
-  final List<CatalogBook> _books = [];
-  String? _next;
-  bool _loading = false;
-  String? _error;
-  int _generation = 0;
-  Timer? _debounce;
-  bool _offlinePicks = false;
+  List<CatalogBook> _books = const [];
+  bool _more = false;
 
   static const _bookLanguages = {
     'en': 'English',
@@ -33,6 +29,7 @@ class _StoreScreenState extends State<StoreScreen> {
     'bn': 'Bengali',
     'ta': 'Tamil',
     'te': 'Telugu',
+    'mr': 'Marathi',
     'sa': 'Sanskrit',
     'fr': 'French',
     'de': 'German',
@@ -42,15 +39,20 @@ class _StoreScreenState extends State<StoreScreen> {
     'nl': 'Dutch',
     'fi': 'Finnish',
     'zh': 'Chinese',
+    'la': 'Latin',
     '': 'Any language',
   };
 
   @override
   void initState() {
     super.initState();
-    _reload();
+    LocalCatalog.load().then((c) {
+      if (!mounted) return;
+      _catalog = c;
+      _refresh();
+    });
     _scroll.addListener(() {
-      if (_scroll.position.pixels > _scroll.position.maxScrollExtent - 600) _loadMore();
+      if (_more && _scroll.position.pixels > _scroll.position.maxScrollExtent - 800) _loadMore();
     });
   }
 
@@ -58,76 +60,29 @@ class _StoreScreenState extends State<StoreScreen> {
   void dispose() {
     _search.dispose();
     _scroll.dispose();
-    _debounce?.cancel();
     super.dispose();
   }
 
-  /// Bundled picks matching the current shelf/search, shown instantly.
-  Future<List<CatalogBook>> _picks() async {
-    final featured = await FeaturedBooks.load(rootBundle.loadString);
-    final q = _search.text.trim().toLowerCase();
-    return [
-      for (final f in featured)
-        if ((q.isEmpty || f.book.title.toLowerCase().contains(q) || f.book.authorLine.toLowerCase().contains(q)) &&
-            (_shelf.topic.isEmpty ||
-                (_shelf.topic == 'india' && f.shelf == 'india') ||
-                ((_shelf.topic == 'children' || _shelf.topic == 'fairy tales') && f.shelf == 'children')) &&
-            (_language.isEmpty || f.book.languages.contains(_language)))
-          f.book
-    ];
-  }
-
-  Future<void> _reload() async {
-    final gen = ++_generation;
-    final picks = await _picks();
-    if (gen != _generation) return;
+  void _refresh() {
+    final c = _catalog;
+    if (c == null) return;
+    final page = c.search(query: _search.text, shelf: _shelf.code, language: _language, limit: _pageSize);
     setState(() {
-      _books
-        ..clear()
-        ..addAll(picks);
-      _next = null;
-      _error = null;
-      _offlinePicks = false;
-      _loading = true;
+      _books = page;
+      _more = page.length == _pageSize;
     });
-    try {
-      final page = await Gutendex.fetch(search: _search.text, topic: _shelf.topic, languages: _language);
-      if (gen != _generation) return;
-      setState(() {
-        final seen = _books.map((b) => b.id).toSet();
-        _books.addAll(page.books.where((b) => seen.add(b.id)));
-        _next = page.next;
-      });
-    } catch (e) {
-      if (gen == _generation) {
-        setState(() {
-          if (_books.isEmpty) {
-            _error = 'Could not reach the free book catalog. Check your internet connection.';
-          } else {
-            _offlinePicks = true;
-          }
-        });
-      }
-    } finally {
-      if (gen == _generation) setState(() => _loading = false);
-    }
+    if (_scroll.hasClients) _scroll.jumpTo(0);
   }
 
-  Future<void> _loadMore() async {
-    if (_loading || _next == null) return;
-    final gen = _generation;
-    setState(() => _loading = true);
-    try {
-      final page = await Gutendex.fetch(pageUrl: _next);
-      if (gen != _generation) return;
-      setState(() {
-        _books.addAll(page.books);
-        _next = page.next;
-      });
-    } catch (_) {
-    } finally {
-      if (gen == _generation) setState(() => _loading = false);
-    }
+  void _loadMore() {
+    final c = _catalog;
+    if (c == null) return;
+    final page = c.search(
+        query: _search.text, shelf: _shelf.code, language: _language, limit: _pageSize, offset: _books.length);
+    setState(() {
+      _books = [..._books, ...page];
+      _more = page.length == _pageSize;
+    });
   }
 
   @override
@@ -141,15 +96,22 @@ class _StoreScreenState extends State<StoreScreen> {
         actions: [
           PopupMenuButton<String>(
             tooltip: 'Book language',
-            icon: const Icon(Icons.language),
             initialValue: _language,
             onSelected: (v) {
               _language = v;
-              _reload();
+              _refresh();
             },
             itemBuilder: (_) => [
               for (final e in _bookLanguages.entries) PopupMenuItem(value: e.key, child: Text(e.value)),
             ],
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Row(children: [
+                const Icon(Icons.language, size: 20),
+                const SizedBox(width: 6),
+                Text(_bookLanguages[_language] ?? _language),
+              ]),
+            ),
           ),
         ],
       ),
@@ -163,7 +125,7 @@ class _StoreScreenState extends State<StoreScreen> {
                 controller: _search,
                 textInputAction: TextInputAction.search,
                 decoration: InputDecoration(
-                  hintText: 'Search 70,000+ free books by title or author',
+                  hintText: 'Search ${_catalog == null ? '' : '${(_catalog!.books.length ~/ 1000)},000+ '}free books',
                   prefixIcon: const Icon(Icons.search),
                   suffixIcon: _search.text.isEmpty
                       ? null
@@ -171,17 +133,13 @@ class _StoreScreenState extends State<StoreScreen> {
                           icon: const Icon(Icons.close),
                           onPressed: () {
                             _search.clear();
-                            _reload();
+                            _refresh();
                           },
                         ),
                   filled: true,
                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(28), borderSide: BorderSide.none),
                 ),
-                onChanged: (_) {
-                  _debounce?.cancel();
-                  _debounce = Timer(const Duration(milliseconds: 600), _reload);
-                },
-                onSubmitted: (_) => _reload(),
+                onChanged: (_) => _refresh(),
               ),
             ),
           ),
@@ -200,7 +158,7 @@ class _StoreScreenState extends State<StoreScreen> {
                         selected: s == _shelf,
                         onSelected: (_) {
                           _shelf = s;
-                          _reload();
+                          _refresh();
                         },
                       ),
                     ),
@@ -208,36 +166,20 @@ class _StoreScreenState extends State<StoreScreen> {
               ),
             ),
           ),
-          if (_offlinePicks)
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(20, 4, 20, 0),
-                child: Text(
-                  'Showing our picks. The full catalog is not reachable right now — pull down or try again later.',
-                  style: theme.textTheme.bodySmall,
-                ),
-              ),
-            ),
-          if (_error != null)
+          if (_catalog == null)
+            const SliverFillRemaining(hasScrollBody: false, child: Center(child: CircularProgressIndicator()))
+          else if (_books.isEmpty)
             SliverFillRemaining(
               hasScrollBody: false,
               child: Center(
-                child: Column(mainAxisSize: MainAxisSize.min, children: [
-                  Icon(Icons.wifi_off, size: 48, color: theme.colorScheme.outline),
-                  const SizedBox(height: 12),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 32),
-                    child: Text(_error!, textAlign: TextAlign.center),
+                child: Padding(
+                  padding: const EdgeInsets.all(32),
+                  child: Text(
+                    _language.isEmpty ? 'No books found.' : 'No books found. Try “Any language” or another search.',
+                    textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 12),
-                  FilledButton.tonal(onPressed: _reload, child: const Text('Try again')),
-                ]),
+                ),
               ),
-            )
-          else if (_books.isEmpty && !_loading)
-            const SliverFillRemaining(
-              hasScrollBody: false,
-              child: Center(child: Text('No books found. Try another search.')),
             )
           else
             SliverPadding(
@@ -254,10 +196,6 @@ class _StoreScreenState extends State<StoreScreen> {
                   childCount: _books.length,
                 ),
               ),
-            ),
-          if (_loading)
-            const SliverToBoxAdapter(
-              child: Padding(padding: EdgeInsets.all(24), child: Center(child: CircularProgressIndicator())),
             ),
           SliverToBoxAdapter(
             child: Padding(
