@@ -44,19 +44,19 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL25740044W",
-   "title": "Esquire's The New Rules for Men",
-   "author": "Esquire",
-   "year": 2016,
-   "cover": 15123375,
-   "reason": "weekly"
-  },
-  {
    "key": "/works/OL27310398W",
    "title": "Haunting Adeline",
    "author": "H. D. Carlton",
    "year": 2021,
    "cover": 12992962,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL25740044W",
+   "title": "Esquire's The New Rules for Men",
+   "author": "Esquire",
+   "year": 2016,
+   "cover": 15123375,
    "reason": "weekly"
   },
   {
@@ -92,19 +92,19 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL17590212W",
-   "title": "The Subtle Art of Not Giving a F*ck",
-   "author": "Mark Manson",
-   "year": 2016,
-   "cover": 8231990,
-   "reason": "weekly"
-  },
-  {
    "key": "/works/OL8483260W",
    "title": "Diary of a Wimpy Kid",
    "author": "Jeff Kinney",
    "year": 2007,
    "cover": 14376136,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL17590212W",
+   "title": "The Subtle Art of Not Giving a F*ck",
+   "author": "Mark Manson",
+   "year": 2016,
+   "cover": 8231990,
    "reason": "weekly"
   },
   {
@@ -132,19 +132,19 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL24178205W",
-   "title": "The Love Hypothesis",
-   "author": "Ali Hazelwood",
-   "year": 2021,
-   "cover": 10601402,
-   "reason": "weekly"
-  },
-  {
    "key": "/works/OL19096402W",
    "title": "The Silent Patient",
    "author": "Alex Michaelides",
    "year": 2018,
    "cover": 9407338,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL24178205W",
+   "title": "The Love Hypothesis",
+   "author": "Ali Hazelwood",
+   "year": 2021,
+   "cover": 10601402,
    "reason": "weekly"
   },
   {
@@ -212,11 +212,11 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL5720023W",
-   "title": "Twilight",
-   "author": "Stephenie Meyer",
-   "year": 2005,
-   "cover": 12641977,
+   "key": "/works/OL1968364W",
+   "title": "The Art of Seduction",
+   "author": "Robert Greene",
+   "year": 2001,
+   "cover": 917840,
    "reason": "weekly"
   },
   {
@@ -228,11 +228,11 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL1968364W",
-   "title": "The Art of Seduction",
-   "author": "Robert Greene",
-   "year": 2001,
-   "cover": 917840,
+   "key": "/works/OL5720023W",
+   "title": "Twilight",
+   "author": "Stephenie Meyer",
+   "year": 2005,
+   "cover": 12641977,
    "reason": "weekly"
   },
   {
@@ -241,14 +241,6 @@
    "author": "Brianna Wiest",
    "year": 2020,
    "cover": 13838236,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL1037811W",
-   "title": "Wings of Fire",
-   "author": "A. P. J. Abdul Kalam",
-   "year": 1999,
-   "cover": 9153819,
    "reason": "weekly"
   },
   {
@@ -273,6 +265,14 @@
    "author": "Patrick King",
    "year": 2020,
    "cover": 11983442,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL1037811W",
+   "title": "Wings of Fire",
+   "author": "A. P. J. Abdul Kalam",
+   "year": 1999,
+   "cover": 9153819,
    "reason": "weekly"
   },
   {
@@ -308,19 +308,27 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL17603394W",
-   "title": "Double Down",
-   "author": "Jeff Kinney",
-   "year": 2007,
-   "cover": 7888937,
-   "reason": "weekly"
-  },
-  {
    "key": "/works/OL39181496W",
    "title": "The Let Them Theory",
    "author": "Mel Robbins",
    "year": 2024,
    "cover": 15165806,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL1878267W",
+   "title": "Emotional Intelligence",
+   "author": "Daniel Goleman",
+   "year": 1995,
+   "cover": 1359485,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL17603394W",
+   "title": "Double Down",
+   "author": "Jeff Kinney",
+   "year": 2007,
+   "cover": 7888937,
    "reason": "weekly"
   },
   {
@@ -332,14 +340,6 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL43254128W",
-   "title": "The Art of Being Alone",
-   "author": "Renuka Gavrani",
-   "year": 2023,
-   "cover": 15052166,
-   "reason": "weekly"
-  },
-  {
    "key": "/works/OL36196411W",
    "title": "White Nights",
    "author": "Fiódor Dostoievski",
@@ -348,19 +348,27 @@
    "reason": "weekly"
   },
   {
+   "key": "/works/OL15839737W",
+   "title": "The Secret",
+   "author": "Rhonda Byrne",
+   "year": 2000,
+   "cover": 845815,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL43254128W",
+   "title": "The Art of Being Alone",
+   "author": "Renuka Gavrani",
+   "year": 2023,
+   "cover": 15052166,
+   "reason": "weekly"
+  },
+  {
    "key": "/works/OL82537W",
    "title": "Harry Potter and the Chamber of Secrets",
    "author": "J. K. Rowling",
    "year": 1998,
    "cover": 15158664,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL1878267W",
-   "title": "Emotional Intelligence",
-   "author": "Daniel Goleman",
-   "year": 1995,
-   "cover": 1359485,
    "reason": "weekly"
   },
   {
@@ -380,11 +388,11 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL15839737W",
-   "title": "The Secret",
-   "author": "Rhonda Byrne",
-   "year": 2000,
-   "cover": 845815,
+   "key": "/works/OL17352669W",
+   "title": "A Court of Thorns and Roses",
+   "author": "Sarah J. Maas",
+   "year": 2013,
+   "cover": 15254465,
    "reason": "weekly"
   },
   {
@@ -396,27 +404,19 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL257943W",
-   "title": "A Game of Thrones",
-   "author": "George R. R. Martin",
-   "year": 1996,
-   "cover": 9269962,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL17352669W",
-   "title": "A Court of Thorns and Roses",
-   "author": "Sarah J. Maas",
-   "year": 2013,
-   "cover": 15254465,
-   "reason": "weekly"
-  },
-  {
    "key": "/works/OL82536W",
    "title": "Harry Potter and the Prisoner of Azkaban",
    "author": "J. K. Rowling",
    "year": 1999,
    "cover": 10580435,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL257943W",
+   "title": "A Game of Thrones",
+   "author": "George R. R. Martin",
+   "year": 1996,
+   "cover": 9269962,
    "reason": "weekly"
   },
   {
@@ -428,6 +428,14 @@
    "reason": "weekly"
   },
   {
+   "key": "/works/OL27297240W",
+   "title": "Hunting Adeline",
+   "author": "H. D. Carlton",
+   "year": 2021,
+   "cover": 14614757,
+   "reason": "weekly"
+  },
+  {
    "key": "/works/OL38382569W",
    "title": "I Don't Love You Anymore",
    "author": "Rithvik Singh",
@@ -436,11 +444,11 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL27297240W",
-   "title": "Hunting Adeline",
-   "author": "H. D. Carlton",
-   "year": 2021,
-   "cover": 14614757,
+   "key": "/works/OL28952677W",
+   "title": "Icebreaker",
+   "author": "Hannah Grace",
+   "year": 2020,
+   "cover": 13180728,
    "reason": "weekly"
   },
   {
@@ -460,14 +468,6 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL28952677W",
-   "title": "Icebreaker",
-   "author": "Hannah Grace",
-   "year": 2020,
-   "cover": 13180728,
-   "reason": "weekly"
-  },
-  {
    "key": "/works/OL25515697W",
    "title": "Twisted Games",
    "author": "Ana Huang",
@@ -476,11 +476,11 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL27409542W",
-   "title": "Girl in the Glass Case",
-   "author": "Devashish Sardana",
-   "year": 2022,
-   "cover": 14643025,
+   "key": "/works/OL27400524W",
+   "title": "Textbook of Medical Physiology_3rd Updated Edition",
+   "author": "G.K. Pal",
+   "year": 2019,
+   "cover": 13299767,
    "reason": "weekly"
   }
  ],
@@ -686,11 +686,11 @@
    "reason": "bestseller"
   },
   {
-   "key": "/works/OL27957550W",
-   "title": "The Alchemist - The Pilgrimage - By the River Piedra I Sat Down and Wept",
-   "author": "Paulo Coelho",
-   "year": 2002,
-   "cover": 12757401,
+   "key": "/works/OL42974242W",
+   "title": "The Alchemist",
+   "author": "Paulo Coelho (Author)",
+   "year": 2010,
+   "cover": 15075893,
    "reason": "bestseller"
   },
   {
@@ -787,6 +787,14 @@
    "author": "Amish Tripathi",
    "year": 2010,
    "cover": 11152324,
+   "reason": "bestseller"
+  },
+  {
+   "key": "/works/OL16793865W",
+   "title": "En man som heter Ove",
+   "author": "Fredrik Backman",
+   "year": 2012,
+   "cover": 7437001,
    "reason": "bestseller"
   }
  ],
