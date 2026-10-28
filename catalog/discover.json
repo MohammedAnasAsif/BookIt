@@ -108,19 +108,19 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL167178W",
-   "title": "Along Came a Spider",
-   "author": "James Patterson",
-   "year": 1993,
-   "cover": 189680,
-   "reason": "weekly"
-  },
-  {
    "key": "/works/OL20646061W",
    "title": "A Good Girl's Guide to Murder",
    "author": "Holly Jackson",
    "year": 2019,
    "cover": 13156188,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL167178W",
+   "title": "Along Came a Spider",
+   "author": "James Patterson",
+   "year": 1993,
+   "cover": 189680,
    "reason": "weekly"
   },
   {
@@ -180,14 +180,6 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL19744000W",
-   "title": "嫌われる勇気",
-   "author": "Ichirō Kishimi, Fumitake Koga",
-   "year": 2013,
-   "cover": 10873626,
-   "reason": "weekly"
-  },
-  {
    "key": "/works/OL17370186W",
    "title": "A Little Life",
    "author": "Hanya Yanagihara",
@@ -196,11 +188,11 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL2780331W",
-   "title": "The psychology of money",
-   "author": "Henry Clay Lindgren",
-   "year": 1991,
-   "cover": 6694177,
+   "key": "/works/OL19744000W",
+   "title": "嫌われる勇気",
+   "author": "Ichirō Kishimi, Fumitake Koga",
+   "year": 2013,
+   "cover": 10873626,
    "reason": "weekly"
   },
   {
@@ -220,6 +212,14 @@
    "reason": "weekly"
   },
   {
+   "key": "/works/OL1968364W",
+   "title": "The Art of Seduction",
+   "author": "Robert Greene",
+   "year": 2001,
+   "cover": 917840,
+   "reason": "weekly"
+  },
+  {
    "key": "/works/OL5720023W",
    "title": "Twilight",
    "author": "Stephenie Meyer",
@@ -236,14 +236,6 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL1968364W",
-   "title": "The Art of Seduction",
-   "author": "Robert Greene",
-   "year": 2001,
-   "cover": 917840,
-   "reason": "weekly"
-  },
-  {
    "key": "/works/OL25436364W",
    "title": "The Mountain Is You",
    "author": "Brianna Wiest",
@@ -252,11 +244,11 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL25291486W",
-   "title": "Read People Like a Book",
-   "author": "Patrick King",
-   "year": 2020,
-   "cover": 11983442,
+   "key": "/works/OL43426400W",
+   "title": "Sunrise on the Reaping",
+   "author": "Suzanne Collins",
+   "year": 2025,
+   "cover": 14847912,
    "reason": "weekly"
   },
   {
@@ -268,19 +260,19 @@
    "reason": "weekly"
   },
   {
+   "key": "/works/OL25291486W",
+   "title": "Read People Like a Book",
+   "author": "Patrick King",
+   "year": 2020,
+   "cover": 11983442,
+   "reason": "weekly"
+  },
+  {
    "key": "/works/OL17713267W",
    "title": "Deep Work",
    "author": "Cal Newport",
    "year": 2016,
    "cover": 7988607,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL43426400W",
-   "title": "Sunrise on the Reaping",
-   "author": "Suzanne Collins",
-   "year": 2025,
-   "cover": 14847912,
    "reason": "weekly"
   },
   {
@@ -340,11 +332,11 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL82537W",
-   "title": "Harry Potter and the Chamber of Secrets",
-   "author": "J. K. Rowling",
-   "year": 1998,
-   "cover": 15158664,
+   "key": "/works/OL1878267W",
+   "title": "Emotional Intelligence",
+   "author": "Daniel Goleman",
+   "year": 1995,
+   "cover": 1359485,
    "reason": "weekly"
   },
   {
@@ -372,6 +364,14 @@
    "reason": "weekly"
   },
   {
+   "key": "/works/OL82537W",
+   "title": "Harry Potter and the Chamber of Secrets",
+   "author": "J. K. Rowling",
+   "year": 1998,
+   "cover": 15158664,
+   "reason": "weekly"
+  },
+  {
    "key": "/works/OL34224558W",
    "title": "Never Lie",
    "author": "Freida McFadden",
@@ -388,35 +388,11 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL1878267W",
-   "title": "Emotional Intelligence",
-   "author": "Daniel Goleman",
-   "year": 1995,
-   "cover": 1359485,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL17352669W",
-   "title": "A Court of Thorns and Roses",
-   "author": "Sarah J. Maas",
-   "year": 2013,
-   "cover": 15254465,
-   "reason": "weekly"
-  },
-  {
    "key": "/works/OL5727686W",
    "title": "The Power of Now",
    "author": "Eckhart Tolle",
    "year": 1997,
    "cover": 551262,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL257943W",
-   "title": "A Game of Thrones",
-   "author": "George R. R. Martin",
-   "year": 1996,
-   "cover": 9269962,
    "reason": "weekly"
   },
   {
@@ -428,35 +404,27 @@
    "reason": "weekly"
   },
   {
+   "key": "/works/OL17352669W",
+   "title": "A Court of Thorns and Roses",
+   "author": "Sarah J. Maas",
+   "year": 2013,
+   "cover": 15254465,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL257943W",
+   "title": "A Game of Thrones",
+   "author": "George R. R. Martin",
+   "year": 1996,
+   "cover": 9269962,
+   "reason": "weekly"
+  },
+  {
    "key": "/works/OL38382569W",
    "title": "I Don't Love You Anymore",
    "author": "Rithvik Singh",
    "year": 2024,
    "cover": 15116470,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL4461578W",
-   "title": "Trading in the zone",
-   "author": "Mark Douglas",
-   "year": 2001,
-   "cover": 460625,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL25037516W",
-   "title": "$100M Offers",
-   "author": "Alex Hormozi",
-   "year": 2021,
-   "cover": 11948182,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL27297240W",
-   "title": "Hunting Adeline",
-   "author": "H. D. Carlton",
-   "year": 2021,
-   "cover": 14614757,
    "reason": "weekly"
   },
   {
@@ -468,6 +436,22 @@
    "reason": "weekly"
   },
   {
+   "key": "/works/OL4461578W",
+   "title": "Trading in the zone",
+   "author": "Mark Douglas",
+   "year": 2001,
+   "cover": 460625,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL27297240W",
+   "title": "Hunting Adeline",
+   "author": "H. D. Carlton",
+   "year": 2021,
+   "cover": 14614757,
+   "reason": "weekly"
+  },
+  {
    "key": "/works/OL28952677W",
    "title": "Icebreaker",
    "author": "Hannah Grace",
@@ -476,11 +460,27 @@
    "reason": "weekly"
   },
   {
+   "key": "/works/OL25037516W",
+   "title": "$100M Offers",
+   "author": "Alex Hormozi",
+   "year": 2021,
+   "cover": 11948182,
+   "reason": "weekly"
+  },
+  {
    "key": "/works/OL25515697W",
    "title": "Twisted Games",
    "author": "Ana Huang",
    "year": 2021,
    "cover": 12821465,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL27400524W",
+   "title": "Textbook of Medical Physiology_3rd Updated Edition",
+   "author": "G.K. Pal",
+   "year": 2019,
+   "cover": 13299767,
    "reason": "weekly"
   }
  ],
@@ -686,11 +686,11 @@
    "reason": "bestseller"
   },
   {
-   "key": "/works/OL24793569W",
-   "title": "The Alchemist Graphic Novel",
+   "key": "/works/OL27957550W",
+   "title": "The Alchemist - The Pilgrimage - By the River Piedra I Sat Down and Wept",
    "author": "Paulo Coelho",
-   "year": 2010,
-   "cover": 11556106,
+   "year": 2002,
+   "cover": 12757401,
    "reason": "bestseller"
   },
   {
