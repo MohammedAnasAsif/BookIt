@@ -219,16 +219,16 @@
    "rank": 56
   },
   {
-   "id": 24022,
-   "title": "A Christmas Carol",
+   "id": 46,
+   "title": "A Christmas Carol in Prose; Being a Ghost Story of Christmas",
    "authors": [
-    "Charles Dickens, Arthur Rackham"
+    "Charles Dickens, John Leech"
    ],
    "languages": [
     "en"
    ],
    "shelf": "classics",
-   "rank": 792
+   "rank": 47
   },
   {
    "id": 1400,
@@ -411,28 +411,28 @@
    "rank": 87
   },
   {
-   "id": 67907,
-   "title": "Robinson Crusoe, Told to the Children by John Lang",
+   "id": 521,
+   "title": "The Life and Adventures of Robinson Crusoe",
    "authors": [
-    "Daniel Defoe, John Lang, Louey Chisholm"
+    "Daniel Defoe"
    ],
    "languages": [
     "en"
    ],
    "shelf": "classics",
-   "rank": 0
+   "rank": 126
   },
   {
-   "id": 65473,
-   "title": "Gulliver's Travels",
+   "id": 829,
+   "title": "Gulliver's Travels into Several Remote Nations of the World",
    "authors": [
-    "Jonathan Swift, Milo Winter"
+    "Jonathan Swift"
    ],
    "languages": [
     "en"
    ],
    "shelf": "classics",
-   "rank": 0
+   "rank": 92
   },
   {
    "id": 11,
@@ -613,6 +613,18 @@
    ],
    "shelf": "children",
    "rank": 357
+  },
+  {
+   "id": 902,
+   "title": "The Happy Prince, and Other Tales",
+   "authors": [
+    "Oscar Wilde"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "children",
+   "rank": 164
   },
   {
    "id": 11757,
