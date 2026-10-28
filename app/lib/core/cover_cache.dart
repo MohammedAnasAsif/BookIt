@@ -53,7 +53,9 @@ class CoverCache {
   }
 
   static Future<File?> _download(String key, List<String> urls) async {
+    _trace('queued $key (running $_running, waiting ${_waiting.length})');
     await _acquire();
+    _trace('start $key');
     try {
       await _dir.create(recursive: true);
       for (final url in urls) {
@@ -66,6 +68,7 @@ class CoverCache {
           }
           final f = _file(key);
           await f.writeAsBytes(bytes, flush: true);
+          _trace('saved $key ${bytes.length} bytes from $url');
           return f;
         } catch (e) {
           _log('$url: $e');
@@ -76,6 +79,12 @@ class CoverCache {
     } finally {
       _release();
     }
+  }
+
+  /// Detailed tracing, enabled with the BOOKIT_TRACE_COVERS environment variable.
+  static final bool _tracing = Platform.environment.containsKey('BOOKIT_TRACE_COVERS');
+  static void _trace(String line) {
+    if (_tracing) _log('[trace] $line');
   }
 
   /// Records why covers fail (helps diagnose network problems).

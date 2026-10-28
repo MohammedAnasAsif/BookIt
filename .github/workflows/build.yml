@@ -119,6 +119,7 @@ jobs:
           Add-Type -AssemblyName System.Windows.Forms,System.Drawing
           New-Item -ItemType Directory -Force ../shots | Out-Null
           $exe = (Resolve-Path "build/windows/x64/runner/Release/bookit.exe").Path
+          $env:BOOKIT_TRACE_COVERS = "1"
           $b = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds
           Write-Host "Screen: $($b.Width)x$($b.Height)"
           foreach ($d in @('home','trending','readNow','bookPage','reader','readerMenu','readerDark','languages','library','settings','store')) {
@@ -133,6 +134,7 @@ jobs:
             Start-Sleep -Seconds 2
           }
           Get-ChildItem -Path $env:APPDATA -Recurse -Filter cover_errors.log -ErrorAction SilentlyContinue | Select-Object -First 1 | Copy-Item -Destination ../shots/cover_errors.txt
+          Get-ChildItem -Path $env:APPDATA -Recurse -Directory -Filter covers -ErrorAction SilentlyContinue | ForEach-Object { Get-ChildItem $_.FullName | Select-Object Name, Length } | Format-Table -AutoSize | Out-String -Width 200 | Out-File ../shots/cover_files.txt
           Get-ChildItem ../shots
       - name: Package zip and installer
         shell: pwsh
