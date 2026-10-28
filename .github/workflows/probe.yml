@@ -1,0 +1,38 @@
+# Developer tool: downloads the translation model in CI and records reference
+# data (tokenizer structure, ONNX inputs/outputs, reference translations).
+# Results are pushed to the `ci-logs` branch.
+name: Engine probe
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - tools/probe/**
+      - .github/workflows/probe.yml
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install -q "transformers>=4.44" sentencepiece protobuf huggingface_hub onnxruntime numpy 2>&1 | tail -3
+      - name: Probe
+        run: python tools/probe/nllb_probe.py 2>&1 | tee tools/probe/out-log.txt
+      - name: Publish results to ci-logs branch
+        if: always()
+        run: |
+          mkdir -p /tmp/pub && cp -r tools/probe/out /tmp/pub/ 2>/dev/null || true
+          cp tools/probe/out-log.txt /tmp/pub/ 2>/dev/null || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin ci-logs || true
+          if git rev-parse --verify origin/ci-logs >/dev/null 2>&1; then git checkout -B ci-logs origin/ci-logs; else git checkout --orphan ci-logs && git rm -rf -q . ; fi
+          rm -rf probe && mkdir -p probe && cp -r /tmp/pub/* probe/
+          git add -A probe && git commit -qm "probe ${{ github.run_id }}" && git push origin ci-logs
