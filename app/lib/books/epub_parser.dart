@@ -165,7 +165,7 @@ class EpubParser {
       if (anchors.containsKey('')) builder.startChapter(anchors['']!);
       _HtmlBlockExtractor(builder, anchors).extract(html);
     }
-    final chapters = builder.finish();
+    final chapters = markBoilerplate(builder.finish());
 
     // Cover
     Uint8List? cover;
@@ -187,6 +187,26 @@ class EpubParser {
       cover,
       coverExt,
     );
+  }
+
+  /// Project Gutenberg's header and licence chapters are kept for reference
+  /// but marked so they are skipped when opening the book and not translated.
+  static List<Chapter> markBoilerplate(List<Chapter> chapters) {
+    bool isBoiler(Chapter c) {
+      final t = c.title.toLowerCase();
+      return t.contains('project gutenberg') ||
+          t.contains('gutenberg license') ||
+          t.contains('gutenberg licence') ||
+          t.startsWith('*** start of') ||
+          t.startsWith('*** end of');
+    }
+
+    return [
+      for (final c in chapters)
+        isBoiler(c)
+            ? Chapter(c.title, [for (final b in c.blocks) Block(b.kind, b.text, noTranslate: true)])
+            : c,
+    ];
   }
 
   static String _norm(String path) => p.posix.normalize(path.replaceAll('\\', '/')).replaceFirst(RegExp('^/'), '');

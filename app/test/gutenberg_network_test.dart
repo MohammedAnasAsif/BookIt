@@ -33,6 +33,12 @@ void main() {
           'parsed in ${sw.elapsedMilliseconds} ms, title "${c.title}", cover ${parsed.coverBytes?.length ?? 0} bytes, '
           'first chapters: ${c.chapters.take(4).map((x) => x.title).join(" | ")}');
       expect(c.title.toLowerCase(), contains(entry.value.toLowerCase().split(' ').first.replaceAll("'s", '')));
+      final start = c.chapters.indexWhere(
+          (ch) => ch.blocks.any((b) => !b.noTranslate && b.text.trim().isNotEmpty && !b.isHeading));
+      // ignore: avoid_print
+      print('  opens at chapter $start: "${start >= 0 ? c.chapters[start].title : '-'}"');
+      expect(start, greaterThan(0), reason: 'should skip the Gutenberg header');
+      expect(c.chapters[start].title.toLowerCase(), isNot(contains('gutenberg')));
       expect(c.chapters.length, greaterThan(1));
       expect(blocks, greaterThan(50));
     }, skip: !enabled, timeout: const Timeout(Duration(minutes: 3)));
