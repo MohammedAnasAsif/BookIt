@@ -100,6 +100,16 @@ class TextSegmenter {
     return parts;
   }
 
+  /// Characters the NLLB vocabulary does not know (they would become <unk>)
+  /// are replaced by close equivalents before translation.
+  static String prepareForModel(String s) => s
+      .replaceAll(RegExp('[\u201C\u201D\u201E\u201F\u00AB\u00BB\u2033]'), '"')
+      .replaceAll(RegExp('[\u2018\u2019\u201A\u201B\u2032]'), "'")
+      .replaceAll(RegExp('\\s*[\u2014\u2015]\\s*'), ' - ')
+      .replaceAll('\u2013', '-')
+      .replaceAll(RegExp('[\u00A0\u2007\u202F\u2009\u200A]'), ' ')
+      .replaceAll(RegExp('[\u200B\u00AD]'), '');
+
   /// Scripts written without spaces between sentences.
   static bool _noSpaceScript(String langCode) {
     final script = langCode.split('_').last;

@@ -1,0 +1,173 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+    paths-ignore:
+      - "catalog/**"
+      - "**.md"
+      - "tools/probe/**"
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Analyze & test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - name: Analyze
+        run: set -o pipefail; flutter analyze --no-fatal-infos 2>&1 | tee ../ci-analyze.txt
+      - name: Get tokenizer for tests
+        run: curl -sSL -o /tmp/tokenizer.json https://huggingface.co/Xenova/nllb-200-distilled-600M/resolve/main/tokenizer.json
+      - name: Test
+        env:
+          NLLB_TOKENIZER: /tmp/tokenizer.json
+        run: set -o pipefail; flutter test --reporter expanded 2>&1 | tee ../ci-test.txt
+      - name: Publish logs
+        if: always() && github.event_name != 'pull_request'
+        working-directory: .
+        run: bash .github/scripts/publish-logs.sh "build-${{ github.run_id }}-check" ci-analyze.txt ci-test.txt app/pubspec.lock
+
+  android:
+    name: Android APK
+    needs: check
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - name: Signing key
+        env:
+          KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+        run: |
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "$KEYSTORE_BASE64" | base64 -d > android/app/release.jks
+            printf "storeFile=release.jks\nstorePassword=%s\nkeyPassword=%s\nkeyAlias=bookit\n" "$KEYSTORE_PASSWORD" "$KEYSTORE_PASSWORD" > android/key.properties
+            echo "Using release signing key"
+          else
+            echo "No signing secret: using debug key"
+          fi
+      - run: flutter pub get
+      - name: Build APKs
+        run: |
+          set -o pipefail
+          flutter build apk --release 2>&1 | tee ../ci-android.txt
+          flutter build apk --release --split-per-abi 2>&1 | tee -a ../ci-android.txt
+          mkdir -p ../dist
+          cp build/app/outputs/flutter-apk/app-release.apk ../dist/BookIt-android.apk
+          cp build/app/outputs/flutter-apk/app-arm64-v8a-release.apk ../dist/BookIt-android-arm64.apk
+          cp build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk ../dist/BookIt-android-arm32.apk
+          ls -la ../dist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: BookIt-android
+          path: dist/*.apk
+      - name: Publish logs
+        if: always() && github.event_name != 'pull_request'
+        working-directory: .
+        run: bash .github/scripts/publish-logs.sh "build-${{ github.run_id }}-android" ci-android.txt
+
+  windows:
+    name: Windows app
+    needs: check
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - name: Build
+        shell: bash
+        run: set -o pipefail; flutter build windows --release 2>&1 | tee ../ci-windows.txt
+      - name: Package zip and installer
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $version = (Select-String -Path pubspec.yaml -Pattern '^version:\s*([0-9.]+)').Matches[0].Groups[1].Value
+          New-Item -ItemType Directory -Force ../dist | Out-Null
+          $release = "build/windows/x64/runner/Release"
+          Compress-Archive -Path "$release/*" -DestinationPath ../dist/BookIt-windows-x64.zip -Force
+          $iscc = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
+          if (!(Test-Path $iscc)) { choco install innosetup -y --no-progress | Out-Null }
+          & $iscc /Qp "/DAppVersion=$version" "/DSourceDir=$((Resolve-Path $release).Path)" "/DOutputDir=$((Resolve-Path ../dist).Path)" ../.github/scripts/windows-installer.iss
+          Get-ChildItem ../dist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: BookIt-windows
+          path: dist/*
+      - name: Publish logs
+        if: always() && github.event_name != 'pull_request'
+        shell: bash
+        working-directory: .
+        run: bash .github/scripts/publish-logs.sh "build-${{ github.run_id }}-windows" ci-windows.txt
+
+  release:
+    name: Publish release
+    needs: [android, windows]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      - run: ls -la dist
+      - name: Tagged release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          generate_release_notes: true
+      - name: Remove previous development build
+        if: github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release delete latest --cleanup-tag --yes --repo "${{ github.repository }}" || true
+      - name: Latest development build
+        if: github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          target_commitish: ${{ github.sha }}
+          name: Latest build (main branch)
+          prerelease: true
+          make_latest: false
+          body: |
+            Automatic build of the newest code on `main`.
+            For stable versions, use the most recent `v…` release.
+
+            * **Android:** `BookIt-android-arm64.apk` for most phones (or `BookIt-android.apk`, works on all).
+            * **Windows:** `BookIt-Setup-….exe` installer, or `BookIt-windows-x64.zip` (unzip and run `bookit.exe`).
+          files: dist/*

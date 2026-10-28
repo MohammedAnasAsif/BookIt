@@ -164,7 +164,7 @@ Future<void> translationWorkerMain(List args) async {
         final sentences = TextSegmenter.split(block.text);
         pieces[b] = List<String?>.filled(sentences.length, null);
         for (var s = 0; s < sentences.length; s++) {
-          pending.add(_Unit(b, s, tokenizer.encodeSource(sentences[s], spec.sourceLang)));
+          pending.add(_Unit(b, s, tokenizer.encodeSource(TextSegmenter.prepareForModel(sentences[s]), spec.sourceLang)));
         }
       }
 

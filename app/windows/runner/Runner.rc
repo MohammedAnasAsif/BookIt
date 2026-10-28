@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "io.github.mohammedanasasif" "\0"
-            VALUE "FileDescription", "bookit" "\0"
+            VALUE "CompanyName", "BookIt contributors" "\0"
+            VALUE "FileDescription", "BookIt - free e-reader with translation" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "bookit" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2026 io.github.mohammedanasasif. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Apache-2.0 - BookIt contributors" "\0"
             VALUE "OriginalFilename", "bookit.exe" "\0"
-            VALUE "ProductName", "bookit" "\0"
+            VALUE "ProductName", "BookIt" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

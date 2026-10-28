@@ -1,0 +1,10 @@
+# Signing material must never be committed
+*.jks
+*.keystore
+key.properties
+# Build outputs
+dist/
+tools/probe/out/*
+!tools/probe/out/.gitkeep
+__pycache__/
+.DS_Store

@@ -4,24 +4,34 @@ import 'package:onnxruntime/onnxruntime.dart';
 
 import 'ort_tensors.dart';
 
-/// Runs the NLLB-200 encoder and the merged (KV-cache) decoder exported by
-/// Hugging Face Optimum, with batched greedy decoding.
+/// Runs NLLB-200 (ONNX export from Hugging Face Optimum) with batched greedy
+/// decoding and a key/value cache:
+///  * the encoder reads the source sentence once,
+///  * `decoder_model` handles the first step and produces the cache,
+///  * `decoder_with_past_model` produces every following token.
+///
+/// (The single "merged" decoder file in the same export fails at runtime,
+/// which is why two decoder files are used.)
 class NllbModel {
   static const encoderFile = 'encoder_model_quantized.onnx';
-  static const decoderFile = 'decoder_model_merged_quantized.onnx';
+  static const firstDecoderFile = 'decoder_model_quantized.onnx';
+  static const decoderFile = 'decoder_with_past_model_quantized.onnx';
 
-  static const int _heads = 16;
-  static const int _headDim = 64;
   static const int _eos = 2;
   static const int _pad = 1;
 
   final OrtSession _encoder;
-  final OrtSession _decoder;
-  final List<String> _pastNames;
-  final List<String> _decoderOutputs;
+  final OrtSession _first;
+  final OrtSession _next;
+  final List<String> _firstOutputs;
+  final List<String> _nextInputs;
+  final List<String> _nextOutputs;
   final int vocabSize;
 
-  NllbModel._(this._encoder, this._decoder, this._pastNames, this._decoderOutputs, this.vocabSize);
+  NllbModel._(this._encoder, this._first, this._next, this.vocabSize)
+      : _firstOutputs = _first.outputNames,
+        _nextInputs = _next.inputNames,
+        _nextOutputs = _next.outputNames;
 
   static bool _envReady = false;
 
@@ -36,20 +46,22 @@ class NllbModel {
       return o;
     }
 
-    final enc = OrtSession.fromFile(File('$dir/$encoderFile'), options());
-    final dec = OrtSession.fromFile(File('$dir/$decoderFile'), options());
-    final past = dec.inputNames.where((n) => n.startsWith('past_key_values')).toList();
-    return NllbModel._(enc, dec, past, dec.outputNames, vocabSize);
+    return NllbModel._(
+      OrtSession.fromFile(File('$dir/$encoderFile'), options()),
+      OrtSession.fromFile(File('$dir/$firstDecoderFile'), options()),
+      OrtSession.fromFile(File('$dir/$decoderFile'), options()),
+      vocabSize,
+    );
   }
 
   void release() {
     _encoder.release();
-    _decoder.release();
+    _first.release();
+    _next.release();
   }
 
   /// Translates a batch of already-encoded sources (`[lang] ... </s>`).
-  /// Returns generated target ids (without the leading `</s> tgt_lang` and
-  /// without the final `</s>`).
+  /// Returns the generated target ids for each source, without special tokens.
   List<List<int>> generate(List<List<int>> sources, int targetLangId, {int? maxNewTokens}) {
     if (sources.isEmpty) return const [];
     final b = sources.length;
@@ -73,76 +85,103 @@ class NllbModel {
 
     final outputs = List.generate(b, (_) => <int>[]);
     final finished = List<bool>.filled(b, false);
+    final encoderPast = <String, OrtValue>{};
+    var decoderPast = <String, OrtValue>{};
 
-    // Step 1: no cache. Past tensors are zero-length.
-    var past = <String, OrtValue>{
-      for (final n in _pastNames) n: OrtTensors.emptyFloat([b, _heads, 0, _headDim]),
-    };
-    var stepIds = <int>[];
-    for (var i = 0; i < b; i++) {
-      stepIds.addAll([_eos, targetLangId]);
+    // Picks the next token for every sequence from the logits of the last
+    // position and records it.
+    List<int> pick(OrtValue logitsValue, int stepLen) {
+      final logits = OrtTensors.floatView(logitsValue, b * stepLen * vocabSize);
+      final next = <int>[];
+      for (var i = 0; i < b; i++) {
+        if (finished[i]) {
+          next.add(_pad);
+          continue;
+        }
+        final base = (i * stepLen + stepLen - 1) * vocabSize;
+        var best = 0;
+        var bestScore = logits[base];
+        for (var v = 1; v < vocabSize; v++) {
+          final x = logits[base + v];
+          if (x > bestScore) {
+            bestScore = x;
+            best = v;
+          }
+        }
+        if (best == _eos) {
+          finished[i] = true;
+        } else {
+          outputs[i].add(best);
+          if (_isLooping(outputs[i]) || outputs[i].length >= limit) finished[i] = true;
+        }
+        next.add(best);
+      }
+      return next;
     }
-    var stepLen = 2;
-    var useCache = false;
 
     try {
-      for (var step = 0; step < limit; step++) {
-        final idsT = OrtTensors.int64(stepIds, [b, stepLen]);
-        final cacheT = OrtTensors.boolean([useCache], [1]);
+      // ---- first step: [</s>, tgt_lang]
+      final startIds = <int>[];
+      for (var i = 0; i < b; i++) {
+        startIds.addAll([_eos, targetLangId]);
+      }
+      final firstIds = OrtTensors.int64(startIds, [b, 2]);
+      final res = _first.run(runOptions, {
+        'input_ids': firstIds,
+        'encoder_attention_mask': attention,
+        'encoder_hidden_states': hidden,
+      });
+      firstIds.release();
+      var next = pick(res[0]!, 2);
+      res[0]!.release();
+      for (var k = 1; k < res.length; k++) {
+        final name = _firstOutputs[k].replaceFirst('present', 'past_key_values');
+        if (name.contains('.encoder.')) {
+          encoderPast[name] = res[k]!;
+        } else {
+          decoderPast[name] = res[k]!;
+        }
+      }
+
+      // ---- following steps: one token at a time with the cache
+      final wantsHidden = _nextInputs.contains('encoder_hidden_states');
+      for (var step = 1; step < limit && !finished.every((f) => f); step++) {
+        final stepIds = OrtTensors.int64(next, [b, 1]);
         final inputs = <String, OrtValue>{
-          'input_ids': idsT,
+          'input_ids': stepIds,
           'encoder_attention_mask': attention,
-          'encoder_hidden_states': hidden,
-          'use_cache_branch': cacheT,
-          ...past,
+          if (wantsHidden) 'encoder_hidden_states': hidden,
         };
-        final res = _decoder.run(runOptions, inputs);
-        idsT.release();
-        cacheT.release();
-        for (final v in past.values) {
+        for (final name in _nextInputs) {
+          if (!name.startsWith('past_key_values')) continue;
+          final v = decoderPast[name] ?? encoderPast[name];
+          if (v == null) throw StateError('Missing cache input $name');
+          inputs[name] = v;
+        }
+        final out = _next.run(runOptions, inputs);
+        stepIds.release();
+        next = pick(out[0]!, 1);
+        out[0]!.release();
+        final newPast = <String, OrtValue>{};
+        for (var k = 1; k < out.length; k++) {
+          final name = _nextOutputs[k].replaceFirst('present', 'past_key_values');
+          if (name.contains('.encoder.')) {
+            // Some exports repeat the (unchanged) cross-attention cache.
+            out[k]!.release();
+          } else {
+            newPast[name] = out[k]!;
+          }
+        }
+        for (final v in decoderPast.values) {
           v.release();
         }
-
-        final logitsValue = res[0]!;
-        final logits = OrtTensors.floatView(logitsValue, b * stepLen * vocabSize);
-        final next = <int>[];
-        for (var i = 0; i < b; i++) {
-          if (finished[i]) {
-            next.add(_pad);
-            continue;
-          }
-          final base = (i * stepLen + stepLen - 1) * vocabSize;
-          var best = 0;
-          var bestScore = logits[base];
-          for (var v = 1; v < vocabSize; v++) {
-            final x = logits[base + v];
-            if (x > bestScore) {
-              bestScore = x;
-              best = v;
-            }
-          }
-          if (best == _eos) {
-            finished[i] = true;
-          } else {
-            outputs[i].add(best);
-            if (_isLooping(outputs[i])) finished[i] = true;
-          }
-          next.add(best);
-        }
-        logitsValue.release();
-
-        past = <String, OrtValue>{};
-        for (var k = 1; k < res.length; k++) {
-          final name = _decoderOutputs[k].replaceFirst('present', 'past_key_values');
-          past[name] = res[k]!;
-        }
-        if (finished.every((f) => f)) break;
-        stepIds = next;
-        stepLen = 1;
-        useCache = true;
+        decoderPast = newPast;
       }
     } finally {
-      for (final v in past.values) {
+      for (final v in decoderPast.values) {
+        v.release();
+      }
+      for (final v in encoderPast.values) {
         v.release();
       }
       hidden.release();
@@ -159,36 +198,25 @@ class NllbModel {
   static bool _isLooping(List<int> seq) {
     for (var n = 1; n <= 8; n++) {
       if (seq.length < n * 4) break;
-      var same = true;
-      for (var r = 1; r < 4 && same; r++) {
-        for (var k = 0; k < n; k++) {
-          if (seq[seq.length - 1 - k] != seq[seq.length - 1 - k - r * n]) {
-            same = false;
-            break;
-          }
-        }
-      }
-      if (same) return true;
+      if (_repeats(seq, n)) return true;
     }
     return false;
   }
 
+  static bool _repeats(List<int> seq, int n) {
+    for (var r = 1; r < 4; r++) {
+      for (var k = 0; k < n; k++) {
+        if (seq[seq.length - 1 - k] != seq[seq.length - 1 - k - r * n]) return false;
+      }
+    }
+    return true;
+  }
+
   static void _trimRepeats(List<int> seq) {
     for (var n = 1; n <= 8; n++) {
-      while (seq.length >= n * 4) {
-        var same = true;
-        for (var r = 1; r < 4 && same; r++) {
-          for (var k = 0; k < n; k++) {
-            if (seq[seq.length - 1 - k] != seq[seq.length - 1 - k - r * n]) {
-              same = false;
-              break;
-            }
-          }
-        }
-        if (!same) break;
+      while (seq.length >= n * 4 && _repeats(seq, n)) {
         seq.removeRange(seq.length - n * 3, seq.length);
       }
     }
   }
 }
-

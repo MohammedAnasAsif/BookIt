@@ -20,10 +20,16 @@ class NllbTokenizer {
   /// (leftId << 20 | rightId) -> (rank << 20 | mergedId)
   final Map<int, int> _merges;
   final PrecompiledNormalizer? _normalizer;
+
+  /// `Replace` normalizers applied after the charsmap: (regex, replacement).
+  final List<(RegExp, String)> _replacements;
+  final List<(String, String)> _replacementSources;
   final Set<int> _specialIds;
   final Map<String, List<int>> _wordCache = {};
 
-  NllbTokenizer._(this._idToPiece, this._pieceToId, this._merges, this._normalizer, this._specialIds);
+  NllbTokenizer._(this._idToPiece, this._pieceToId, this._merges, this._normalizer, this._specialIds,
+      this._replacementSources)
+      : _replacements = [for (final r in _replacementSources) (RegExp(r.$1), r.$2)];
 
   int get vocabSize => _idToPiece.length;
 
@@ -96,16 +102,26 @@ class NllbTokenizer {
     }
 
     PrecompiledNormalizer? normalizer;
+    final replacements = <(String, String)>[];
     final norm = j['normalizer'];
     if (norm is Map) {
       final list = norm['type'] == 'Sequence' ? (norm['normalizers'] as List) : [norm];
       for (final n in list) {
-        if (n is Map && n['type'] == 'Precompiled' && n['precompiled_charsmap'] != null) {
+        if (n is! Map) continue;
+        if (n['type'] == 'Precompiled' && n['precompiled_charsmap'] != null) {
           normalizer = PrecompiledNormalizer.fromBase64(n['precompiled_charsmap'] as String);
+        } else if (n['type'] == 'Replace') {
+          final pat = n['pattern'];
+          final content = (n['content'] as String?) ?? '';
+          if (pat is Map && pat['Regex'] is String) {
+            replacements.add((pat['Regex'] as String, content));
+          } else if (pat is Map && pat['String'] is String) {
+            replacements.add((RegExp.escape(pat['String'] as String), content));
+          }
         }
       }
     }
-    return NllbTokenizer._(idToPiece, pieceToId, merges, normalizer, specialIds);
+    return NllbTokenizer._(idToPiece, pieceToId, merges, normalizer, specialIds, replacements);
   }
 
   // ---------------------------------------------------------------- caching
@@ -116,7 +132,7 @@ class NllbTokenizer {
     final out = BytesBuilder(copy: false);
     void u32(int v) => out.add((ByteData(4)..setUint32(0, v, Endian.little)).buffer.asUint8List());
     u32(_magic);
-    u32(1); // version
+    u32(2); // version
     u32(_idToPiece.length);
     for (final p in _idToPiece) {
       final b = utf8.encode(p);
@@ -138,6 +154,14 @@ class NllbTokenizer {
     final nb = _normalizer?.toBytes() ?? Uint8List(0);
     u32(nb.length);
     out.add(nb);
+    u32(_replacementSources.length);
+    for (final r in _replacementSources) {
+      for (final s in [r.$1, r.$2]) {
+        final b = utf8.encode(s);
+        u32(b.length);
+        out.add(b);
+      }
+    }
     return out.toBytes();
   }
 
@@ -150,7 +174,7 @@ class NllbTokenizer {
       return v;
     }
 
-    if (u32() != _magic || u32() != 1) throw const FormatException('bad tokenizer cache');
+    if (u32() != _magic || u32() != 2) throw const FormatException('bad tokenizer cache');
     final n = u32();
     final idToPiece = List<String>.filled(n, '');
     final pieceToId = <String, int>{};
@@ -177,12 +201,33 @@ class NllbTokenizer {
     final nl = u32();
     final normalizer =
         nl > 0 ? PrecompiledNormalizer.fromBytes(Uint8List.fromList(bytes.sublist(o, o + nl))) : null;
-    return NllbTokenizer._(idToPiece, pieceToId, merges, normalizer, specials);
+    o += nl;
+    final nr = u32();
+    final replacements = <(String, String)>[];
+    String str() {
+      final len = u32();
+      final v = utf8.decode(Uint8List.sublistView(bytes, o, o + len));
+      o += len;
+      return v;
+    }
+
+    for (var i = 0; i < nr; i++) {
+      final a = str();
+      final b = str();
+      replacements.add((a, b));
+    }
+    return NllbTokenizer._(idToPiece, pieceToId, merges, normalizer, specials, replacements);
   }
 
   // ---------------------------------------------------------------- encode
 
-  String normalize(String text) => _normalizer?.normalize(text) ?? text;
+  String normalize(String text) {
+    var s = _normalizer?.normalize(text) ?? text;
+    for (final r in _replacements) {
+      s = s.replaceAll(r.$1, r.$2);
+    }
+    return s;
+  }
 
   /// Token ids of [text] without language or end tokens.
   List<int> encodeText(String text) {

@@ -60,7 +60,7 @@ const List<Language> kLanguages = [
   Language('kas_Arab', 'Kashmiri (Arabic)', 'کٲشُر', _i, 'ks'),
   Language('kas_Deva', 'Kashmiri (Devanagari)', 'कॉशुर', _i),
   Language('mni_Beng', 'Manipuri (Meitei)', 'মৈতৈলোন্', _i),
-  Language('sat_Olck', 'Santali', 'ᱥᱟᱱᱛᱟᱲᱤ', _i),
+  Language('sat_Beng', 'Santali', 'ᱥᱟᱱᱛᱟᱲᱤ', _i),
   // ---- European languages ----
   Language('eng_Latn', 'English', 'English', _e, 'en'),
   Language('fra_Latn', 'French', 'Français', _e, 'fr'),

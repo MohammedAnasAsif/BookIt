@@ -1,0 +1,56 @@
+# End-to-end test of the on-device translation engine: downloads the model,
+# makes reference translations in Python and checks that the Dart engine
+# (the code the app runs) produces the same results.
+name: Engine test
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - app/lib/translation/**
+      - app/test/engine_test.dart
+      - app/test/tokenizer_test.dart
+      - tools/engine_reference.py
+      - .github/workflows/engine.yml
+
+permissions:
+  contents: write
+
+jobs:
+  engine:
+    runs-on: ubuntu-latest
+    env:
+      NLLB_MODEL_DIR: /tmp/nllb
+      NLLB_REFERENCE: /tmp/nllb-reference.json
+      NLLB_BROAD_FIXTURES: /tmp/nllb-broad.json
+      NLLB_REPORT: /tmp/engine-report.json
+      NLLB_TOKENIZER: /tmp/nllb/tokenizer.json
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Python reference
+        run: |
+          set -o pipefail
+          pip install -q "transformers>=4.44,<5" sentencepiece protobuf huggingface_hub "onnxruntime==1.15.1" "numpy<2"
+          python tools/engine_reference.py 2>&1 | grep -v "W:onnxruntime" | tee ci-engine-python.txt
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - name: Dart engine test
+        working-directory: app
+        run: |
+          set -o pipefail
+          flutter pub get
+          ORT_DIR=$(find "$HOME/.pub-cache" -path "*onnxruntime-*/linux" -type d | head -1)
+          echo "ORT native library: $ORT_DIR"
+          export LD_LIBRARY_PATH="$ORT_DIR:${LD_LIBRARY_PATH:-}"
+          flutter test test/tokenizer_test.dart test/engine_test.dart --reporter expanded 2>&1 | grep -v "W:onnxruntime" | tee ../ci-engine-dart.txt
+      - name: Publish logs
+        if: always()
+        run: |
+          cp /tmp/engine-report.json . 2>/dev/null || true
+          bash .github/scripts/publish-logs.sh "engine-${{ github.run_id }}" ci-engine-python.txt ci-engine-dart.txt engine-report.json
