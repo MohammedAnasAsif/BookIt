@@ -25,12 +25,12 @@ jobs:
       matrix:
         include:
           - python: "3.10"
-            ort: "onnxruntime==1.15.1"
-            extra: "numpy<2"
+            ort: "onnxruntime==1.15.1 'numpy<2'"
+            extra: ""
             name: ort115
           - python: "3.12"
             ort: "onnxruntime"
-            extra: "torch --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple"
+            extra: "torch --index-url https://download.pytorch.org/whl/cpu"
             name: ortlatest
     steps:
       - uses: actions/checkout@v4
@@ -39,8 +39,9 @@ jobs:
           python-version: ${{ matrix.python }}
       - name: Install
         run: |
-          pip install -q "transformers>=4.44,<5" sentencepiece protobuf huggingface_hub "${{ matrix.ort }}" 2>&1 | tail -3
-          pip install -q ${{ matrix.extra }} 2>&1 | tail -3
+          pip install -q "transformers>=4.44,<5" sentencepiece protobuf huggingface_hub ${{ matrix.ort }} 2>&1 | tail -3
+          if [ -n "${{ matrix.extra }}" ]; then pip install -q ${{ matrix.extra }} 2>&1 | tail -3; fi
+          python -c "import numpy, onnxruntime; print('numpy', numpy.__version__, 'ort', onnxruntime.__version__)"
       - name: Decoder probe
         run: set -o pipefail; python tools/probe/decoder_probe.py 2>&1 | tee tools/probe/out/decoder-log-${{ matrix.name }}.txt
       - name: Tokenizer probe
