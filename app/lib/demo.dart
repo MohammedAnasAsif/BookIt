@@ -8,7 +8,7 @@ import 'models/book_content.dart';
 
 /// Screens that can be opened directly with `--demo=<name>` (used by CI to
 /// take screenshots of the built app).
-enum DemoScreen { home, library, store, settings, reader, readerDark, readerMenu, languages, translate, readNow, bookPage }
+enum DemoScreen { home, library, store, settings, reader, readerDark, readerMenu, languages, translate, readNow, bookPage, trending }
 
 DemoScreen? parseDemo(List<String> args) {
   for (final a in args) {

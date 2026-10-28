@@ -40,13 +40,16 @@ class CoverCache {
       await _dir.create(recursive: true);
       for (final url in urls) {
         try {
-          final bytes = await Downloader.getBytes(url, timeout: const Duration(seconds: 20));
-          if (bytes.length < 200) continue; // not an image
+          final bytes = await Downloader.getBytes(url, timeout: const Duration(seconds: 30));
+          if (bytes.length < 200) {
+            _log('$url: only ${bytes.length} bytes');
+            continue; // not an image
+          }
           final f = _file(key);
           await f.writeAsBytes(bytes, flush: true);
           return f;
-        } catch (_) {
-          // try the next URL
+        } catch (e) {
+          _log('$url: $e');
         }
       }
       _failed.add(key);
@@ -54,6 +57,14 @@ class CoverCache {
     } finally {
       _release();
     }
+  }
+
+  /// Records why covers fail (helps diagnose network problems).
+  static void _log(String line) {
+    try {
+      File(p.join(AppPaths.root.path, 'cover_errors.log'))
+          .writeAsStringSync('${DateTime.now().toIso8601String()} $line\n', mode: FileMode.append);
+    } catch (_) {}
   }
 
   static Future<void> _acquire() async {

@@ -5,6 +5,8 @@ import 'data/library_store.dart';
 import 'models/book.dart';
 import 'data/settings_store.dart';
 import 'data/catalog.dart';
+import 'data/discover.dart';
+import 'ui/trending_book_screen.dart';
 import 'demo.dart';
 import 'ui/book_actions.dart';
 import 'ui/catalog_book_screen.dart';
@@ -103,6 +105,15 @@ class _HomeShellState extends State<HomeShell> {
       if (!mounted) return;
       if (demo == DemoScreen.readNow || demo == DemoScreen.bookPage) {
         await _demoCatalogBook(demo);
+        return;
+      }
+      if (demo == DemoScreen.trending) {
+        final navigator = Navigator.of(context);
+        final d = await DiscoverData.load();
+        final list = d.bestsellers.isNotEmpty ? d.bestsellers : d.trending;
+        if (list.isNotEmpty && mounted) {
+          await navigator.push(MaterialPageRoute(builder: (_) => TrendingBookScreen(book: list.first)));
+        }
         return;
       }
       final book = context.read<LibraryStore>().byId(demoBookId);
