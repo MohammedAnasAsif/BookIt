@@ -1,0 +1,575 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE>Blindsight by Peter Watts</TITLE>
+	<meta name="generator" content="Bluefish 2.2.12" >
+	<meta name="author" content="Peter Watts" >
+	<META NAME="CREATED" CONTENT="20060103;10290000">
+	<META NAME="CHANGED" CONTENT="20061209;265537">
+	<META NAME="SDENDNOTE" CONTENT="ARABIC">
+	<STYLE>
+	<!--
+		@page { size: 5.5in 8.5in; margin: 0.5in }
+		P { margin-bottom: 0in; direction: ltr; color: #000000; line-height: 100%; text-align: justify; widows: 2; orphans: 2 }
+		P.western { font-family: "Times New Roman", serif; font-size: 12pt; so-language: en-US}
+		P.cjk { font-family: "Times New Roman", serif; font-size: 12pt}
+		P.ctl { font-family: "Times New Roman", serif; font-size: 12pt; so-language: ar-SA}
+		H2 { margin-top: 0.33in; margin-bottom: 0in; direction: ltr; color: #000000; line-height: 200%; text-align: left; widows: 2; orphans: 2 }
+		H2.western { font-family: "Arial", sans-serif; font-size: 13pt; so-language: en-US; font-style: italic }
+		H2.cjk { font-family: "Times New Roman", serif; font-size: 13pt; so-language: ; font-style: italic }
+		H2.ctl { font-family: "Times New Roman", serif; font-size: 12pt; so-language: ar-SA; font-weight: medium }
+		P.sdfootnote-western { margin-left: 0.1in; text-indent: -0.1in; font-family: "Times New Roman", serif; font-size: 10pt; so-language: en-GB; text-align: left }
+		P.sdfootnote-cjk { margin-left: 0.1in; text-indent: -0.1in; font-family: "Times New Roman", serif; font-size: 10pt; so-language: ; text-align: left }
+		P.sdfootnote-ctl { margin-left: 0.1in; text-indent: -0.1in; font-family: "Times New Roman", serif; font-size: 12pt; so-language: ar-SA; text-align: left }
+		P.sdendnote-western { margin-left: 0.1in; text-indent: -0.1in; font-family: "Times New Roman", serif; font-size: 10pt; so-language: en-US; text-align: left }
+		P.sdendnote-cjk { margin-left: 0.1in; text-indent: -0.1in; font-family: "Times New Roman", serif; font-size: 10pt; so-language: ; text-align: left }
+		P.sdendnote-ctl { margin-left: 0.1in; text-indent: -0.1in; font-family: "Times New Roman", serif; font-size: 12pt; so-language: ar-SA; text-align: left }
+		A:link { color: #0000ff }
+		A:visited { color: #800080 }
+		A.sdfootnoteanc { font-size: 57% }
+	-->
+	</STYLE>
+	<script type="text/JavaScript">
+
+<!--
+//Preload Images function:
+
+function PreLoad()
+{
+		var menu_pics=new Array('splash_on.gif','shorts_on.gif');
+
+	preloadImages(menu_pics);
+}
+
+function preloadImages(the_images_array) {
+{
+	for(loop = 0; loop < the_images_array.length; loop++)
+	{	
+   		var an_image = new Image();
+		an_image.src = the_images_array[loop];
+	}
+}
+
+}
+
+//-->
+</script>
+
+	
+</HEAD>
+
+<body background="crawlback.jpg" text="#FFFFCC" align="left" bgcolor="#000000" onLoad="PreLoad();">
+<!--NAV ARRAY -->
+
+<div class="menu">
+<table align=left BORDER=2 CELLSPACING=0 CELLPADDING=0 width="115" bgcolor="#000000" >
+<tr VALIGN=TOP>
+<td VALIGN=BASELINE align=center>
+ <img SRC="blackstrip.gif" BORDER=0 alt=""><br>
+<a class=most href="../index.htm" 
+   onMouseOver="splash.src='splash_on.gif'; return true" 
+   onMouseOut="splash.src='splash_off.gif'; return true">
+   <img SRC="splash_off.gif" align=middle NAME="splash" BORDER=0 alt="Front Door"></a>
+
+<a class=most href="shorts.htm"
+    onMouseOver="shorts.src='shorts_on.gif'; return true" 
+    onMouseOut="shorts.src='shorts_off.gif'; return true">
+    <img SRC="shorts_off.gif" NAME="shorts" BORDER=0 alt="online short stories"></a>
+
+ <img SRC="blackstrip.gif" BORDER=0 alt=""><br>
+<!-- <img SRC="blackstrip.gif"> -->
+</td></tr></table>
+</div>
+
+<div class="content">
+<table width=70% border=0 ALIGN="center"><tr><td>
+
+<table align=center border=2 CELLSPACING=0 CELLPADDING=5>
+<tr><td><p style="text-align:center">Download as <a href="shorts/PeterWatts_Blindsight.pdf">PDF</a>, zipped <a href="shorts/Blindsight.zip">HTML</a>, <a href="http://www.realityloop.com/">Brian Gilbert</a>'s <a href="shorts/Blindsight.pdb">Mobipocket mix</a> or <a href="shorts/Blindsight.prc">John Joseph Adams</a>'s (with thanks to both), <a href="http://www.rifters.com/real/shorts/PeterWatts_Blindsight-v1.01-formatted-by-Ellen-Herzfeld.epub">Ellen Herzfeld's e-pub edition</a> (more thanks!), or just read online (below)<br><br>
+Cover art <a href="../blindsight/covers/covers.htm">here</a>.</p></td>
+<!-- <td align=center valign=center>
+	<p class="excerpt" style="text-align:center"><b>The Niblet Memorial Kibble Fund</b></span><br>
+<div align="center"><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="Niblet-button.jpg" border="0" name="submit" alt="Make payments with PayPal - hopefully they won't rip you off!">
+<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHTwYJKoZIhvcNAQcEoIIHQDCCBzwCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYA1gkHEpwqz3uiQJgRrW0UvtVMxwSA7/ecwTOL0TtniZQK61mpsSryuhwmX8xBzNDVgIkZ4p01llyuCQ5Dv/GD/41lnup1CSL9wHhJL/YQzUBXV+G28AXYR6ismTPjANQ2CLNB8Vgek0mDkWei1PdHNinuSpFmvU3+3hpU5oLSJ1jELMAkGBSsOAwIaBQAwgcwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQIqoSPKRlSfzqAgahhjIqp5/1rDjYoKbaxZwW9akLGpjiOSXa29AF0mN8x6jiSlWJuXkVHP7Zau9swnEecXHnSMggbuJDTR5J6iz4/UyZcqVOIlsUPvWgEBIGOp1jHk9xAtfNHOTL4ONWO6ov2+dIScI44p85Ogs3XM59+0sFZEJlxm5MpOLV3ZXLADA+gKlZLvdC12GxVYMUiVJm3z8p5MaVd5PAXEPUqcGaiAa1uwlcSUBKgggOHMIIDgzCCAuygAwIBAgIBADANBgkqhkiG9w0BAQUFADCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20wHhcNMDQwMjEzMTAxMzE1WhcNMzUwMjEzMTAxMzE1WjCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMFHTt38RMxLXJyO2SmS+Ndl72T7oKJ4u4uw+6awntALWh03PewmIJuzbALScsTS4sZoS1fKciBGoh11gIfHzylvkdNe/hJl66/RGqrj5rFb08sAABNTzDTiqqNpJeBsYs/c2aiGozptX2RlnBktH+SUNpAajW724Nv2Wvhif6sFAgMBAAGjge4wgeswHQYDVR0OBBYEFJaffLvGbxe9WT9S1wob7BDWZJRrMIG7BgNVHSMEgbMwgbCAFJaffLvGbxe9WT9S1wob7BDWZJRroYGUpIGRMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbYIBADAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4GBAIFfOlaagFrl71+jq6OKidbWFSE+Q4FqROvdgIONth+8kSK//Y/4ihuE4Ymvzn5ceE3S/iBSQQMjyvb+s2TWbQYDwcp129OPIbD9epdr4tJOUNiSojw7BHwYRiPh58S1xGlFgHFXwrEBb3dgNbMUa+u4qectsMAXpVHnD9wIyfmHMYIBmjCCAZYCAQEwgZQwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tAgEAMAkGBSsOAwIaBQCgXTAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0wNzAyMDMxNzAyNTdaMCMGCSqGSIb3DQEJBDEWBBQQT13IT+qd0uLjLuTL0SCGWPCCiTANBgkqhkiG9w0BAQEFAASBgAVvBB0qscljbhdOPNvytw6eQz3sOn6tBahoim7wEolOO17ZrL+tVQDK0HKPJP7K9ywv6sPBNilkTydbXPFOLbRXfSTAzY4Sm6fivjqiQkifCsB5LK+O2/xDGWz6Ux1gge3+H8QE8ni7ug4bnWAyGZWNXee6aaXuLFpOcBRKOqwk-----END PKCS7-----
+">
+</form></div>
+	<p class="excerpt" style="text-align:center">
+	<a href="donation.htm">Get the scoop</a>
+	</p>	-->
+</td>
+</tr>
+</table>
+
+
+<P LANG="en-US" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+<BR>
+</P>
+<P LANG="en-US" STYLE="text-align:justify; margin-top: 0.17in; margin-bottom: 0.08in; font-weight: medium; line-height: 100%; widows: 0; orphans: 0; page-break-after: avoid">
+<BR><BR>
+</P>
+
+<P LANG="en-US" STYLE="line-height: 100%; widows: 0; orphans: 0; text-align:center">
+<FONT SIZE=5 STYLE="font-size: 20pt">Blindsight</FONT></P>
+<P LANG="en-US" CLASS="western" STYLE="font-weight: medium; line-height: 100%; widows: 0; orphans: 0; text-align: center">
+<FONT SIZE=4 STYLE="font-size: 16pt">Peter Watts</FONT><br><br>
+
+
+<P LANG="en-US" CLASS="western" STYLE="text-align:center; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+<br><br>For Lisa<BR><br>
+If we're not in pain, we're not alive.
+<br><br></P>
+<DIV ID="Section1" DIR="LTR">
+	<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+	<BR>
+	</P>
+
+	<P LANG="" STYLE="margin-left: 0.17in; font-weight: medium">
+	<BR>
+	</P>
+	<P LANG="" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+	<a href="#Prologue">Prologue</a></P>
+	<P LANG="" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+	<a href="#Theseus">Theseus</a></P>
+	<P LANG="" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+	<a href="#Rorschach">Rorschach</a></P>
+	<P LANG="" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+	<a href="#Charybdis">Charybdis</a></P>
+	<P LANG="" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+	<a href="#Acknowledgments">Acknowledgments</a></P>
+	<P LANG="" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+	<a href="#Notes">Notes and References</a></P>
+	<P LANG="" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+	<a href="#CC">Creative Commons Licensing Information</a></P>
+</DIV>
+<DIV ID="Section2" DIR="LTR">
+	<P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="font-weight: medium; line-height: 200%">
+		</P>
+</DIV>
+
+<br><br><hr width="100%" color="#00000"><br><br><br>
+
+<P LANG="en-US" CLASS="western"  STYLE="font-weight: medium; text-align:right; line-height: 100%; widows: 0; orphans: 0">
+<FONT FACE="Arial Narrow, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">&quot;This
+is what fascinates me most in existence: the peculiar necessity of
+imagining what is, in fact, real.&quot;</FONT></FONT></P>
+<P LANG="en-US" CLASS="western"  STYLE="font-weight: medium; text-align:right;line-height: 100%; widows: 0; orphans: 0">
+—<FONT FACE="Arial Narrow, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Philip
+Gourevitch</FONT></FONT></P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+<BR>
+</P>
+<P LANG="en-US" CLASS="western"  STYLE="font-weight: medium; text-align:right;line-height: 100%; widows: 0; orphans: 0">
+<BR>
+</P>
+<P LANG="en-US" CLASS="western"  STYLE="font-weight: medium; text-align:right;line-height: 100%; widows: 0; orphans: 0">
+<FONT FACE="Arial Narrow, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">&quot;You
+will die like a dog for no good reason.&quot;</FONT></FONT></P>
+<P LANG="en-US" CLASS="western"  STYLE="font-weight: medium; text-align:right;line-height: 100%; widows: 0; orphans: 0">
+—<FONT FACE="Arial Narrow, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Ernest
+Hemingway</FONT></FONT></P>
+<br><br><br><a name="Prologue"><hr width="100%" color="#00000"></a>
+
+
+<H2 LANG="en-US" CLASS="western" STYLE="text-align:justify; line-height: 100%; widows: 0; orphans: 0">
+Prologue</H2>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+<BR>
+</P>
+<P LANG="en-US" CLASS="western"  STYLE="font-weight: medium; text-align:right;line-height: 100%; widows: 0; orphans: 0">
+<FONT FACE="Arial Narrow, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">&quot;Try
+to touch the past.  Try to deal with the past.  It's not real.  It's
+just a dream.&quot;</FONT></FONT></P>
+<P LANG="en-US" CLASS="western"  STYLE="font-weight: medium; text-align:right;line-height: 100%; widows: 0; orphans: 0">
+—<FONT FACE="Arial Narrow, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Ted
+Bundy</FONT></FONT></P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+<BR>
+</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+It didn't start out here.  Not with the scramblers or <I>Rorschach</I>,
+not with Big Ben or <I>Theseus</I> or the vampires.  Most people
+would say it started with the Fireflies, but they'd be wrong.  It
+<I>ended</I> with all those things.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+For me, it began with Robert Paglino. 
+</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+At the age of eight, he was my best and only friend.  We were fellow
+outcasts, bound by complementary misfortune.  Mine was developmental.
+ His was genetic:  an uncontrolled genotype that left him predisposed
+to nearsightedness, acne, and (as it later turned out) a
+susceptibility to narcotics.    His parents had never had him
+optimized.  Those few TwenCen relics who still believed in God also
+held that one shouldn't try to improve upon His handiwork.  So
+although both of us <I>could</I> have been repaired, only one of us
+<I>had</I> been.  
+</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+I arrived at the playground to find Pag the center of attention for
+some half-dozen kids, those lucky few in front punching him in the
+head, the others making do with taunts of <I>mongrel</I> and <I>polly</I>
+while waiting their turn.  I watched him raise his arms, almost
+hesitantly, to ward off the worst of the blows.  I could see into his
+head better than I could see into my own; he was scared that his
+attackers might think those hands were coming up to hit <I>back</I>,
+that they'd read it as an act of defiance and hurt him even more. 
+Even then, at the tender age of eight and with half my mind gone, I
+was becoming a superlative observer.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+But I didn't know what to do.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+I hadn't seen much of Pag lately.  I was pretty sure he'd been
+avoiding me.  Still, when your best friend's in trouble you help out,
+right?  Even if the odds are impossible—and how many
+eight-year-olds would go up against six bigger kids for a sandbox
+buddy?—at least you call for backup.  Flag a sentry. 
+<I>Something</I>.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+I just stood there.  I didn't even especially <I>want</I> to help
+him.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+That didn't make sense.  Even if he hadn't been my best friend, I
+should at least have empathized.  I'd suffered less than Pag in the
+way of overt violence; my seizures tended to keep the other kids at a
+distance, scared <I>them</I> even as they incapacitated <I>me</I>. 
+Still.  I was no stranger to the taunts and insults, or the foot that
+appears from nowhere to trip you up en route from A to B.  I knew how
+that felt.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+Or I had, once.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+But that part of me had been cut out along with the bad wiring.  I
+was still working up the algorithms to get it back, still learning by
+observation.  Pack animals always tear apart the weaklings in their
+midst.  Every child knows that much instinctively.  Maybe I should
+just let that process unfold, maybe I shouldn't try to mess with
+nature.  Then again,  Pag's parents hadn't messed with nature, and
+look what it got them:  a son curled up in the dirt while a bunch of
+engineered superboys kicked in his ribs.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+In the end, propaganda worked where empathy failed.  Back then I
+didn't so much think as observe, didn't deduce so much as
+<I>remember</I>—and what I remembered was a thousand
+inspirational stories lauding anyone who ever stuck up for the
+underdog.  
+</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+So I picked up a rock the size of my fist and hit two of Pag's
+assailants across the backs of their heads before anyone even knew I
+was in the game.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+A third, turning to face the new threat, took a blow to the face that
+audibly crunched the bones of his cheek.  I remember wondering why I
+didn't take any satisfaction from that sound, why it meant nothing
+beyond the fact I had one less opponent to worry about.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+The rest of them ran at the sight of blood.  One of the braver
+promised me I was dead, shouted &quot;<I>Fucking zombie!</I>&quot;
+over his shoulder as he disappeared around the corner.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+Three decades it took, to see the irony in that remark.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+Two of the enemy twitched at my feet.  I kicked one in the head until
+it stopped moving, turned to the other.  Something grabbed my arm and
+I swung without thinking, without <I>looking</I> until Pag yelped and
+ducked out of reach.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+&quot;Oh,&quot; I said.  &quot;Sorry.&quot;</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+One thing lay motionless.  The other moaned and held its head and
+curled up in a ball.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+&quot;Oh<I> shit</I>,&quot; Pag panted.  Blood coursed unheeded from
+his nose and splattered down his shirt.  His cheek was turning blue
+and yellow.  &quot;Oh<I> shit </I>oh shit oh <I>shit...</I>&quot;</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+I thought of something to say.  &quot;You all right?&quot;</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+&quot;Oh <I>shit</I>, you—I mean, you <I>never</I>...&quot;  He
+wiped his mouth.  Blood smeared the back of his hand. &quot;Oh <I>man</I>
+are we in trouble.&quot;</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+&quot;They started it.&quot;</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+&quot;Yeah, but you—I mean, <I>look</I> at them!&quot;</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+The moaning thing was crawling away on all fours.  I wondered how
+long it would be before it found reinforcements.  I wondered if I
+should kill it before then.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+&quot;You'da <I>never</I> done that before,&quot; Pag said.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+Before the operation, he meant.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+I actually did feel something then—faint, distant, but
+unmistakable.  I felt angry.  &quot;They <I>started</I>—&quot;</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+Pag backed away, eyes wide.  &quot;What are you <I>doing</I>? Put
+that <I>down</I>!&quot;</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+I'd raised my fists.  I didn't remember doing that.  I unclenched
+them.  It took a while.  I had to look at my hands very hard for a
+long, long time.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+The rock dropped to the ground, blood-slick and glistening. 
+</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+&quot;I was trying to help.&quot;  I didn't understand why he
+couldn't <I>see </I>that.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+&quot;You're, you're not the <I>same</I>,&quot; Pag said from a safe
+distance.  &quot;You're not even <I>Siri</I> any more.&quot;</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+&quot;I am too.  Don't be a fuckwad.&quot;</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+&quot;<I>They cut out your brain</I>!&quot;</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+&quot;Only half.  For the ep—&quot;</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+&quot;I <I>know</I> for the epilepsy!  You think I don't know?  But
+you were <I>in</I> that half—or, like, <I>part</I> of you
+was...&quot;  He struggled with the words, with the concept behind
+them.  &quot;And now you're <I>different</I>.  It's like, your mom
+and dad <I>murdered</I> you—&quot;</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+&quot;My mom and dad,&quot; I said, suddenly quiet, &quot;saved my
+life.  I would have <I>died</I>.&quot;</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+&quot;I think you <I>did</I> die,&quot; said my best and only friend.
+ &quot;I think <I>Siri</I> died, they scooped him out and threw him
+away and you're some whole other kid that just, just <I>grew back</I>
+out of what was left.  You're not the <I>same</I>.  Ever since. 
+You're not the <I>same</I>.&quot;</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+I still don't know if Pag really knew what he was saying.  Maybe his
+mother had just pulled the plug on whatever game he'd been wired into
+for the previous eighteen hours, forced him outside for some fresh
+air.  Maybe, after fighting pod people in gamespace, he couldn't help
+but see them everywhere.  Maybe.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+But you could make a case for what he said.  I do remember Helen
+telling me (and <I>telling</I> me) how difficult it was to adjust. 
+<I>Like you had a whole new personality</I>, she said, and why not? 
+There's a reason they call it <I>radical</I> hemispherectomy:  half
+the brain thrown out with yesterday's krill, the remaining half
+press-ganged into double duty.  Think of all the rewiring that one
+lonely hemisphere must have struggled with as it tried to take up the
+slack.  It turned out okay, obviously.  The brain's a very flexible
+piece of meat; it took some doing, but it adapted.  <I>I</I> adapted.
+ Still.  Think of all that must have been squeezed out, deformed,
+<I>reshaped</I> by the time the renovations were through.  You could
+argue that I'm a different person than the one who used to occupy
+this body.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+The grownups showed up eventually, of course.  Medicine was bestowed,
+ambulances called.  Parents were outraged, diplomatic volleys
+exchanged, but it's tough to drum up neighborhood outrage on behalf
+of your injured baby when playground surveillance from three angles
+shows the little darling—and five of his buddies— kicking
+in the ribs of a disabled boy.   My mother, for her part, recycled
+the usual complaints about problem children and absentee fathers—Dad
+was off again in some other hemisphere—but the dust settled
+pretty quickly.  Pag and I even stayed friends, after a short hiatus
+that reminded us both of the limited social prospects open to
+schoolyard rejects who don't stick together.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+So I survived that and a million other childhood experiences.  I grew
+up and I got along.  I learned to fit in.  I observed, recorded,
+derived the algorithms and mimicked appropriate behaviors.  Not much
+of it was—heartfelt, I guess the word is.  I had friends and
+enemies, like everyone else.  I chose them by running through
+checklists of behaviors and circumstances compiled from years of
+observation.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+I may have grown up distant but I grew up <I>objective</I>, and I
+have Robert Paglino to thank for that.  His seminal observation set
+everything in motion.  It led me into Synthesis, fated me to our
+disastrous encounter with the Scramblers, spared me the worse fate
+befalling Earth.  Or the better one, I suppose, depending on your
+point of view.  Point of view <I>matters</I>:  I see that now, blind,
+talking to myself, trapped in a coffin falling past the edge of the
+solar system.  I see it for the first time since some beaten bloody
+friend on a childhood battlefield convinced me to throw my own point
+of view away.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+He may have been wrong.  <I>I</I> may have been.  But that, that
+<I>distance</I>—that chronic sense of being an alien among your
+own kind—it's not entirely a bad thing. 
+</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+It came in especially handy when the real aliens came calling.</P>
+<br><br><br><a name="Theseus"><hr width="100%" color="#00000"></a><br><br><br>
+<DIV ID="Section9" DIR="LTR">
+	<H2 LANG="en-US" CLASS="western" STYLE="text-align:right; line-height: 100%; widows: 0; orphans: 0">
+	Theseus</H2>
+</DIV>
+<br><br><br>
+<P LANG="en-US" CLASS="western"  STYLE="font-weight: medium; text-align:right;line-height: 100%; widows: 0; orphans: 0">
+<FONT FACE="Arial Narrow, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">&quot;Blood
+makes noise.&quot;  —Susanne Vega</FONT></FONT></P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+<BR>
+</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+Imagine you are Siri Keeton:</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+You wake in an agony of resurrection, gasping after a
+record-shattering bout of sleep apnea spanning one hundred forty
+days.  You can feel your blood, syrupy with dobutamine and
+leuenkephalin, forcing its way through arteries shriveled by months
+on standby.  The body <I>inflates</I> in painful increments: blood
+vessels dilate; flesh peels apart from flesh; ribs crack in your ears
+with sudden unaccustomed flexion.  Your joints have seized up through
+disuse.  You're a stick-man, frozen in some perverse <I>rigor vitae</I>.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+You'd scream if you had the breath.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+Vampires did this all the time, you remember.  It was <I>normal</I>
+for them, it was their own unique take on resource conservation. 
+They could have taught your kind a few things about restraint, if
+that absurd aversion to right-angles hadn't done them in at the dawn
+of civilization.  Maybe they still can.  They're back now, after all—
+raised from the grave with the voodoo of paleogenetics, stitched
+together from junk genes and fossil marrow steeped in the blood of
+sociopaths and high-functioning autistics.  One of them commands this
+very mission.  A handful of his genes live on in your own body so it
+too can rise from the dead, here at the edge of interstellar space. 
+Nobody gets past Jupiter without becoming part vampire.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+The pain begins, just slightly, to recede.  You fire up your inlays
+and access your own vitals:  it'll be long minutes before your body
+responds fully to motor commands,  hours before it stops hurting. 
+The pain's an unavoidable side effect.  That's just what happens when
+you splice vampire subroutines into Human code.  You asked about
+painkillers once, but nerve blocks of any kind <I>compromise
+metabolic reactivation</I>.  Suck it up, soldier.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+You wonder if this was how it felt for Chelsea, before the end.  But
+that evokes a whole other kind of pain, so you block it out and
+concentrate on the life pushing its way back into your extremities. 
+Suffering in silence, you check the logs for fresh telemetry.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+You think:  <I>That can't be right</I>.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+Because if it is, you're in the wrong part of the universe.  You're
+not in the Kuiper Belt where you belong:  you're high above the
+ecliptic and deep into the Oort, the realm of long-period comets that
+only grace the sun every million years or so.  You've gone
+<I>interstellar</I>, which means (you bring up the system clock)
+you've been undead for eighteen hundred days.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+You've overslept by almost five years.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+The lid of your coffin slides away.  Your own cadaverous body
+reflects from the mirrored bulkhead opposite, a desiccated lungfish
+waiting for the rains.  Bladders of isotonic saline cling to its
+limbs like engorged antiparasites, like the opposite of leeches.  You
+remember the needles going in just before you shut down, way back
+when your veins were more than dry twisted filaments of beef jerky.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+Szpindel's reflection stares back from his own pod to your immediate
+right.  His face is as bloodless and skeletal as yours.  His wide
+sunken eyes jiggle in their sockets as he reacquires his own links,
+sensory interfaces so massive that your own off-the-shelf inlays
+amount to shadow-puppetry in comparison.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+You hear coughing and the rustling of limbs just past line-of-sight,
+catch glimpses of reflected motion where the others stir at the edge
+of vision.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+&quot;Wha—&quot; Your voice is barely more than a hoarse
+whisper.  &quot;…happ…?&quot;</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+Szpindel works his jaw.  Bone cracks audibly.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+&quot;…Sssuckered,&quot; he hisses.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+You haven't even met the aliens yet, and already they're running
+rings around you.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+<BR>
+</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:center; font-weight: medium; line-height: 100%; widows: 0; orphans: 0; text-align: center">
+*</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+<BR>
+</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+So we dragged ourselves back from the dead:  five part-time cadavers,
+naked, emaciated, barely able to move even in zero gee.  We emerged
+from our coffins like premature moths ripped from their cocoons,
+still half-grub.  We were alone and off course and utterly helpless,
+and it took a conscious effort to remember:  they would never have
+risked our lives if we hadn't been essential.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+&quot;Morning, commissar.&quot;  Isaac Szpindel reached one
+trembling, insensate hand for the feedback gloves at the base of his
+pod.  Just past him, Susan James was curled into a loose fetal ball,
+murmuring to herselves.  Only Amanda Bates, already dressed and
+cycling through a sequence of bone-cracking isometrics,  possessed
+anything approaching mobility.  Every now and then she tried bouncing
+a rubber ball off the bulkhead; but not even she was up to catching
+it on the rebound yet.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+The journey had melted us down to a common archetype.  James' round
+cheeks and hips, Szpindel's high forehead and lumpy, lanky
+chassis—even the enhanced carboplatinum brick shit-house that
+Bates used for a body— all had shriveled to the same desiccated
+collection of sticks and bones.  Even our hair seemed to have become
+strangely discolored during the voyage, although I knew that was
+impossible.  More likely it was just filtering the pallor of the skin
+beneath.  Still.  The pre-dead James had been dirty blond, Szpindel's
+hair had been almost dark enough to call <I>black</I>— but the
+stuff floating from their scalps looked the same dull kelpy brown to
+me now.  Bates kept her head shaved, but even her eyebrows weren't as
+rusty as I remembered them.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+We'd revert to our old selves soon enough.  Just add water.  For now,
+though, the old slur was freshly relevant:  the Undead really did all
+look the same, if you didn't know how to look.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+If you did, of course—if you forgot appearance and watched for
+motion, ignored meat and studied <I>topology</I>—you'd never
+mistake one for another.  Every facial tic was a data point, every
+conversational pause spoke volumes more than the words to either
+side.  I could see James' personae shatter and coalesce in the
+flutter of an eyelash.  Szpindel's unspoken distrust of Amanda Bates
+shouted from the corner of his smile.  Every twitch of the phenotype
+cried aloud to anyone who knew the language.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+&quot;Where's—&quot; James croaked, coughed, waved one spindly
+arm at Sarasti's empty coffin gaping at the end of the row. 
+</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+Szpindel's lips cracked in a small rictus.  &quot;Gone back to Fab,
+eh?  Getting the ship to build some dirt to lie on.&quot;</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+&quot;Probably communing with the Captain.&quot;  Bates breathed
+louder than she spoke, a dry rustle from pipes still getting
+reacquainted with the idea of respiration. 
+</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+James again:  &quot;Could do that up here.&quot;</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+&quot;Could take a dump up here, too,&quot; Szpindel rasped.  &quot;Some
+things you do by yourself, eh?&quot;</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+And some things you kept <I>to</I> yourself.   Not many baselines
+felt comfortable locking stares with a vampire—Sarasti, ever
+courteous, tended to avoid eye contact for exactly that reason—but
+there were other surfaces to his topology, just as mammalian and just
+as readable.  If he had withdrawn from public view, maybe I was the
+reason.  Maybe he was keeping secrets.</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+After all, <I>Theseus</I> damn well was. 
+</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 0; orphans: 0">
+<BR>
+</P>
+<P LANG="en-US" CLASS="western" STYLE="font-weight: medium; line-height: 100%; widows: 0; orphans: 0; text-align: center">
+*</P>
+<P LANG="en-US" CLASS="western" STYLE="text-align:justify; font-weight: medium; line-height: 100%; widows: 

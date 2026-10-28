@@ -1,0 +1,266 @@
+{
+ "se_feeds": {
+  "s": 0.2,
+  "bytes": 9108,
+  "type": "application/xhtml+xml; charset=utf-8",
+  "final": "https://standardebooks.org/feeds"
+ },
+ "se_opds": {
+  "s": 0.03,
+  "error": "HTTP Error 401: Unauthorized"
+ },
+ "se_opds_all": {
+  "s": 0.03,
+  "error": "HTTP Error 401: Unauthorized"
+ },
+ "se_atom_new": {
+  "s": 0.05,
+  "bytes": 68061,
+  "type": "application/atom+xml",
+  "final": "https://standardebooks.org/feeds/atom/new-releases"
+ },
+ "se_rss_new": {
+  "s": 0.08,
+  "bytes": 68061,
+  "type": "application/atom+xml",
+  "final": "https://standardebooks.org/feeds/atom/new-releases"
+ },
+ "se_ebooks_page": {
+  "s": 0.17,
+  "bytes": 82459,
+  "type": "application/xhtml+xml; charset=utf-8",
+  "final": "https://standardebooks.org/ebooks?per-page=48",
+  "matches": [
+   "/ebooks/a-e-w-mason/the-house-of-the-arrow",
+   "/ebooks/anna-katharine-green/hand-and-ring",
+   "/ebooks/aristophanes/the-birds/the-athenian-society",
+   "/ebooks/arthur-conan-doyle/brigadier-gerard-stories",
+   "/ebooks/arthur-ransome/racundras-first-cruise",
+   "/ebooks/c-h-spurgeon/the-art-of-illustration",
+   "/ebooks/charlotte-m-yonge/the-clever-woman-of-the-family",
+   "/ebooks/david-hume/a-treatise-of-human-nature",
+   "/ebooks/dorothy-m-richardson/oberland",
+   "/ebooks/dorothy-m-richardson/revolving-lights",
+   "/ebooks/dorothy-m-richardson/the-trap",
+   "/ebooks/e-nesbit/beautiful-stories-from-shakespeare",
+   "/ebooks/edgar-saltus/short-fiction",
+   "/ebooks/edmund-burke/reflections-on-the-revolution-in-france",
+   "/ebooks/ernst-junger/the-storm-of-steel/basil-creighton",
+   "/ebooks/george-macdonald/if-i-had-a-father",
+   "/ebooks/george-macdonald/within-and-without",
+   "/ebooks/gregory-of-nyssa/on-the-making-of-man/william-moore_henry-austin-wilson",
+   "/ebooks/gustave-flaubert/sentimental-education/m-walter-dunne",
+   "/ebooks/h-c-mcneile/the-final-count",
+   "/ebooks/h-c-mcneile/the-third-round",
+   "/ebooks/h-g-wells/the-wheels-of-chance",
+   "/ebooks/heinrich-kramer/malleus-maleficarum/montague-summers",
+   "/ebooks/henry-seton-merriman/barlasch-of-the-guard",
+   "/ebooks/henry-seton-merriman/suspense",
+   "/ebooks/henry-seton-merriman/the-sowers",
+   "/ebooks/henry-seton-merriman/the-vultures",
+   "/ebooks/herbert-gorman/the-place-called-dagon",
+   "/ebooks/herman-whitaker/the-mystery-of-the-barranca",
+   "/ebooks/j-storer-clouston/the-man-from-the-clouds",
+   "/ebooks/jane-c-loudon/the-mummy",
+   "/ebooks/john-donne/poetry",
+   "/ebooks/john-meade-falkner/the-lost-stradivarius",
+   "/ebooks/joseph-conrad/short-fiction",
+   "/ebooks/jules-verne/robur-the-conqueror/sampson-low-marston-searle-rivington",
+   "/ebooks/karel-capek/krakatit/lawrence-hyde",
+   "/ebooks/marie-belloc-lowndes/the-chink-in-the-armour",
+   "/ebooks/mor-jokai/the-slaves-of-the-padishah/robert-nisbet-bain",
+   "/ebooks/mourning-dove/cogewea-the-half-blood",
+   "/ebooks/pauline-e-hopkins/contending-forces"
+  ]
+ },
+ "se_book": {
+  "s": 0.09,
+  "bytes": 24768,
+  "type": "application/xhtml+xml; charset=utf-8",
+  "final": "https://standardebooks.org/ebooks/jane-austen/pride-and-prejudice",
+  "matches": [
+   "/ebooks/jane-austen/pride-and-prejudice/downloads/jane-austen_pride-and-prejudice.azw3",
+   "/ebooks/jane-austen/pride-and-prejudice/downloads/jane-austen_pride-and-prejudice.epub",
+   "/ebooks/jane-austen/pride-and-prejudice/downloads/jane-austen_pride-and-prejudice.kepub.epub",
+   "/ebooks/jane-austen/pride-and-prejudice/downloads/jane-austen_pride-and-prejudice_advanced.epub"
+  ]
+ },
+ "se_epub": {
+  "s": 0.06,
+  "bytes": 8845,
+  "type": "application/xhtml+xml; charset=utf-8",
+  "final": "https://standardebooks.org/ebooks/jane-austen/pride-and-prejudice/downloads/jane-austen_pride-and-prejudice.epub"
+ },
+ "se_epub_q": {
+  "s": 0.11,
+  "bytes": 831959,
+  "type": "application/epub+zip",
+  "final": "https://standardebooks.org/ebooks/jane-austen/pride-and-prejudice/downloads/jane-austen_pride-and-prejudice.epub?source=download"
+ },
+ "se_cover": {
+  "s": 0.04,
+  "error": "HTTP Error 404: Not Found"
+ },
+ "se_github_org": {
+  "s": 0.12,
+  "bytes": 1143,
+  "type": "application/json; charset=utf-8",
+  "final": "https://api.github.com/orgs/standardebooks"
+ },
+ "se_github_repos": {
+  "s": 0.33,
+  "bytes": 33743,
+  "type": "application/json; charset=utf-8",
+  "final": "https://api.github.com/orgs/standardebooks/repos?per_page=5&sort=pushed"
+ },
+ "se_raw_content_opf": {
+  "s": 0.14,
+  "bytes": 18854,
+  "type": "text/plain; charset=utf-8",
+  "final": "https://raw.githubusercontent.com/standardebooks/jane-austen_pride-and-prejudice/master/src/epub/content.opf"
+ },
+ "ol_trending_daily": {
+  "s": 2.07,
+  "bytes": 46457,
+  "type": "application/json",
+  "final": "https://openlibrary.org/trending/daily.json?limit=20"
+ },
+ "ol_trending_weekly": {
+  "s": 3.46,
+  "bytes": 123492,
+  "type": "application/json",
+  "final": "https://openlibrary.org/trending/weekly.json?limit=50"
+ },
+ "ol_trending_monthly": {
+  "s": 4.07,
+  "bytes": 130270,
+  "type": "application/json",
+  "final": "https://openlibrary.org/trending/monthly.json?limit=50"
+ },
+ "ol_search_iewu": {
+  "s": 2.27,
+  "bytes": 2554,
+  "type": "application/json",
+  "final": "https://openlibrary.org/search.json?q=it+ends+with+us&limit=3&fields=key,title,author_name,cover_i,first_publish_year,isbn,subject"
+ },
+ "ol_subject_romance": {
+  "s": 3.3,
+  "bytes": 39810,
+  "type": "application/json",
+  "final": "https://openlibrary.org/subjects/romance.json?limit=10&published_in=2015-2026"
+ },
+ "ol_subject_thriller": {
+  "s": 1.77,
+  "bytes": 25075,
+  "type": "application/json",
+  "final": "https://openlibrary.org/subjects/thrillers.json?limit=10&published_in=2015-2026"
+ },
+ "ol_cover": {
+  "s": 1.06,
+  "bytes": 17914,
+  "type": "image/jpeg",
+  "final": "https://ia600505.us.archive.org/view_archive.php?archive=/5/items/m_covers_0012/m_covers_0012_54.zip&file=0012547191-M.jpg"
+ },
+ "unglue_opds": {
+  "s": 13.57,
+  "bytes": 8045,
+  "type": "application/atom+xml; profile=opds-catalog; kind=navigation; charset=utf-8",
+  "final": "https://unglue.it/api/opds/"
+ },
+ "unglue_opds_cc": {
+  "s": 12.83,
+  "bytes": 43433,
+  "type": "application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8",
+  "final": "https://unglue.it/api/opds/creative_commons/"
+ },
+ "unglue_free_sf": {
+  "s": 0.29,
+  "error": "HTTP Error 404: Not Found"
+ },
+ "unglue_free_all": {
+  "s": 1.43,
+  "bytes": 77063,
+  "type": "text/html; charset=utf-8",
+  "final": "https://unglue.it/free/?order_by=popular",
+  "matches": [
+   "/work/113782/",
+   "/work/113915/",
+   "/work/114455/",
+   "/work/117697/",
+   "/work/128673/",
+   "/work/128685/",
+   "/work/130413/",
+   "/work/136338/",
+   "/work/136615/",
+   "/work/140086/",
+   "/work/141410/",
+   "/work/204152/",
+   "/work/417357/",
+   "/work/4809/",
+   "/work/565421/",
+   "/work/76348/",
+   "/work/76509/",
+   "/work/7775/",
+   "/work/81835/",
+   "/work/82028/"
+  ]
+ },
+ "unglue_littlebrother": {
+  "s": 0.45,
+  "bytes": 21997,
+  "type": "text/html; charset=utf-8",
+  "final": "https://unglue.it/work/82034/",
+  "matches": []
+ },
+ "craphound_lb": {
+  "s": 1.7,
+  "bytes": 133251,
+  "type": "text/html; charset=UTF-8",
+  "final": "https://craphound.com/littlebrother/download/",
+  "matches": [
+   "../Cory_Doctorow_-_Little_Brother.epub",
+   "../Cory_Doctorow_-_Little_Brother_Podnotes.zip",
+   "../Cory_Doctorow_-_Little_Brother_TIReader.zip",
+   "../Cory_Doctorow_-_Little_Brother_iPhone_segmented_HTML.zip",
+   "http://craphound.com/littlebrother/Cory_Doctorow_-_Little_Brother.txt",
+   "https://craphound.com/littlebrother/Doctorow_LITTLE_BROTHER_DANSK_med_alt_28_09_2020.epub"
+  ]
+ },
+ "craphound_down": {
+  "s": 1.65,
+  "bytes": 135111,
+  "type": "text/html; charset=UTF-8",
+  "final": "https://craphound.com/down/download/",
+  "matches": [
+   "http://craphound.com/down/Cory_Doctorow_-_Down_and_Out_in_the_Magic_Kingdom.epub",
+   "http://craphound.com/down/Cory_Doctorow_-_Down_and_Out_in_the_Magic_Kingdom.txt",
+   "http://craphound.com/down/Cory_Doctorow_-_Down_and_Out_in_the_Magic_Kingdom_GBA.zip",
+   "http://craphound.com/down/Cory_Doctorow_-_Down_and_Out_in_the_Magic_Kingdom_PSP.zip",
+   "http://www.efa.cc/index-e.html"
+  ]
+ },
+ "rifters_blindsight": {
+  "s": 1.61,
+  "bytes": 1272162,
+  "type": "text/html",
+  "final": "https://www.rifters.com/real/Blindsight.htm",
+  "matches": []
+ },
+ "rifters_starfish": {
+  "s": 1.25,
+  "bytes": 1335623,
+  "type": "text/html",
+  "final": "https://www.rifters.com/real/STARFISH.htm",
+  "matches": []
+ },
+ "archive_lb": {
+  "s": 0.43,
+  "bytes": 6146,
+  "type": "application/json",
+  "final": "https://archive.org/advancedsearch.php?q=creator%3A%22Cory+Doctorow%22+AND+mediatype%3Atexts&fl%5B%5D=identifier&fl%5B%5D=title&fl%5B%5D=licenseurl&rows=50&output=json"
+ },
+ "feedbooks_original": {
+  "s": 0.57,
+  "error": "HTTP Error 404: Not Found"
+ }
+}

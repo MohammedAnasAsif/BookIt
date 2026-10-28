@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head prefix="twitter: https://twitter.com/ schema: http://schema.org/">	<meta charset="utf-8"/>
+	<title>Ebook Feeds - Standard Ebooks: Free and liberated ebooks, carefully produced for the true book lover</title>
+			<meta content="A list of available feeds of Standard Ebooks ebooks." name="description"/>
+		<meta content="width=device-width, initial-scale=1" name="viewport"/>
+	<link rel="preload" as="font" href="/fonts/crimson-pro.woff2" type="font/woff2" crossorigin="anonymous"/> 	<link rel="preload" as="font" href="/fonts/league-spartan-bold.woff2" type="font/woff2" crossorigin="anonymous"/>
+	<link rel="preload" as="font" href="/fonts/fork-awesome-subset.woff2" type="font/woff2" crossorigin="anonymous"/>
+	<link rel="preload" as="font" href="/fonts/crimson-pro-italic.woff2" type="font/woff2" crossorigin="anonymous"/> 			<link href="/css/core.css?version=1793116462" media="screen" rel="stylesheet" type="text/css"/>
+					<link href="/css/dark.css?version=1793116462" media="screen and (prefers-color-scheme: dark)" rel="stylesheet" type="text/css"/>
+							<link href="/images/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+	<link href="/images/favicons/favicon-64x64.png" rel="icon" sizes="64x64" type="image/png"/>
+	<link href="/images/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+	<link href="/images/favicons/favicon-16x16.svg" rel="icon" sizes="16x16" type="image/svg+xml"/>
+	<link href="/manifest.json" rel="manifest"/>
+		<link rel="alternate" type="application/atom+xml" title="Standard Ebooks - New Releases" href="https://standardebooks.org/feeds/atom/new-releases"/>
+	<link rel="alternate" type="application/atom+xml;profile=opds-catalog;kind=acquisition" title="Standard Ebooks - New Releases" href="https://standardebooks.org/feeds/opds/new-releases"/>
+	<link rel="alternate" type="application/atom+xml" title="Standard Ebooks - Blog" href="https://standardebooks.org/feeds/atom/blog"/>
+	<link rel="search" href="https://standardebooks.org/opensearch" type="application/opensearchdescription+xml" title="Standard Ebooks"/>			<meta content="#394451" name="theme-color"/>
+		<meta content="Ebook Feeds" property="og:title"/>
+		<meta content="website" property="og:type"/>
+		<meta content="https://standardebooks.org/feeds" property="og:url"/>
+		<meta content="https://standardebooks.org/images/logo.png" property="og:image"/>
+		<meta content="summary_large_image" name="twitter:card"/>
+		<meta content="@standardebooks" name="twitter:site"/>
+		<meta content="@standardebooks" name="twitter:creator"/>
+		<meta content="@standardebooks@mastodon.social" name="fediverse:creator"/>
+		</head>
+<body>
+	<header>
+				<a href="/">Standard Ebooks</a>
+				<a href="/honeypot" hidden="hidden" class="honeypot" rel="nofollow">Following this link will ban your IP for 24 hours</a>
+		<nav>
+			<ul>
+				<li>
+					<a href="/ebooks">Ebooks</a>
+				</li>
+				<li>
+					<a href="/about">About</a>
+				</li>
+				<li>
+					<a href="/newsletter">Newsletter</a>
+				</li>
+				<li>
+					<a href="/blog">Blog</a>
+				</li>
+				<li>
+					<a href="/contribute">Get Involved</a>
+				</li>
+				<li>
+					<a href="/donate">Donate</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+<main>
+	<section class="narrow has-hero">
+		<h1>Ebook Feeds</h1>
+		<picture data-caption="Rack Pictures for Dr. Nones. William A. Mitchell, 1879">
+			<source srcset="/images/rack-picture-for-dr-nones@2x.avif 2x, /images/rack-picture-for-dr-nones.avif 1x" type="image/avif"/>
+			<source srcset="/images/rack-picture-for-dr-nones@2x.jpg 2x, /images/rack-picture-for-dr-nones.jpg 1x" type="image/jpeg"/>
+			<img src="/images/rack-picture-for-dr-nones@2x.jpg" alt="Postal mail attached to a billboard."/>
+		</picture>
+		<p>We offer several ebook feeds that you can use in your ereading app to browse, search, and download from our catalog. You can also add our feeds to your RSS client to get notified of new ebooks as they’re released, or to browse our catalog from your feed reader.</p>
+		<section id="accessing-the-feeds">
+	<h2>How to access the feeds<a class="heading-permalink" href="#accessing-the-feeds" aria-label="Permalink"></a></h2>
+			<p>Our <a href="/feeds/atom/new-releases">New Releases RSS/Atom ebook feeds</a> are open to everyone.</p>
+		<p>Access to our other feeds is a benefit of <a href="/donate#patrons-circle">membership in our Patrons Circle</a>. You can also get access in one of the following ways:</p>
+		<ul>
+			<li>
+				<p><a href="/donate#patrons-circle">Join the Patrons Circle</a> by making a small donation in support of our mission. Patrons have full access to our ebook feeds for the duration of their gift.</p>
+			</li>
+			<li>
+				<p><a href="/contribute">Produce an ebook</a> for Standard Ebooks to get lifetime access to our ebook feeds. (If you’ve already done that, <a href="/about#editor-in-chief">contact us</a> to enable your access.)</p>
+			</li>
+			<li>
+				<p><a href="/donate#corporate-sponsors">Corporate sponsors</a> get access to all of our ebook feeds for the duration of their sponsorship. <a href="/about#editor-in-chief">Contact us</a> to chat about having your organization sponsor our mission.</p>
+			</li>
+		</ul>
+		<p>
+			<i>If you’re a Patrons Circle member, when prompted enter your email address and leave the password field blank to access an ebook feed.</i>
+		</p>
+	</section>
+		<section id="opds-feeds">
+			<h2>OPDS feeds<a class="heading-permalink" href="#opds-feeds" aria-label="Permalink"></a></h2>
+			<p><a href="https://en.wikipedia.org/wiki/Open_Publication_Distribution_System">OPDS feeds</a> can be added to ereading apps on phones and tablets to search, browse, and download from our ebook catalog, directly in your ereader. Many ereading apps support OPDS feeds.</p>
+			<p>See our article on <a href="/help/how-to-add-an-opds-feed-to-your-ereader">how to add an OPDS feed to your ereader</a>.</p>
+			<ul class="feed">
+				<li>
+					<p><a href="/feeds/opds">The Standard Ebooks OPDS feed</a></p>
+					<p class="url">https://standardebooks.org/feeds/opds</p>
+				</li>
+			</ul>
+			<p>To get an OPDS 2.0 feed, set the <code>Accept</code> HTTP header to <code>application/opds+json</code>.</p>
+		</section>
+		<section id="atom-feeds">
+			<h2>RSS/Atom feeds<a class="heading-permalink" href="#atom-feeds" aria-label="Permalink"></a></h2>
+			<p>These feeds can be read by any modern <a href="https://en.wikipedia.org/wiki/Comparison_of_feed_aggregators">RSS reader</a>.</p>
+			<p>Note that some RSS readers may show ebooks ordered by when they were last updated, even though the feeds are ordered by ebooks were first released. You should be able to change this sort order in your RSS reader.</p>
+			<ul class="feed">
+				<li><p><a href="/feeds/atom">Standard Ebooks RSS/Atom feeds</a></p></li>
+			</ul>
+		</section>
+	</section>
+</main>
+	<footer>
+		<p class="sponsor-header">
+			<a href="/about#corporate-sponsors">Sponsored by</a>
+		</p>
+		<ul>
+			<li>
+				<a href="https://elevenreader.io/standard-ebooks">
+					<img src="/images/masthead/sponsors/elevenreader.svg" alt="ElevenReader: Turn ebooks into audio" />
+				</a>
+			</li>
+		</ul>
+		<ul class="social-media">
+			<li>
+				<p>
+					<a href="https://x.com/standardebooks" rel="me">X</a>
+				</p>
+			</li>
+			<li>
+				<p>
+					<a href="https://www.facebook.com/standardebooks/" rel="me">Facebook</a>
+				</p>
+			</li>
+			<li>
+				<p>
+					<a href="https://www.instagram.com/standardebooks/" rel="me">Instagram</a>
+				</p>
+			</li>
+			<li>
+				<p>
+					<a href="https://mastodon.social/@standardebooks" rel="me">Mastodon</a>
+				</p>
+			</li>
+			<li>
+				<p>
+					<a href="https://bsky.app/profile/standardebooks.org" rel="me">Bluesky</a>
+				</p>
+			</li>
+		</ul>
+		<p class="newsletter"><a href="/newsletter">Subscribe to our free newsletter</a></p>
+		<ul class="nav-links">
+			<li>
+				<a href="/ebooks">Ebooks</a>
+			</li>
+			<li>
+				<a href="/about">About</a>
+			</li>
+			<li>
+				<a href="/blog">Blog</a>
+			</li>
+			<li>
+				<a href="/contribute">Get Involved</a>
+			</li>
+			<li>
+				<a href="/donate">Donate</a>
+			</li>
+		</ul>
+		<ul class="nav-links">
+			<li>
+				<a href="https://github.com/standardebooks">GitHub</a>
+			</li>
+			<li>
+				<a href="/bulk-downloads">Bulk downloads</a>
+			</li>
+			<li>
+				<a href="/feeds">Ebook Feeds</a>
+			</li>
+			<li>
+				<a href="/about/accessibility">Accessibility</a>
+			</li>
+			<li>
+				<a href="/settings">Settings</a>
+			</li>
+						<li>
+									<a href="/sessions/new">Log in</a>
+							</li>
+		</ul>
+		<p>Content produced by or for Standard Ebooks L<sup>3</sup>C is dedicated to the <a href="https://en.wikipedia.org/wiki/Public_domain">public domain</a> via the <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="license">CC0 1.0 Universal Public Domain Dedication</a>.</p>
+		<p>Content not produced by or for Standard Ebooks L<sup>3</sup>C but displayed on this website may be subject to copyright.</p>
+		<p>
+			<a href="/">Standard Ebooks</a>
+		</p>
+	</footer>
+</body>
+</html>

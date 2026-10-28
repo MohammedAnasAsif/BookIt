@@ -1,0 +1,537 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE>Starfish by Peter Watts</TITLE>
+	<meta name="generator" content="Bluefish 2.2.11" >
+	<meta name="author" content="Peter Watts" >
+	<META NAME="CREATED" CONTENT="19980609;13510000">
+	<META NAME="CHANGED" CONTENT="20050808;12482319">
+	<STYLE>
+	<!--
+		@page { size: 8.5in 11in; margin-left: 0.79in; margin-right: 1in; margin-top: 0.49in; margin-bottom: 1in }
+		H1 { margin-bottom: 0.04in; direction: ltr; color: #000000; text-align: center; widows: 2; orphans: 2 }
+		H1.western { font-family: "Arial", sans-serif; font-size: 18pt; so-language: en-US }
+		H1.cjk { font-family: "Times New Roman", serif; font-size: 18pt }
+		H1.ctl { font-family: "Times New Roman", serif; font-size: 10pt; font-weight: medium }
+		P { margin-bottom: 0.08in; direction: ltr; color: #000000; widows: 2; orphans: 2 }
+		P.western { margin-top:0.2in; margin-left: 1.5in; font-family: "MS Serif", serif; font-size: 11pt; so-language: en-US }
+		P.cjk { font-family: "Times New Roman", serif; font-size: 10pt }
+		P.ctl { font-family: "Times New Roman", serif; font-size: 10pt }
+		H2 { margin-left: 1.5in; margin-bottom: 0.04in; direction: ltr; color: #000000; text-align: center; widows: 2; orphans: 2 }
+		H2.western { font-family: "Arial", sans-serif; font-size: 14pt; so-language: en-US; font-style: italic }
+		H2.cjk { font-family: "Times New Roman", serif; font-size: 14pt; font-style: italic }
+		H2.ctl { font-family: "Times New Roman", serif; font-size: 10pt; font-style: italic; font-weight: medium }
+		H4 { margin-left: 1.5in; margin-bottom: 0.04in; direction: ltr; color: #000000; line-height: 200%; text-align: center; widows: 2; orphans: 2 }
+		H4.western { margin-left: 1.5in; font-family: "Arial", sans-serif; font-size: 11pt; so-language: en-US; font-style: italic; text-align:left }
+		H4.cjk { font-family: "Times New Roman", serif; font-size: 11pt; font-style: italic }
+		H4.ctl { font-family: "Times New Roman", serif; font-size: 10pt; font-style: italic; font-weight: medium }
+		H3 { margin-left: 1.5in; color: #000000 }
+		H3.western { margin-left: 1.5in; font-family: "Arial", sans-serif }
+		H3.cjk { font-family: "HG Mincho Light J" }
+		H3.ctl { font-family: "Arial Unicode MS" }
+	-->
+	</STYLE>
+<script type="text/JavaScript">
+
+<!--
+//Preload Images function:
+
+function PreLoad()
+{
+		var menu_pics=new Array('splash_on.gif','blurbs_on.gif','intro_on.gif','credits_on.gif','author_on.gif','links_on.gif', 'progress_on.gif', 'shorts_on.gif', 'gallery_on.gif', 's_focus.jpg', 'm_focus.jpg');
+
+	preloadImages(menu_pics);
+}
+
+function preloadImages(the_images_array) {
+{
+	for(loop = 0; loop < the_images_array.length; loop++)
+	{	
+   		var an_image = new Image();
+		an_image.src = the_images_array[loop];
+	}
+}
+
+}
+
+//-->
+</script>
+
+</head>
+<body background="crawlback.jpg" text="#FFFFCC" align="left" bgcolor="#000000" onLoad="PreLoad();">
+<!--NAV ARRAY -->
+
+<div class="menu">
+<table align=left BORDER=2 CELLSPACING=0 CELLPADDING=0 width="115" bgcolor="#000000" >
+<tr VALIGN=TOP>
+<td VALIGN=BASELINE align=center>
+ <img SRC="blackstrip.gif" BORDER=0 alt=""><br>
+<a href="shorts.htm" 
+    onMouseOver="shorts.src='../shorts_on.gif'; return true" 
+    onMouseOut="shorts.src='../shorts_off.gif'; return true">
+    <img SRC="../shorts_off.gif" NAME="shorts" BORDER=0 alt="Short stories"></a>	
+<!-- <img SRC="blackstrip.gif"> -->
+</td></tr></table>
+
+<table align=center border=2 CELLSPACING=0 CELLPADDING=5>
+<tr><td><p>Download as <a href="shorts/PeterWatts_Starfish.pdf">PDF</a>, zipped <a href="shorts/starfish.zip">HTML</a>, <a href="shorts/Starfish.prc">MobiPocket file</a> (courtesy of <a href="http://www.realityloop.com/">Brian Gilbert</a>), or just read online (below)</p></td>
+</tr>
+</table>
+</div>
+
+<div class="content">
+<DIV ID="Section1" DIR="LTR">
+
+	<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 200%">
+	<FONT FACE="Times New Roman, serif"><FONT SIZE=4><B>Starfish</B></FONT></FONT></P>
+	<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 200%">
+	<BR>
+	</P>
+
+	<DIV ID="Table of Contents1" DIR="LTR">
+		<P CLASS="western" STYLE="margin-left: 1.3in; margin-top: .17in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><B><a href="#prelude">Prelude:
+		Ceratius</a></B></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.3in; margin-top: 0.25in; margin-bottom: 0in"><FONT FACE="Arial, sans-serif"><FONT SIZE=3><B>Benthos</B></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.3in; margin-top: 0.25in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><B>Duet</B></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#constrictor">Constrictor</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#a">A
+		Niche</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#housecleaning">Housecleaning</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.3in; margin-top: 0.17in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><B>Rome</B></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#neotenous">Neotenous</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#elevator">Elevator
+		Boy</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#crush">Crush</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#autoclave">Autoclave</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#waterbed">Waterbed</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#doppelganger">Doppelgänger</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#angel">Angel</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#feral">Feral</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#shadow">Shadow</a>
+		</FONT></FONT>
+		</P>
+		<P CLASS="western" STYLE="margin-left: 1.3in; margin-top: 0.17in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><B>Ballet</B></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#dancer">Dancer</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#short">Short
+		Circuit</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#critical">Critical
+		Mass</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.3in; margin-top: 0.25in; margin-bottom: 0in"><FONT FACE="Arial, sans-serif"><FONT SIZE=3><B>Nekton</B></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.3in; margin-top: 0.17in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><B>Dryback</B></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#jumpstart">Jumpstart</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#muckraker">Muckraker</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#scream">Scream</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#bulrushes">Bulrushes</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#ghosts">Ghosts</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.3in; margin-top: 0.17in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><B>Seine</B></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#entropy">Entropy</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#carousel">Carousel</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#ecdysis">Ecdysis</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#alibis">Alibis</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.3in; margin-top: 0.17in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><B>Quarantine</B></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#bubble">Bubble</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#enema">Enema
+		</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#turncoat">Turncoat</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.3in; margin-top: 0.17in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><B>Head
+		Cheese</B></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#theme">Theme
+		and Variation</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#ground">Ground
+		Zero</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#software">Software</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#racter">Racter</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.3in; margin-top: 0.17in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><B>End
+		Game</B></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#night">Night
+		Shift</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#scatter">Scatter</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#reptile">Reptile</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#skyhop">Skyhop</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#floodlight">Floodlight</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#sunrise">Sunrise</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#jericho">Jericho</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><a href="#detritus">Detritus</a></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.3in; margin-top: 0.17in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><B><a href="#references">References</a></B></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.3in; margin-top: 0.17in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><B><a href="#acknowledgments">Acknowledgments</a></B></FONT></FONT></P>
+		<P CLASS="western" STYLE="margin-left: 1.3in; margin-top: 0.17in; margin-bottom: 0in">
+		<FONT FACE="Times New Roman, serif"><FONT SIZE=3><B><a href="#creative">Creative
+		Commons Licensing Information</a></B></FONT></FONT></P><br>
+	</DIV>
+</DIV>
+<HR>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 100%; page-break-before: always">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>For Susan Oshanek,
+on the off chance that she's still alive.</FONT></FONT></P>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 100%">
+<BR>
+</P>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>And for Laurie
+Channer—who to my unexpectedly good fortune, definitely is.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<HR>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 200%"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in; page-break-before: always">
+<BR>
+</P>
+<H1 CLASS="western" STYLE="line-height: 100%"><a name="prelude">Prelude: <I>Ceratius</I></a></H1>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%; page-break-after: avoid">
+<BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>The
+abyss should shut you up.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Sunlight
+hasn't touched these waters for a million years. Atmospheres
+accumulate by the hundreds here, the trenches could swallow a dozen
+Everests without burping. They say life itself got started in the
+deep sea. Maybe. It can't have been an easy birth, judging by the
+life that remains—monstrous things, twisted into nightmare
+shapes by lightless pressure and sheer chronic starvation.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Even
+here, inside the hull, the abyss weighs on you like the vault of a
+cathedral. It's no place for trivial loudmouth bullshit. If you speak
+at all, you keep it down. But these tourists just don't seem to give
+a shit.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Joel Kita's used to
+hearing a 'scaphe breathe around him, hearing it talk in clicks and
+hisses. He relies on those sounds; the readouts only confirm what the
+beast has already told him by the grumbling of its stomach. But
+<I>Ceratius</I> is a leisure craft, fully insulated, packed with
+excess headroom and reclining couches and little drink'n'drug
+dispensers set into the back of each seat. All he can hear today is
+the cargo, babbling.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>He
+glances back over his shoulder. The tour guide, a mid-twenties
+Hindian with a zebra cut— Preteela someone— flashes him a
+brief, rueful smile. She's a relict, and she knows it. She can't
+compete with the onboard library, she doesn't come with 3-d
+animations or wraparound soundtrack. She's just a prop, really. These
+people pay her salary not because she does anything useful, but
+because she doesn't. What's the point of being rich if you only buy
+the essentials?</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>There
+are eight of them. One old guy in a codpiece, still closing on his
+first century, fiddles with his camera controls. The others are
+plugged into headsets, running a program carefully designed to occupy
+them through the descent without being <I>so</I> impressive that the
+actual destination is an anticlimax. It's a thin line, these days.
+Simulations are almost always better than real life, and real life
+gets blamed for the poor showing. </FONT></FONT>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Joel
+wishes this particular program was a bit better at holding the
+cargo's interest; they might shut up if they were paying more
+attention. They probably don't care whether Channer's sea monsters
+live up to the hype anyway. These people aren't down here because the
+abyss is impressive, they're here because it costs so much. </FONT></FONT>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>He
+runs his eyes across the control board. Even that seems excessive;
+climate control and indive entertainment take up a good half of the
+panel. Bored, he picks one of the headset feeds at random and taps
+in, sending the signal to a window on his main display. </FONT></FONT>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>An
+eighteenth-century woodcut of a Kraken comes to life through the
+miracle of modern animation. Crudely-rendered tentacles wrap around
+the masts of a galleon, pull it beneath chunky carved waves. A female
+voice, designed to maximize attention from both sexes: &quot;We have
+always peopled the sea with monsters—&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Joel
+tunes out.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Mr.
+Codpiece comes up behind him, lays a familiar hand on his shoulder.
+Joel resists the urge to shrug it off. That's another problem with
+these tour subs; no real cockpit, just a set of controls at the front
+end of the passenger lounge. You can't shut yourself away from the
+cargo.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;Quite
+a layout,&quot; Mr. Codpiece says.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Joel
+reminds himself of his professional duties, and smiles.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;Been
+doing this run for long?&quot; The whitecap's skin glows with a
+golden tan of cultured xanthophylls. Joel's smile grows a little more
+brittle. He's heard all about the benefits, of course; UV protection,
+higher blood oxygen, more energy — they say it even cuts down
+on your food requirements, not that any of these people have to worry
+about grocery money. Still, it's too bloody freakish for Joel's
+tastes. Implants should be made out of meat, or at least plastic. If
+people were meant to photosynthesize they'd have leaves. </FONT></FONT>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;I
+said—&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Joel
+nods. &quot;Couple of years.&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>A
+grunt. &quot;Didn't know Seabed Safaris was around that long.&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;I
+don't work for Seabed Safaris,&quot; Joel says, as politely as
+possible. &quot;I freelance.&quot; The whitecap probably doesn't know
+any better, comes from a generation when everyone pledged allegiance
+to the same master year after year. Nobody thought it was such a bad
+thing back then.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;Good
+for you.&quot; Mr. Codpiece gives him a fatherly pat on the shoulder.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Joel
+nudges the rudders a bit to port. They've been cruising just off the
+southeastern shoulder of the rift, floodlights doused; sonar shows a
+featureless landscape of mud and boulders. The rift itself is another
+five or ten minutes away. On the screen, the tourist program talks
+about giant squids attacking lifeboats during the Second World War,
+offers up a parade of archival photos as evidence; human legs,
+puckered with fist-sized conical wounds where horn-rimmed suckers
+cored out gobbets of flesh.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;Nasty.
+We going to be seeing any giant squids?&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Joel
+shakes his head. &quot;Different tour.&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>The
+program launches into a litany of deepwater nasties; a piece of flesh
+washed up onto a Florida beach, hinting at the existence of octopus
+thirty meters across. Giant eel larvae. Hypothesized monsters that
+might once have fed on the great whales, anonymously dying out for
+lack of food.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Joel
+figures that ninety percent of this is bullshit, and the rest doesn't
+really count. Even giant squids don't go down into the <I>really</I>
+deep sea; hardly anything does. No food. Joel's been rooting around
+down here for years, and he's never seen any <I>real</I> monsters.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Except
+right here, of course. He touches a control; outside, a
+high-frequency speaker begins whining at the abyss.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;Hydrothermal
+vents bubble and boil along spreading zones in all of the world's
+oceans,&quot; the program chatters, &quot;feeding crowds of giant
+clams and tubeworms over three meters long.&quot; Stock footage of a
+vent community. &quot;And yet, even at the spreading zones, it is
+only the filter-feeders and muckrakers that become giants. The fish,
+vertebrates like ourselves, are few and far between— and only a
+few centimeters long.&quot; An eelpout wriggles feebly across the
+display, looking more like a dismembered finger than a fish.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;Except
+here,&quot; the program adds after a dramatic pause. &quot;For there
+is something special about this tiny part of the Juan de Fuca Ridge,
+something unexplained. Here there be dragons.&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Joel
+hits another control. External bait lights flash to life across the
+bioluminescent spectrum; the cabin lights dim. To the denizens of the
+rift, drawn in by the sonics, a veritable school of food fish has
+suddenly appeared in their midst.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;We
+don't know the secret of the Channer Vent. We don't know how it
+creates its strange and fascinating giants.&quot; The program's
+visual display goes dark. &quot;We only know that here, on the
+shoulder of the Axial Volcano, we have finally tracked the monsters
+to their lair.&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Something
+thumps against the outer hull. The acoustics of the passenger
+compartment make the sound seem unnaturally loud.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>At
+last, the passengers shut up. Mr. Codpiece mutters something and
+heads back to his seat, a giant chloroplast in a hurry.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;This
+concludes our introduction. The external cameras are linked to your
+headsets and can be aimed using normal head movements. Focus and
+record using the joystick on your right armrest. You may also wish to
+enjoy the view directly, through any of the cabin viewports. If you
+require assistance our guide and pilot are at your service. Seabed
+Safaris welcomes you to the Channer Vent, and hopes that you enjoy
+the remainder of your tour.&quot; </FONT></FONT>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Two more thumps. A
+grey flash out the forward port; a sinuous belly caught for a moment
+in the headlight, a swirl of fin. On Joel's systems board, icons
+representing the outside cams dip and wiggle.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Superfluous
+Preteela slides into the copilot's seat. &quot;Regular feeding frenzy
+out there.&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Joel
+lowers his voice. &quot;In here. Out there. What's the difference?&quot;
+</FONT></FONT>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>She
+smiles, a safe, silent gesture of agreement. She's got a great smile.
+Almost makes up for the striped hair. Joel catches sight of something
+on the back of her left hand; looks like a ref tattoo, but somehow he
+doubts that it's authentic. Fashion statement, more likely. </FONT></FONT>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;You
+sure they can spare you?&quot; he asks wryly. </FONT></FONT>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>She
+looks back. The cargo's starting up again: <I>Look at that. Hey, it
+broke its tooth on us. Christ aren't they </I>ugly—</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;They'll
+manage,&quot; Preteela says.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Something looms up
+on the other side of the viewport: mouth like a sackful of needles, a
+tendril hanging from the lower jaw with a glowing bulb on the end.
+The jaw gapes wide enough to dislocate, snaps shut. Its teeth slide
+harmlessly across the viewport. A flat black eye glares in at them.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;What's
+that?&quot; Preteela wants to know.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;You're
+the tour guide.&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;Never
+seen anything like it before.&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;Me
+neither.&quot; He sends a trickle of electricity out through the
+hull. The monster, startled, flashes off into the darkness.
+Intermittent impacts resonate through <I>Ceratius</I>, drawing
+renewed gasps from the cargo.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;How
+long until we're actually at Channer?&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Joel
+glances at tactical. &quot;We're pretty much there already.
+Medium-sized hot fissure about fifty meters to the left.&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;What's
+that?&quot; A row of bright dots, evenly spaced, has just moved onto
+the screen. </FONT></FONT>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;Surveyer's
+stakes.&quot; Another row marches into range behind the first. &quot;For
+the geothermal program, you know?&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;How
+about a quick drive-by? I bet those generators are pretty
+impressive.&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;I
+don't think the generators are in yet. They're just laying the
+foundations.&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;It'd
+still make a nice addition to the tour.&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;We're
+supposed to steer clear. We'd catch royal shit if anyone's out
+there.&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;Well?&quot;
+That smile again, more calculated this time. &quot;Is there?&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;Probably
+not,&quot; Joel admits. Construction's been on hold for a couple of
+weeks, a fact which he finds particularly irritating; he's up for
+some fairly hefty contracts if the Grid Authority ever gets off its
+corporate ass and finishes what they started.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Preteela
+looks at him expectantly. Joel shrugs. &quot;It's pretty unstable in
+there. Could get bumped around a bit.&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;Dangerous?&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;Depends
+on your definition. Probably not.&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;So
+let's do it.&quot; Preteela lays a conspiratorial hand briefly on his
+shoulder.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><I>Ceratius</I>
+noses around to a new heading. Joel kills the bait lights and cranks
+the sonics up for one screeching, farewell burst. The monsters
+outside — those that haven't already retired gracefully, their
+tiny fish brains having figured out that metal is inedible —
+run screaming into the night, lateral lines burning. There's a moment
+of surprised silence from the cargo. Preteela Someone steps smoothly
+into the gap. &quot;Folks, we're taking a small detour to check out a
+new arrival on the rift. If you tap into the sonar feed you'll see
+that we're approaching a checkerboard of acoustic beacons. The Grid
+Authority has laid these out in the course of constructing one of the
+new geothermal stations we've been hearing so much about. As you may
+know, similar projects are underway at spreading zones all the way
+from the Galapagos to the Aleutians. When these go online, people
+will actually be living full-time here on the rift—&quot;</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Joel
+can't believe it. Preteela's big chance to scoop the library and she
+ends up talking exactly like it does. He quietly aborts a midbrain
+fantasy he's been nurturing. Try to get into fantasy-Preteela's
+jumpsuit now and she'd probably start reciting a cheery blow-by-blow.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>He
+switches on the external floods. Mud. More mud. On sonar the grid
+crawls towards them, a monotonous constellation.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Something catches
+<I>Ceratius</I>, slews it around. The hull thermistor spikes briefly.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;Thermal,
+folks.&quot; Joel calls back over his shoulder. &quot;Nothing to
+worry about.&quot; </FONT></FONT>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>A dim coppery sun
+resolves to starboard. It's a torch on a pole, basically, a
+territorial marker beating back the abyss with a sodium bulb and a
+VLF heartbeat. It's the Grid Authority, pissing on a rock for all and
+sundry: <I>This is </I>our <I>hellhole</I>. </FONT></FONT>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>The line of towers
+stretches away to port, each crowned by a floodlight. Intersecting
+it, another line recedes directly ahead like streetlights on a smoggy
+night. They shine down on a strange unfinished landscape of plastic
+and metal. Great metal casings lie against the bottom like derailed
+boxcars. Teardrop ROVs sit dormant on flat plastic puddles frozen
+harder than basalt. Sharp-edged conduits protrude from those
+congealed surfaces like hollow bones sawn off below the joint.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Way up on one of the
+port towers, something dark and fleshy assaults the light.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Joels checks the
+camera icons: all zoomed, pointing up and left. Preteela, conserving
+O<SUB>2</SUB>, has retired her patter while the whitecaps gape. Fine.
+They want more mindless piscine violence, give 'em more mindless
+piscine violence. <I>Ceratius</I> angles up and to port. </FONT></FONT>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>It's an anglerfish.
+She bashes herself repeatedly against the floodlight, oblivious to
+<I>Ceratius</I>' approach. Her dorsal spine lashes; the lure at its
+end, a glowing worm-shaped thing, luminesces furiously.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Preteela's back at
+his shoulder. &quot;It's really doing a number on that light, isn't
+it?&quot; </FONT></FONT>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>She's right. The top
+of the transponder is shaking under the impact of the big fish's
+blows, which is odd; these beasts are big, but they aren't very
+strong<I>.</I> And come to think of it, the tower's shaking back and
+forth even when the angler isn't <I>touching</I> it…</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;Oh, shit.&quot;
+Joel grabs the controls. <I>Ceratius </I>rears up like something
+living. Transponder glow drops off the bottom of the viewport; total
+darkness drops in from above, swallowing the view. Startled shouts
+from the cargo. Joel ignores them.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>On all sides, the
+dull distant sound of something roaring.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Joel hits the
+throttle. <I>Ceratius</I> climbs. Something slaps from behind; the
+stern slides to port, pulling the bow back after it. The blackness
+beyond the viewport boils sudden muddy brown against the cabin
+lights.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>The hull thermister
+spikes twice, three times. Ambient temperature flips from 4<FONT FACE="Symbol, serif">°</FONT>C
+to 280, then back again. At lesser pressures the <I>Ceratius </I>would
+be dropping through live steam. Here it only spins, skidding for
+traction against the superheated water.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Finally, it finds
+some. <I>Ceratius </I>ascends into welcome icewater. A fish skeleton
+pirouettes past the viewport, all teeth and spines, every vestige of
+flesh boiled away.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Joel looks back over
+his shoulder. Preteela's fingers are locked around the back of his
+seat, their knuckles the same color as the dancing bones outside. The
+cargo are dead quiet.</FONT></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in; line-height: 100%">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;Another
+thermal?&quot; Preteela says in a shaky voice. </FONT></FONT>
+</P>
+<P CLASS="western" STYLE=

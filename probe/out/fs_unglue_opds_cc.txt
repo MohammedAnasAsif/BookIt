@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <feed xmlns:dcterms="http://purl.org/dc/terms/"
+      xmlns:opds="http://opds-spec.org/"
+      xmlns="http://www.w3.org/2005/Atom"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:schema="http://schema.org/"
+      xsi:noNamespaceSchemaLocation="http://www.kbcafe.com/rss/atom.xsd.xml"
+      xsi:schemaLocation="http://purl.org/dc/elements/1.1/ http://dublincore.org/schemas/xmls/qdc/2008/02/11/dc.xsd
+      http://purl.org/dc/terms/ http://dublincore.org/schemas/xmls/qdc/2008/02/11/dcterms.xsd">
+      <title>
+ Unglue.it Catalog:  Creative Commons Books - sorted by newest
+</title><id>
+ https://unglue.it/api/opds/creative_commons/?order_by=newest
+</id><updated>
+ 2026-10-28T14:10:52.139613+00:00
+</updated><author>
+ <name>
+  unglue.it
+ </name>
+ <uri>
+  https://unglue.it
+ </uri>
+</author><link href="https://unglue.it/api/opds/creative_commons/?order_by=newest" rel="start" title="First 10" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+<link href="https://unglue.it/api/opds/creative_commons/?order_by=newest&amp;page=1" rel="next" title="Next 10" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+<link href="https://unglue.it/api/opds/creative_commons/?order_by=popular" opds:facetGroup="Order" rel="http://opds-spec.org/facet" title="Sorted by popularity" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+<link href="https://unglue.it/api/opds/creative_commons/?order_by=newest" opds:activeFacet="true" opds:facetGroup="Order" rel="http://opds-spec.org/facet" title="Sorted by newest" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+<entry>
+ <title>
+  Bitcoin fejlesztőknek
+ </title>
+ <id>
+  https://unglue.it/api/id/work/209295/
+ </id>
+ <updated>
+  2017-06-08T14:48:55
+ </updated>
+ <link dcterms:rights="CC BY-SA" href="https://unglue.it/download_ebook/40809/?feed=opds" rel="http://opds-spec.org/acquisition/open-access" type="application/pdf"/>
+ <link href="/static/images/generic_cover_thumb.png" rel="http://opds-spec.org/image/thumbnail" type="image/png"/>
+ <link href="/static/images/generic_cover_larger.png" rel="http://opds-spec.org/image" type="image/png"/>
+ <dcterms:issued>
+  2016
+ </dcterms:issued>
+ <author>
+  <name>
+   Andreas M. Antonopoulos
+  </name>
+ </author>
+ <dcterms:language>
+  hu
+ </dcterms:language>
+ <content type="html">
+  &lt;p&gt;Először 2011 közepén botlottam a bitcoinba. A reakcióm többé-kevésbé az volt, hogy &amp;quot;Brr! Egy újabb pénz a számítógép megszállottjainak!&amp;quot; - és további 6 hónapig nem törődtem vele, nem értettem meg a fontosságát. Az általam ismert legokosabb embereknél is sokszor láttam ugyanezt a reakciót, ami egy kicsit vígasztaló. Másodszor, amikor egy levelező listán került szóba a bitcoin, elhatároztam, hogy elolvasom Satoshi Nakamoto dolgozatát, azaz áttanulmányozom a hiteles forrást és megnézem, hogy miről van szó. Még mindig emlékszem arra a pillanatra, amikor befejeztem a 9 oldalas dolgozatot és megértettem, hogy a bitcoin nem egyszerűen csak egy digitális pénz, hanem egy decentralizált bizalmi hálózat, és a pénznél sokkal több mindennek az alapjául szolgálhat. Ez a felismerés indított arra, hogy 4 hónapon keresztül a bitcoinra vonatkozó minden információmorzsát összeszedjek és elolvassak. Lelkesedtem és megszállottá váltam, napi 12 órát vagy még többet töltöttem a képernyőre tapadva, olvastam, írtam, kódoltam, és tanultam, amennyit csak tudtam. 10 kilót fogytam ezalatt, mert nem ettem rendesen, hanem csak a bitcoinnal foglalkoztam.&lt;/p&gt;
+
+&lt;p&gt;Két évvel később, miután számos kis céget alapítottam a bitcoinnal kapcsolatos szolgáltatások és termékek vizsgálatára, elhatároztam, hogy megírom az első könyvemet. A bitcoin volt az a téma, ami kreatívvá tett, lefoglalta a gondolataimat: ez volt a legizgalmasabb technológia, amióta csak találkoztam az Internettel. Itt az idő, hogy a tágabb olvasóközönséggel is megosszam azt az elragadtatásomat, amit ezzel az izgalmas techológiával kapcsolatban érzek.&lt;/p&gt;
+ </content>
+ <category term="Computers">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Computers/?order_by=popular&amp;page=0" rel="related" title="Computers" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Computers / Security">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Computers%20/%20Security/?order_by=popular&amp;page=0" rel="related" title="Computers / Security" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="COMPUTERS / Security / Cryptography">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.COMPUTERS%20/%20Security%20/%20Cryptography/?order_by=popular&amp;page=0" rel="related" title="COMPUTERS / Security / Cryptography" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Cryptography">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Cryptography/?order_by=popular&amp;page=0" rel="related" title="Cryptography" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Money">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Money/?order_by=popular&amp;page=0" rel="related" title="Money" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category label="Adult/Advanced Reader" scheme="http://schema.org/typicalAgeRange" term="18-">
+ </category>
+ <schema:Rating schema:ratingValue="2">
+ </schema:Rating>
+</entry><entry>
+ <title>
+  Consecuencias educativas de la expulsión de los jesuitas de América
+ </title>
+ <id>
+  https://unglue.it/api/id/work/195330/
+ </id>
+ <updated>
+  2020-12-03T20:32:43
+ </updated>
+ <link dcterms:rights="CC BY-NC-ND" href="https://unglue.it/download_ebook/279690/?feed=opds" rel="http://opds-spec.org/acquisition/open-access" type="application/pdf"/>
+ <link href="/static/images/generic_cover_thumb.png" rel="http://opds-spec.org/image/thumbnail" type="image/png"/>
+ <link href="/static/images/generic_cover_larger.png" rel="http://opds-spec.org/image" type="image/png"/>
+ <dcterms:issued>
+  2003
+ </dcterms:issued>
+ <author>
+  <name>
+   Enrique Villalba Pérez
+  </name>
+ </author>
+ <dcterms:language>
+  es
+ </dcterms:language>
+ <content type="html">
+  Este trabajo pretende presentar el estado de los conocimientos acerca de las consecuencias educativas que tuvo en América la expulsión de la Compañía de Jesús. Centrado en la América Hispana, se organiza en una estructura geográfica que repasa los distintos niveles educativos en cada uno de los territorios (Virreinato de Nueva España, Nuevo Reino de Granada, Virreinato del Perú y Chile, Virreinato del Río de la Plata) y se cierra con unas consideraciones generales sobre las polémicas del momento, cuestiones historiográficas, método de la enseñanza jesuita y unas conclusiones sobre las contradicciones e intereses que se dan cita en la expulsión. Aporta un extenso y ordenado repertorio bibliográfico.
+ </content>
+ <dcterms:identifier xsi:type="dcterms:URI">
+  urn:ISBN:9788497720700
+ </dcterms:identifier>
+ <category term="America">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.America/?order_by=popular&amp;page=0" rel="related" title="America" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Compañía de Jesús">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Compa%C3%B1%C3%ADa%20de%20Jes%C3%BAs/?order_by=popular&amp;page=0" rel="related" title="Compañía de Jesús" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Educación">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Educaci%C3%B3n/?order_by=popular&amp;page=0" rel="related" title="Educación" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Education">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Education/?order_by=popular&amp;page=0" rel="related" title="Education" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Jesuitas">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Jesuitas/?order_by=popular&amp;page=0" rel="related" title="Jesuitas" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Jesuits">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Jesuits/?order_by=popular&amp;page=0" rel="related" title="Jesuits" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category label="Adult/Advanced Reader" scheme="http://schema.org/typicalAgeRange" term="18-">
+ </category>
+ <schema:Rating schema:ratingValue="2">
+ </schema:Rating>
+</entry><entry>
+ <title>
+  Machine Learning
+ </title>
+ <id>
+  https://unglue.it/api/id/work/518742/
+ </id>
+ <updated>
+  2022-02-09T15:59:06
+ </updated>
+ <link dcterms:rights="CC BY" href="https://unglue.it/download_ebook/363993/?feed=opds" rel="http://opds-spec.org/acquisition/open-access" type="application/pdf"/>
+ <link href="https://tieulgnu.s3.amazonaws.com/cache/a8/be/a8be5fcfdc52e7a7bb2bcc149a8bba25.jpg" rel="http://opds-spec.org/image/thumbnail" type="image/jpeg"/>
+ <link href="https://tieulgnu.s3.amazonaws.com/cache/db/7a/db7a9d2329599e6218a70f587f3ad3a3.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+ <dcterms:issued>
+  2021
+ </dcterms:issued>
+ <author>
+  <name>
+   Jaydip Sen (editor)
+  </name>
+ </author>
+ <dcterms:language>
+  en
+ </dcterms:language>
+ <content type="html">
+  Recent times are witnessing rapid development in machine learning algorithm systems, especially in reinforcement learning, natural language processing, computer and robot vision, image processing, speech, and emotional processing and understanding. In tune with the increasing importance and relevance of machine learning models, algorithms, and their applications, and with the emergence of more innovative uses-cases of deep learning and artificial intelligence, the current volume presents a few innovative research works and their applications in real-world, such as stock trading, medical and healthcare systems, and software automation. The chapters in the book illustrate how machine learning and deep learning algorithms and models are designed, optimized, and deployed. The volume will be useful for advanced graduate and doctoral students, researchers, faculty members of universities, practicing data scientists and data engineers, professionals, and consultants working on the broad areas of machine learning, deep learning, and artificial intelligence.
+ </content>
+ <category term="artificial intelligence">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.artificial%20intelligence/?order_by=popular&amp;page=0" rel="related" title="artificial intelligence" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Computer science">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Computer%20science/?order_by=popular&amp;page=0" rel="related" title="Computer science" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Computing &amp; information technology">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Computing%20%26%20information%20technology/?order_by=popular&amp;page=0" rel="related" title="Computing &amp; information technology" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Machine learning">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Machine%20learning/?order_by=popular&amp;page=0" rel="related" title="Machine learning" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category label="Adult/Advanced Reader" scheme="http://schema.org/typicalAgeRange" term="18-">
+ </category>
+ <schema:Rating schema:ratingValue="3">
+ </schema:Rating>
+</entry><entry>
+ <title>
+  メイカーズ
+ </title>
+ <id>
+  https://unglue.it/api/id/work/152952/
+ </id>
+ <updated>
+  2015-12-06T22:31:36
+ </updated>
+ <link dcterms:rights="CC BY-NC-SA" href="https://unglue.it/download_ebook/3169/?feed=opds" rel="http://opds-spec.org/acquisition/open-access" type="application/x-mobipocket-ebook"/>
+ <link href="https://tieulgnu.s3.amazonaws.com/cache/ef/37/ef3747233b3f71300314ceb7bd99ff59.jpg" rel="http://opds-spec.org/image/thumbnail" type="image/jpeg"/>
+ <link href="https://tieulgnu.s3.amazonaws.com/cache/03/d0/03d043545aa75799bb98ee21db4aa067.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+ <dcterms:issued>
+ </dcterms:issued>
+ <author>
+  <name>
+   Cory Doctorow
+  </name>
+ </author>
+ <dcterms:language>
+  ja
+ </dcterms:language>
+ <content type="html">
+  &lt;p&gt;シリコンバレーで働く新聞記者兼ブロガーのスザンヌ・チャーチは巨大企業を買収した起業家ランドン・ケトルウェルにスカウトされて彼の新たなプロジェクトの取材を依頼される。取材のためにフロリダに飛んだ彼女の前に現れたのはショッピングモールの廃墟を本拠地にする2人の天才的ハードウェアハッカーだった。&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+ </content>
+ <category term="Fiction">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Fiction/?order_by=popular&amp;page=0" rel="related" title="Fiction" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Fiction / Technological">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Fiction%20/%20Technological/?order_by=popular&amp;page=0" rel="related" title="Fiction / Technological" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Intellectual property">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Intellectual%20property/?order_by=popular&amp;page=0" rel="related" title="Intellectual property" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Inventors">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Inventors/?order_by=popular&amp;page=0" rel="related" title="Inventors" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Technology">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Technology/?order_by=popular&amp;page=0" rel="related" title="Technology" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <schema:Rating schema:ratingValue="3">
+ </schema:Rating>
+</entry><entry>
+ <title>
+  מבט אחר על ספר איוב
+ </title>
+ <id>
+  https://unglue.it/api/id/work/871945/
+ </id>
+ <updated>
+  2025-03-01T10:40:58
+ </updated>
+ <link dcterms:rights="CC BY-NC" href="https://unglue.it/download_ebook/512862/?feed=opds" rel="http://opds-spec.org/acquisition/open-access" type="application/pdf"/>
+ <link href="/static/images/generic_cover_thumb.png" rel="http://opds-spec.org/image/thumbnail" type="image/png"/>
+ <link href="/static/images/generic_cover_larger.png" rel="http://opds-spec.org/image" type="image/png"/>
+ <dcterms:issued>
+ </dcterms:issued>
+ <author>
+  <name>
+   מיכאל פדידה
+  </name>
+ </author>
+ <dcterms:language>
+  en
+ </dcterms:language>
+ <content type="html">
+ </content>
+ <category term="">
+ </category>
+ <link href="https://unglue.it/api/opds/kw./?order_by=popular&amp;page=0" rel="related" title="" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Literary Criticism">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Literary%20Criticism/?order_by=popular&amp;page=0" rel="related" title="Literary Criticism" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <schema:Rating schema:ratingValue="2">
+ </schema:Rating>
+</entry><entry>
+ <title>
+  The Processing of Compounds in Adult Second Language Learners of English and Turkish.
+ </title>
+ <id>
+  https://unglue.it/api/id/work/1784663/
+ </id>
+ <updated>
+  2026-03-17T10:15:24
+ </updated>
+ <link dcterms:rights="CC BY-NC-ND" href="https://unglue.it/download_ebook/771784/?feed=opds" rel="http://opds-spec.org/acquisition/open-access" type="application/pdf"/>
+ <link href="https://encrypted.google.com/books?id=6XBsEQAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5" rel="http://opds-spec.org/image/thumbnail" type="image/jpeg"/>
+ <link href="https://encrypted.google.com/books?id=6XBsEQAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1" rel="http://opds-spec.org/image" type="image/jpeg"/>
+ <dcterms:issued>
+  2025
+ </dcterms:issued>
+ <author>
+  <name>
+   Serkan Uygun
+  </name>
+ </author>
+ <dcterms:language>
+  en
+ </dcterms:language>
+ <content type="html">
+  &lt;p&gt;The purpose of this study is to investigate the processing of compound words in English and Turkish with monolingual and sequential bilingual adults with intermediate and advanced level proficiency. The present study includes two different but parallel experiments on compound word recognition, one in English and one in Turkish. By using a masked priming experiment, the processing of English and Turkish compounds by monolingual and sequential bilinguals is examined. The stimuli involve transparent-transparent compounds (e.g.,&amp;nbsp;&lt;em&gt;headache&lt;/em&gt;;&amp;nbsp;&lt;em&gt;kuzeydoğu&lt;/em&gt;&amp;nbsp;&amp;lsquo;northeast&amp;rsquo;,&amp;nbsp;&lt;em&gt;kuzey&amp;nbsp;&lt;/em&gt;&amp;lsquo;north&amp;rsquo;,&amp;nbsp;&lt;em&gt;doğu&amp;nbsp;&lt;/em&gt;&amp;lsquo;east&amp;rsquo;), partially-opaque compounds (e.g.,&amp;nbsp;&lt;em&gt;grapefruit&lt;/em&gt;;&amp;nbsp;&lt;em&gt;b&amp;uuml;y&amp;uuml;kel&amp;ccedil;i&lt;/em&gt;&amp;nbsp;&amp;lsquo;ambassador&amp;rsquo;,&amp;nbsp;&lt;em&gt;b&amp;uuml;y&amp;uuml;k&amp;nbsp;&lt;/em&gt;&amp;lsquo;big&amp;rsquo;,&amp;nbsp;&lt;em&gt;el&amp;ccedil;i&amp;nbsp;&lt;/em&gt;&amp;lsquo;delegate&amp;rsquo;), pseudocompounds (e.g.,&amp;nbsp;&lt;em&gt;mandate&lt;/em&gt;;&amp;nbsp;&lt;em&gt;fesleğen&amp;nbsp;&lt;/em&gt;&amp;lsquo;basil&amp;rsquo;,&amp;nbsp;&lt;em&gt;fes&lt;/em&gt;&amp;nbsp;&amp;lsquo;fez&amp;rsquo;,&amp;nbsp;&lt;em&gt;leğen&lt;/em&gt;&amp;nbsp;&amp;lsquo;bowl/pelvis&amp;rsquo;), and monomorphemic words (e.g.,&amp;nbsp;&lt;em&gt;crocodile&lt;/em&gt;;&amp;nbsp;&lt;em&gt;kaplumbağa&amp;nbsp;&lt;/em&gt;&amp;lsquo;turtle&amp;rsquo;). The results of the English study demonstrate that English monolinguals decomposed compound words. When semantic transparency of the compound is examined, the findings suggest that both constituents are activated in transparent-transparent compounds whereas only the second constituent is accessed in partially-opaque compounds, indicating the influence of semantic transparency on compound processing. No priming is observed for intermediate level sequential bilinguals, suggesting that they do not employ decomposition. Advanced level sequential bilinguals also employ decomposition for compounds, but semantic transparency plays a crucial role because constituent 1 is accessed in transparent-transparent compounds, yet no priming effect is obtained for partially-opaque compounds, implying dual-route access for English compounds. The Turkish study shows that monolingual Turkish participants recognize compound words on the basis of their constituents (i.e. via decomposition); however, the effect of semantic transparency is also observed in the group. Transparent-transparent compounds are accessed by recognizing the second constituent (i.e. the head of the compound) while both constituents are activated for partially-opaque compounds. In contrast, neither the advanced nor the intermediate-level sequential bilingual groups show native-like processing revealing whole-word access.&lt;/p&gt;
+ </content>
+ <dcterms:identifier xsi:type="dcterms:URI">
+  urn:ISBN:9786057228567
+ </dcterms:identifier>
+ <category term="Linguistics">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Linguistics/?order_by=popular&amp;page=0" rel="related" title="Linguistics" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Psycholinguistics">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Psycholinguistics/?order_by=popular&amp;page=0" rel="related" title="Psycholinguistics" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <schema:Rating schema:ratingValue="2">
+ </schema:Rating>
+</entry><entry>
+ <title>
+  Globalisation, migration and socio-economic change in contemporary Greece
+ </title>
+ <id>
+  https://unglue.it/api/id/work/28401/
+ </id>
+ <updated>
+  2021-03-05T23:36:53
+ </updated>
+ <link dcterms:rights="CC BY-NC-ND" href="https://unglue.it/download_ebook/291512/?feed=opds" rel="http://opds-spec.org/acquisition/open-access" type="application/pdf"/>
+ <link href="https://tieulgnu.s3.amazonaws.com/cache/1b/8f/1b8f0cd79fd0f0a567ec4e4e181b362e.jpg" rel="http://opds-spec.org/image/thumbnail" type="image/jpeg"/>
+ <link href="https://tieulgnu.s3.amazonaws.com/cache/5d/f5/5df524b4d9b85d4eeaec7e68ada85d8d.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+ <dcterms:issued>
+  2006
+ </dcterms:issued>
+ <author>
+  <name>
+   Panos Arion Hatziprokopiou
+  </name>
+ </author>
+ <dcterms:language>
+  en
+ </dcterms:language>
+ <content type="html">
+  This empirical study examines issues surrounding the integration of immigrants in Greece, in particular in Thessaloniki, as well as looking at migrants in neighbouring countries, Albania and Bulgaria. The book suggests that immigrants' integration should be understood in relation to broader processes of social change, which are increasingly connected to global forces. The transformation of Greece into a multicultural society has taken place during a period of transition and of increasing exposure to the international environment. Within this context, Thessaloniki has become a new home for immigrants from the Balkans in search of new identities. Integration is seen as a multifaceted and dynamic process. The concept of incorporation is critically introduced, in order to analyse both the ways by which migrants organise their lives in the host society and their structural, institutional and cultural conditions. The analytical framework is built upon an interdisciplinary approach that takes into account different incorporation contexts: socio-political responses, the labour market, housing and social space. A number of additional factors are also considered, e.g. the composition of migrant populations, migratory patterns and dynamics, the role of social networks, immigrants' strategies. The book provides an empirical account of the immigrants' characteristics, explaining the patterns and typologies of immigrants' integration in Greece. "Immigrants" become a social category "constructed" by exclusionary mechanisms: restrictive immigration policy, labour market exploitation, xenophobia. However, they do make a living in Thessaloniki; their integration is subject to time. gradually, immigrants become organic elements of the host society, which shapes, but is also being shaped by migration.
+ </content>
+ <dcterms:identifier xsi:type="dcterms:URI">
+  urn:ISBN:9789053568736
+ </dcterms:identifier>
+ <category term="Culture and instituten">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Culture%20and%20instituten/?order_by=popular&amp;page=0" rel="related" title="Culture and instituten" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Culture and institutions">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Culture%20and%20institutions/?order_by=popular&amp;page=0" rel="related" title="Culture and institutions" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Migration, immigration &amp; emigration">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Migration%2C%20immigration%20%26%20emigration/?order_by=popular&amp;page=0" rel="related" title="Migration, immigration &amp; emigration" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Social issues &amp; processes">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Social%20issues%20%26%20processes/?order_by=popular&amp;page=0" rel="related" title="Social issues &amp; processes" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Society &amp; culture: general">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Society%20%26%20culture%3A%20general/?order_by=popular&amp;page=0" rel="related" title="Society &amp; culture: general" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Society &amp; Social Sciences">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Society%20%26%20Social%20Sciences/?order_by=popular&amp;page=0" rel="related" title="Society &amp; Social Sciences" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Sociologie">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Sociologie/?order_by=popular&amp;page=0" rel="related" title="Sociologie" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Sociology">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Sociology/?order_by=popular&amp;page=0" rel="related" title="Sociology" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Sociology &amp; anthropology">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Sociology%20%26%20anthropology/?order_by=popular&amp;page=0" rel="related" title="Sociology &amp; anthropology" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="thema EDItEUR::J Society and Social Sciences::JB Society and culture: general">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.thema%20EDItEUR%3A%3AJ%20Society%20and%20Social%20Sciences%3A%3AJB%20Society%20and%20culture%3A%20general/?order_by=popular&amp;page=0" rel="related" title="thema EDItEUR::J Society and Social Sciences::JB Society and culture: general" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="thema EDItEUR::J Society and Social Sciences::JB Society and culture: general::JBF Social and ethical issues::JBFH Migration, immigration and emigration">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.thema%20EDItEUR%3A%3AJ%20Society%20and%20Social%20Sciences%3A%3AJB%20Society%20and%20culture%3A%20general%3A%3AJBF%20Social%20and%20ethical%20issues%3A%3AJBFH%20Migration%2C%20immigration%20and%20emigration/?order_by=popular&amp;page=0" rel="related" title="thema EDItEUR::J Society and Social Sciences::JB Society and culture: general::JBF Social and ethical issues::JBFH Migration, immigration and emigration" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="thema EDItEUR::J Society and Social Sciences::JH Sociology and anthropology">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.thema%20EDItEUR%3A%3AJ%20Society%20and%20Social%20Sciences%3A%3AJH%20Sociology%20and%20anthropology/?order_by=popular&amp;page=0" rel="related" title="thema EDItEUR::J Society and Social Sciences::JH Sociology and anthropology" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category label="Adult/Advanced Reader" scheme="http://schema.org/typicalAgeRange" term="18-">
+ </category>
+ <schema:Rating schema:ratingValue="3">
+ </schema:Rating>
+</entry><entry>
+ <title>
+  The Trial in History: Domestic and international trials, 1700-2000
+ </title>
+ <id>
+  https://unglue.it/api/id/work/138841/
+ </id>
+ <updated>
+  2021-03-06T12:27:34
+ </updated>
+ <link dcterms:rights="CC BY-NC-ND" href="https://unglue.it/download_ebook/300173/?feed=opds" rel="http://opds-spec.org/acquisition/open-access" type="application/pdf"/>
+ <link href="https://tieulgnu.s3.amazonaws.com/cache/1b/fd/1bfd1a017cc660f1ca039a0a1f6dd439.jpg" rel="http://opds-spec.org/image/thumbnail" type="image/jpeg"/>
+ <link href="https://tieulgnu.s3.amazonaws.com/cache/23/e0/23e0a84c4b409bb9372c842eaf64bc42.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+ <dcterms:issued>
+  2003
+ </dcterms:issued>
+ <author>
+  <name>
+   Maureen Mulholland
+  </name>
+ </author>
+ <dcterms:language>
+  en
+ </dcterms:language>
+ <content type="html">
+  How does the trial function? What are the tools, in terms of legal principle, scientific knowledge, social norms, and political practice, which underpin this most important decision-making process? This collection of nine essays by an international group of scholars explores these crucial questions. Focusing both on English criminal, military, and parliamentary trials, and upon national and international trials for war crimes, this book illuminates the diverse forces that have shaped trials during the modern era. The contributors approach their subject from a variety of perspectives - legal history, social history, political history, sociology, and international law. With an appreciation and understanding of the relevant legal procedures, they address wider issues of psychology, gender, bureaucracy, and international relations within the adjudicative setting. Their inter-disciplinary approach imparts to this book a breadth not usually seen in studies of the courtroom. Scholars and students of modern British history, political science, and international law, as well as legal history, will find these essays stimulating and informative. Judicial tribunals in England and Europe, 1200-1700: The trial in history, vol. I, edited by Dr Maureen Mulholland and Professor Brian Pullan, is also published by Manchester University Press.
+ </content>
+ <dcterms:identifier xsi:type="dcterms:URI">
+  urn:ISBN:9780719064869
+ </dcterms:identifier>
+ <category term="Courts &amp; procedure">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Courts%20%26%20procedure/?order_by=popular&amp;page=0" rel="related" title="Courts &amp; procedure" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Defendant">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Defendant/?order_by=popular&amp;page=0" rel="related" title="Defendant" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="History and criticism">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.History%20and%20criticism/?order_by=popular&amp;page=0" rel="related" title="History and criticism" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="International Criminal Tribunal for the former Yugoslavia">
+ </category>
+ <category term="judicial">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.judicial/?order_by=popular&amp;page=0" rel="related" title="judicial" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Law">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Law/?order_by=popular&amp;page=0" rel="related" title="Law" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Laws of Specific jurisdictions">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Laws%20of%20Specific%20jurisdictions/?order_by=popular&amp;page=0" rel="related" title="Laws of Specific jurisdictions" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="legal">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.legal/?order_by=popular&amp;page=0" rel="related" title="legal" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Legal system: general">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Legal%20system%3A%20general/?order_by=popular&amp;page=0" rel="related" title="Legal system: general" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="thema EDItEUR::L Law::LN Laws of specific jurisdictions and specific areas of law::LNA Legal systems: general::LNAA Legal systems: courts and procedures">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.thema%20EDItEUR%3A%3AL%20Law%3A%3ALN%20Laws%20of%20specific%20jurisdictions%20and%20specific%20areas%20of%20law%3A%3ALNA%20Legal%20systems%3A%20general%3A%3ALNAA%20Legal%20systems%3A%20courts%20and%20procedures/?order_by=popular&amp;page=0" rel="related" title="thema EDItEUR::L Law::LN Laws of specific jurisdictions and specific areas of law::LNA Legal systems: general::LNAA Legal systems: courts and procedures" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="trial">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.trial/?order_by=popular&amp;page=0" rel="related" title="trial" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category label="Adult/Advanced Reader" scheme="http://schema.org/typicalAgeRange" term="18-">
+ </category>
+ <schema:Rating schema:ratingValue="3">
+ </schema:Rating>
+</entry><entry>
+ <title>
+  Turkish Voices
+ </title>
+ <id>
+  https://unglue.it/api/id/work/535130/
+ </id>
+ <updated>
+  2022-06-30T11:22:46
+ </updated>
+ <link dcterms:rights="CC BY-NC-SA" href="https://unglue.it/download_ebook/377711/?feed=opds" rel="http://opds-spec.org/acquisition/open-access" type="application/pdf"/>
+ <link href="https://tieulgnu.s3.amazonaws.com/cache/00/9f/009fbab94de0508804af38d3cae28c8b.jpg" rel="http://opds-spec.org/image/thumbnail" type="image/jpeg"/>
+ <link href="https://tieulgnu.s3.amazonaws.com/cache/bf/79/bf79ce2ecfe6e817c7fda90c509a2a9f.jpg" rel="http://opds-spec.org/image" type="image/jpeg"/>
+ <dcterms:issued>
+  2022
+ </dcterms:issued>
+ <author>
+  <name>
+   Murat Nemet-Nejat
+  </name>
+ </author>
+ <dcterms:publisher>
+  punctum books
+ </dcterms:publisher>
+ <dcterms:language>
+  en
+ </dcterms:language>
+ <content type="html">
+  Turkish Voices, written during 1989/90, is initially based on the Second New Turkish poet Cemal Süreya’s first book of poetry, Üvercinka (Pigeon English), which he wrote during the 1950s, in his twenties. In this book, absolutely stunning erotic passages of uncanny psychological insight, where a nexus between pleasure and power is revealed through the lyric persona of a male seducer, are mixed with cute refrains or half-digested surrealist lines which blur the text, sentimentalizing that insight by turning the poems into general appeals for freedom, completely overlooking the victimization of the female persona, who never speaks.
+
+A work of deconstructive translation, this book offers a reworking of Uvercinka, containing fragments from different poems in the book, sometimes ending in mid-sentence, isolated, spliced together, and sometimes alterated. Fragments from other Turkish poets have been added, splitting the lyric persona, opening up its unity; finally, poems written by the author himself earlier joined the text.
+
+The result is a series of eighty-four fragments where any idea of ownership or originality or source — what poem, that is, comes from whom or where — disappears, is completely blurred. In other words, what starts with the ego and power-centered persona of the male seducer is dissolved, splintered, through a dialectic or critical confrontation with Süreya’s resistant text, into multiple points of view, often of a sufferer, a victim. What one ends up with is a multiplicity of voices, an erotic poem which becomes its own critique of power.
+ </content>
+ <category term="Cemal Süreya">
+ </category>
+ <category term="Deconstruction">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Deconstruction/?order_by=popular&amp;page=0" rel="related" title="Deconstruction" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Language qualifiers">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Language%20qualifiers/?order_by=popular&amp;page=0" rel="related" title="Language qualifiers" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Literature &amp; literary studies">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Literature%20%26%20literary%20studies/?order_by=popular&amp;page=0" rel="related" title="Literature &amp; literary studies" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Poetry">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Poetry/?order_by=popular&amp;page=0" rel="related" title="Poetry" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Poetry by individual poets">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Poetry%20by%20individual%20poets/?order_by=popular&amp;page=0" rel="related" title="Poetry by individual poets" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="thema EDItEUR::2 Language qualifiers::2F Ural-Altaic and Hyperborean languages::2FM Turkic languages::2FMC Turkish">
+ </category>
+ <category term="thema EDItEUR::D Biography, Literature and Literary studies::DC Poetry::DCF Poetry by individual poets">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.thema%20EDItEUR%3A%3AD%20Biography%2C%20Literature%20and%20Literary%20studies%3A%3ADC%20Poetry%3A%3ADCF%20Poetry%20by%20individual%20poets/?order_by=popular&amp;page=0" rel="related" title="thema EDItEUR::D Biography, Literature and Literary studies::DC Poetry::DCF Poetry by individual poets" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Translation">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Translation/?order_by=popular&amp;page=0" rel="related" title="Translation" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Turkic languages">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Turkic%20languages/?order_by=popular&amp;page=0" rel="related" title="Turkic languages" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="turkish">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.turkish/?order_by=popular&amp;page=0" rel="related" title="turkish" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category term="Turkish literature">
+ </category>
+ <category term="Ural-Altaic &amp; Hyperborean languages">
+ </category>
+ <link href="https://unglue.it/api/opds/kw.Ural-Altaic%20%26%20Hyperborean%20languages/?order_by=popular&amp;page=0" rel="related" title="Ural-Altaic &amp; Hyperborean languages" type="application/atom+xml; profile=opds-catalog ;kind=acquisition; charset=utf-8"/>
+ <category label="Adult/Advanced Reader" scheme="http://schema.org/typicalAgeRange" term="18-">
+ </category>
+ <schema:Rating schema:ratingValue="3">
+ </schema:Rating>
+</entry><entry>
+ <title>
+  Creating Standards. Interactions with Arabic script in 12 manuscript cultures
+ </title>
+ <id>
+  https://unglue.it/api/id/work/404224/
+ </id>
+ <updated>
+  2019-07-10T13:39:54
+ </updated>
+ <link dcterms:rights="CC BY-NC-ND" href="https://unglue.it/download_ebook/238986/?feed=opds" rel="http://opds-spec.org/acquisition/open-acce

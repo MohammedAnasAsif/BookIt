@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+
+
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="referrer" content="origin" />
+    <title>unglue.it  Browse Free Books </title>
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@unglueit" />
+    
+    <link type="text/css" rel="stylesheet" href="/static/scss/sitewide4.css" />
+	<link rel="SHORTCUT ICON" href="/favicon.ico">
+    
+<link type="text/css" rel="stylesheet" href="/static/scss/supporter_layout.css" />
+<link type="text/css" rel="stylesheet" href="/static/scss/book_list.css" />
+<link type="text/css" rel="stylesheet" href="/static/scss/book_panel2.css" />
+<link type="text/css" rel="stylesheet" href="/static/scss/lists.css" />
+
+	<script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.cookie.js"></script>
+	
+	<script type="text/javascript" src="/static/js/sitewide1.js?v=1261"></script>
+	<script>
+        function enableSubmit() {
+            document.getElementById("search-button").disabled = false;
+        }
+    </script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    
+    
+	
+	<script>
+    var $j = jQuery.noConflict();
+    $j(document).ready(function(){
+        $j('.show_langs').click(function(){
+            $j(this).next().toggle();
+        });
+    });
+    </script>
+    
+    
+<script type="text/javascript" src="/static/js/wishlist.js"></script>
+<script type="text/javascript" src="/static/js/jquery-ui-1.11.4.min.js"></script>
+<script type="text/javascript" src="/static/js/greenpanel.js"></script>
+<script type="text/javascript" src="/static/js/toggle.js"></script>
+<script type="text/javascript" src="/static/js/hijax_unglued.js"></script>
+<script type="text/javascript" src="/static/js/tabs.js"></script>
+<link rel="related"   
+      href="/api/opds/all/?order_by=popular" 
+      type="application/atom+xml;profile=opds-catalog"  
+      title="OPDS Catalog for Unglue.it Free Books" /> 
+<link rel="related"   
+      href="/api/onix/all/?max=100" 
+      type="text/xml"  
+      title="ONIX feed for Unglue.it Free Books" /> 
+
+</head>
+
+<body>
+<div id="feedback">
+<p><a href="/feedback/" rel="nofollow" referrerpolicy="same-origin" class="nounderline">Feedback</a></p>
+</div>
+
+<div id="about_expandable">
+ 	<div id="about_collapser" class="collapser_x">X</div>
+	<div id="lightbox">
+	<!-- content will be inserted here by hijax.js -->
+	</div>
+</div>
+
+<div id="js-page-wrap">
+    <div id="js-header">
+        <div class="js-main">
+            <div class="js-logo">
+                <a href="/landing/"><img src="/static/images/logo.png" alt="unglue.it" title="unglue.it"  /></a>
+            </div>
+            
+            
+            
+            
+            <form action="/search/" method="get">
+                <div class="js-search">
+                    <div class="js-search-inner">
+                    <div class="inputalign">
+                        <input type="text" id="nowatermark" size="25" class="inputbox" name="q" value="" required>
+                        <input type="submit" class="button" id="search-button" disabled>
+                    </div>
+                    </div>
+                </div>
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAABjEIpid0ow40Ai2" data-appearance="interaction-only" data-callback="enableSubmit"></div>
+            </form>
+            
+            
+            
+            
+                <div class="js-topmenu">
+                    <ul class="menu">
+                        
+                        <li><a class="notbutton hijax js-auth-next" rel="nofollow" href="/accounts/superlogin/" data-next="%2Ffree%2F%3Forder_by%3Dpopular"><span>Sign In</span></a></li>
+                       
+                            
+                                <li  class="last"><a class="btn btn-signup js-auth-next" rel="nofollow" href="/accounts/register/" data-next="%2Ffree%2F%3Forder_by%3Dpopular">Sign Up <i class="fa fa-chevron-right"></i></a></li>
+                            
+                        
+                    </ul>
+                </div>
+            
+            
+        </div>
+    </div>
+
+
+
+
+    
+<div id="locationhash">#1</div>
+
+
+    
+<div id="main-container">
+    <div class="js-main">
+        <div id="js-leftcol">
+            
+<div class="jsmodule">
+    <h3 class="jsmod-title"><span>Select</span></h3>
+    <div class="jsmod-content">
+        <ul class="menu level1">
+
+            <li class="first parent">
+                <span>Show me only...</span>
+                
+                <ul class="menu level2">
+                    
+                        <li class="first"><span>Keyword is ...</span></li>
+                        <li><a href="/free/all/kw.Fiction/?order_by=popular" title="Fiction"><span>Fiction</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/kw.Nonfiction/?order_by=popular" title="Nonfiction"><span>Nonfiction</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/kw.Literature/?order_by=popular" title="Literature"><span>Literature</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/kw.History/?order_by=popular" title="History"><span>History</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/kw.Classic Literature/?order_by=popular" title="Classic Literature"><span>Classic Literature</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/kw.Children&#x27;s literature, English/?order_by=popular" title="Children&#x27;s literature, English"><span>Children&#x27;s literature, English</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/kw.History and criticism/?order_by=popular" title="History and criticism"><span>History and criticism</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/kw.Science/?order_by=popular" title="Science"><span>Science</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/kw.Juvenile fiction/?order_by=popular" title="Juvenile fiction"><span>Juvenile fiction</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/kw.Sociology/?order_by=popular" title="Sociology"><span>Sociology</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/kw.Software/?order_by=popular" title="Software"><span>Software</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/kw.Science Fiction/?order_by=popular" title="Science Fiction"><span>Science Fiction</span></a></li>
+                    
+                </ul>
+                
+                <ul class="menu level2">
+                    
+                        <li class="first"><span>Format is ...</span></li>
+                        <li><a href="/free/all/pdf/?order_by=popular" title="eBooks available in format: pdf"><span>pdf</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/epub/?order_by=popular" title="eBooks available in format: epub"><span>epub</span></a></li>
+                    
+                </ul>
+                
+                <ul class="menu level2">
+                    
+                        <li class="first"><span>License is ...</span></li>
+                        <li><a href="/free/all/by-nc-nd/?order_by=popular" title="license: Creative Commons Attribution-NonCommercial-NoDerivs"><span>CC BY-NC-ND</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/by-nc-sa/?order_by=popular" title="license: Creative Commons Attribution-NonCommercial-ShareAlike"><span>CC BY-NC-SA</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/by-nc/?order_by=popular" title="license: Creative Commons Attribution-NonCommercial"><span>CC BY-NC</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/by-nd/?order_by=popular" title="license: Creative Commons Attribution-NoDerivs"><span>CC BY-ND</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/by-sa/?order_by=popular" title="license: Creative Commons Attribution-ShareAlike"><span>CC BY-SA</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/by/?order_by=popular" title="license: Creative Commons Attribution"><span>CC BY</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/cc0/?order_by=popular" title="license: No Rights Reserved (CC0)"><span>CC0</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/gdfl/?order_by=popular" title="license: GNU Free Documentation License"><span>GFDL</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/lal/?order_by=popular" title="license: Licence Art Libre"><span>LAL</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/opensource/?order_by=popular" title="license: OSI Approved License"><span>OSI</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/pd-us/?order_by=popular" title="license: Public Domain, US"><span>PD-US</span></a></li>
+                    
+                </ul>
+                
+                <ul class="menu level2">
+                    
+                </ul>
+                
+                <ul class="menu level2">
+                    
+                        <li class="first"><span>Included in ...</span></li>
+                        <li><a href="/free/all/doab/?order_by=popular" title="indexed in DOAB"><span>DOAB</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/gtbg/?order_by=popular" title="available in Project Gutenberg"><span>Project Gutenberg</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/-doab/?order_by=popular" title="not in DOAB"><span>not DOAB</span></a></li>
+                    
+                        
+                        <li><a href="/free/all/-gtbg/?order_by=popular" title="not from Project Gutenberg"><span>not Project Gutenberg</span></a></li>
+                    
+                </ul>
+                
+                <ul class="menu level2">
+                    
+                </ul>
+                
+                <ul class="menu level2">
+                    
+                </ul>
+                
+            </li>
+        </ul>
+    </div>
+</div>
+<br />
+
+            
+
+            <div class="jsmodule">
+                <h3 class="jsmod-title"><span>Explore</span></h3>
+                <div class="jsmod-content">
+                    <ul class="menu level1">
+
+                        <li class="first parent">
+                            <span>Show me...</span>
+                            <ul class="menu level2">
+                            
+                                <li><a href="/free/"><span>Free eBooks!</span></a>
+                                
+                                </li>
+                                <li><a href="/campaigns/t4u"><span>Thank for ...</span></a></li>
+                                <li><a href="/lists/popular"><span>Site Favorites</span></a></li>
+                                <li><a href="/lists/new"><span>Latest Favorites</span></a></li>
+                                <!--<li><a href="/lists/recommended"><span>Noteworthy</span></a></li>-->
+                            </ul>
+                        </li>
+                        
+                        <li class="parent">
+                            <span class="show_langs">Languages...</span>
+                            <ul class="menu level3" id="lang_list">
+                                <li class="first active_lang"><a href="?">ALL</a></li>
+                                
+                                <li><a href="?pub_lang=en">English</a></li>
+                                
+                                <li><a href="?pub_lang=fr">français</a></li>
+                                
+                                <li><a href="?pub_lang=es">español</a></li>
+                                
+                                <li><a href="?pub_lang=de">Deutsch</a></li>
+                                
+                                <li><a href="?pub_lang=el">Ελληνικά</a></li>
+                                
+                                <li><a href="?pub_lang=pt">Português</a></li>
+                                
+                                <li><a href="?pub_lang=it">italiano</a></li>
+                                
+                                <li><a href="?pub_lang=ru">Русский</a></li>
+                                
+                                <li><a href="?pub_lang=cs">česky</a></li>
+                                
+                                <li><a href="?pub_lang=ja">日本語</a></li>
+                                
+                                <li><a href="?pub_lang=zh">中文</a></li>
+                                
+                                <li><a href="?pub_lang=nl">Nederlands</a></li>
+                                
+                                <li><a href="?pub_lang=ut">Üttish</a></li>
+                                
+                                <li><a href="?pub_lang=ar">العربيّة</a></li>
+                                
+                                <li><a href="?pub_lang=la">LATINA</a></li>
+                                
+                                <li><a href="?pub_lang=id">Bahasa Indonesia</a></li>
+                                
+                                <li><a href="?pub_lang=ca">català</a></li>
+                                
+                                <li><a href="?pub_lang=fa">فارسی</a></li>
+                                
+                                <li><a href="?pub_lang=sv">svenska</a></li>
+                                
+                                <li><a href="?pub_lang=sl">Slovenščina</a></li>
+                                
+                                <li><a href="?pub_lang=ko">한국어</a></li>
+                                
+                                <li><a href="?pub_lang=tr">Türkçe</a></li>
+                                
+                            </ul>
+                        </li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="js-maincol-fr">
+        <div class="js-maincol-inner">
+            <div id="facet_block">
+                
+                    <div>
+        <p>
+        
+        All these books are free to read: either they're distributed with a free license, or they're in the public domain.
+        
+        </p>
+</div>
+                
+            </div>
+            <div id="content-block">
+                <div class="content-block-heading unglued" id="tabs">
+                    <ul class="book-list-view">
+                        <li>View As:</li>
+                        <li class="view-list">
+                            <a href="#" id="toggle-list" class="chosen" >
+                            <img src="/static/images/booklist/view-list.png" alt="view list" title="view list" height="21" width="24" />
+                            </a>
+                        </li>
+                        <li class="view-list">
+                            <a href="#" id="toggle-panel">
+                            <img src="/static/images/booklist/view-icon.png" alt="view icon" title="view icon" height="22" width="22" />
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="book-list-view">
+                        <li>Sort by:</li>
+                        <li class="view-list"><a class="chosen" href="/free/all/?order_by=popular">popular</a></li>
+                        <li class="view-list"><a href="/free/all/?order_by=newest">newest</a></li>
+                        <li class="view-list"><a href="/free/all/?order_by=title">title</a></li>
+                    </ul>
+                </div>
+                <div id="content-block-content">
+                    <div id="books-go-here">
+                        
+                        
+                        
+                        	
+                        
+                        <div class="row1">
+                            
+
+
+
+
+
+
+<div class="thewholebook listview tabs tabs-1">
+<div class="listview book-list">
+    <div class="listview panelback side2">
+    	
+		<div class="greenpanel2">
+        
+            
+             
+                <div class="greenpanel_top">
+                    
+                    <div class="white_text"> 
+                        <p><a href="/work/76348/">So You Want to Be a Librarian</a></p>
+                        <p>Lauren Pressley</p>
+                    </div>
+                    
+                    <div class="moreinfo">
+                            <a href="/work/76348/" target="_top">More Info</a> 
+                    </div>
+                    
+                    <div class="unglued_white">
+                        
+                            <b>UNGLUED!</b>
+                            <p><b>On:</b> Dec 31, 2012</p>
+                            <p><b>Raised:</b> 2,682</p>
+                        
+                    </div>  
+                    
+                </div>
+                <div class="add_button">
+                    
+			
+				<div class="moreinfo create-account">
+				<span title="/work/76348/">Login to Fave</span>
+				</div>
+			
+
+                </div>		
+                <div class="white_text bottom_button" >
+                
+                    <a href="/work/76348/download/" class="hijax"><span class="read_itbutton button_text"><span>Read it Now</span></span></a>
+                
+                </div>
+            
+		
+				
+
+		</div>
+    </div>
+    
+    
+    <div class="listview panelfront side1 book-thumb">
+         <a href="/work/76348/" target="_top"><img src="https://tieulgnu.s3.amazonaws.com/cache/60/54/6054f6ad467e45646e2ffa5be0f9045b.jpg" alt="Book cover" title="book cover" /></a>
+    </div>
+    <div class="listview panelfront side1 book-name">
+        <div class="title">
+            <a href="/work/76348/">So You Want to Be a Librarian</a>
+        </div>
+        <div class="listview author">Lauren Pressley</div>
+    </div>
+    
+    
+    
+    
+        <div class="listview panelfront side1 create-account">
+            <span title="/work/76348/">Login to Fave</span>
+        </div>
+    
+    
+    <div class="listview panelfront side1 booklist-status">
+		
+		    
+		        
+    
+        <a href="/work/76348/?tab=3" class="nobold"><span class="rounded"><span class="grey"><span class="">Faved by&nbsp;</span>811</span></span></a>
+    
+
+		    
+		
+    </div>
+    <div class="listview panelfront side1 icons">
+    
+    	
+        
+            <a href="/work/76348/download/" class="hijax" title="Download this work"><div class="read_itbutton"><span>Read it Now</span></div></a>
+        
+        
+    </div>
+    <div class="listview panelfront side1 ebooks">
+    </div>
+</div>
+</div>
+
+                        </div>
+                        
+                        
+                        
+                        	
+                        
+                        <div class="row2">
+                            
+
+
+
+
+
+
+<div class="thewholebook listview tabs tabs-1">
+<div class="listview book-list">
+    <div class="listview panelback side2">
+    	
+		<div class="greenpanel2">
+        
+            
+             
+                <div class="greenpanel_top">
+                    
+                    <div class="white_text"> 
+                        <p><a href="/work/81835/">Oral Literature in Africa</a></p>
+                        <p>Ruth Finnegan (Author) and Mark Turin (author of introduction)</p>
+                    </div>
+                    
+                    <div class="moreinfo">
+                            <a href="/work/81835/" target="_top">More Info</a> 
+                    </div>
+                    
+                    <div class="unglued_white">
+                        
+                            <b>UNGLUED!</b>
+                            <p><b>On:</b> Jun 21, 2012</p>
+                            <p><b>Raised:</b> 7,743</p>
+                        
+                    </div>  
+                    
+                </div>
+                <div class="add_button">
+                    
+			
+				<div class="moreinfo create-account">
+				<span title="/work/81835/">Login to Fave</span>
+				</div>
+			
+
+                </div>		
+                <div class="white_text bottom_button" >
+                
+                    <a href="/work/81835/download/" class="hijax"><span class="read_itbutton button_text"><span>Read it Now</span></span></a>
+                
+                </div>
+            
+		
+				
+
+		</div>
+    </div>
+    
+    
+    <div class="listview panelfront side1 book-thumb">
+         <a href="/work/81835/" target="_top"><img src="https://tieulgnu.s3.amazonaws.com/cache/20/41/20413852c99ed66eda27a33c4a08c4c4.jpg" alt="Book cover" title="book cover" /></a>
+    </div>
+    <div class="listview panelfront side1 book-name">
+        <div class="title">
+            <a href="/work/81835/">Oral Literature in Africa</a>
+        </div>
+        <div class="listview author">Ruth Finnegan (Author) and Mark Turin (author of introduction)</div>
+    </div>
+    
+    
+    
+    
+        <div class="listview panelfront side1 create-account">
+            <span title="/work/81835/">Login to Fave</span>
+        </div>
+    
+    
+    <div class="listview panelfront side1 booklist-status">
+		
+		    
+		        
+    
+        <a href="/work/81835/?tab=3" class="nobold"><span class="rounded"><span class="grey"><span class="">Faved by&nbsp;</span>346</span></span></a>
+    
+
+		    
+		
+    </div>
+    <div class="listview panelfront side1 icons">
+    
+    	
+        
+            <a href="/work/81835/download/" class="hijax" title="Download this work"><div class="read_itbutton"><span>Read it Now</span></div></a>
+        
+        
+    </div>
+    <div class="listview panelfront side1 ebooks">
+    </div>
+</div>
+</div>
+
+                        </div>
+                        
+                        
+                        
+                        	
+                        
+                        <div class="row1">
+                            
+
+
+
+
+
+
+<div class="thewholebook listview tabs tabs-1">
+<div class="listview book-list">
+    <div class="listview panelback side2">
+    	
+		<div class="greenpanel2">
+        
+			<div class="greenpanel_top">
+                
+                <div class="white_text"> 
+                    <p><a href="/work/7775/">Warbreaker</a></p>
+                    <p>Brandon Sanderson</p>
+                </div>
+                
+                <div class="moreinfo">
+                        <a href="/work/7775/" target="_top">More Info</a> 
+                </div>
+				<div class="unglued_white">
+                
+					<b>AVAILABLE!</b>
+                                        
+                <div class="add_button">
+                
+			
+				<div class="moreinfo create-account">
+				<span title="/work/7775/">Login to Fave</span>
+				</div>
+			
+
+                </div>		
+                </div>
+			</div>
+            <div class="white_text bottom_button">
+                
+                    <a href="/work/7775/download/" class="hijax"><span class="read_itbutton button_text"><span>Read it Now</span></span></a>
+                                        
+            </div>                    
+
+		
+				
+
+		</div>
+    </div>
+    
+    
+    <div class="listview panelfront side1 book-thumb">
+         <a href="/work/7775/" target="_top"><img src="https://encrypted.google.com/books?id=Prj1iTmPJn4C&amp;printsec=frontcover&amp;img=1&amp;zoom=1" alt="Book cover" title="book cover" /></a>
+    </div>
+    <div class="listview panelfront side1 book-name">
+        <div class="title">
+            <a href="/work/7775/">Warbreaker</a>
+        </div>
+        <div class="listview author">Brandon Sanderson</div>
+    </div>
+    
+    
+    
+    
+        <div class="listview panelfront side1 create-account">
+            <span title="/work/7775/">Login to Fave</span>
+        </div>
+    
+    
+    <div class="listview panelfront side1 booklist-status">
+		
+		    
+		        
+    
+        <a href="/work/7775/?tab=3" class="nobold"><span class="rounded"><span class="grey"><span class="">Faved by&nbsp;</span>252</span></span></a>
+    
+
+		    
+		
+    </div>
+    <div class="listview panelfront side1 icons">
+    
+    	
+        
+            <a href="/work/7775/download/" class="hijax" title="Download this work"><div class="read_itbutton"><span>Read it Now</span></div></a>
+        
+        
+    </div>
+    <div class="listview panelfront side1 ebooks">
+    </div>
+</div>
+</div>
+
+                        </div>
+                        
+                        
+                        
+                        	
+                        
+                        <div class="row2">
+                            
+
+
+
+
+
+
+<div class="thewholebook listview tabs tabs-1">
+<div class="listview book-list">
+    <div class="listview panelback side2">
+    	
+		<div class="greenpanel2">
+        
+            
+            
+                <div class="greenpanel_top">
+                    
+                    <div class="white_text"> 
+                        <p><a href="/work/417357/">Zero Sum Game</a></p>
+                        <p>S. L. Huang</p>
+                    </div>
+                    
+                    <div class="moreinfo">
+                            <a href="/work/417357/" target="_top">More Info</a> 
+                    </div>
+                    <div class="unglued_white">
+                        
+                            <p>This campaign has been suspended.</p><br /><p>See the <a href="/faq/">FAQ</a> for details.</p>
+                        
+                    
+			
+				<div class="moreinfo create-account">
+				<span title="/work/417357/">Login to Fave</span>
+				</div>
+			
+                 
+                    </div>   
+                </div>
+                <div class="white_text bottom_button">
+                    
+    <a href="/work/417357/?tab=3" class="nobold"><span class="rounded"><span class="grey"><span class="">Thanked by&nbsp;</span>9</span></span></a>
+	
+                </div>		
+            
+		
+				
+
+		</div>
+    </div>
+    
+    
+    <div class="listview panelfront side1 book-thumb">
+         <a href="/work/417357/" target="_top"><img src="https://encrypted.google.com/books?id=rW7ErQEACAAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1" alt="Book cover" title="book cover" /></a>
+    </div>
+    <div class="listview panelfront side1 book-name">
+        <div class="title">
+            <a href="/work/417357/">Zero Sum Game</a>
+        </div>
+        <div class="listview author">S. L. Huang</div>
+    </div>
+    
+    
+    
+    
+        <div class="listview panelfront side1 create-account">
+            <span title="/work/417357/">Login to Fave</span>
+        </div>
+    
+    
+    <div class="listview panelfront side1 booklist-status">
+		
+		    
+		        
+    <a href="/work/417357/?tab=3" class="nobold"><span class="rounded"><span class="grey"><span class="">Thanked by&nbsp;</span>9</span></span></a>
+
+		    
+		
+    </div>
+    <div class="listview panelfront side1 icons">
+    
+    	
+        
+            <a href="/work/417357/download/" class="hijax" title="Download this work"><div class="read_itbutton"><span>Read it Now</span></div></a>
+        
+        
+    </div>
+    <div class="listview panelfront side1 ebooks">
+    </div>
+</div>
+</div>
+
+                        </div>
+                        
+                        
+                        
+                        	
+                        
+                        <div class="row1">
+                            
+
+
+
+
+
+
+<div class="thewholebook listview tabs tabs-1">
+<div class="listview book-list">
+    <div class="listview panelback side2">
+    	
+		<div class="greenpanel2">
+        
+            
+            
+                <div class="greenpanel_top">
+                    
+                    <div class="white_text"> 
+                        <p><a href="/work/136615/">Biodigital</a></p>
+                        <p>John Sundman</p>
+                    </div>
+                    
+                    <div class="moreinfo">
+                            <a href="/work/136615/" target="_top">More Info</a> 
+                    </div>
+
+                    <div class="unglued_white">
+                        
+                            
+                                <b>SAY THANKS!</b>
+                                <p><b>$52</b> of thanks</p>
+                                <p> from <b>6</b> ungluers</p>
+                                <p> and <b>5</b> others</p>
+                            
+                        
+                    </div>                    
+                </div>
+                
+                    <div class="white_text bottom_button">
+                        
+			
+				<div class="moreinfo create-account">
+				<span title="/work/136615/">Login to Fave</span>
+				</div>
+			
+	
+                    </div>		
+                
+
+            
+		
+				
+
+		</div>
+    </div>
+    
+    
+    <div class="listview panelfront side1 book-thumb">
+         <a href="/work/136615/" target="_top"><img src="https://tieulgnu.s3.amazonaws.com/cache/bf/93/bf9369c960ecc7206ec2045c90457b6a.jpg" alt="Book cover" title="book cover" /></a>
+    </div>
+    <div class="listview panelfront side1 book-name">
+        <div class="title">
+            <a href="/work/136615/">Biodigital</a>
+        </div>
+        <div class="listview author">John Sundman</div>
+    </div>
+    
+    
+    
+    
+        <div class="listview panelfront side1 create-account">
+            <span title="/work/136615/">Login to Fave</span>
+        </div>
+    
+    
+    <div class="listview panelfront side1 booklist-status">
+		
+		    
+		    
+		    
+		        
+    <a href="/work/136615/?tab=3" class="nobold"><span class="rounded"><span class="grey"><span class="">Thanked by&nbsp;</span>6</span></span></a>
+
+		    
+		
+    </div>
+    <div class="listview panelfront side1 icons">
+    
+    	
+        
+            <a href="/work/136615/download/" class="hijax" title="Download this work"><div class="read_itbutton"><span>Read it Now</span></div></a>
+        
+        
+    </div>
+    <div class="listview panelfront side1 ebooks">
+    </div>
+</div>
+</div>
+
+                        </div>
+                        
+                        
+                        
+                        	
+                        
+                        <div class="row2">
+                            
+
+
+
+
+
+
+<div class="thewholebook listview tabs tabs-1">
+<div class="listview book-list">
+    <div class="listview panelback side2">
+    	
+		<div class="greenpanel2">
+        
+            
+            
+                <div class="greenpanel_top">
+                    
+                    <div class="white_text"> 
+                        <p><a href="/work/130413/">23rd Century Romance</a></p>
+                        <p>Jake Hartnell</p>
+                    </div>
+                    
+                    <div class="moreinfo">
+                            <a href="/work/130413/" target="_top">More Info</a> 
+                    </div>
+
+                    <div class="unglued_white">
+                        
+                            
+                                <b>SAY THANKS!</b>
+                                <p><b>$51</b> of thanks</p>
+                                <p> from <b>6</b> ungluers</p>
+                                <p> and <b>5</b> others</p>
+                            
+                        
+                    </div>                    
+                </div>
+                
+                    <div class="white_text bottom_button">
+                        
+			
+				<div class="moreinfo create-account">
+				<span title="/work/130413/">Login to Fave</span>
+				</div>
+			
+	
+                    </div>		
+                
+
+            
+		
+				
+
+		</div>
+    </div>
+    
+    
+    <div class="listview panelfront side1 book-thumb">
+         <a href="/work/130413/" target="_top"><img src="https://tieulgnu.s3.amazonaws.com/cache/9f/27/9f27b9c3c7a9a104df1bb0d4c6c1982b.jpg" alt="Book cover" title="book cover" /></a>
+    </div>
+    <div class="listview panelfront side1 book-name">
+        <div class="title">
+            <a href="/work/130413/">23rd Century Romance</a>
+        </div>
+        <div class="listview author">Jake Hartnell</div>
+    </div>
+    
+    
+    
+    
+        <div class="listview panelfront side1 create-account">
+            <span title="/work/130413/">Login to Fave</span>
+        </div>
+    
+    
+    <div class="listview panelfront side1 booklist-status">
+		
+		    
+		    
+		    
+		        
+    <a href="/work/130413/?tab=3" class="nobold"><span class="rounded"><span class="grey"><span class="">Thanked by&nbsp;</span>6</span></span></a>
+
+		    
+		
+    </div>
+    <div class="listview panelfront side1 icons">
+    
+    	
+        
+            <a href="/work/130413/download/" class="hijax" title="Download this work"><div class="read_itbutton"><span>Read it Now</span></div></a>
+        
+        
+    </div>
+    <div class="listview panelfront side1 ebooks">
+    </div>
+</div>
+</div>
+
+                        </div>
+                        
+                        
+                        
+                        	
+                        
+                        <div class="row1">
+                            
+
+
+
+
+
+
+<div class="thewholebook listview tabs tabs-1">
+<div class="listview book-list">
+    <div class="listview panelback side2">
+    	
+		<div class="greenpanel2">
+        
+            
+             
+                <div class="greenpanel_top">
+                    
+                    <div class="white_text"> 
+                        <p><a href="/work/76509/">Flatland</a></p>
+                        <p>Edwin A. Abbott</p>
+                    </div>
+                    
+                    <div class="moreinfo">
+                            <a href="/work/76509/" target="_top">More Info</a> 
+                    </div>
+                    
+                    <div class="unglued_white">
+                        
+                            <b>UNGLUED!</b>
+                            <p><b>On:</b> Nov 06, 2018</p>
+                            <p><b>Raised:</b> 37</p>
+                        
+                    </div>  
+                    
+                </div>
+                <div class="add_button">
+                    
+			
+				<div class="moreinfo create-account">
+				<span title="/work/76509/">Login to Fave</span>
+				</div>
+			
+
+                </div>		
+                <div class="white_text bottom_button" >
+                
+                    <a href="/work/76509/download/" class="hijax"><span class="read_itbutton button_text"><span>Read it Now</span></span></a>
+                
+                </div>
+            
+		
+				
+
+		</div>
+    </div>
+    
+    
+    <div class="listview panelfront side1 book-thumb">
+         <a href="/work/76509/" target="_top"><img src="https://tieulgnu.s3.amazonaws.com/cache/64/ce/64ceeae76158cfe02f087b6ea999e51a.jpg" alt="Book cover" title="book cover" /></a>
+    </div>
+    <div class="listview panelfront side1 book-name">
+        <div class="title">
+            <a href="/work/76509/">Flatland</a>
+        </div>
+        <div class="listview author">Edwin A. Abbott</div>
+    </div>
+    
+    
+    
+    
+        <div class="listview panelfront side1 create-account">
+            <span title="/work/76509/">Login to Fave</span>
+        </div>
+    
+    
+    <div class="listview panelfront side1 booklist-status">
+		
+		    
+		        
+    
+        <a href="/work/76509/?tab=3" class="nobold"><span class="rounded"><span class="grey"><span class="">Faved by&nbsp;</span>153</span></span></a>
+    
+
+		    
+		
+    </div>
+    <div class="listview panelfront side1 icons">
+    
+    	
+        
+            <a href="/work/76509/download/" class="hijax" title="Download this work"><div class="read_itbutton"><span>Read it Now</span></div></a>
+        
+        
+    </div>
+    <div class="listview panelfront side1 ebooks">
+    </div>
+</div>
+</div>
+
+                        </div>
+                        
+                        
+                        
+                        	
+                        
+                        <div class="row2">
+                            
+
+
+
+
+
+
+<div class="thewholebook listview tabs tabs-1">
+<div class="listview book-list">
+    <div class="listview panelback side2">
+    	
+		<div class="greenpanel2">
+        
+            
+             
+                <div class="greenpanel_top">
+                    
+                    <div class="white_text"> 
+                        <p><a href="/work/117697/">Feeding the City</a></p>
+                        <p>Sara Roncaglia et al.</p>
+                    </div>
+                    
+                    <div class="moreinfo">
+                            <a href="/work/117697/" target="_top">More Info</a> 
+                    </div>
+                    
+                    <div class="unglued_white">
+                        
+                            <b>UNGLUED!</b>
+                            <p><b>On:</b> May 31, 2013</p>
+                            <p><b>Raised:</b> 7,515</p>
+                        
+                    </div>  
+                    
+                </div>
+                <div class="add_button">
+                    
+			
+				<div class="moreinfo create-account">
+				<span title="/work/117697/">Login to Fave</span>
+				</div>
+			
+
+                </div>		
+                <div class="white_text bottom_button" >
+                
+                    <a href="/work/117697/download/" class="hijax"><span class="read_itbutton button_text"><span>Read it Now</span></span></a>
+                
+                </div>
+            
+		
+				
+
+		</div>
+    </div>
+    
+    
+    <div class="listview panelfront side1 book-thumb">
+         <a href="/work/117697/" target="_top"><img src="https://tieulgnu.s3.amazonaws.com/cache/58/37/5837ffd68d767a483491735a2c9232d5.jpg" alt="Book cover" title="book cover" /></a>
+    </div>
+    <div class="listview panelfront side1 book-name">
+        <div class="title">
+            <a href="/work/117697/">Feeding the City</a>
+        </div>
+        <div class="listview author">Sara Roncaglia et al.</div>
+    </div>
+    
+    
+    
+    
+        <div class="listview panelfront side1 create-account">
+            <span title="/work/117697/">Login to Fave</span>
+        </div>
+    
+    
+    <div class="listview panelfront side1 booklist-status">
+		
+		    
+		        
+    
+        <a href="/work/117697/?tab=3" class="nobold"><span class="rounded"><span class="grey"><span class="">Faved by&nbsp;</span>147</span></span></a>
+    
+
+		    
+		
+    </div>
+    <div class="listview panelfront side1 icons">
+    
+    	
+        
+            <a href="/work/117697/download/" class="hijax" title="Download this work"><div class="read_itbutton"><span>Read it Now</span></div></a>
+        
+        
+    </div>
+    <div class="listview panelfront side1 ebooks">
+    </div>
+</div>
+</div>
+
+                        </div>
+                        
+        

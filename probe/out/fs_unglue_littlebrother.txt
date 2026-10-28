@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="referrer" content="origin" />
+    <title>unglue.it &#151; 
+    
+        Help us make  La Ballade du café triste a Free eBook!
+    
+</title>
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@unglueit" />
+    
+
+<meta property="og:title" content="La Ballade du café triste" />
+<meta property="og:type" content="book" />
+<meta property="og:url" content="https://unglue.it/work/82034/" />
+<meta property="og:image" content="https://encrypted.google.com/books?id=0RDOPQAACAAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1" />
+<meta property="og:site_name" content="Unglue.it" />
+<meta property="book:author" content="Carson McCullers" />
+<meta property="book:isbn" content="9782253035893" />
+
+
+    <link type="text/css" rel="stylesheet" href="/static/scss/sitewide4.css" />
+	<link rel="SHORTCUT ICON" href="/favicon.ico">
+    
+<link type="text/css" rel="stylesheet" href="/static/scss/campaign2.css"  />
+
+
+
+	<script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.cookie.js"></script>
+	
+	<script type="text/javascript" src="/static/js/sitewide1.js?v=1261"></script>
+	<script>
+        function enableSubmit() {
+            document.getElementById("search-button").disabled = false;
+        }
+    </script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    
+<script type="text/javascript" src="/static/js/jquery-ui-1.11.4.min.js"></script>
+<script type="text/javascript" src="/static/js/wishlist.js"></script>
+<script type="text/javascript" src="/static/js/tabs4.js"></script>
+<script type="text/javascript" src="/static/js/widgets.js"></script>
+<script type="text/javascript" src="/static/js/counter.js"></script>
+<script type="text/javascript" src="/static/js/embed.js"></script>
+
+
+
+	
+    
+    
+</head>
+
+<body>
+<div id="feedback">
+<p><a href="/feedback/" rel="nofollow" referrerpolicy="same-origin" class="nounderline">Feedback</a></p>
+</div>
+
+<div id="about_expandable">
+ 	<div id="about_collapser" class="collapser_x">X</div>
+	<div id="lightbox">
+	<!-- content will be inserted here by hijax.js -->
+	</div>
+</div>
+
+<div id="js-page-wrap">
+    <div id="js-header">
+        <div class="js-main">
+            <div class="js-logo">
+                <a href="/landing/"><img src="/static/images/logo.png" alt="unglue.it" title="unglue.it"  /></a>
+            </div>
+            
+            
+            
+            
+            <form action="/search/" method="get">
+                <div class="js-search">
+                    <div class="js-search-inner">
+                    <div class="inputalign">
+                        <input type="text" id="nowatermark" size="25" class="inputbox" name="q" value="" required>
+                        <input type="submit" class="button" id="search-button" disabled>
+                    </div>
+                    </div>
+                </div>
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAABjEIpid0ow40Ai2" data-appearance="interaction-only" data-callback="enableSubmit"></div>
+            </form>
+            
+            
+            
+            
+                <div class="js-topmenu">
+                    <ul class="menu">
+                        
+                        <li><a class="notbutton hijax js-auth-next" rel="nofollow" href="/accounts/superlogin/" data-next="%2Fwork%2F82034%2F"><span>Sign In</span></a></li>
+                       
+                            
+                                <li  class="last"><a class="btn btn-signup js-auth-next" rel="nofollow" href="/accounts/register/" data-next="%2Fwork%2F82034%2F">Sign Up <i class="fa fa-chevron-right"></i></a></li>
+                            
+                        
+                    </ul>
+                </div>
+            
+            
+        </div>
+    </div>
+
+
+
+
+    
+
+    
+
+
+      
+
+
+ 
+
+    <div id="main-container" itemscope itemtype="http://schema.org/Book">
+        <div class="js-main">
+            <div id="js-leftcol">
+                
+
+            <div class="jsmodule">
+                <h3 class="jsmod-title"><span>Explore</span></h3>
+                <div class="jsmod-content">
+                    <ul class="menu level1">
+
+                        <li class="first parent">
+                            <span>Show me...</span>
+                            <ul class="menu level2">
+                            
+                                <li><a href="/free/"><span>Free eBooks!</span></a>
+                                
+                                    <ul class="menu level3">
+                                        
+                                        
+                                        
+                                        
+                                    </ul>
+                                
+                                </li>
+                                <li><a href="/campaigns/t4u"><span>Thank for ...</span></a></li>
+                                <li><a href="/lists/popular"><span>Site Favorites</span></a></li>
+                                <li><a href="/lists/new"><span>Latest Favorites</span></a></li>
+                                <!--<li><a href="/lists/recommended"><span>Noteworthy</span></a></li>-->
+                            </ul>
+                        </li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+
+            </div>
+            <div id="js-maincol">
+                <div class="js-maincol-inner">
+                    <div id="content-block">
+                        <div class="book-detail">
+                            
+                            
+                                <div class="book-cover" id="book-detail-img">
+                                    <a href="https://books.google.com/books?id=0RDOPQAACAAJ">
+                                    <img src="https://encrypted.google.com/books?id=0RDOPQAACAAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1" alt="Find La Ballade du café triste at Google Books" title="Find La Ballade du café triste at Google Books" width="131" height="192" /></a>
+                                </div>
+                            
+                            
+                            <div class="book-detail-info">
+                                
+                                <div class="layout">
+                                    <h2 class="book-name" itemprop="name">La Ballade du café triste</h2>
+                                <div>
+                                        <div class="pubinfo">
+                                            <h3 class="book-author">
+                                            <span  itemprop="author"><a href="/search/?q=Carson%20McCullers&amp;ty=au" >Carson McCullers</a></span>
+                                            </h3>
+                                            <h3 class="book-year"> 
+                                                
+                                                <span itemprop="datePublished">1985-2001</span>
+                                                <span itemprop="inLanguage" style="display:none">fr</span>
+                                                <span itemprop="typicalAgeRange" style="display:none"></span>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                    
+                                
+                                    <div class="pledged-info">
+                                        
+                                            0 Ungluers have
+                                         Faved this Work
+                                    </div>
+                                
+                                <div class="find-book">
+                                    <label>Learn more at...</label>
+                                    <div class="find-link">
+                                        
+                                            <a id="find-google" href="https://books.google.com/books?id=0RDOPQAACAAJ"><img src="/static/images/supporter_icons/googlebooks_square.png" title="Find on Google Books" alt="Find on Google Books" /></a>
+                                        
+                                        
+                                        <a rel="nofollow" class="find-openlibrary" href="/work/82034/openlibrary/"><img src="/static/images/supporter_icons/openlibrary_square.png" title="Find on OpenLibrary" alt="Find on OpenLibrary" /></a>
+                                        <a rel="nofollow" class="find-librarything" href="/work/82034/librarything/"><img src="/static/images/supporter_icons/librarything_square.png" title="Find on LibraryThing" alt="Find on LibraryThing" /></a>
+                                    </div>
+                                </div>    
+                                                        
+                                <div class="btn_wishlist" id="wishlist_actions">
+                                    
+                                        <div class="create-account">
+                                            <span title="/work/82034/">Login to Fave</span>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="content-block-heading" id="tabs">
+                            <ul class="tabs">
+                                <li class="tabs1 active"><a href="#">Description</a></li>
+                                <li class="tabs3 " id="supporters"><a href="#">Ungluers </a></li>
+                                <li class="tabs4 "><a href="#">More...</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div id="content-block-content">
+                            <div id="tabs-1" class="tabs active">
+                                <div class="tabs-content">
+                                    <div  itemprop="description">
+                                     
+                                        
+                                    
+                                    </div>
+                                    <div>
+                                    
+                                        
+                                        <p>
+                                        This work is a translation of <a href="/work/82030/">The Ballad Of The Sad Cafe</a>.
+                                        </p>
+                                        
+                                    
+                                    
+                                    
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tabs-3" class="tabs ">
+                                <div class="tabs-content">
+                                    
+                                        
+                                    
+                                </div>
+                            </div>
+                            <div id="tabs-4" class="tabs ">
+                                <div class="tabs-content">
+                                    
+                                        
+                                    
+                                        
+                                        
+                                            <h4> Rights Information </h4>
+                                            
+                                                
+                                                    
+                                                        
+                                                            Are you the author or publisher of this work? If so, you can claim it as yours by <a href="/rightsholders/">registering as an Unglue.it rights holder</a>.
+                                                        
+                                                    
+                                                
+                                            
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    
+                                    
+                                        
+                                    
+                                    <h4>Editions</h4>
+                                    
+                                    
+                                    
+                                    
+                                         
+                                            
+
+<div class="clearfix">
+    <div class="editions">
+            
+            <div class="book-cover">
+                <img src="https://encrypted.google.com/books?id=0RDOPQAACAAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1" title="edition cover" alt="edition cover" />
+            </div>
+        <div class="metadata" id="edition_134235">
+            
+            
+                Contributors: 
+                
+                    Carson McCullers, 
+                
+                <br />
+            
+            
+            
+            
+                Publisher: <a href="/pid/all/235">LGF/Le Livre de Poche</a><br />
+            
+            
+                Published: 1985<br />
+            
+            
+                ISBN: <span itemprop="isbn">9782253035893</span><br />
+            
+            
+            
+            
+                
+                
+                
+                    See <a href="https://encrypted.google.com/books?id=0RDOPQAACAAJ">this edition on Google Books</a><br />
+                 
+              
+            
+        </div>
+
+    </div>
+</div>
+                                        
+                                        
+                                            
+                                                
+                                                    
+
+<div class="clearfix">
+    <div class="editions">
+            
+            <div class="book-cover">
+                <img src="https://encrypted.google.com/books?id=ReZHDwAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1" title="edition cover" alt="edition cover" />
+            </div>
+        <div class="metadata" id="edition_1889468">
+            
+                Title: La ballade du café triste et autres nouvelles<br />
+            
+            
+                Contributors: 
+                
+                    Carson McCullers, 
+                
+                <br />
+            
+            
+            
+            
+                Publisher: <a href="/pid/all/11091">Stock</a><br />
+            
+            
+                Published: 2017-05-17<br />
+            
+            
+                ISBN: <span itemprop="isbn">9782234083943</span><br />
+            
+            
+            
+            
+                
+                
+                
+                    See <a href="https://encrypted.google.com/books?id=ReZHDwAAQBAJ">this edition on Google Books</a><br />
+                 
+              
+            
+        </div>
+
+    </div>
+</div>
+                                                
+                                            
+                                                
+                                                    
+
+<div class="clearfix">
+    <div class="editions">
+            
+            <div class="book-cover">
+                <img src="https://encrypted.google.com/books?id=VNSVswEACAAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1" title="edition cover" alt="edition cover" />
+            </div>
+        <div class="metadata" id="edition_1889478">
+            
+                Title: La ballade du café triste<br />
+            
+            
+                Contributors: 
+                
+                    Carson McCullers, 
+                
+                <br />
+            
+            
+            
+            
+            
+                Published: 2017-05-17<br />
+            
+            
+                ISBN: <span itemprop="isbn">9782234083493</span><br />
+            
+            
+            
+            
+                
+                
+                
+                    See <a href="https://encrypted.google.com/books?id=VNSVswEACAAJ">this edition on Google Books</a><br />
+                 
+              
+            
+        </div>
+
+    </div>
+</div>
+                                                
+                                            
+                                                
+                                                    
+
+<div class="clearfix">
+    <div class="editions">
+            
+            <div class="book-cover">
+                <img src="https://encrypted.google.com/books?id=kzDmHAAACAAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1" title="edition cover" alt="edition cover" />
+            </div>
+        <div class="metadata" id="edition_134258">
+            
+                Title: La ballade du café triste<br />
+            
+            
+                Contributors: 
+                
+                    Carson McCullers, 
+                
+                <br />
+            
+            
+            
+            
+            
+                Published: 2001<br />
+            
+            
+                ISBN: <span itemprop="isbn">9782234053427</span><br />
+            
+            
+            
+            
+                
+                
+                
+                    See <a href="https://encrypted.google.com/books?id=kzDmHAAACAAJ">this edition on Google Books</a><br />
+                 
+              
+            
+        </div>
+
+    </div>
+</div>
+                                                
+                                            
+                                                
+                                            
+                                        
+                                        <div><a href="/work/82034/editions/">All editions for this work.</a></div>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+            <div id="js-rightcol">
+            
+<div class="clearfix">
+    
+</div>
+<br />
+<div class="js-rightcol-pad rounded">
+    
+    <div class="jsmodule">
+        <h3 class="jsmod-title"><span>Share</span></h3>
+        <div class="jsmod-content">
+            <ul class="social menu">
+                <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Funglue.it%2Fwork%2F82034%2F"><li class="facebook first"><span>Facebook</span></li></a>
+                
+                    
+                        <a href="https://toot.kytta.dev/?text=https%3A%2F%2Funglue.it%2Fwork%2F82034%2F%20I%27m%20ungluing%20La%20Ballade%20du%20caf%C3%A9%20triste%20at%20%40unglueit.%20Join%20me%21"><li class="mastodon"><span>Mastodon</span></li></a>
+                    
+                
+                
+                <a href="#" id="embed"><li class="embed"><span>Embed</span></li></a>
+            </ul>
+            <div id="widgetcode">
+                Copy/paste this into your site:<br /><textarea rows="7" cols="22">&lt;iframe src="https://unglue.it/api/widget/82034/" width="152" height="325" frameborder="0"&gt;&lt;/iframe&gt;</textarea></div>
+            </div>
+    </div>
+    
+</div>
+
+
+            </div>
+        </div>
+    </div>
+
+ 
+
+</div>
+
+<div id="footer">
+  <div class="js-main">
+    <div class="column">
+        <span>About Unglue.it</span>
+        <ul>
+            <li><a href="/about/main/" class="hijax">Concept</a></li>
+            <li><a href="/press/">Press</a></li>
+            <li><a href="http://eepurl.com/fKLfI">Newsletter</a></li>
+        </ul>
+    </div>
+    <div class="column">
+        <span>Your account</span>
+        <ul>
+            
+            <li><a href="/rightsholders/">For Rights Holders</a></li>
+            <li><a href="/privacy/">Privacy</a></li>
+            <li><a href="/terms/">Terms of Use</a></li>
+            
+            
+        </ul>
+    </div>
+    <div class="column">
+        <span>Help</span>
+        <ul>
+            <li><a href="/faq/">General FAQ</a></li>
+            <li><a href="/faq/rightsholders/">Author/Publisher FAQ</a></li>
+            <li><a href="/api/help">API</a></li>
+            <li><a href="/feedback/" rel="nofollow" referrerpolicy="same-origin">Support</a>
+            <li><a href="/libraries/">Unglue.it for Libraries</a>
+        </ul>
+    </div>
+    <div class="column">
+        <span>Contact</span>
+        <ul>
+            <li> <a href="mailto:info@ebookfoundation.org"><i class="fa fa-envelope fa-2x"></i></a> <a rel="me" href="https://digipres.club/@unglueit"><i class="fa fa-mastodon fa-2x"></i></a> <a href="https://facebook.com/unglueit"><i class="fa fa-facebook fa-2x"></i></a></li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+
+    
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-37TH0THSL0"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-P5CWNZ6B2H');
+          gtag('set', 'allow_google_signals', false);
+          gtag ('set', 'restricted_data_processing', true);
+          gtag('set', 'allow_ad_personalization_signals', false);
+        </script>
+    
+
+</body>
+</html>

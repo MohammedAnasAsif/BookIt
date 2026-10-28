@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="https://standardebooks.org/feeds/atom/style" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+	<script xmlns="http://www.w3.org/1999/xhtml" src="https://standardebooks.org/scripts/xslt-polyfill.min.js"/>
+	<id>https://standardebooks.org/feeds/atom/new-releases</id>
+	<link href="https://standardebooks.org/feeds/atom/new-releases" rel="self" type="application/atom+xml"/>
+	<title>Standard Ebooks - Newest Ebooks</title>
+	<subtitle>The 15 latest Standard Ebooks, most-recently-released first.</subtitle>
+	<icon>https://standardebooks.org/images/logo.png</icon>
+	<updated>2026-10-27T21:20:33Z</updated>
+	<author>
+		<name>Standard Ebooks</name>
+		<uri>https://standardebooks.org</uri>
+	</author>
+	<link href="https://standardebooks.org/opensearch" rel="search" title="Standard Ebooks" type="application/opensearchdescription+xml"/>
+	<entry>
+		<id>https://standardebooks.org/ebooks/joseph-conrad/short-fiction</id>
+		<title>Short Fiction</title>
+		<author>
+			<name>Joseph Conrad</name>
+			<uri>https://standardebooks.org/ebooks/joseph-conrad</uri>
+		</author>
+		<published>2026-10-27T21:09:15Z</published>
+		<updated>2026-10-27T21:16:59Z</updated>
+		<rights>Public domain in the United States. Users located outside of the United States must check their local laws before using this ebook. Original content released to the public domain via the Creative Commons CC0 1.0 Universal Public Domain Dedication.</rights>
+		<summary type="text">The complete short fiction of Joseph Conrad.</summary>
+		<content type="html">&lt;p&gt;&lt;a href="https://standardebooks.org/ebooks/joseph-conrad"&gt;Joseph Conrad&lt;/a&gt;, the Polish-born writer who published exclusively in English, is known as much for his short fiction as for his novels. Almost all of his stories were first serialized in periodicals such as &lt;i&gt;The Pall Mall Magazine&lt;/i&gt;, &lt;i&gt;Harper’s Magazine&lt;/i&gt;, and &lt;i&gt;Blackwood’s Magazine&lt;/i&gt;. They were later republished in seven collections: &lt;i&gt;Tales of Unrest&lt;/i&gt;, &lt;i&gt;Youth: A Narrative and Two Other Stories&lt;/i&gt;, &lt;i&gt;Typhoon and Other Stories&lt;/i&gt;, &lt;i&gt;A Set of Six&lt;/i&gt;, &lt;i&gt;’Twixt Land and Sea&lt;/i&gt;, &lt;i&gt;Within the Tides&lt;/i&gt;, and &lt;i&gt;Tales of Hearsay&lt;/i&gt;. Many of his stories deal with the sea and exotic locales (the Malay Archipelago, Central Africa, South America), while others reflect his wider interests, such as his fascination with the Napoleonic era.&lt;/p&gt; &lt;p&gt;Conrad’s most famous novella contained in this collection, “Heart of Darkness,” was originally published serially as a three-part story. It is a short but thematically complex novella exploring colonialism, humanity, and what constitutes a savage society. Set in the Congo in Central Africa, the tale is told in the frame of the recollections of one Charles Marlow, a captain of an ivory steamer. Marlow’s search for the mysterious and powerful “first-class agent” Kurtz gives way to a nuanced and powerful commentary on the horrors of colonialism, called by some the most analyzed work at university-level instruction.&lt;/p&gt; &lt;p&gt;Other notable works include “An Outpost of Progress,” a precursor to “Heart of Darkness,” “Youth,” based on Conrad’s own maritime experiences, “Typhoon,” in which a stubborn captain takes on a force of nature, “The Duel,” later filmed by Ridley Scott as “The Duellists,” and “The Secret Sharer,” in which a captain harbors a fugitive. This collection comprises all the short stories and novellas from Conrad’s seven short fiction collections, plus “The Sisters,” an unfinished short story published posthumously. They’re arranged in order of first publication, which in most cases means their magazine serialization.&lt;/p&gt;</content>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Adventure and adventurers--Fiction"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Adventure stories"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Adventure stories, English"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Africa--Fiction"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Degeneration--Fiction"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="English fiction--20th century"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Europeans--Africa--Fiction"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Fiction"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Imperialism--Fiction"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Indian Ocean--Fiction"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Man-woman relationships--Fiction"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Psychological fiction"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Sea stories"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Seafaring life--Fiction"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Ship captains--Fiction"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Short stories"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Short stories, English"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Trading posts--Fiction"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Typhoons--Fiction"/>
+		<category scheme="https://standardebooks.org/vocab/subjects" term="Fiction"/>
+		<category scheme="https://standardebooks.org/vocab/subjects" term="Shorts"/>
+		<media:thumbnail height="525" url="https://standardebooks.org/ebooks/joseph-conrad/short-fiction/downloads/cover-thumbnail.jpg" width="350"/>
+		<link href="https://standardebooks.org/ebooks/joseph-conrad/short-fiction" rel="alternate" title="This ebook’s page at Standard Ebooks" type="application/xhtml+xml"/>
+		<link href="https://standardebooks.org/ebooks/joseph-conrad/short-fiction/downloads/joseph-conrad_short-fiction.epub?source=feed" length="1544566" rel="enclosure" title="Recommended compatible epub" type="application/epub+zip"/>
+		<link href="https://standardebooks.org/ebooks/joseph-conrad/short-fiction/downloads/joseph-conrad_short-fiction_advanced.epub?source=feed" length="2107910" rel="enclosure" title="Advanced epub" type="application/epub+zip"/>
+		<link href="https://standardebooks.org/ebooks/joseph-conrad/short-fiction/downloads/joseph-conrad_short-fiction.kepub.epub?source=feed" length="1660619" rel="enclosure" title="Kobo Kepub epub" type="application/kepub+zip"/>
+		<link href="https://standardebooks.org/ebooks/joseph-conrad/short-fiction/downloads/joseph-conrad_short-fiction.azw3?source=feed" length="2251753" rel="enclosure" title="Amazon Kindle azw3" type="application/x-mobipocket-ebook"/>
+		<link href="https://standardebooks.org/ebooks/joseph-conrad/short-fiction/text/single-page" length="2787138" rel="enclosure" title="XHTML" type="application/xhtml+xml"/>
+	</entry>
+	<entry>
+		<id>https://standardebooks.org/ebooks/henry-seton-merriman/the-vultures</id>
+		<title>The Vultures</title>
+		<author>
+			<name>Henry Seton Merriman</name>
+			<uri>https://standardebooks.org/ebooks/henry-seton-merriman</uri>
+		</author>
+		<published>2026-10-26T21:04:21Z</published>
+		<updated>2026-10-26T21:04:26Z</updated>
+		<rights>Public domain in the United States. Users located outside of the United States must check their local laws before using this ebook. Original content released to the public domain via the Creative Commons CC0 1.0 Universal Public Domain Dedication.</rights>
+		<summary type="text">When three men known as the “vultures” arrive in Warsaw, princes and revolutionaries alike wonder whether they’ve come to watch for the long-awaited uprising against the Russian Empire—or to ignite it.</summary>
+		<content type="html">&lt;p&gt;In &lt;i&gt;The Vultures&lt;/i&gt;, &lt;a href="https://standardebooks.org/ebooks/henry-seton-merriman"&gt;Henry Seton Merriman&lt;/a&gt; plots a taut, fast-moving story of international intrigue which seems as though it could’ve been written in the modern era rather than in the Victorian.&lt;/p&gt; &lt;p&gt;Reginald Cartoner, a British agent, and his counterpart in the French service, Paul Deulin, have worked with and against one another for many years, building a mutual professional respect and a wary friendship. They and an American, Joseph Mangles, are known by political insiders as “vultures”—men whose sudden arrival in a seemingly peaceful place presages the end of that calm and the start of a crisis which will command the world’s attention. All three have just arrived in Warsaw, the principal city of what was formerly a free Polish state but which is now brutally controlled by the Russian Empire of Tsar Aleksandr II.&lt;/p&gt; &lt;p&gt;Prince Bukaty, his son Prince Martin, and his daughter Princess Wanda, whose power and wealth were stripped by the Russians decades earlier, maintain their connections throughout Europe and secretly lay the groundwork for revolt; in this they’re joined by the radical Kosmaroff, whose origins are as mysterious as his methods are ruthless. As the Polish people await the trigger for their revolution, they’re uncertain whether the three vultures have been sent to aid, to oppose, or to simply observe them, or even whether the three are cooperating or at cross-purposes with one another. As personal connections amongst all of the players are strained by conflicting duties and national loyalties, their situation in Poland becomes more perilous by the moment.&lt;/p&gt;</content>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Spy stories"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Europe, Eastern--Fiction"/>
+		<category scheme="https://standardebooks.org/vocab/subjects" term="Fiction"/>
+		<media:thumbnail height="525" url="https://standardebooks.org/ebooks/henry-seton-merriman/the-vultures/downloads/cover-thumbnail.jpg" width="350"/>
+		<link href="https://standardebooks.org/ebooks/henry-seton-merriman/the-vultures" rel="alternate" title="This ebook’s page at Standard Ebooks" type="application/xhtml+xml"/>
+		<link href="https://standardebooks.org/ebooks/henry-seton-merriman/the-vultures/downloads/henry-seton-merriman_the-vultures.epub?source=feed" length="657248" rel="enclosure" title="Recommended compatible epub" type="application/epub+zip"/>
+		<link href="https://standardebooks.org/ebooks/henry-seton-merriman/the-vultures/downloads/henry-seton-merriman_the-vultures_advanced.epub?source=feed" length="1011585" rel="enclosure" title="Advanced epub" type="application/epub+zip"/>
+		<link href="https://standardebooks.org/ebooks/henry-seton-merriman/the-vultures/downloads/henry-seton-merriman_the-vultures.kepub.epub?source=feed" length="614361" rel="enclosure" title="Kobo Kepub epub" type="application/kepub+zip"/>
+		<link href="https://standardebooks.org/ebooks/henry-seton-merriman/the-vultures/downloads/henry-seton-merriman_the-vultures.azw3?source=feed" length="746544" rel="enclosure" title="Amazon Kindle azw3" type="application/x-mobipocket-ebook"/>
+		<link href="https://standardebooks.org/ebooks/henry-seton-merriman/the-vultures/text/single-page" length="642477" rel="enclosure" title="XHTML" type="application/xhtml+xml"/>
+	</entry>
+	<entry>
+		<id>https://standardebooks.org/ebooks/henry-seton-merriman/suspense</id>
+		<title>Suspense</title>
+		<author>
+			<name>Henry Seton Merriman</name>
+			<uri>https://standardebooks.org/ebooks/henry-seton-merriman</uri>
+		</author>
+		<published>2026-10-20T18:02:42Z</published>
+		<updated>2026-10-20T18:02:43Z</updated>
+		<rights>Public domain in the United States. Users located outside of the United States must check their local laws before using this ebook. Original content released to the public domain via the Creative Commons CC0 1.0 Universal Public Domain Dedication.</rights>
+		<summary type="text">Two childhood friends—a young man who has become a renowned war correspondent and a young woman who is just emerging from the shadow of her more-celebrated sister—discover that as events conspire against them, their characters might enable them to overcome all— yet separate them forever.</summary>
+		<content type="html">&lt;p&gt;Theo Trist and Brenda Gilholme have known one another since childhood. Trist has become a renowned war correspondent for influential newspapers in London and Paris, dispatched to dangerous areas of the globe to report on the most terrible events imaginable. Brenda, until now in the shadow of her sister, a celebrated society beauty, has lived the life of the mind, immersing herself in studies of languages, mathematics, theology, and political economy—a life which Victorian society doesn’t value for its daughters, but which Trist admires in the observant and analytical Brenda. Mrs. Wylie, a mutual friend who has supported each of them throughout their formative years, knows that their respective intelligence, and their senses of honor, duty, and self-sacrifice, set them apart from their peers and drive them to make the most of themselves. Those same strengths also divide and distance them from one another—and, as Mrs. Wylie knows, time is on no one’s side.&lt;/p&gt; &lt;p&gt;&lt;i&gt;Suspense&lt;/i&gt; is one of &lt;a href="https://standardebooks.org/ebooks/henry-seton-merriman"&gt;Henry Seton Merriman’s&lt;/a&gt; more philosophical novels. In meta-commentary, the author makes plain his acceptance of Victorian views on social roles, expectations, and responsibilities, while also celebrating those who are courageous enough to stand apart from that society to live their own lives. Though an earlier of Merriman’s works, it still displays the intricate plotting, character development, and attention to place and history which are characteristic of his later works. Though its narrative and dialogue fit squarely within the framework of contemporary Victorian fiction, &lt;i&gt;Suspense&lt;/i&gt; nevertheless demonstrates the best of that structure, even as Merriman shows with his subsequent works his desire and capability to rise above it.&lt;/p&gt;</content>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Man-woman relationships--Fiction"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="War correspondents--Fiction"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Russo-Turkish War, 1877-1878--Fiction"/>
+		<category scheme="https://standardebooks.org/vocab/subjects" term="Fiction"/>
+		<media:thumbnail height="525" url="https://standardebooks.org/ebooks/henry-seton-merriman/suspense/downloads/cover-thumbnail.jpg" width="350"/>
+		<link href="https://standardebooks.org/ebooks/henry-seton-merriman/suspense" rel="alternate" title="This ebook’s page at Standard Ebooks" type="application/xhtml+xml"/>
+		<link href="https://standardebooks.org/ebooks/henry-seton-merriman/suspense/downloads/henry-seton-merriman_suspense.epub?source=feed" length="781966" rel="enclosure" title="Recommended compatible epub" type="application/epub+zip"/>
+		<link href="https://standardebooks.org/ebooks/henry-seton-merriman/suspense/downloads/henry-seton-merriman_suspense_advanced.epub?source=feed" length="1114554" rel="enclosure" title="Advanced epub" type="application/epub+zip"/>
+		<link href="https://standardebooks.org/ebooks/henry-seton-merriman/suspense/downloads/henry-seton-merriman_suspense.kepub.epub?source=feed" length="742920" rel="enclosure" title="Kobo Kepub epub" type="application/kepub+zip"/>
+		<link href="https://standardebooks.org/ebooks/henry-seton-merriman/suspense/downloads/henry-seton-merriman_suspense.azw3?source=feed" length="911685" rel="enclosure" title="Amazon Kindle azw3" type="application/x-mobipocket-ebook"/>
+		<link href="https://standardebooks.org/ebooks/henry-seton-merriman/suspense/text/single-page" length="801806" rel="enclosure" title="XHTML" type="application/xhtml+xml"/>
+	</entry>
+	<entry>
+		<id>https://standardebooks.org/ebooks/selma-lagerlof/the-emperor-of-portugallia/velma-swanston-howard</id>
+		<title>The Emperor of Portugallia</title>
+		<author>
+			<name>Selma Lagerlöf</name>
+			<uri>https://standardebooks.org/ebooks/selma-lagerlof</uri>
+		</author>
+		<published>2026-10-20T17:35:20Z</published>
+		<updated>2026-10-20T17:35:22Z</updated>
+		<rights>Public domain in the United States. Users located outside of the United States must check their local laws before using this ebook. Original content released to the public domain via the Creative Commons CC0 1.0 Universal Public Domain Dedication.</rights>
+		<summary type="text">A proud but poor father is forced to cope with his daughter moving to the city.</summary>
+		<content type="html">&lt;p&gt;Jan Andersson is a poor crofter. The only thing that brings him joy is his daughter Glory, but when the family finds itself in need of money, she moves to Stockholm to look for a job. At first Jan is despondent, especially as Glory very quickly stops sending letters. But as time goes on, Jan begins to piece together what happened to Glory in Stockholm—though his conclusions differ wildly from everyone else’s.&lt;/p&gt; &lt;p&gt;Blending family drama with social critique, &lt;a href="https://standardebooks.org/ebooks/selma-lagerlof"&gt;Selma Lagerlöf&lt;/a&gt; explores the ways in which community and generational relations can be affected by forces both beyond and within our control, and how redemption is possible, if we so choose.&lt;/p&gt; &lt;p&gt;Lagerlöf considered titling the novel &lt;i&gt;A Swedish King Lear&lt;/i&gt;, alluding to the generational conflicts central to both the novel and the play. Today &lt;i&gt;The Emperor of Portugallia&lt;/i&gt; is considered a classic of Swedish literature, with multiple adaptations, including the now lost 1925 Hollywood film &lt;i&gt;The Tower of Lies&lt;/i&gt; and a 1992 series for Swedish public television.&lt;/p&gt;</content>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Fathers and daughters--Fiction"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Sweden--Fiction"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Swedish fiction--Translations into English"/>
+		<category scheme="https://standardebooks.org/vocab/subjects" term="Fiction"/>
+		<media:thumbnail height="525" url="https://standardebooks.org/ebooks/selma-lagerlof/the-emperor-of-portugallia/velma-swanston-howard/downloads/cover-thumbnail.jpg" width="350"/>
+		<link href="https://standardebooks.org/ebooks/selma-lagerlof/the-emperor-of-portugallia/velma-swanston-howard" rel="alternate" title="This ebook’s page at Standard Ebooks" type="application/xhtml+xml"/>
+		<link href="https://standardebooks.org/ebooks/selma-lagerlof/the-emperor-of-portugallia/velma-swanston-howard/downloads/selma-lagerlof_the-emperor-of-portugallia_velma-swanston-howard.epub?source=feed" length="576036" rel="enclosure" title="Recommended compatible epub" type="application/epub+zip"/>
+		<link href="https://standardebooks.org/ebooks/selma-lagerlof/the-emperor-of-portugallia/velma-swanston-howard/downloads/selma-lagerlof_the-emperor-of-portugallia_velma-swanston-howard_advanced.epub?source=feed" length="408218" rel="enclosure" title="Advanced epub" type="application/epub+zip"/>
+		<link href="https://standardebooks.org/ebooks/selma-lagerlof/the-emperor-of-portugallia/velma-swanston-howard/downloads/selma-lagerlof_the-emperor-of-portugallia_velma-swanston-howard.kepub.epub?source=feed" length="433167" rel="enclosure" title="Kobo Kepub epub" type="application/kepub+zip"/>
+		<link href="https://standardebooks.org/ebooks/selma-lagerlof/the-emperor-of-portugallia/velma-swanston-howard/downloads/selma-lagerlof_the-emperor-of-portugallia_velma-swanston-howard.azw3?source=feed" length="547724" rel="enclosure" title="Amazon Kindle azw3" type="application/x-mobipocket-ebook"/>
+		<link href="https://standardebooks.org/ebooks/selma-lagerlof/the-emperor-of-portugallia/velma-swanston-howard/text/single-page" length="455456" rel="enclosure" title="XHTML" type="application/xhtml+xml"/>
+	</entry>
+	<entry>
+		<id>https://standardebooks.org/ebooks/herman-whitaker/the-mystery-of-the-barranca</id>
+		<title>The Mystery of the Barranca</title>
+		<author>
+			<name>Herman Whitaker</name>
+			<uri>https://standardebooks.org/ebooks/herman-whitaker</uri>
+		</author>
+		<published>2026-10-20T16:58:49Z</published>
+		<updated>2026-10-20T17:24:45Z</updated>
+		<rights>Public domain in the United States. Users located outside of the United States must check their local laws before using this ebook. Original content released to the public domain via the Creative Commons CC0 1.0 Universal Public Domain Dedication.</rights>
+		<summary type="text">A mining engineer and his friend suffer a series of misfortunes in their search for riches and treasure.</summary>
+		<content type="html">&lt;p&gt;William Thornton and Robert Seyd are two American friends who share an interest in mining. They make an agreement that whoever finds a good prospect has to contact the other so that they can work together to exploit the mine. The day to honor this pact finally comes when Robert finds a rich copper mine in Guerrero, Mexico.&lt;/p&gt; &lt;p&gt;On the way to the mine, William is struck by the beauty of an elegant young woman, accompanied by a large Siberian wolfhound, at a local train station. As the train approaches, the dog leaps onto the tracks. Robert, acting quickly, gets the dog to safety in the nick of time. The girl’s companion—the nephew of the general who owns the land under the mine—offers the American duo men and mules to transport their equipment to their destination.&lt;/p&gt; &lt;p&gt;What appears to be a stroke of good luck ends up becoming a prelude to a seemingly endless wave of challenges, as the bad omens surrounding the mine, and the general's animosity towards Americans, threaten to lead William and Robert down a path of treachery and darkness.&lt;/p&gt;</content>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Detective and mystery stories"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Mexico--Fiction"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Gold mines and mining--Fiction"/>
+		<category scheme="https://standardebooks.org/vocab/subjects" term="Fiction"/>
+		<category scheme="https://standardebooks.org/vocab/subjects" term="Mystery"/>
+		<media:thumbnail height="525" url="https://standardebooks.org/ebooks/herman-whitaker/the-mystery-of-the-barranca/downloads/cover-thumbnail.jpg" width="350"/>
+		<link href="https://standardebooks.org/ebooks/herman-whitaker/the-mystery-of-the-barranca" rel="alternate" title="This ebook’s page at Standard Ebooks" type="application/xhtml+xml"/>
+		<link href="https://standardebooks.org/ebooks/herman-whitaker/the-mystery-of-the-barranca/downloads/herman-whitaker_the-mystery-of-the-barranca.epub?source=feed" length="615827" rel="enclosure" title="Recommended compatible epub" type="application/epub+zip"/>
+		<link href="https://standardebooks.org/ebooks/herman-whitaker/the-mystery-of-the-barranca/downloads/herman-whitaker_the-mystery-of-the-barranca_advanced.epub?source=feed" length="908170" rel="enclosure" title="Advanced epub" type="application/epub+zip"/>
+		<link href="https://standardebooks.org/ebooks/herman-whitaker/the-mystery-of-the-barranca/downloads/herman-whitaker_the-mystery-of-the-barranca.kepub.epub?source=feed" length="530081" rel="enclosure" title="Kobo Kepub epub" type="application/kepub+zip"/>
+		<link href="https://standardebooks.org/ebooks/herman-whitaker/the-mystery-of-the-barranca/downloads/herman-whitaker_the-mystery-of-the-barranca.azw3?source=feed" length="642978" rel="enclosure" title="Amazon Kindle azw3" type="application/x-mobipocket-ebook"/>
+		<link href="https://standardebooks.org/ebooks/herman-whitaker/the-mystery-of-the-barranca/text/single-page" length="468786" rel="enclosure" title="XHTML" type="application/xhtml+xml"/>
+	</entry>
+	<entry>
+		<id>https://standardebooks.org/ebooks/seneca/moral-letters-to-lucilius/richard-m-gummere</id>
+		<title>Moral Letters to Lucilius</title>
+		<author>
+			<name>Seneca</name>
+			<uri>https://standardebooks.org/ebooks/seneca</uri>
+		</author>
+		<published>2026-10-16T19:00:15Z</published>
+		<updated>2026-10-20T16:19:56Z</updated>
+		<rights>Public domain in the United States. Users located outside of the United States must check their local laws before using this ebook. Original content released to the public domain via the Creative Commons CC0 1.0 Universal Public Domain Dedication.</rights>
+		<summary type="text">An elderly Roman Stoic philosopher gives life advice to a young friend.</summary>
+		<content type="html">&lt;p&gt;&lt;a href="https://standardebooks.org/ebooks/seneca"&gt;Seneca&lt;/a&gt; was a Stoic philosopher and statesman in Rome’s early post-Augustan era. He was Nero’s tutor, and then his advisor when Nero became emperor in 54 CE. After Seneca retired from public life, he wrote a series of letters to his friend Lucilius, the procurator of Sicily. These letters were circulated right before Seneca’s death in 65 CE, when Nero forced him to commit suicide for his alleged involvement in a conspiracy.&lt;/p&gt; &lt;p&gt;These letters, which were written for widespread publication as well as directly to Lucilius, mainly focus on guiding the reader to a life well-lived. At times, the advice is regarding specific personal issues, such as when he gives a review of a book written by Lucilius. Other letters give Seneca’s thoughts on broader issues like slavery, independence of thought, and virtue. Through all of them, his Stoicism shines through, whether in his metaphysics (like when he writes on “the god within us”) or in his focus on how virtue is the only good. His diverse interests are also on display, as when he addresses current events (like the burning of Lyons), or when he speculates on science (like when he offers his thoughts on animal instincts).&lt;/p&gt; &lt;p&gt;These letters have been popular and influential since their initial circulation, and were widely read from the Roman period, up through the Middle Ages, and into the Renaissance, where &lt;a href="https://standardebooks.org/ebooks/michel-de-montaigne"&gt;Michel de Montaigne&lt;/a&gt; used them as a model for his &lt;a href="https://standardebooks.org/ebooks/michel-de-montaigne/essays/charles-cotton"&gt;&lt;i&gt;Essays&lt;/i&gt;&lt;/a&gt;. They remain highly regarded today for their practical and sage advice.&lt;/p&gt;</content>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Ethics--Early works to 1800"/>
+		<category scheme="http://purl.org/dc/terms/LCSH" term="Conduct of Life--Early works to 1800"/>
+		<category scheme="https://standardebooks.org/vocab/subjects" term="Nonfiction"/>
+		<category scheme="https://standardebooks.org/vocab/subjects" term="Philosophy"/>
+		<media:thumbnail height="525" url="https://standardebooks.org/ebooks/seneca/moral-letters-to-lucilius/richard-m-gummere/downloads/cover-thumbnail.jpg" width="350"/>
+		<link href="https://standardebooks.org/ebooks/seneca/moral-letters-to-lucilius/richard-m-gummere" rel="alternate" title="This ebook’s page at Standard Ebooks" type="application/xhtml+xml"/>
+		<link href="https://standardebooks.org/ebooks/seneca/moral-letters-to-lucilius/richard-m-gummere/downloads/seneca_moral-letters-to-lucilius_richard-m-gummere.epub?source=feed" length="1076258" rel="enclosure" title="Recommended compatible epub" type="application/epub+zip"/>
+		<link href="https://standardebooks.org/ebooks/seneca/moral-letters-to-lucilius/richard-m-gummere/downloads/seneca_moral-letters-to-lucilius_richard-m-gummere_advanced.epub?source=feed" length="1388588" rel="enclosure" title="Advanced epub" type="application/epub+zip"/>
+		<link href="https://standardebooks.org/ebooks/seneca/moral-letters-to-lucilius/richard-m-gummere/downloads/seneca_moral-letters-to-lucilius_richard-m-gummere.kepub.epub?source=feed" length="1054808" rel="enclosure" title="Kobo Kepub epub" type="application/kepub+zip"/>
+		<link href="https://standardebooks.org/ebooks/seneca/moral-letters-to-lucilius/richard-m-gummere/downloads/seneca_moral-letters-to-lucilius_richard-m-gummere.azw3?source=feed" length="1398962" rel="enclosure" title="Amazon Kindle azw3" type="application/x-mobipocket-ebook"/>
+		<link href="https://standardebooks.org/ebooks/seneca/moral-letters-to-lucilius/richard-m-gummere/text/single-page" length="1742045" rel="enclosure" title="XHTML" type="application/xhtml+xml"/>
+	</entry>
+	<entry>
+		<id>https://standardebooks.org/ebooks/jules-verne/robur-the-conqueror/sampson-low-marston-searle-rivington</id>
+		<title>Robur the Conqueror</title>
+		<author>
+			<name>Jules Verne</name>
+			<uri>https://standardebooks.org/ebooks/jules-verne</uri>
+		</author>
+		<published>2026-10-16T18:11:36Z</published>
+		<updated>2026-10-16T18:14:22Z</updated>
+		<rights>Public domain in the United States. Users located outside of the United States must check their local laws before using this ebook. Original content released to the public domain via the Creative Commons CC0 1.0 Universal Public Domain Dedication.</rights>
+		<summary type="text">A domineering inventor kidnaps members of a balloonist club and flies them around the world to prove the superiority of his heavier-than-air machine.</summary>
+		<content type="html">&lt;p&gt;&lt;i&gt;Robur the Conqueror&lt;/i&gt;, also published as &lt;i&gt;The Clipper of the Clouds&lt;/i&gt;, opens in Philadelphia at a meeting of the Weldon Institute, a club of balloon enthusiasts. A stranger named Robur asks to address the members, then tells them that the future belongs to heavier-than-air machines. He mocks the club’s giant balloon, the &lt;i&gt;Go-Ahead&lt;/i&gt;, and insults its members until the meeting erupts in chaos. That night he kidnaps Uncle Prudent, the club’s president
