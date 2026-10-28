@@ -1,0 +1,13 @@
+Analyzing app...                                                
+
+   info • The import of 'dart:typed_data' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/foundation.dart'. Try removing the import directive • lib/data/library_store.dart:4:8 • unnecessary_import
+  error • The method 'fromCompactBytes' isn't defined for the type 'NllbTokenizer'. Try correcting the name to the name of an existing method, or defining a method named 'fromCompactBytes' • lib/translation/engine/nllb_tokenizer.dart:47:16 • undefined_method
+  error • The method 'fromJsonString' isn't defined for the type 'NllbTokenizer'. Try correcting the name to the name of an existing method, or defining a method named 'fromJsonString' • lib/translation/engine/nllb_tokenizer.dart:52:17 • undefined_method
+   info • Angle brackets will be interpreted as HTML. Try using backticks around the content with angle brackets, or try replacing `<` with `&lt;` and `>` with `&gt;` • lib/translation/engine/text_segmenter.dart:103:71 • unintended_html_in_doc_comment
+   info • Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check • lib/ui/book_actions.dart:84:22 • use_build_context_synchronously
+   info • Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check • lib/ui/book_actions.dart:109:22 • use_build_context_synchronously
+  error • The getter 'platform' isn't defined for the type 'FilePicker'. Try importing the library that defines 'platform', correcting the name to the name of an existing getter, or defining a getter or field named 'platform' • lib/ui/book_actions.dart:123:29 • undefined_getter
+  error • The getter 'platform' isn't defined for the type 'FilePicker'. Try importing the library that defines 'platform', correcting the name to the name of an existing getter, or defining a getter or field named 'platform' • lib/ui/book_actions.dart:125:29 • undefined_getter
+  error • The getter 'platform' isn't defined for the type 'FilePicker'. Try importing the library that defines 'platform', correcting the name to the name of an existing getter, or defining a getter or field named 'platform' • lib/ui/book_actions.dart:134:35 • undefined_getter
+
+9 issues found. (ran in 10.7s)
