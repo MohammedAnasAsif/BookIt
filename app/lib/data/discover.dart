@@ -27,7 +27,10 @@ class TrendingBook {
         cover: (j['cover'] as num).toInt(),
       );
 
-  List<String> get coverUrls => ['https://covers.openlibrary.org/b/id/$cover-M.jpg'];
+  List<String> get coverUrls => [
+        'https://covers.openlibrary.org/b/id/$cover-M.jpg',
+        'https://covers.openlibrary.org/b/id/$cover-L.jpg',
+      ];
   String get coverKey => 'ol$cover';
   String get openLibraryUrl => 'https://openlibrary.org$key';
 }

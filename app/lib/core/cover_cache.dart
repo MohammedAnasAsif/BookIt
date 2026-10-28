@@ -24,7 +24,25 @@ class CoverCache {
   /// The cached cover file if it is already on disk (synchronous check).
   static File? cached(String key) {
     final f = _file(key);
-    return f.existsSync() && f.lengthSync() > 0 ? f : null;
+    if (!f.existsSync() || f.lengthSync() < 200) return null;
+    try {
+      final raf = f.openSync();
+      final head = raf.readSync(12);
+      raf.closeSync();
+      if (isImage(head)) return f;
+      f.deleteSync(); // a broken download from an older version
+    } catch (_) {}
+    return null;
+  }
+
+  /// JPEG, PNG, GIF or WebP?
+  static bool isImage(List<int> b) {
+    if (b.length < 12) return false;
+    if (b[0] == 0xFF && b[1] == 0xD8) return true;
+    if (b[0] == 0x89 && b[1] == 0x50 && b[2] == 0x4E && b[3] == 0x47) return true;
+    if (b[0] == 0x47 && b[1] == 0x49 && b[2] == 0x46) return true;
+    if (b[0] == 0x52 && b[1] == 0x49 && b[2] == 0x46 && b[3] == 0x46 && b[8] == 0x57 && b[9] == 0x45) return true;
+    return false;
   }
 
   static Future<File?> get(String key, List<String> urls) {
@@ -41,9 +59,10 @@ class CoverCache {
       for (final url in urls) {
         try {
           final bytes = await Downloader.getBytes(url, timeout: const Duration(seconds: 30));
-          if (bytes.length < 200) {
-            _log('$url: only ${bytes.length} bytes');
-            continue; // not an image
+          if (bytes.length < 200 || !isImage(bytes)) {
+            final preview = String.fromCharCodes(bytes.take(120).map((c) => c < 32 || c > 126 ? 46 : c));
+            _log('$url: not an image (${bytes.length} bytes): $preview');
+            continue;
           }
           final f = _file(key);
           await f.writeAsBytes(bytes, flush: true);
