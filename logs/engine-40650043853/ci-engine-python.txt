@@ -1,0 +1,38 @@
+None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+tokenizer.json 17331224
+encoder_model_quantized.onnx 419120483
+decoder_model_quantized.onnx 470533055
+decoder_with_past_model_quantized.onnx 445006987
+hin_Deva | बूढ़ा आदमी समुद्र तट पर शेरों के बारे में सपना देख रहा था।
+hin_Deva | उसने खिड़की खोली और बारिश की गंध छोटे कमरे में भर गई।
+hin_Deva | "तुम इतनी जल्दी कहाँ जा रही हो? " उसकी माँ ने पूछा।
+hin_Deva | ट्रेन देर हो गई थी, इसलिए हम प्लेटफॉर्म पर बैठकर घंटों तक बात करते रहे।
+hin_Deva | हर शाम बच्चे बायन के पेड़ के नीचे इकट्ठे होते थे कि कहानियां सुनें।
+hin_Deva | उसने समुद्र को पहले कभी नहीं देखा था, और यह उसे थोड़ा डराता था।
+hin_Deva | किताबें सबसे शांत और सबसे स्थिर मित्र हैं।
+hin_Deva | यह पत्र एक मंगलवार को आया - तीन सप्ताह बाद यह पोस्ट किया गया था।
+tam_Taml | அந்த முதியவர் கடற்கரையில் சிங்கங்கள் பற்றி கனவு கண்டார்.
+tam_Taml | அவள் ஜன்னலைத் திறந்தாள், மழை வாசனை சிறிய அறையை நிரப்பியது.
+tam_Taml | "எங்கே போகிறாய் இவ்வளவு சீக்கிரம்?
+tam_Taml | ரயில் தாமதமாகிவிட்டது, எனவே நாங்கள் மேடையில் அமர்ந்து பல மணி நேரம் பேசினோம்.
+tam_Taml | ஒவ்வொரு மாலையும் குழந்தைகள் பானிய மரத்தின் கீழ் கதைகளைக் கேட்க கூடியிருந்தனர்.
+tam_Taml | கடலை அவர் இதற்கு முன் பார்த்ததில்லை, அது அவரை ஒரு சிறிய பயமுறுத்தியது.
+tam_Taml | புத்தகங்கள் அமைதியான மற்றும் நிலையான நண்பர்கள்.
+tam_Taml | கடிதம் செவ்வாய்க்கிழமை வந்தது - அது அனுப்பப்பட்ட மூன்று வாரங்களுக்குப் பிறகு.
+ben_Beng | বুড়ো লোকটা সৈকতে সিংহের স্বপ্ন দেখেছিল।
+ben_Beng | সে জানালা খুলেছে এবং বৃষ্টির গন্ধ ছোট্ট রুমটি ভরে গেছে।
+ben_Beng | "আপনি এত তাড়াতাড়ি কোথায় যাচ্ছেন? " তার মা জিজ্ঞাসা করেছিলেন।
+ben_Beng | ট্রেন দেরী হয়ে গিয়েছিল, তাই আমরা প্ল্যাটফর্মে বসে ঘণ্টার পর ঘণ্টা কথা বললাম।
+ben_Beng | প্রতি সন্ধ্যায় শিশুরা গল্প শোনার জন্য বাঙ্গিজ গাছের নীচে জড়ো হত।
+ben_Beng | তিনি সমুদ্র আগে কখনও দেখেনি, এবং এটা তাকে একটু ভয় পেয়েছিলাম.
+ben_Beng | বই সব থেকে শান্ত এবং সব থেকে স্থিতিশীল বন্ধু।
+ben_Beng | চিঠিটি মঙ্গলবার পৌঁছেছিল - তিন সপ্তাহ পরে এটি পোস্ট করা হয়েছিল।
+fra_Latn | Le vieil homme rêvait des lions sur la plage.
+fra_Latn | Elle ouvrit la fenêtre et l'odeur de pluie remplit la petite pièce.
+fra_Latn | "Où allez-vous si tôt?" lui demanda sa mère.
+fra_Latn | Le train était en retard, nous nous sommes donc assis sur la plate-forme et avons parlé pendant des heures.
+fra_Latn | Tous les soirs, les enfants se réunissaient sous le banyan pour entendre des histoires.
+fra_Latn | Il n'avait jamais vu la mer auparavant, et il avait un peu peur.
+fra_Latn | Les livres sont les amis les plus calmes et les plus constants.
+fra_Latn | La lettre est arrivée un mardi, trois semaines après sa publication.
+broad fixtures: 603
