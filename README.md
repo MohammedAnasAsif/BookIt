@@ -35,6 +35,9 @@ The `latest` pre-release is rebuilt automatically from the newest code.
 ## Features
 
 - **Free library** — the whole Project Gutenberg catalog (78,000+ public-domain books) is built into the app, so browsing and search by shelf (Indian, novels, adventure, children, poetry…) and language are instant, even offline. One tap downloads a book.
+- **Trending now & bestsellers** — see what readers everywhere are picking up this week (from Open Library) and popular modern books, with links to buy them or borrow them from a library. Searching for a book that isn't free shows where to get it.
+- **Free modern fiction** — novels their authors chose to share under Creative Commons licences (each licence is checked automatically), e.g. Cory Doctorow's *Little Brother*.
+- **Beautiful classics** — 1,500+ carefully edited public-domain books from [Standard Ebooks](https://standardebooks.org).
 - **Your own books** — open DRM-free EPUB and TXT files, or `.bookit` editions shared by others.
 - **Kindle-style reader** — real pages with tap zones and swipes, serif/sans fonts, text size, spacing, margins, justified text, white / sepia / gray / dark / black themes, chapter slider, table of contents, bookmarks, reading progress. Keyboard and mouse-wheel page turns on Windows.
 - **Translate any book** — into 90+ languages including Hindi, Bengali, Telugu, Marathi, Tamil, Urdu, Gujarati, Kannada, Malayalam, Odia, Punjabi, Assamese, Maithili, Sanskrit, Nepali, Sindhi, Kashmiri, Manipuri, Santali, and most European and world languages.
@@ -102,6 +105,7 @@ app/                         Flutter app (Android + Windows)
   lib/ui/                    screens; lib/ui/reader/ is the paginated reader
 catalog/editions.json        community library index
 tools/build_catalog.py       builds the bundled Gutenberg catalog and featured shelves
+tools/build_discover.py      builds the weekly Discover shelves (catalog/discover.json)
 tools/translate_book.py      batch translation for the community library
 tools/engine_reference.py    reference data for the engine test
 .github/workflows/           builds, engine test, developer probes
@@ -120,6 +124,7 @@ Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 - BookIt code: [Apache License 2.0](LICENSE).
 - Books and catalog: [Project Gutenberg](https://www.gutenberg.org) (the bundled catalog is rebuilt monthly from Gutenberg's official catalog by [`tools/build_catalog.py`](tools/build_catalog.py)). Gutenberg books are free and in the public domain in the USA; please check the laws of your country.
+- Discover shelves: book details and covers from [Open Library](https://openlibrary.org); classics from [Standard Ebooks](https://standardebooks.org) (please consider [supporting them](https://standardebooks.org/donate)); free modern novels mirrored with credit under their authors' Creative Commons licences.
 - Translation model: [NLLB-200](https://ai.meta.com/research/no-language-left-behind/) by Meta AI, licensed **CC-BY-NC 4.0** (free for non-commercial use), using the ONNX export by [Xenova](https://huggingface.co/Xenova/nllb-200-distilled-600M). Because of this licence, BookIt as distributed is for non-commercial use.
 - [ONNX Runtime](https://onnxruntime.ai) (MIT) via the [`onnxruntime`](https://pub.dev/packages/onnxruntime) Flutter plugin.
 - Optional tooling: [IndicTrans2](https://github.com/AI4Bharat/IndicTrans2) by AI4Bharat (MIT).
