@@ -34,9 +34,10 @@ class TxtParser {
     final endIdx = paragraphs.indexWhere((p) => p.startsWith('*** END OF'));
     var guessedTitle = title;
     var guessedAuthor = author;
-    for (final p in paragraphs.take(40)) {
-      if (p.startsWith('Title:') && guessedTitle == 'Untitled') guessedTitle = p.substring(6).trim();
-      if (p.startsWith('Author:') && guessedAuthor.isEmpty) guessedAuthor = p.substring(7).trim();
+    for (final line in normalized.split('\n').take(120)) {
+      final l = line.trim();
+      if (l.startsWith('Title:') && guessedTitle == 'Untitled') guessedTitle = l.substring(6).trim();
+      if (l.startsWith('Author:') && guessedAuthor.isEmpty) guessedAuthor = l.substring(7).trim();
     }
 
     final chapters = <Chapter>[];

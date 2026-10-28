@@ -193,7 +193,7 @@ class Paginator {
   static int pageFor(List<PageLayout> pages, List<DisplayBlock> blocks, int block, double fraction) {
     if (block < 0 || block >= blocks.length) return 0;
     final len = displayText(blocks[block]).length;
-    final at = (fraction * len).floor();
+    final at = (fraction * len).round();
     var last = 0;
     for (var p = 0; p < pages.length; p++) {
       for (final s in pages[p].slices) {

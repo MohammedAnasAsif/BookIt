@@ -86,7 +86,7 @@ class TextSegmenter {
     while (rest.length > maxChars) {
       var cut = -1;
       for (final mark in const ['; ', ': ', ', ', ' — ', ' – ', ' ']) {
-        final idx = rest.lastIndexOf(mark, maxChars);
+        final idx = rest.lastIndexOf(mark, maxChars - mark.length);
         if (idx > maxChars ~/ 3) {
           cut = idx + mark.length;
           break;

@@ -45,7 +45,7 @@ jobs:
         run: |
           set -o pipefail
           flutter pub get
-          ORT_DIR=$(find "$HOME/.pub-cache" -path "*onnxruntime-*/linux" -type d | head -1)
+          ORT_DIR=$(python3 -c "import json,urllib.parse; c=json.load(open('.dart_tool/package_config.json')); p=[x for x in c['packages'] if x['name']=='onnxruntime'][0]; print(urllib.parse.urlparse(p['rootUri']).path + '/linux')")
           echo "ORT native library: $ORT_DIR"
           export LD_LIBRARY_PATH="$ORT_DIR:${LD_LIBRARY_PATH:-}"
           flutter test test/tokenizer_test.dart test/engine_test.dart --reporter expanded 2>&1 | grep -v "W:onnxruntime" | tee ../ci-engine-dart.txt
