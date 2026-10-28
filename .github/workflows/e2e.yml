@@ -1,0 +1,81 @@
+# End-to-end test of the real Windows app: it downloads the translation model,
+# translates the sample story into Tamil in the background and shows it in the
+# reader. Screenshots and the saved translation are published to `ci-logs`.
+name: End-to-end (Windows)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - app/lib/translation/**
+      - app/lib/ui/reader/**
+      - .github/workflows/e2e.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: e2e
+  cancel-in-progress: true
+
+jobs:
+  e2e:
+    runs-on: windows-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - name: Build
+        working-directory: app
+        shell: bash
+        run: flutter pub get && flutter build windows --release
+      - name: Translate the sample story in the app
+        shell: pwsh
+        run: |
+          Add-Type -AssemblyName System.Windows.Forms,System.Drawing
+          New-Item -ItemType Directory -Force e2e | Out-Null
+          function Shot($name) {
+            $b = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds
+            $bmp = New-Object System.Drawing.Bitmap $b.Width, $b.Height
+            $g = [System.Drawing.Graphics]::FromImage($bmp)
+            $g.CopyFromScreen($b.Location, [System.Drawing.Point]::Empty, $b.Size)
+            $bmp.Save((Join-Path (Resolve-Path e2e) "$name.png"), [System.Drawing.Imaging.ImageFormat]::Png)
+            $g.Dispose(); $bmp.Dispose()
+          }
+          $exe = (Resolve-Path "app/build/windows/x64/runner/Release/bookit.exe").Path
+          $p = Start-Process $exe -ArgumentList "--demo=translate" -PassThru
+          $start = Get-Date
+          $done = $false
+          $shotAt = @(20, 90, 240)
+          while (((Get-Date) - $start).TotalMinutes -lt 40) {
+            Start-Sleep -Seconds 10
+            $elapsed = [int]((Get-Date) - $start).TotalSeconds
+            foreach ($t in $shotAt) { if ($elapsed -ge $t -and $elapsed -lt $t + 10) { Shot "progress-$t" } }
+            $jobs = Get-ChildItem -Path $env:APPDATA -Recurse -Filter translation_jobs.json -ErrorAction SilentlyContinue | Select-Object -First 1
+            if ($jobs) {
+              $text = Get-Content $jobs.FullName -Raw
+              Write-Host "[$elapsed s] $text"
+              if ($text -match '"status":"done"') { $done = $true; break }
+              if ($text -match '"status":"error"') { break }
+            } else {
+              $models = Get-ChildItem -Path $env:APPDATA -Recurse -Filter "*.onnx*" -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum
+              Write-Host "[$elapsed s] model bytes so far: $($models.Sum)"
+            }
+            if ($p.HasExited) { Write-Host "App exited with code $($p.ExitCode)"; break }
+          }
+          Start-Sleep -Seconds 8
+          Shot "final"
+          Get-ChildItem -Path $env:APPDATA -Recurse -Filter tam_Taml.json -ErrorAction SilentlyContinue | Select-Object -First 1 | Copy-Item -Destination e2e/tam_Taml.json
+          Get-ChildItem -Path $env:APPDATA -Recurse -Filter translation_jobs.json -ErrorAction SilentlyContinue | Select-Object -First 1 | Copy-Item -Destination e2e/translation_jobs.json
+          Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue
+          "done=$done minutes=$([math]::Round(((Get-Date) - $start).TotalMinutes, 1))" | Out-File e2e/result.txt
+          Get-Content e2e/result.txt
+          if (-not $done) { exit 1 }
+      - name: Publish results
+        if: always()
+        shell: bash
+        run: bash .github/scripts/publish-logs.sh "e2e-${{ github.run_id }}" e2e/*

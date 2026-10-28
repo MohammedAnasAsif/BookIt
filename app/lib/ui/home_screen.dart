@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:provider/provider.dart';
 
 import '../core/languages.dart';
@@ -25,7 +26,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late Future<List<CatalogBook>> _popular;
+  late Future<List<FeaturedBook>> _featured;
   late Future<List<CommunityEdition>> _editions;
 
   @override
@@ -35,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _load() {
-    _popular = Gutendex.fetch(languages: 'en').then((p) => p.books).catchError((_) => <CatalogBook>[]);
+    _featured = FeaturedBooks.load(rootBundle.loadString);
     _editions = CommunityCatalog.fetch().catchError((_) => <CommunityEdition>[]);
   }
 
@@ -66,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: RefreshIndicator(
         onRefresh: () async {
           setState(_load);
-          await Future.wait([_popular, _editions]);
+          await _editions;
         },
         child: ListView(
           padding: const EdgeInsets.only(bottom: 32),
@@ -116,39 +117,40 @@ class _HomeScreenState extends State<HomeScreen> {
                 ]);
               },
             ),
-            _SectionTitle('Popular free classics',
-                subtitle: 'From Project Gutenberg — free and public domain',
-                action: TextButton(onPressed: widget.onOpenStore, child: const Text('See all'))),
-            FutureBuilder<List<CatalogBook>>(
-              future: _popular,
+            FutureBuilder<List<FeaturedBook>>(
+              future: _featured,
               builder: (context, snap) {
-                if (snap.connectionState != ConnectionState.done) {
-                  return const SizedBox(height: 236, child: Center(child: CircularProgressIndicator()));
-                }
-                final books = snap.data ?? const <CatalogBook>[];
-                if (books.isEmpty) {
-                  return Padding(
-                    padding: const EdgeInsets.all(24),
-                    child: Text(
-                      'Connect to the internet to browse free books. Books you have downloaded are always available in your Library.',
-                      style: theme.textTheme.bodyMedium,
+                final featured = snap.data ?? const <FeaturedBook>[];
+                Widget shelf(String title, String subtitle, Iterable<FeaturedBook> books, {Widget? action}) {
+                  final list = books.toList();
+                  if (list.isEmpty) return const SizedBox.shrink();
+                  return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                    _SectionTitle(title, subtitle: subtitle, action: action),
+                    SizedBox(
+                      height: 236,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        children: [
+                          for (final f in list)
+                            Padding(
+                              padding: const EdgeInsets.only(right: 14),
+                              child: CatalogTile(book: f.book, width: 110),
+                            ),
+                        ],
+                      ),
                     ),
-                  );
+                  ]);
                 }
-                return SizedBox(
-                  height: 236,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    children: [
-                      for (final b in books.take(20))
-                        Padding(
-                          padding: const EdgeInsets.only(right: 14),
-                          child: CatalogTile(book: b, width: 110),
-                        ),
-                    ],
-                  ),
-                );
+
+                return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  shelf('Indian classics', 'Tagore, Kipling, folk tales and more — free and public domain',
+                      featured.where((f) => f.shelf == 'india')),
+                  shelf('Popular free classics', 'From Project Gutenberg — free and public domain',
+                      featured.where((f) => f.shelf == 'classics'),
+                      action: TextButton(onPressed: widget.onOpenStore, child: const Text('See all'))),
+                  shelf('For children', 'Fairy tales, fables and adventures', featured.where((f) => f.shelf == 'children')),
+                ]);
               },
             ),
             if (library.books.isEmpty)

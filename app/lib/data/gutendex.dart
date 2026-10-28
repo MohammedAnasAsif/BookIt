@@ -130,3 +130,44 @@ class Gutendex {
     return CatalogPage(books, j['next'] as String?, (j['count'] as num?)?.toInt() ?? books.length);
   }
 }
+
+/// Curated, bundled list of popular classics (app/assets/featured.json).
+/// Shown instantly and offline; built by tools/make_featured.py.
+class FeaturedBooks {
+  static List<FeaturedBook>? _cache;
+
+  static Future<List<FeaturedBook>> load(Future<String> Function(String) loadAsset) async {
+    if (_cache != null) return _cache!;
+    try {
+      final j = jsonDecode(await loadAsset('assets/featured.json')) as Map<String, dynamic>;
+      _cache = [for (final b in (j['books'] as List)) FeaturedBook.fromJson(b as Map<String, dynamic>)];
+    } catch (_) {
+      _cache = const [];
+    }
+    return _cache!;
+  }
+}
+
+class FeaturedBook {
+  final String shelf;
+  final CatalogBook book;
+  FeaturedBook(this.shelf, this.book);
+
+  factory FeaturedBook.fromJson(Map<String, dynamic> j) {
+    final id = (j['id'] as num).toInt();
+    return FeaturedBook(
+      (j['shelf'] as String?) ?? 'classics',
+      CatalogBook(
+        id: id,
+        title: (j['title'] as String?) ?? 'Untitled',
+        authors: [for (final a in (j['authors'] as List? ?? const [])) a as String],
+        languages: [for (final l in (j['languages'] as List? ?? const ['en'])) l as String],
+        subjects: const [],
+        coverUrl: 'https://www.gutenberg.org/cache/epub/$id/pg$id.cover.medium.jpg',
+        epubUrl: 'https://www.gutenberg.org/ebooks/$id.epub3.images',
+        textUrl: 'https://www.gutenberg.org/cache/epub/$id/pg$id.txt',
+        downloadCount: (j['downloads'] as num?)?.toInt() ?? 0,
+      ),
+    );
+  }
+}

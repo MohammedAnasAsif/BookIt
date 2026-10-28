@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
 
 import '../data/gutendex.dart';
 import 'home_screen.dart';
@@ -24,6 +25,7 @@ class _StoreScreenState extends State<StoreScreen> {
   String? _error;
   int _generation = 0;
   Timer? _debounce;
+  bool _offlinePicks = false;
 
   static const _bookLanguages = {
     'en': 'English',
@@ -60,23 +62,52 @@ class _StoreScreenState extends State<StoreScreen> {
     super.dispose();
   }
 
+  /// Bundled picks matching the current shelf/search, shown instantly.
+  Future<List<CatalogBook>> _picks() async {
+    final featured = await FeaturedBooks.load(rootBundle.loadString);
+    final q = _search.text.trim().toLowerCase();
+    return [
+      for (final f in featured)
+        if ((q.isEmpty || f.book.title.toLowerCase().contains(q) || f.book.authorLine.toLowerCase().contains(q)) &&
+            (_shelf.topic.isEmpty ||
+                (_shelf.topic == 'india' && f.shelf == 'india') ||
+                ((_shelf.topic == 'children' || _shelf.topic == 'fairy tales') && f.shelf == 'children')) &&
+            (_language.isEmpty || f.book.languages.contains(_language)))
+          f.book
+    ];
+  }
+
   Future<void> _reload() async {
     final gen = ++_generation;
+    final picks = await _picks();
+    if (gen != _generation) return;
     setState(() {
-      _books.clear();
+      _books
+        ..clear()
+        ..addAll(picks);
       _next = null;
       _error = null;
+      _offlinePicks = false;
       _loading = true;
     });
     try {
       final page = await Gutendex.fetch(search: _search.text, topic: _shelf.topic, languages: _language);
       if (gen != _generation) return;
       setState(() {
-        _books.addAll(page.books);
+        final seen = _books.map((b) => b.id).toSet();
+        _books.addAll(page.books.where((b) => seen.add(b.id)));
         _next = page.next;
       });
     } catch (e) {
-      if (gen == _generation) setState(() => _error = 'Could not reach the free book catalog. Check your internet connection.');
+      if (gen == _generation) {
+        setState(() {
+          if (_books.isEmpty) {
+            _error = 'Could not reach the free book catalog. Check your internet connection.';
+          } else {
+            _offlinePicks = true;
+          }
+        });
+      }
     } finally {
       if (gen == _generation) setState(() => _loading = false);
     }
@@ -177,6 +208,16 @@ class _StoreScreenState extends State<StoreScreen> {
               ),
             ),
           ),
+          if (_offlinePicks)
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(20, 4, 20, 0),
+                child: Text(
+                  'Showing our picks. The full catalog is not reachable right now — pull down or try again later.',
+                  style: theme.textTheme.bodySmall,
+                ),
+              ),
+            ),
           if (_error != null)
             SliverFillRemaining(
               hasScrollBody: false,

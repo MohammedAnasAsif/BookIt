@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'data/library_store.dart';
+import 'models/book.dart';
 import 'data/settings_store.dart';
 import 'demo.dart';
+import 'translation/translation_service.dart';
 import 'ui/reader/reader_screen.dart';
 import 'ui/widgets/language_picker.dart';
 import 'ui/home_screen.dart';
@@ -103,8 +105,22 @@ class _HomeShellState extends State<HomeShell> {
             builder: (_) => ReaderScreen(book: book, startWithMenu: demo == DemoScreen.readerMenu)));
       } else if (demo == DemoScreen.languages) {
         pickLanguage(context, title: 'Translate into…', exclude: 'eng_Latn', selected: 'tam_Taml');
+      } else if (demo == DemoScreen.translate) {
+        _demoTranslate(book);
       }
     });
+  }
+
+  /// End-to-end demo used by CI: download the model, translate the sample
+  /// story into Tamil and open it in the reader.
+  Future<void> _demoTranslate(Book book) async {
+    final service = context.read<TranslationService>();
+    final navigator = Navigator.of(context);
+    if (service.packState != PackState.installed) await service.downloadPack();
+    await service.start(book, 'tam_Taml', fromChapter: 0);
+    book.readingLang = 'tam_Taml';
+    if (!mounted) return;
+    await navigator.push(MaterialPageRoute(builder: (_) => ReaderScreen(book: book)));
   }
 
   static const _destinations = [

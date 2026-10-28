@@ -8,7 +8,7 @@ import 'models/book_content.dart';
 
 /// Screens that can be opened directly with `--demo=<name>` (used by CI to
 /// take screenshots of the built app).
-enum DemoScreen { home, library, store, settings, reader, readerDark, readerMenu, languages }
+enum DemoScreen { home, library, store, settings, reader, readerDark, readerMenu, languages, translate }
 
 DemoScreen? parseDemo(List<String> args) {
   for (final a in args) {
@@ -94,5 +94,7 @@ Future<void> seedDemo(DemoScreen demo, LibraryStore library, SettingsStore setti
   }
   settings.preferredLang ??= 'tam_Taml';
   if (demo == DemoScreen.readerDark) settings.readerTheme = ReaderTheme.dark;
-  if (demo == DemoScreen.reader || demo == DemoScreen.readerMenu) settings.readerTheme = ReaderTheme.sepia;
+  if (demo == DemoScreen.reader || demo == DemoScreen.readerMenu || demo == DemoScreen.translate) {
+    settings.readerTheme = ReaderTheme.sepia;
+  }
 }
