@@ -1,0 +1,2 @@
+Building Windows application...                                   127.7s
+√ Built build\windows\x64\runner\Release\bookit.exe
