@@ -1,30 +1,58 @@
 {
- "pg_catalog_csv": {
-  "s": 2.06,
-  "bytes": 21271171
+ "epub_noimages": {
+  "s": 0.33,
+  "bytes": 609138
  },
- "opds_popular": {
+ "epub3_images": {
+  "s": 0.5,
+  "bytes": 24864457
+ },
+ "cache_epub": {
+  "s": 0.19,
+  "bytes": 609138
+ },
+ "cache_epub_images": {
+  "s": 0.4,
+  "bytes": 24876678
+ },
+ "cache_epub3_images": {
   "s": 0.39,
-  "bytes": 56476
+  "bytes": 24864457
  },
- "opds_popular_p2": {
-  "s": 0.41,
-  "bytes": 56781
+ "pglaf_cache_epub": {
+  "s": 3.38,
+  "bytes": 609138
  },
- "opds_book": {
-  "s": 0.28,
-  "bytes": 12483
+ "aleph_cache_epub": {
+  "s": 0.16,
+  "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'aleph.gutenberg.org'. (_ssl.c:1010)>"
  },
- "gutendex_search": {
-  "s": 25.18,
-  "error": "The read operation timed out"
- },
- "cover": {
-  "s": 0.35,
+ "cover_medium": {
+  "s": 0.13,
   "bytes": 42234
  },
- "epub": {
-  "s": 1.81,
-  "bytes": 24864457
+ "cover_small": {
+  "s": 0.08,
+  "bytes": 5051
+ },
+ "pglaf_cover": {
+  "s": 0.33,
+  "bytes": 42234
+ },
+ "aleph_cover": {
+  "s": 0.16,
+  "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'aleph.gutenberg.org'. (_ssl.c:1010)>"
+ },
+ "cover_37106": {
+  "s": 0.11,
+  "bytes": 31540
+ },
+ "noimages_37106": {
+  "s": 0.28,
+  "bytes": 563582
+ },
+ "noimages_7164": {
+  "s": 0.23,
+  "bytes": 103904
  }
 }
