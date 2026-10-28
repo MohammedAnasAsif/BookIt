@@ -1,0 +1,37 @@
+# One-time helper: generates the Android and Windows platform folders with
+# `flutter create` and commits them. Safe to re-run: existing files are kept.
+name: Bootstrap platforms
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/bootstrap.yml
+
+permissions:
+  contents: write
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - name: Generate platform folders
+        working-directory: app
+        run: |
+          flutter --version
+          flutter create --project-name bookit --org io.github.mohammedanasasif --platforms android,windows .
+          rm -f test/widget_test.dart
+      - name: Record Flutter version
+        run: flutter --version --machine > app/.flutter-version.json
+      - name: Commit generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A app
+          git diff --cached --quiet || git commit -m "Generate Android and Windows platform folders"
+          git push
