@@ -1,0 +1,602 @@
+{
+ "batch1": {
+  "exact": 32,
+  "total": 32,
+  "seconds": 105.289,
+  "tokensPerSecond": 5.318694260559033,
+  "results": [
+   {
+    "tgt": "hin_Deva",
+    "dart": "बूढ़ा आदमी समुद्र तट पर शेरों के बारे में सपना देख रहा था।",
+    "python": "बूढ़ा आदमी समुद्र तट पर शेरों के बारे में सपना देख रहा था।",
+    "same": true
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "उसने खिड़की खोली और बारिश की गंध छोटे कमरे में भर गई।",
+    "python": "उसने खिड़की खोली और बारिश की गंध छोटे कमरे में भर गई।",
+    "same": true
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "\"तुम इतनी जल्दी कहाँ जा रही हो? \" उसकी माँ ने पूछा।",
+    "python": "\"तुम इतनी जल्दी कहाँ जा रही हो? \" उसकी माँ ने पूछा।",
+    "same": true
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "ट्रेन देर हो गई थी, इसलिए हम प्लेटफॉर्म पर बैठकर घंटों तक बात करते रहे।",
+    "python": "ट्रेन देर हो गई थी, इसलिए हम प्लेटफॉर्म पर बैठकर घंटों तक बात करते रहे।",
+    "same": true
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "हर शाम बच्चे बायन के पेड़ के नीचे इकट्ठे होते थे कि कहानियां सुनें।",
+    "python": "हर शाम बच्चे बायन के पेड़ के नीचे इकट्ठे होते थे कि कहानियां सुनें।",
+    "same": true
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "उसने समुद्र को पहले कभी नहीं देखा था, और यह उसे थोड़ा डराता था।",
+    "python": "उसने समुद्र को पहले कभी नहीं देखा था, और यह उसे थोड़ा डराता था।",
+    "same": true
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "किताबें सबसे शांत और सबसे स्थिर मित्र हैं।",
+    "python": "किताबें सबसे शांत और सबसे स्थिर मित्र हैं।",
+    "same": true
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "यह पत्र एक मंगलवार को आया - तीन सप्ताह बाद यह पोस्ट किया गया था।",
+    "python": "यह पत्र एक मंगलवार को आया - तीन सप्ताह बाद यह पोस्ट किया गया था।",
+    "same": true
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "அந்த முதியவர் கடற்கரையில் சிங்கங்கள் பற்றி கனவு கண்டார்.",
+    "python": "அந்த முதியவர் கடற்கரையில் சிங்கங்கள் பற்றி கனவு கண்டார்.",
+    "same": true
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "அவள் ஜன்னலைத் திறந்தாள், மழை வாசனை சிறிய அறையை நிரப்பியது.",
+    "python": "அவள் ஜன்னலைத் திறந்தாள், மழை வாசனை சிறிய அறையை நிரப்பியது.",
+    "same": true
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "\"எங்கே போகிறாய் இவ்வளவு சீக்கிரம்?",
+    "python": "\"எங்கே போகிறாய் இவ்வளவு சீக்கிரம்?",
+    "same": true
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "ரயில் தாமதமாகிவிட்டது, எனவே நாங்கள் மேடையில் அமர்ந்து பல மணி நேரம் பேசினோம்.",
+    "python": "ரயில் தாமதமாகிவிட்டது, எனவே நாங்கள் மேடையில் அமர்ந்து பல மணி நேரம் பேசினோம்.",
+    "same": true
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "ஒவ்வொரு மாலையும் குழந்தைகள் பானிய மரத்தின் கீழ் கதைகளைக் கேட்க கூடியிருந்தனர்.",
+    "python": "ஒவ்வொரு மாலையும் குழந்தைகள் பானிய மரத்தின் கீழ் கதைகளைக் கேட்க கூடியிருந்தனர்.",
+    "same": true
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "கடலை அவர் இதற்கு முன் பார்த்ததில்லை, அது அவரை ஒரு சிறிய பயமுறுத்தியது.",
+    "python": "கடலை அவர் இதற்கு முன் பார்த்ததில்லை, அது அவரை ஒரு சிறிய பயமுறுத்தியது.",
+    "same": true
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "புத்தகங்கள் அமைதியான மற்றும் நிலையான நண்பர்கள்.",
+    "python": "புத்தகங்கள் அமைதியான மற்றும் நிலையான நண்பர்கள்.",
+    "same": true
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "கடிதம் செவ்வாய்க்கிழமை வந்தது - அது அனுப்பப்பட்ட மூன்று வாரங்களுக்குப் பிறகு.",
+    "python": "கடிதம் செவ்வாய்க்கிழமை வந்தது - அது அனுப்பப்பட்ட மூன்று வாரங்களுக்குப் பிறகு.",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "বুড়ো লোকটা সৈকতে সিংহের স্বপ্ন দেখেছিল।",
+    "python": "বুড়ো লোকটা সৈকতে সিংহের স্বপ্ন দেখেছিল।",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "সে জানালা খুলেছে এবং বৃষ্টির গন্ধ ছোট্ট রুমটি ভরে গেছে।",
+    "python": "সে জানালা খুলেছে এবং বৃষ্টির গন্ধ ছোট্ট রুমটি ভরে গেছে।",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "\"আপনি এত তাড়াতাড়ি কোথায় যাচ্ছেন? \" তার মা জিজ্ঞাসা করেছিলেন।",
+    "python": "\"আপনি এত তাড়াতাড়ি কোথায় যাচ্ছেন? \" তার মা জিজ্ঞাসা করেছিলেন।",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "ট্রেন দেরী হয়ে গিয়েছিল, তাই আমরা প্ল্যাটফর্মে বসে ঘণ্টার পর ঘণ্টা কথা বললাম।",
+    "python": "ট্রেন দেরী হয়ে গিয়েছিল, তাই আমরা প্ল্যাটফর্মে বসে ঘণ্টার পর ঘণ্টা কথা বললাম।",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "প্রতি সন্ধ্যায় শিশুরা গল্প শোনার জন্য বাঙ্গিজ গাছের নীচে জড়ো হত।",
+    "python": "প্রতি সন্ধ্যায় শিশুরা গল্প শোনার জন্য বাঙ্গিজ গাছের নীচে জড়ো হত।",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "তিনি সমুদ্র আগে কখনও দেখেনি, এবং এটা তাকে একটু ভয় পেয়েছিলাম.",
+    "python": "তিনি সমুদ্র আগে কখনও দেখেনি, এবং এটা তাকে একটু ভয় পেয়েছিলাম.",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "বই সব থেকে শান্ত এবং সব থেকে স্থিতিশীল বন্ধু।",
+    "python": "বই সব থেকে শান্ত এবং সব থেকে স্থিতিশীল বন্ধু।",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "চিঠিটি মঙ্গলবার পৌঁছেছিল - তিন সপ্তাহ পরে এটি পোস্ট করা হয়েছিল।",
+    "python": "চিঠিটি মঙ্গলবার পৌঁছেছিল - তিন সপ্তাহ পরে এটি পোস্ট করা হয়েছিল।",
+    "same": true
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "Le vieil homme rêvait des lions sur la plage.",
+    "python": "Le vieil homme rêvait des lions sur la plage.",
+    "same": true
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "Elle ouvrit la fenêtre et l'odeur de pluie remplit la petite pièce.",
+    "python": "Elle ouvrit la fenêtre et l'odeur de pluie remplit la petite pièce.",
+    "same": true
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "\"Où allez-vous si tôt?\" lui demanda sa mère.",
+    "python": "\"Où allez-vous si tôt?\" lui demanda sa mère.",
+    "same": true
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "Le train était en retard, nous nous sommes donc assis sur la plate-forme et avons parlé pendant des heures.",
+    "python": "Le train était en retard, nous nous sommes donc assis sur la plate-forme et avons parlé pendant des heures.",
+    "same": true
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "Tous les soirs, les enfants se réunissaient sous le banyan pour entendre des histoires.",
+    "python": "Tous les soirs, les enfants se réunissaient sous le banyan pour entendre des histoires.",
+    "same": true
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "Il n'avait jamais vu la mer auparavant, et il avait un peu peur.",
+    "python": "Il n'avait jamais vu la mer auparavant, et il avait un peu peur.",
+    "same": true
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "Les livres sont les amis les plus calmes et les plus constants.",
+    "python": "Les livres sont les amis les plus calmes et les plus constants.",
+    "same": true
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "La lettre est arrivée un mardi, trois semaines après sa publication.",
+    "python": "La lettre est arrivée un mardi, trois semaines après sa publication.",
+    "same": true
+   }
+  ]
+ },
+ "batch4": {
+  "exact": 22,
+  "total": 32,
+  "seconds": 43.714,
+  "tokensPerSecond": 12.696161412819691,
+  "results": [
+   {
+    "tgt": "hin_Deva",
+    "dart": "बूढ़ा आदमी समुद्र तट पर शेरों के बारे में सपना देख रहा था।",
+    "python": "बूढ़ा आदमी समुद्र तट पर शेरों के बारे में सपना देख रहा था।",
+    "same": true
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "उसने खिड़की खोली और बारिश की गंध ने छोटे कमरे को भर दिया।",
+    "python": "उसने खिड़की खोली और बारिश की गंध छोटे कमरे में भर गई।",
+    "same": false
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "\"तुम इतनी जल्दी कहाँ जा रही हो? \" उसकी माँ ने पूछा।",
+    "python": "\"तुम इतनी जल्दी कहाँ जा रही हो? \" उसकी माँ ने पूछा।",
+    "same": true
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "ट्रेन देर हो गई थी, इसलिए हम मंच पर बैठकर घंटों तक बात करते रहे।",
+    "python": "ट्रेन देर हो गई थी, इसलिए हम प्लेटफॉर्म पर बैठकर घंटों तक बात करते रहे।",
+    "same": false
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "हर शाम बच्चे बायन के पेड़ के नीचे इकट्ठे होते थे कि कहानियां सुनें।",
+    "python": "हर शाम बच्चे बायन के पेड़ के नीचे इकट्ठे होते थे कि कहानियां सुनें।",
+    "same": true
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "उसने समुद्र को पहले कभी नहीं देखा था, और यह उसे थोड़ा डराने लगा।",
+    "python": "उसने समुद्र को पहले कभी नहीं देखा था, और यह उसे थोड़ा डराता था।",
+    "same": false
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "किताबें सबसे शांत और सबसे स्थिर मित्र हैं।",
+    "python": "किताबें सबसे शांत और सबसे स्थिर मित्र हैं।",
+    "same": true
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "यह पत्र मंगलवार को आया था - तीन सप्ताह बाद यह पोस्ट किया गया था।",
+    "python": "यह पत्र एक मंगलवार को आया - तीन सप्ताह बाद यह पोस्ट किया गया था।",
+    "same": false
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "அந்த முதியவர் கடற்கரையில் சிங்கங்கள் பற்றி கனவு கண்டார்.",
+    "python": "அந்த முதியவர் கடற்கரையில் சிங்கங்கள் பற்றி கனவு கண்டார்.",
+    "same": true
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "அவள் ஜன்னலைத் திறந்தாள், மழை வாசனை சிறிய அறையை நிரப்பியது.",
+    "python": "அவள் ஜன்னலைத் திறந்தாள், மழை வாசனை சிறிய அறையை நிரப்பியது.",
+    "same": true
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "\"எங்கே போகிறாய்?",
+    "python": "\"எங்கே போகிறாய் இவ்வளவு சீக்கிரம்?",
+    "same": false
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "ரயில் தாமதமாகிவிட்டது, எனவே நாங்கள் மேடையில் அமர்ந்து பல மணி நேரம் பேசினோம்.",
+    "python": "ரயில் தாமதமாகிவிட்டது, எனவே நாங்கள் மேடையில் அமர்ந்து பல மணி நேரம் பேசினோம்.",
+    "same": true
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "ஒவ்வொரு மாலையும் குழந்தைகள் பானிய மரத்தின் கீழ் கதைகளைக் கேட்க கூடியிருந்தனர்.",
+    "python": "ஒவ்வொரு மாலையும் குழந்தைகள் பானிய மரத்தின் கீழ் கதைகளைக் கேட்க கூடியிருந்தனர்.",
+    "same": true
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "அவர் கடல் பார்த்ததில்லை முன், அது அவரை ஒரு சிறிய பயமுறுத்தியது.",
+    "python": "கடலை அவர் இதற்கு முன் பார்த்ததில்லை, அது அவரை ஒரு சிறிய பயமுறுத்தியது.",
+    "same": false
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "புத்தகங்கள் அமைதியான மற்றும் நிலையான நண்பர்கள்.",
+    "python": "புத்தகங்கள் அமைதியான மற்றும் நிலையான நண்பர்கள்.",
+    "same": true
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "கடிதம் செவ்வாய்க்கிழமை வந்தது - அது அனுப்பப்பட்ட மூன்று வாரங்களுக்குப் பிறகு.",
+    "python": "கடிதம் செவ்வாய்க்கிழமை வந்தது - அது அனுப்பப்பட்ட மூன்று வாரங்களுக்குப் பிறகு.",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "বুড়ো লোকটা সৈকতে সিংহের স্বপ্ন দেখেছিল।",
+    "python": "বুড়ো লোকটা সৈকতে সিংহের স্বপ্ন দেখেছিল।",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "সে জানালা খুলেছে এবং বৃষ্টির গন্ধ ছোট্ট রুমটি ভরে গেছে।",
+    "python": "সে জানালা খুলেছে এবং বৃষ্টির গন্ধ ছোট্ট রুমটি ভরে গেছে।",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "\"আপনি এত তাড়াতাড়ি কোথায় যাচ্ছেন? \" তার মা জিজ্ঞাসা করেছিলেন।",
+    "python": "\"আপনি এত তাড়াতাড়ি কোথায় যাচ্ছেন? \" তার মা জিজ্ঞাসা করেছিলেন।",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "ট্রেন দেরী হয়ে গিয়েছিল, তাই আমরা প্ল্যাটফর্মে বসে ঘণ্টার পর ঘণ্টা কথা বললাম।",
+    "python": "ট্রেন দেরী হয়ে গিয়েছিল, তাই আমরা প্ল্যাটফর্মে বসে ঘণ্টার পর ঘণ্টা কথা বললাম।",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "প্রতি সন্ধ্যায় শিশুরা গল্প শোনার জন্য বাঙ্গিজ গাছের নিচে জড়ো হত।",
+    "python": "প্রতি সন্ধ্যায় শিশুরা গল্প শোনার জন্য বাঙ্গিজ গাছের নীচে জড়ো হত।",
+    "same": false
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "তিনি সমুদ্র আগে কখনও দেখেনি, এবং এটা তাকে একটু ভয় পেয়েছিলাম.",
+    "python": "তিনি সমুদ্র আগে কখনও দেখেনি, এবং এটা তাকে একটু ভয় পেয়েছিলাম.",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "বই সব থেকে শান্ত এবং সব থেকে স্থিতিশীল বন্ধু।",
+    "python": "বই সব থেকে শান্ত এবং সব থেকে স্থিতিশীল বন্ধু।",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "চিঠিটি মঙ্গলবার পৌঁছেছিল - তিন সপ্তাহ পরে এটি পোস্ট করা হয়েছিল।",
+    "python": "চিঠিটি মঙ্গলবার পৌঁছেছিল - তিন সপ্তাহ পরে এটি পোস্ট করা হয়েছিল।",
+    "same": true
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "Le vieil homme rêvait des lions sur la plage.",
+    "python": "Le vieil homme rêvait des lions sur la plage.",
+    "same": true
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "Elle ouvrit la fenêtre et l'odeur de la pluie remplit la petite pièce.",
+    "python": "Elle ouvrit la fenêtre et l'odeur de pluie remplit la petite pièce.",
+    "same": false
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "\"Où allez- vous si tôt?\" lui demanda sa mère.",
+    "python": "\"Où allez-vous si tôt?\" lui demanda sa mère.",
+    "same": false
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "Le train était en retard, nous nous sommes donc assis sur la plateforme et avons parlé pendant des heures.",
+    "python": "Le train était en retard, nous nous sommes donc assis sur la plate-forme et avons parlé pendant des heures.",
+    "same": false
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "Tous les soirs, les enfants se réunissaient sous le banyan pour entendre des histoires.",
+    "python": "Tous les soirs, les enfants se réunissaient sous le banyan pour entendre des histoires.",
+    "same": true
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "Il n'avait jamais vu la mer auparavant, et il avait un peu peur.",
+    "python": "Il n'avait jamais vu la mer auparavant, et il avait un peu peur.",
+    "same": true
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "Les livres sont les amis les plus calmes et les plus constants.",
+    "python": "Les livres sont les amis les plus calmes et les plus constants.",
+    "same": true
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "La lettre est arrivée un mardi, trois semaines après sa publication.",
+    "python": "La lettre est arrivée un mardi, trois semaines après sa publication.",
+    "same": true
+   }
+  ]
+ },
+ "batch8": {
+  "exact": 20,
+  "total": 32,
+  "seconds": 24.437,
+  "tokensPerSecond": 22.629619020338012,
+  "results": [
+   {
+    "tgt": "hin_Deva",
+    "dart": "बूढ़ा आदमी समुद्र तट पर शेरों के बारे में सपना देख रहा था।",
+    "python": "बूढ़ा आदमी समुद्र तट पर शेरों के बारे में सपना देख रहा था।",
+    "same": true
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "उसने खिड़की खोली और बारिश की गंध छोटे कमरे को भर गई।",
+    "python": "उसने खिड़की खोली और बारिश की गंध छोटे कमरे में भर गई।",
+    "same": false
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "\"तुम इतनी जल्दी कहाँ जा रही हो?\" उसकी माँ ने पूछा।",
+    "python": "\"तुम इतनी जल्दी कहाँ जा रही हो? \" उसकी माँ ने पूछा।",
+    "same": false
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "ट्रेन देर हो गई थी, इसलिए हम मंच पर बैठकर घंटों तक बात करते रहे।",
+    "python": "ट्रेन देर हो गई थी, इसलिए हम प्लेटफॉर्म पर बैठकर घंटों तक बात करते रहे।",
+    "same": false
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "हर शाम बच्चे बायन के पेड़ के नीचे इकट्ठे होते थे कि कहानियां सुनें।",
+    "python": "हर शाम बच्चे बायन के पेड़ के नीचे इकट्ठे होते थे कि कहानियां सुनें।",
+    "same": true
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "उसने समुद्र को पहले कभी नहीं देखा था, और यह उसे थोड़ा डराने लगा।",
+    "python": "उसने समुद्र को पहले कभी नहीं देखा था, और यह उसे थोड़ा डराता था।",
+    "same": false
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "किताबें सबसे शांत और सबसे स्थिर मित्र हैं।",
+    "python": "किताबें सबसे शांत और सबसे स्थिर मित्र हैं।",
+    "same": true
+   },
+   {
+    "tgt": "hin_Deva",
+    "dart": "यह पत्र मंगलवार को आया - तीन सप्ताह बाद यह पोस्ट किया गया था।",
+    "python": "यह पत्र एक मंगलवार को आया - तीन सप्ताह बाद यह पोस्ट किया गया था।",
+    "same": false
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "அந்த முதியவர் கடற்கரையில் சிங்கங்கள் பற்றி கனவு கண்டார்.",
+    "python": "அந்த முதியவர் கடற்கரையில் சிங்கங்கள் பற்றி கனவு கண்டார்.",
+    "same": true
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "அவள் ஜன்னலைத் திறந்தாள், மழை வாசனை அந்த சிறிய அறையை நிரப்பியது.",
+    "python": "அவள் ஜன்னலைத் திறந்தாள், மழை வாசனை சிறிய அறையை நிரப்பியது.",
+    "same": false
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "\"எங்கே போகிறாய்?",
+    "python": "\"எங்கே போகிறாய் இவ்வளவு சீக்கிரம்?",
+    "same": false
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "ரயில் தாமதமாகிவிட்டது, எனவே நாங்கள் மேடையில் அமர்ந்து பல மணி நேரம் பேசினோம்.",
+    "python": "ரயில் தாமதமாகிவிட்டது, எனவே நாங்கள் மேடையில் அமர்ந்து பல மணி நேரம் பேசினோம்.",
+    "same": true
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "ஒவ்வொரு மாலையும் குழந்தைகள் பானிய மரத்தின் கீழ் கதைகளைக் கேட்க கூடியிருந்தனர்.",
+    "python": "ஒவ்வொரு மாலையும் குழந்தைகள் பானிய மரத்தின் கீழ் கதைகளைக் கேட்க கூடியிருந்தனர்.",
+    "same": true
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "அவர் கடலை இதற்கு முன் பார்த்ததில்லை, அது அவரை ஒரு சிறிய பயமுறுத்தியது.",
+    "python": "கடலை அவர் இதற்கு முன் பார்த்ததில்லை, அது அவரை ஒரு சிறிய பயமுறுத்தியது.",
+    "same": false
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "புத்தகங்கள் அமைதியான மற்றும் நிலையான நண்பர்கள்.",
+    "python": "புத்தகங்கள் அமைதியான மற்றும் நிலையான நண்பர்கள்.",
+    "same": true
+   },
+   {
+    "tgt": "tam_Taml",
+    "dart": "கடிதம் செவ்வாய்க்கிழமை வந்தது - அது அனுப்பப்பட்ட மூன்று வாரங்களுக்குப் பிறகு.",
+    "python": "கடிதம் செவ்வாய்க்கிழமை வந்தது - அது அனுப்பப்பட்ட மூன்று வாரங்களுக்குப் பிறகு.",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "বুড়ো লোকটা সৈকতে সিংহের স্বপ্ন দেখেছিল।",
+    "python": "বুড়ো লোকটা সৈকতে সিংহের স্বপ্ন দেখেছিল।",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "সে জানালা খুলেছে এবং বৃষ্টির গন্ধ ছোট্ট রুম ভরে গেছে।",
+    "python": "সে জানালা খুলেছে এবং বৃষ্টির গন্ধ ছোট্ট রুমটি ভরে গেছে।",
+    "same": false
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "\"আপনি এত তাড়াতাড়ি কোথায় যাচ্ছেন? \" তার মা জিজ্ঞাসা করেছিলেন।",
+    "python": "\"আপনি এত তাড়াতাড়ি কোথায় যাচ্ছেন? \" তার মা জিজ্ঞাসা করেছিলেন।",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "ট্রেন দেরী হয়ে গিয়েছিল, তাই আমরা প্ল্যাটফর্মে বসে ঘণ্টার পর ঘন্টা কথা বললাম।",
+    "python": "ট্রেন দেরী হয়ে গিয়েছিল, তাই আমরা প্ল্যাটফর্মে বসে ঘণ্টার পর ঘণ্টা কথা বললাম।",
+    "same": false
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "প্রতি সন্ধ্যায় শিশুরা গল্প শোনার জন্য বাঙ্গিজ গাছের নীচে জড়ো হত।",
+    "python": "প্রতি সন্ধ্যায় শিশুরা গল্প শোনার জন্য বাঙ্গিজ গাছের নীচে জড়ো হত।",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "তিনি সমুদ্র আগে কখনও দেখেনি, এবং এটা তাকে একটু ভয় পেয়েছিলাম.",
+    "python": "তিনি সমুদ্র আগে কখনও দেখেনি, এবং এটা তাকে একটু ভয় পেয়েছিলাম.",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "বই সব থেকে শান্ত এবং সব থেকে স্থিতিশীল বন্ধু।",
+    "python": "বই সব থেকে শান্ত এবং সব থেকে স্থিতিশীল বন্ধু।",
+    "same": true
+   },
+   {
+    "tgt": "ben_Beng",
+    "dart": "চিঠিটি মঙ্গলবার পৌঁছেছিল - তিন সপ্তাহ পরে এটি পোস্ট করা হয়েছিল।",
+    "python": "চিঠিটি মঙ্গলবার পৌঁছেছিল - তিন সপ্তাহ পরে এটি পোস্ট করা হয়েছিল।",
+    "same": true
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "Le vieil homme rêvait des lions sur la plage.",
+    "python": "Le vieil homme rêvait des lions sur la plage.",
+    "same": true
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "Elle ouvrit la fenêtre et l'odeur de pluie remplit la petite pièce.",
+    "python": "Elle ouvrit la fenêtre et l'odeur de pluie remplit la petite pièce.",
+    "same": true
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "\"Où allez- vous si tôt?\" lui demanda sa mère.",
+    "python": "\"Où allez-vous si tôt?\" lui demanda sa mère.",
+    "same": false
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "Le train était en retard, nous nous sommes donc assis sur la plateforme et avons parlé pendant des heures.",
+    "python": "Le train était en retard, nous nous sommes donc assis sur la plate-forme et avons parlé pendant des heures.",
+    "same": false
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "Tous les soirs, les enfants se réunissaient sous le banyan pour entendre des histoires.",
+    "python": "Tous les soirs, les enfants se réunissaient sous le banyan pour entendre des histoires.",
+    "same": true
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "Il n'avait jamais vu la mer auparavant, et il avait un peu peur.",
+    "python": "Il n'avait jamais vu la mer auparavant, et il avait un peu peur.",
+    "same": true
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "Les livres sont les amis les plus calmes et les plus constants.",
+    "python": "Les livres sont les amis les plus calmes et les plus constants.",
+    "same": true
+   },
+   {
+    "tgt": "fra_Latn",
+    "dart": "La lettre est arrivée un mardi, trois semaines après sa publication.",
+    "python": "La lettre est arrivée un mardi, trois semaines après sa publication.",
+    "same": true
+   }
+  ]
+ }
+}
