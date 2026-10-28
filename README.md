@@ -1,0 +1,118 @@
+<p align="center"><img src="app/assets/icon.png" width="96" alt="BookIt icon"></p>
+
+<h1 align="center">BookIt</h1>
+
+<p align="center"><b>A free, open-source e-reader that translates books into your language — on your own device.</b><br>
+Android · Windows · 200 languages, including 20 Indian languages · works offline</p>
+
+---
+
+BookIt is a Kindle-style reading app with a built-in library of 70,000+ free classics. Pick any book, tap **Translate**, choose Tamil, Hindi, Bengali, Telugu, Marathi, Urdu or any of 90+ other languages, and BookIt translates the book **on your phone or PC** and saves it. After that you can read it anytime, without internet.
+
+No accounts, no API keys, no subscriptions, no ads. Nothing you read is sent anywhere.
+
+## Download
+
+Go to **[Releases](https://github.com/MohammedAnasAsif/BookIt/releases)**:
+
+| Platform | File |
+| --- | --- |
+| Android (most phones) | `BookIt-android-arm64.apk` |
+| Android (any phone) | `BookIt-android.apk` |
+| Windows 10/11 installer | `BookIt-Setup-x.y.z.exe` |
+| Windows portable | `BookIt-windows-x64.zip` — unzip and run `bookit.exe` |
+
+The `latest` pre-release is rebuilt automatically from the newest code.
+
+> On Android you may need to allow "Install unknown apps" for your browser or file manager the first time.
+
+## Features
+
+- **Free library** — browse and search Project Gutenberg's public-domain books by shelf (fiction, adventure, children, poetry, India…) and language; one tap to download.
+- **Your own books** — open DRM-free EPUB and TXT files, or `.bookit` editions shared by others.
+- **Kindle-style reader** — real pages with tap zones and swipes, serif/sans fonts, text size, spacing, margins, justified text, white / sepia / gray / dark / black themes, chapter slider, table of contents, bookmarks, reading progress. Keyboard and mouse-wheel page turns on Windows.
+- **Translate any book** — into 90+ languages including Hindi, Bengali, Telugu, Marathi, Tamil, Urdu, Gujarati, Kannada, Malayalam, Odia, Punjabi, Assamese, Maithili, Sanskrit, Nepali, Sindhi, Kashmiri, Manipuri, Santali, and most European and world languages.
+- **Start reading right away** — the chapter you are reading is translated first; untranslated paragraphs show in lighter text and switch over as they are ready. Translation resumes where it stopped.
+- **Switch anytime** between the original and the translation on the same page.
+- **Share translations** — save any translation as an EPUB for other e-readers, or as a `.bookit` edition to share or contribute to the community library.
+- **Community library** — books already translated by others appear on the home screen, ready to download instantly.
+
+## How translation works
+
+BookIt runs Meta AI's **NLLB-200** translation model (distilled 600M, 8-bit) with ONNX Runtime directly on your device.
+
+1. The first time you translate, BookIt downloads the model once (about **1.35 GB** — use Wi-Fi).
+2. The book is split into sentences and translated in batches in the background, starting from the chapter you are reading.
+3. Each translated paragraph is saved next to the book, so the translation is available offline forever.
+
+**Speed:** a phone translates a full novel in a few hours (keep BookIt open — it keeps the screen awake while translating); a PC is several times faster. You can read the first chapters within minutes.
+**Quality:** machine translation is good for understanding and enjoying a story but is not perfect. The community library can use larger, more accurate models (see below).
+**Memory:** the model needs roughly 1.5 GB of free RAM; phones with 6 GB or more work best.
+
+The tokenizer and decoding were verified against the reference Python implementation (100% identical tokens on a full novel; see `.github/workflows/engine.yml`).
+
+## Community library (pre-translated books)
+
+Translating takes time, so translations can be shared. Editions listed in [`catalog/editions.json`](catalog/editions.json) appear in the app under *Ready to read in your language*.
+
+To contribute a translation of a **public-domain** book:
+
+1. Translate it — either in the BookIt app (Book → ⋮ → *Share as BookIt edition*), or on a PC with
+   [`tools/translate_book.py`](tools/translate_book.py), which can use larger models
+   (NLLB-200 1.3B, or AI4Bharat's IndicTrans2 for Indian languages):
+   ```bash
+   pip install torch transformers sentencepiece beautifulsoup4 lxml
+   python tools/translate_book.py --gutenberg 1342 --to tam_Taml
+   ```
+2. Open an issue or pull request with the `.bookit` file and the catalog entry the tool prints. Maintainers attach the file to the `editions` release and add the entry.
+
+Please only share books that are in the public domain (like Project Gutenberg books) or that you have the rights to share.
+
+## Build from source
+
+Requirements: [Flutter](https://docs.flutter.dev/get-started/install) (stable channel). Android builds need the Android SDK; Windows builds need Visual Studio with the "Desktop development with C++" workload.
+
+```bash
+cd app
+flutter pub get
+flutter run                     # on a connected phone or this PC
+flutter build apk --release     # Android
+flutter build windows --release # Windows
+flutter test                    # unit tests
+```
+
+Every push to `main` is built by GitHub Actions ([`.github/workflows/build.yml`](.github/workflows/build.yml)): analysis and tests, Android APKs, a Windows zip and installer, and the `latest` pre-release. Tags like `v0.2.0` publish a normal release.
+
+**Release signing:** add two repository secrets — `ANDROID_KEYSTORE_BASE64` (the base64 of a `.jks` keystore with key alias `bookit`) and `ANDROID_KEYSTORE_PASSWORD`. Without them, APKs are signed with a temporary debug key and can't be installed as updates over each other.
+
+### Project layout
+
+```
+app/                         Flutter app (Android + Windows)
+  lib/books/                 EPUB/TXT parsing, EPUB writer, .bookit editions
+  lib/data/                  library storage, Gutendex catalog, settings
+  lib/translation/engine/    NLLB tokenizer (pure Dart), ONNX Runtime model, sentence splitting
+  lib/translation/           background translation worker and job queue
+  lib/ui/                    screens; lib/ui/reader/ is the paginated reader
+catalog/editions.json        community library index
+tools/translate_book.py      batch translation for the community library
+tools/engine_reference.py    reference data for the engine test
+.github/workflows/           builds, engine test, developer probes
+```
+
+## Roadmap
+
+- Android foreground service so translation continues with the app in the background
+- Optional higher-quality packs (IndicTrans2 for Indian languages; larger NLLB models on PCs)
+- PDF import, highlights and notes, dictionary lookup, text-to-speech
+- More pre-translated classics in Indian languages
+
+Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Credits and licences
+
+- BookIt code: [Apache License 2.0](LICENSE).
+- Books: [Project Gutenberg](https://www.gutenberg.org) via the [Gutendex](https://gutendex.com) API. Gutenberg books are free and in the public domain in the USA; please check the laws of your country.
+- Translation model: [NLLB-200](https://ai.meta.com/research/no-language-left-behind/) by Meta AI, licensed **CC-BY-NC 4.0** (free for non-commercial use), using the ONNX export by [Xenova](https://huggingface.co/Xenova/nllb-200-distilled-600M). Because of this licence, BookIt as distributed is for non-commercial use.
+- [ONNX Runtime](https://onnxruntime.ai) (MIT) via the [`onnxruntime`](https://pub.dev/packages/onnxruntime) Flutter plugin.
+- Optional tooling: [IndicTrans2](https://github.com/AI4Bharat/IndicTrans2) by AI4Bharat (MIT).
