@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
+import '../../core/cover_cache.dart';
+
 /// A book cover: the real image when there is one, otherwise a generated
 /// cover with the title, in a colour picked from the title.
 class BookCover extends StatelessWidget {
@@ -9,6 +11,10 @@ class BookCover extends StatelessWidget {
   final String author;
   final File? file;
   final String? url;
+
+  /// Several URLs to try (main site, mirror), cached on disk under [cacheKey].
+  final List<String>? urls;
+  final String? cacheKey;
   final double width;
   final double? height;
   final double radius;
@@ -19,6 +25,8 @@ class BookCover extends StatelessWidget {
     this.author = '',
     this.file,
     this.url,
+    this.urls,
+    this.cacheKey,
     this.width = 110,
     this.height,
     this.radius = 6,
@@ -76,10 +84,22 @@ class BookCover extends StatelessWidget {
     }
 
     Widget image;
+    final key = cacheKey ?? (url == null ? null : 'u${url.hashCode.toUnsigned(32)}');
+    final sources = urls ?? (url == null ? const <String>[] : [url!]);
     if (file != null && file!.existsSync()) {
       image = Image.file(file!, fit: BoxFit.cover, errorBuilder: (_, __, ___) => generated());
-    } else if (url != null) {
-      image = Image.network(url!, fit: BoxFit.cover, errorBuilder: (_, __, ___) => generated());
+    } else if (key != null && sources.isNotEmpty) {
+      final hit = CoverCache.cached(key);
+      image = hit != null
+          ? Image.file(hit, fit: BoxFit.cover, errorBuilder: (_, __, ___) => generated())
+          : FutureBuilder<File?>(
+              future: CoverCache.get(key, sources),
+              builder: (context, snap) {
+                final f = snap.data;
+                if (f == null) return generated();
+                return Image.file(f, fit: BoxFit.cover, errorBuilder: (_, __, ___) => generated());
+              },
+            );
     } else {
       image = generated();
     }

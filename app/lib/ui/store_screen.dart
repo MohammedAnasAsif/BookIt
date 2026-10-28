@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import '../data/catalog.dart';
 import 'home_screen.dart';
 
+/// Bump to move to the store and put the cursor in its search box.
+final storeSearchRequest = ValueNotifier<int>(0);
+
 /// Browse and search every free Project Gutenberg book. The catalog is bundled
 /// with the app, so this is instant and works offline; only downloading a
 /// book needs the internet.
@@ -16,6 +19,7 @@ class StoreScreen extends StatefulWidget {
 class _StoreScreenState extends State<StoreScreen> {
   static const _pageSize = 60;
   final _search = TextEditingController();
+  final _searchFocus = FocusNode();
   final _scroll = ScrollController();
   LocalCatalog? _catalog;
   Shelf _shelf = kShelves.first;
@@ -43,9 +47,16 @@ class _StoreScreenState extends State<StoreScreen> {
     '': 'Any language',
   };
 
+  void _focusSearch() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) _searchFocus.requestFocus();
+    });
+  }
+
   @override
   void initState() {
     super.initState();
+    storeSearchRequest.addListener(_focusSearch);
     LocalCatalog.load().then((c) {
       if (!mounted) return;
       _catalog = c;
@@ -58,6 +69,8 @@ class _StoreScreenState extends State<StoreScreen> {
 
   @override
   void dispose() {
+    storeSearchRequest.removeListener(_focusSearch);
+    _searchFocus.dispose();
     _search.dispose();
     _scroll.dispose();
     super.dispose();
@@ -123,6 +136,7 @@ class _StoreScreenState extends State<StoreScreen> {
               padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
               child: TextField(
                 controller: _search,
+                focusNode: _searchFocus,
                 textInputAction: TextInputAction.search,
                 decoration: InputDecoration(
                   hintText: 'Search ${_catalog == null ? '' : '${(_catalog!.books.length ~/ 1000)},000+ '}free books',

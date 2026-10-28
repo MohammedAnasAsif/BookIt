@@ -24,6 +24,11 @@ class Book {
   /// Saved reading position.
   ReadingPosition position;
 
+  /// Opened with "Read now" and not saved to the library yet. Temporary books
+  /// show under "Continue reading" but not in the library, and are cleaned up
+  /// after 30 days without reading.
+  bool temporary;
+
   Book({
     required this.id,
     required this.title,
@@ -36,6 +41,7 @@ class Book {
     this.lastOpenedAt,
     this.readingLang,
     ReadingPosition? position,
+    this.temporary = false,
   })  : addedAt = addedAt ?? DateTime.now(),
         position = position ?? const ReadingPosition(0, 0, 0);
 
@@ -51,6 +57,7 @@ class Book {
         if (lastOpenedAt != null) 'lastOpenedAt': lastOpenedAt!.toIso8601String(),
         if (readingLang != null) 'readingLang': readingLang,
         'position': position.toJson(),
+        if (temporary) 'temporary': true,
       };
 
   factory Book.fromJson(Map<String, dynamic> j) => Book(
@@ -67,6 +74,7 @@ class Book {
         position: j['position'] is Map
             ? ReadingPosition.fromJson((j['position'] as Map).cast<String, dynamic>())
             : null,
+        temporary: j['temporary'] == true,
       );
 }
 

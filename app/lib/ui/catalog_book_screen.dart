@@ -22,13 +22,13 @@ class CatalogBookScreen extends StatefulWidget {
 class _CatalogBookScreenState extends State<CatalogBookScreen> {
   bool _busy = false;
 
-  Future<Book?> _download() async {
+  Future<Book?> _download({bool temporary = false}) async {
     final library = context.read<LibraryStore>();
     setState(() => _busy = true);
     try {
-      return await library.addFromCatalog(widget.book);
+      return await library.addFromCatalog(widget.book, temporary: temporary);
     } catch (e) {
-      if (mounted) showMessage(context, 'Download failed. Check your internet connection and try again.');
+      if (mounted) await showErrorDialog(context, 'Could not get this book', e);
       return null;
     } finally {
       if (mounted) setState(() => _busy = false);
@@ -52,7 +52,7 @@ class _CatalogBookScreenState extends State<CatalogBookScreen> {
       body: ListView(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
         children: [
-          Center(child: BookCover(title: b.title, author: b.authorLine, url: b.coverUrl, width: 150)),
+          Center(child: BookCover(title: b.title, author: b.authorLine, urls: b.coverUrls, cacheKey: b.coverKey, width: 150)),
           const SizedBox(height: 20),
           Text(b.title,
               textAlign: TextAlign.center,
@@ -66,56 +66,91 @@ class _CatalogBookScreenState extends State<CatalogBookScreen> {
             style: theme.textTheme.bodySmall,
           ),
           const SizedBox(height: 24),
-          if (_busy || progress != null) ...[
-            LinearProgressIndicator(value: (progress ?? 0) > 0 ? progress : null),
-            const SizedBox(height: 8),
-            const Center(child: Text('Downloading…')),
-          ] else if (owned != null) ...[
-            FilledButton.icon(
-              icon: const Icon(Icons.menu_book),
-              label: const Text('Read'),
-              onPressed: () => openReader(context, owned),
+          Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 420),
+              child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+                if (_busy || progress != null) ...[
+                  LinearProgressIndicator(value: (progress ?? 0) > 0 ? progress : null),
+                  const SizedBox(height: 8),
+                  const Center(child: Text('Getting the book…')),
+                ] else if (owned != null) ...[
+                  FilledButton.icon(
+                    icon: const Icon(Icons.menu_book),
+                    label: const Text('Read'),
+                    onPressed: () => openReader(context, owned),
+                  ),
+                  const SizedBox(height: 10),
+                  if (owned.temporary)
+                    OutlinedButton.icon(
+                      icon: const Icon(Icons.library_add),
+                      label: const Text('Save to my library'),
+                      onPressed: () async {
+                        await library.keep(owned);
+                        if (context.mounted) showMessage(context, 'Saved to your library — available offline');
+                      },
+                    )
+                  else
+                    OutlinedButton.icon(
+                      icon: const Icon(Icons.info_outline),
+                      label: const Text('Translations & details'),
+                      onPressed: () => Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (_) => BookDetailsScreen(bookId: owned.id))),
+                    ),
+                ] else ...[
+                  FilledButton.icon(
+                    icon: const Icon(Icons.menu_book),
+                    label: const Text('Read now'),
+                    onPressed: () async {
+                      final book = await _download(temporary: true);
+                      if (book != null && context.mounted) await openReader(context, book, original: true);
+                    },
+                  ),
+                  const SizedBox(height: 10),
+                  if (canTranslateToPreferred) ...[
+                    FilledButton.tonalIcon(
+                      icon: const Icon(Icons.translate),
+                      label: Text('Read in ${preferred.nativeName}'),
+                      onPressed: () async {
+                        final book = await _download();
+                        if (book == null || !context.mounted) return;
+                        final lang = await translateBook(context, book, lang: preferred);
+                        if (lang != null && context.mounted) await openReader(context, book, lang: lang);
+                      },
+                    ),
+                    const SizedBox(height: 10),
+                  ],
+                  OutlinedButton.icon(
+                    icon: const Icon(Icons.library_add),
+                    label: const Text('Save to my library'),
+                    onPressed: () async {
+                      final book = await _download();
+                      if (book != null && context.mounted) {
+                        showMessage(context, 'Saved “${book.title}” — available offline in your library');
+                      }
+                    },
+                  ),
+                  const SizedBox(height: 6),
+                  TextButton.icon(
+                    icon: const Icon(Icons.language),
+                    label: const Text('Translate into another language…'),
+                    onPressed: () async {
+                      final book = await _download();
+                      if (book == null || !context.mounted) return;
+                      final lang = await translateBook(context, book);
+                      if (lang != null && context.mounted) await openReader(context, book, lang: lang);
+                    },
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    '“Read now” opens the book right away. Save it to keep it in your library.',
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.bodySmall,
+                  ),
+                ],
+              ]),
             ),
-            const SizedBox(height: 10),
-            OutlinedButton.icon(
-              icon: const Icon(Icons.info_outline),
-              label: const Text('Translations & details'),
-              onPressed: () => Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (_) => BookDetailsScreen(bookId: owned.id))),
-            ),
-          ] else ...[
-            if (canTranslateToPreferred)
-              FilledButton.icon(
-                icon: const Icon(Icons.translate),
-                label: Text('Read in ${preferred.nativeName}'),
-                onPressed: () async {
-                  final book = await _download();
-                  if (book == null || !context.mounted) return;
-                  final lang = await translateBook(context, book, lang: preferred);
-                  if (lang != null && context.mounted) await openReader(context, book, lang: lang);
-                },
-              ),
-            const SizedBox(height: 10),
-            OutlinedButton.icon(
-              icon: const Icon(Icons.download),
-              label: Text(canTranslateToPreferred ? 'Download original' : 'Download & read'),
-              onPressed: () async {
-                final book = await _download();
-                if (book != null && context.mounted) await openReader(context, book, original: true);
-              },
-            ),
-            const SizedBox(height: 10),
-            TextButton.icon(
-              icon: const Icon(Icons.language),
-              label: const Text('Translate into another language…'),
-              onPressed: () async {
-                final book = await _download();
-                if (book == null || !context.mounted) return;
-                final lang = await translateBook(context, book);
-                if (lang != null && context.mounted) await openReader(context, book, lang: lang);
-              },
-            ),
-          ],
+          ),
           const SizedBox(height: 28),
           if (b.rank > 0)
             Text('#${b.rank} most downloaded on Project Gutenberg', style: theme.textTheme.bodySmall),

@@ -4,7 +4,10 @@ import 'package:provider/provider.dart';
 import 'data/library_store.dart';
 import 'models/book.dart';
 import 'data/settings_store.dart';
+import 'data/catalog.dart';
 import 'demo.dart';
+import 'ui/book_actions.dart';
+import 'ui/catalog_book_screen.dart';
 import 'translation/translation_service.dart';
 import 'ui/reader/reader_screen.dart';
 import 'ui/widgets/language_picker.dart';
@@ -96,8 +99,12 @@ class _HomeShellState extends State<HomeShell> {
       DemoScreen.settings => 3,
       _ => 0,
     };
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
       if (!mounted) return;
+      if (demo == DemoScreen.readNow || demo == DemoScreen.bookPage) {
+        await _demoCatalogBook(demo);
+        return;
+      }
       final book = context.read<LibraryStore>().byId(demoBookId);
       if (book == null) return;
       if (demo == DemoScreen.reader || demo == DemoScreen.readerDark || demo == DemoScreen.readerMenu) {
@@ -109,6 +116,26 @@ class _HomeShellState extends State<HomeShell> {
         _demoTranslate(book);
       }
     });
+  }
+
+  /// CI demos for the free library: open a book page, or "Read now".
+  Future<void> _demoCatalogBook(DemoScreen demo) async {
+    final navigator = Navigator.of(context);
+    final library = context.read<LibraryStore>();
+    final catalog = await LocalCatalog.load();
+    final book = catalog.byId(1342);
+    if (book == null || !mounted) return;
+    if (demo == DemoScreen.bookPage) {
+      await navigator.push(MaterialPageRoute(builder: (_) => CatalogBookScreen(book: book)));
+      return;
+    }
+    try {
+      final b = await library.addFromCatalog(book, temporary: true);
+      if (!mounted) return;
+      await openReader(context, b, original: true);
+    } catch (e) {
+      if (mounted) await showErrorDialog(context, 'Could not get this book', e);
+    }
   }
 
   /// End-to-end demo used by CI: download the model, translate the sample
@@ -135,7 +162,14 @@ class _HomeShellState extends State<HomeShell> {
   @override
   Widget build(BuildContext context) {
     final pages = [
-      HomeScreen(onOpenStore: () => _go(2), onOpenLibrary: () => _go(1)),
+      HomeScreen(
+        onOpenStore: () => _go(2),
+        onOpenLibrary: () => _go(1),
+        onSearch: () {
+          _go(2);
+          storeSearchRequest.value++;
+        },
+      ),
       const LibraryScreen(),
       const StoreScreen(),
       const SettingsScreen(),

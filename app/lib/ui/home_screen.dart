@@ -18,7 +18,8 @@ import 'widgets/language_picker.dart';
 class HomeScreen extends StatefulWidget {
   final VoidCallback onOpenStore;
   final VoidCallback onOpenLibrary;
-  const HomeScreen({super.key, required this.onOpenStore, required this.onOpenLibrary});
+  final VoidCallback onSearch;
+  const HomeScreen({super.key, required this.onOpenStore, required this.onOpenLibrary, required this.onSearch});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -52,6 +53,11 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('BookIt'),
         actions: [
+          IconButton(
+            tooltip: 'Search free books',
+            icon: const Icon(Icons.search),
+            onPressed: widget.onSearch,
+          ),
           TextButton.icon(
             icon: const Icon(Icons.translate, size: 18),
             label: Text(preferred?.nativeName ?? 'Language'),
@@ -440,7 +446,8 @@ class CatalogTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(6),
         onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => CatalogBookScreen(book: book))),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          BookCover(title: book.title, author: book.authorLine, url: book.coverUrl, width: width),
+          BookCover(
+              title: book.title, author: book.authorLine, urls: book.coverUrls, cacheKey: book.coverKey, width: width),
           const SizedBox(height: 6),
           Text(book.title, maxLines: 2, overflow: TextOverflow.ellipsis, style: theme.textTheme.bodySmall),
         ]),

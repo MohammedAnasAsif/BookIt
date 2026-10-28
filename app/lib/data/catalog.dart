@@ -29,9 +29,21 @@ class CatalogBook {
   });
 
   String get authorLine => authors.join(', ');
-  String get coverUrl => 'https://www.gutenberg.org/cache/epub/$id/pg$id.cover.medium.jpg';
-  String get epubUrl => 'https://www.gutenberg.org/ebooks/$id.epub3.images';
-  String get textUrl => 'https://www.gutenberg.org/cache/epub/$id/pg$id.txt';
+
+  /// Text-only EPUB (small: usually under 1 MB), with a mirror as fallback.
+  List<String> get epubUrls => [
+        'https://www.gutenberg.org/cache/epub/$id/pg$id.epub',
+        'https://www.gutenberg.org/ebooks/$id.epub.noimages',
+        'https://gutenberg.pglaf.org/cache/epub/$id/pg$id.epub',
+      ];
+
+  List<String> get coverUrls => [
+        'https://www.gutenberg.org/cache/epub/$id/pg$id.cover.medium.jpg',
+        'https://gutenberg.pglaf.org/cache/epub/$id/pg$id.cover.medium.jpg',
+      ];
+
+  String get coverUrl => coverUrls.first;
+  String get coverKey => 'pg$id';
 }
 
 /// Topic shelves shown in the store, mapped to catalog shelf codes.

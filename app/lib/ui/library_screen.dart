@@ -23,6 +23,8 @@ class _LibraryScreenState extends State<LibraryScreen> {
   _Sort _sort = _Sort.recent;
   bool _translatedOnly = false;
   bool _grid = true;
+  String _query = '';
+  bool _searching = false;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,10 @@ class _LibraryScreenState extends State<LibraryScreen> {
     context.watch<TranslationService>();
     var books = library.books.toList();
     if (_translatedOnly) books = books.where((b) => library.translationLangs(b.id).isNotEmpty).toList();
+    if (_query.trim().isNotEmpty) {
+      final q = _query.trim().toLowerCase();
+      books = books.where((b) => b.title.toLowerCase().contains(q) || b.author.toLowerCase().contains(q)).toList();
+    }
     switch (_sort) {
       case _Sort.recent:
         books.sort((a, b) => (b.lastOpenedAt ?? b.addedAt).compareTo(a.lastOpenedAt ?? a.addedAt));
@@ -43,8 +49,22 @@ class _LibraryScreenState extends State<LibraryScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Library'),
+        title: _searching
+            ? TextField(
+                autofocus: true,
+                decoration: const InputDecoration(hintText: 'Search your books', border: InputBorder.none),
+                onChanged: (v) => setState(() => _query = v),
+              )
+            : const Text('Library'),
         actions: [
+          IconButton(
+            tooltip: _searching ? 'Close search' : 'Search your books',
+            icon: Icon(_searching ? Icons.close : Icons.search),
+            onPressed: () => setState(() {
+              _searching = !_searching;
+              if (!_searching) _query = '';
+            }),
+          ),
           IconButton(
             tooltip: _grid ? 'List view' : 'Grid view',
             icon: Icon(_grid ? Icons.view_list : Icons.grid_view),

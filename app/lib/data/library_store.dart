@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:isolate';
@@ -10,6 +11,7 @@ import '../books/edition.dart';
 import '../books/epub_parser.dart';
 import '../books/txt_parser.dart';
 import '../core/app_paths.dart';
+import '../core/cover_cache.dart';
 import '../core/downloader.dart';
 import '../core/languages.dart';
 import '../models/book.dart';
@@ -27,7 +29,8 @@ class LibraryStore extends ChangeNotifier {
   /// Book ids currently being downloaded or imported, with progress 0..1.
   final Map<String, double> pending = {};
 
-  List<Book> get books => List.unmodifiable(_books);
+  /// Books saved to the library (excludes books only opened with "Read now").
+  List<Book> get books => List.unmodifiable(_books.where((b) => !b.temporary));
 
   List<Book> get recent {
     final l = _books.where((b) => b.lastOpenedAt != null).toList()
@@ -67,7 +70,20 @@ class LibraryStore extends ChangeNotifier {
       }
     }
     _books.sort((a, b) => b.addedAt.compareTo(a.addedAt));
+    // Forget books read online that haven't been opened for 30 days.
+    final cutoff = DateTime.now().subtract(const Duration(days: 30));
+    for (final b in _books.where((b) => b.temporary && (b.lastOpenedAt ?? b.addedAt).isBefore(cutoff)).toList()) {
+      if (translationLangs(b.id).isEmpty) await delete(b);
+    }
     loaded = true;
+    notifyListeners();
+  }
+
+  /// Saves a book opened with "Read now" to the library.
+  Future<void> keep(Book b) async {
+    if (!b.temporary) return;
+    b.temporary = false;
+    await save(b);
     notifyListeners();
   }
 
@@ -138,39 +154,52 @@ class LibraryStore extends ChangeNotifier {
 
   // ---------------------------------------------------------------- adding
 
-  /// Downloads a Project Gutenberg book and adds it to the library.
-  Future<Book> addFromCatalog(CatalogBook cb) async {
+  /// Downloads a Project Gutenberg book. With [temporary] the book is only
+  /// opened ("Read now") and not shown in the library until it is saved.
+  Future<Book> addFromCatalog(CatalogBook cb, {bool temporary = false}) async {
     final existing = byGutenbergId(cb.id);
-    if (existing != null) return existing;
+    if (existing != null) {
+      if (!temporary) await keep(existing);
+      return existing;
+    }
     final id = 'pg${cb.id}';
     pending[id] = 0;
     notifyListeners();
     try {
-      final tmp = File(p.join(AppPaths.cache.path, 'download-$id'));
-      final url = cb.epubUrl;
-      await Downloader.toFile(url, tmp, onProgress: (r, t) {
-        if (t > 0) {
-          pending[id] = (r / t).clamp(0, 1).toDouble();
-          notifyListeners();
+      final tmp = File(p.join(AppPaths.cache.path, 'download-$id.epub'));
+      Object? lastError;
+      Uint8List? bytes;
+      for (final url in cb.epubUrls) {
+        try {
+          await Downloader.toFile(url, tmp, onProgress: (r, t) {
+            if (t > 0) {
+              pending[id] = (r / t).clamp(0, 1).toDouble();
+              notifyListeners();
+            }
+          });
+          bytes = await tmp.readAsBytes();
+          await tmp.delete();
+          break;
+        } catch (e) {
+          lastError = e;
+          try {
+            if (await tmp.exists()) await tmp.delete();
+          } catch (_) {}
         }
-      });
-      final bytes = await tmp.readAsBytes();
-      await tmp.delete();
-      Uint8List? cover;
-      try {
-        cover = await Downloader.getBytes(cb.coverUrl);
-      } catch (_) {}
-      const isEpub = true;
+      }
+      if (bytes == null) throw BookDownloadException(cb.title, lastError);
+      final coverFile = await CoverCache.get(cb.coverKey, cb.coverUrls);
       final book = await _addParsed(
         id: id,
         source: 'gutenberg',
         gutenbergId: cb.id,
         bytes: bytes,
-        isEpub: isEpub,
+        isEpub: true,
         titleOverride: cb.title,
         authorOverride: cb.authorLine,
         languageHint: cb.languages.isNotEmpty ? cb.languages.first : null,
-        coverOverride: cover,
+        coverOverride: coverFile == null ? null : await coverFile.readAsBytes(),
+        temporary: temporary,
       );
       return book;
     } finally {
@@ -210,6 +239,7 @@ class LibraryStore extends ChangeNotifier {
     String? authorOverride,
     String? languageHint,
     Uint8List? coverOverride,
+    bool temporary = false,
   }) async {
     final parsed = await Isolate.run(_BookParser(bytes, isEpub, titleOverride ?? 'Untitled').call);
     var content = BookContent.fromJson(parsed[0] as Map<String, dynamic>);
@@ -239,6 +269,7 @@ class LibraryStore extends ChangeNotifier {
       sourceLang: lang.code,
       gutenbergId: gutenbergId,
       coverFile: coverName,
+      temporary: temporary,
     );
     await save(book);
     _books.insert(0, book);
@@ -345,4 +376,24 @@ class _EditionDecoder {
   final Uint8List bytes;
   _EditionDecoder(this.bytes);
   Edition call() => Edition.decode(bytes);
+}
+
+/// A book could not be downloaded; explains why in plain words.
+class BookDownloadException implements Exception {
+  final String title;
+  final Object? cause;
+  BookDownloadException(this.title, this.cause);
+
+  String get reason {
+    final c = cause;
+    if (c is SocketException || c is TimeoutException || c is HandshakeException) {
+      return 'BookIt could not connect to Project Gutenberg (www.gutenberg.org). '
+          'Check your internet connection, or whether a firewall, VPN or antivirus is blocking BookIt.';
+    }
+    if (c is HttpException) return 'Project Gutenberg answered with an error (${c.message}).';
+    return 'The download failed.';
+  }
+
+  @override
+  String toString() => '$reason\n\nDetails: $cause';
 }
