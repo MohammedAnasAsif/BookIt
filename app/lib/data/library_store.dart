@@ -261,6 +261,10 @@ class LibraryStore extends ChangeNotifier {
       await File(p.join(dir.path, coverName)).writeAsBytes(coverBytes);
     }
     final lang = languageByIso(content.language) ?? languageByIso(languageHint) ?? englishLanguage;
+    // Open at the start of the book itself, after licence/boilerplate pages.
+    var startChapter = content.chapters.indexWhere(
+        (c) => c.blocks.any((b) => !b.noTranslate && b.text.trim().isNotEmpty && !b.isHeading));
+    if (startChapter < 0) startChapter = 0;
     final book = Book(
       id: id,
       title: title,
@@ -270,6 +274,7 @@ class LibraryStore extends ChangeNotifier {
       gutenbergId: gutenbergId,
       coverFile: coverName,
       temporary: temporary,
+      position: ReadingPosition(startChapter, 0, 0),
     );
     await save(book);
     _books.insert(0, book);

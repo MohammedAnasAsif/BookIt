@@ -47,6 +47,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
   double _anchorFraction = 0;
 
   String _layoutKey = '';
+  int _footerPageCount = -1;
   int _translatedSignature = -1;
   DateTime _lastLayout = DateTime.fromMillisecondsSinceEpoch(0);
   Timer? _relayoutTimer;
@@ -440,6 +441,13 @@ class _ReaderScreenState extends State<ReaderScreen> {
               child: LayoutBuilder(builder: (context, c) {
                 final size = Size(c.maxWidth, c.maxHeight);
                 _layout(size, style);
+                if (_pages.length != _footerPageCount) {
+                  // The header/footer were built before this layout; refresh them.
+                  _footerPageCount = _pages.length;
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                    if (mounted) setState(() {});
+                  });
+                }
                 if (_pages.isEmpty) return const SizedBox.shrink();
                 final page = _pages[_page.clamp(0, _pages.length - 1)];
                 return AnimatedSwitcher(

@@ -374,7 +374,7 @@ class _HtmlBlockExtractor {
             _inlineText(node, inline);
           }
         } else if (node is XmlText || node is XmlCDATA) {
-          inline.write(node.value ?? '');
+          inline.write(_spaceNewlines(node.value ?? ''));
         }
       }
       flushInline();
@@ -418,7 +418,7 @@ class _HtmlBlockExtractor {
   void _inlineText(XmlElement e, StringBuffer sb) {
     for (final node in e.children) {
       if (node is XmlText || node is XmlCDATA) {
-        sb.write(node.value ?? '');
+        sb.write(_spaceNewlines(node.value ?? ''));
       } else if (node is XmlElement) {
         final tag = node.name.local.toLowerCase();
         if (_skipTags.contains(tag) || _isPageNumber(node)) continue;
@@ -431,7 +431,10 @@ class _HtmlBlockExtractor {
     }
   }
 
-  /// Collapses whitespace but keeps explicit line breaks (from <br>).
+  /// Newlines in the HTML source are just spacing; only <br> breaks a line.
+  static String _spaceNewlines(String s) => s.replaceAll(RegExp(r'[\r\n]+'), ' ');
+
+  /// Collapses whitespace but keeps explicit line breaks (from `<br>`).
   static String _clean(String s) {
     final lines = s.split('\n').map((l) => l.replaceAll(RegExp(r'[ \t\r\f ]+'), ' ').trim());
     return lines.where((l) => l.isNotEmpty).join('\n').trim();

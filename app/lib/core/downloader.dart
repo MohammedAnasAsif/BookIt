@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
+import 'package:http/io_client.dart';
 
 class DownloadCancelled implements Exception {
   @override
@@ -18,7 +19,36 @@ class CancelToken {
 
 /// HTTP helpers with progress reporting and resumable downloads.
 class Downloader {
-  static final http.Client _client = http.Client();
+  static final http.Client _client = IOClient(_httpClient());
+
+  /// dart:io does not use the Windows proxy settings by itself; read them so
+  /// BookIt works on networks where the browser goes through a proxy.
+  static HttpClient _httpClient() {
+    final c = HttpClient()..connectionTimeout = const Duration(seconds: 20);
+    final proxy = _windowsProxy();
+    if (proxy != null) c.findProxy = (uri) => 'PROXY $proxy; DIRECT';
+    return c;
+  }
+
+  static String? _windowsProxy() {
+    if (!Platform.isWindows) return null;
+    try {
+      const key = r'HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings';
+      final enabled = Process.runSync('reg', ['query', key, '/v', 'ProxyEnable']).stdout.toString();
+      if (!RegExp(r'ProxyEnable\s+REG_DWORD\s+0x1').hasMatch(enabled)) return null;
+      final server = Process.runSync('reg', ['query', key, '/v', 'ProxyServer']).stdout.toString();
+      final m = RegExp(r'ProxyServer\s+REG_SZ\s+(\S+)').firstMatch(server);
+      if (m == null) return null;
+      var value = m.group(1)!;
+      // "http=host:port;https=host:port" or "host:port"
+      final https = RegExp(r'https=([^;]+)').firstMatch(value);
+      final http = RegExp(r'http=([^;]+)').firstMatch(value);
+      value = https?.group(1) ?? http?.group(1) ?? value;
+      return value.replaceFirst(RegExp(r'^https?://'), '');
+    } catch (_) {
+      return null;
+    }
+  }
   static const _ua = 'BookIt/0.1 (open-source e-reader; https://github.com/MohammedAnasAsif/BookIt)';
 
   static Future<Uint8List> getBytes(String url, {Duration timeout = const Duration(seconds: 60)}) async {
