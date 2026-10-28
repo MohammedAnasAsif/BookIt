@@ -1,0 +1,36 @@
+# Rebuilds the bundled list of featured classics (app/assets/featured.json)
+# and records how fast the online catalogs respond.
+name: Featured books
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - tools/make_featured.py
+      - .github/workflows/featured.yml
+
+permissions:
+  contents: write
+
+jobs:
+  featured:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build list
+        run: mkdir -p catalog-probe; python tools/make_featured.py app/assets/featured.json catalog-probe 2>&1 | tee catalog-probe/log.txt
+      - name: Commit list
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -s app/assets/featured.json ]; then
+            git add app/assets/featured.json
+            git diff --cached --quiet || (git commit -m "Update featured classics list" && git pull --rebase -q && git push -q)
+          fi
+      - name: Publish logs
+        if: always()
+        run: bash .github/scripts/publish-logs.sh "featured-${{ github.run_id }}" catalog-probe/*

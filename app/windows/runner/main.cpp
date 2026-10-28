@@ -2,6 +2,8 @@
 #include <flutter/flutter_view_controller.h>
 #include <windows.h>
 
+#include <algorithm>
+
 #include "flutter_window.h"
 #include "utils.h"
 
@@ -25,8 +27,16 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
   project.set_dart_entrypoint_arguments(std::move(command_line_arguments));
 
   FlutterWindow window(project);
-  Win32Window::Point origin(10, 10);
-  Win32Window::Size size(1200, 860);
+  // Start at 1200x860, but never larger than the screen's work area.
+  RECT work_area{0, 0, 1200, 860};
+  ::SystemParametersInfo(SPI_GETWORKAREA, 0, &work_area, 0);
+  const int work_width = work_area.right - work_area.left;
+  const int work_height = work_area.bottom - work_area.top;
+  const unsigned int width = static_cast<unsigned int>((std::min)(1200, work_width * 92 / 100));
+  const unsigned int height = static_cast<unsigned int>((std::min)(860, work_height * 92 / 100));
+  Win32Window::Point origin(work_area.left + (work_width - static_cast<int>(width)) / 2,
+                            work_area.top + (work_height - static_cast<int>(height)) / 2);
+  Win32Window::Size size(width, height);
   if (!window.Create(L"BookIt", origin, size)) {
     return EXIT_FAILURE;
   }
