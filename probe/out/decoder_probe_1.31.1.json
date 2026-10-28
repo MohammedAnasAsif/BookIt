@@ -1,0 +1,51 @@
+{
+ "ort_version": "1.31.1",
+ "hidden_shape": [
+  1,
+  16,
+  1024
+ ],
+ "merged_zero_past": {
+  "ok": false,
+  "error": "[ONNXRuntimeError] : 1 : FAIL : Non-zero status code returned while running If node. Name:'optimum::if' Status Message: Non-zero status code returned while running Reshape node. Name:'/model/decoder/layers.0/encoder_attn/Reshape_4' Status Message: /onnxruntime_src/onnxruntime/core/providers/cpu/tensor/reshape_helper.h:33 onnxruntime::ReshapeHelper::ReshapeHelper(const onnxruntime::TensorShape&, on"
+ },
+ "merged_one_past": {
+  "ok": false,
+  "error": "[ONNXRuntimeError] : 1 : FAIL : Non-zero status code returned while running If node. Name:'optimum::if' Status Message: Non-zero status code returned while running Reshape node. Name:'/model/decoder/layers.0/encoder_attn/Reshape_4' Status Message: /onnxruntime_src/onnxruntime/core/providers/cpu/tensor/reshape_helper.h:33 onnxruntime::ReshapeHelper::ReshapeHelper(const onnxruntime::TensorShape&, on"
+ },
+ "merged_zero_dec_enc_len": {
+  "ok": false,
+  "error": "[ONNXRuntimeError] : 1 : FAIL : Non-zero status code returned while running If node. Name:'optimum::if' Status Message: Non-zero status code returned while running Reshape node. Name:'/model/decoder/layers.0/encoder_attn/Reshape_4' Status Message: /onnxruntime_src/onnxruntime/core/providers/cpu/tensor/reshape_helper.h:33 onnxruntime::ReshapeHelper::ReshapeHelper(const onnxruntime::TensorShape&, on"
+ },
+ "merged_single_start_token": {
+  "ok": false,
+  "error": "[ONNXRuntimeError] : 1 : FAIL : Non-zero status code returned while running If node. Name:'optimum::if' Status Message: Non-zero status code returned while running Reshape node. Name:'/model/decoder/layers.0/encoder_attn/Reshape_4' Status Message: /onnxruntime_src/onnxruntime/core/providers/cpu/tensor/reshape_helper.h:33 onnxruntime::ReshapeHelper::ReshapeHelper(const onnxruntime::TensorShape&, on"
+ },
+ "d1_inputs": [
+  "encoder_attention_mask",
+  "input_ids",
+  "encoder_hidden_states"
+ ],
+ "d2_inputs": [
+  "encoder_attention_mask",
+  "input_ids",
+  "past_key_values.0.decoder.key",
+  "past_key_values.0.decoder.value",
+  "past_key_values.0.encoder.key",
+  "past_key_values.0.encoder.value"
+ ],
+ "d2_outputs": [
+  "logits",
+  "present.0.decoder.key",
+  "present.0.decoder.value",
+  "present.1.decoder.key",
+  "present.1.decoder.value",
+  "present.2.decoder.key"
+ ],
+ "split": {
+  "ok": true,
+  "text": "बूढ़ा आदमी समुद्र तट पर शेरों के बारे में सपना देख रहा था।",
+  "s": 2.65
+ },
+ "reference_pytorch_greedy": "बूढ़ा आदमी समुद्र तट पर शेरों के बारे में सपना देख रहा था।"
+}
