@@ -1,0 +1,23 @@
+00:00 +0: loading /home/runner/work/BookIt/BookIt/app/test/tokenizer_test.dart
+00:00 +0: /home/runner/work/BookIt/BookIt/app/test/tokenizer_test.dart: NllbTokenizer (setUpAll)
+00:00 +0: /home/runner/work/BookIt/BookIt/app/test/engine_test.dart: translates like the reference implementation
+00:01 +1: /home/runner/work/BookIt/BookIt/app/test/engine_test.dart: translates like the reference implementation
+00:01 +1: /home/runner/work/BookIt/BookIt/app/test/tokenizer_test.dart: NllbTokenizer broad agreement on book text
+tokenizer agreement: 603/603 = 100.00%
+00:01 +2: /home/runner/work/BookIt/BookIt/app/test/engine_test.dart: translates like the reference implementation
+00:01 +3: /home/runner/work/BookIt/BookIt/app/test/engine_test.dart: translates like the reference implementation
+00:01 +4: /home/runner/work/BookIt/BookIt/app/test/engine_test.dart: translates like the reference implementation
+exact matches: 20/32 in 11081 ms
+00:13 +4 -1: /home/runner/work/BookIt/BookIt/app/test/engine_test.dart: translates like the reference implementation [E]
+  Expected: a value greater than or equal to <0.75>
+    Actual: <0.625>
+     Which: is not a value greater than or equal to <0.75>
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test/engine_test.dart 61:5                          main.<fn>
+  
+00:13 +4 -1: Some tests failed.
+
+Failing tests:
+  /home/runner/work/BookIt/BookIt/app/test/engine_test.dart: translates like the reference implementation
