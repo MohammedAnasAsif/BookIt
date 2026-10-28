@@ -1,0 +1,630 @@
+{
+ "format": "bookit-featured",
+ "version": 1,
+ "books": [
+  {
+   "id": 7164,
+   "title": "Gitanjali",
+   "authors": [
+    "Rabindranath Tagore, W. B. Yeats"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "india",
+   "rank": 656
+  },
+  {
+   "id": 7166,
+   "title": "The Home and the World",
+   "authors": [
+    "Rabindranath Tagore, Surendranath Tagore"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "india",
+   "rank": 0
+  },
+  {
+   "id": 6686,
+   "title": "The gardener",
+   "authors": [
+    "Rabindranath Tagore"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "india",
+   "rank": 0
+  },
+  {
+   "id": 6524,
+   "title": "Stray Birds",
+   "authors": [
+    "Rabindranath Tagore, Willy Pogány"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "india",
+   "rank": 849
+  },
+  {
+   "id": 2518,
+   "title": "The Hungry Stones, and Other Stories",
+   "authors": [
+    "Rabindranath Tagore"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "india",
+   "rank": 0
+  },
+  {
+   "id": 2226,
+   "title": "Kim",
+   "authors": [
+    "Rudyard Kipling"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "india",
+   "rank": 1165
+  },
+  {
+   "id": 236,
+   "title": "The Jungle Book",
+   "authors": [
+    "Rudyard Kipling"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "india",
+   "rank": 108
+  },
+  {
+   "id": 7128,
+   "title": "Indian Fairy Tales",
+   "authors": [
+    "Joseph Jacobs, John Dickson Batten"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "india",
+   "rank": 1825
+  },
+  {
+   "id": 6145,
+   "title": "Tales of the Punjab: Folklore of India",
+   "authors": [
+    "Flora Annie Webster Steel, Richard Carnac Temple"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "india",
+   "rank": 0
+  },
+  {
+   "id": 2388,
+   "title": "The Song Celestial; Or, Bhagavad-Gîtâ (from the Mahâbhârata)",
+   "authors": [
+    "Edwin Arnold"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "india",
+   "rank": 272
+  },
+  {
+   "id": 8920,
+   "title": "The Light of Asia",
+   "authors": [
+    "Edwin Arnold"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "india",
+   "rank": 0
+  },
+  {
+   "id": 11310,
+   "title": "Hindu Tales from the Sanskrit",
+   "authors": [
+    "N. D'Anvers, Siddha Mohana Mitra"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "india",
+   "rank": 0
+  },
+  {
+   "id": 1342,
+   "title": "Pride and Prejudice",
+   "authors": [
+    "Jane Austen"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 1
+  },
+  {
+   "id": 1661,
+   "title": "The Adventures of Sherlock Holmes",
+   "authors": [
+    "Arthur Conan Doyle"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 5
+  },
+  {
+   "id": 84,
+   "title": "Frankenstein; or, The modern Prometheus",
+   "authors": [
+    "Mary Wollstonecraft Shelley"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 2
+  },
+  {
+   "id": 37106,
+   "title": "Little Women; Or, Meg, Jo, Beth, and Amy",
+   "authors": [
+    "Louisa May Alcott, Frank T. Merrill"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 24
+  },
+  {
+   "id": 103,
+   "title": "Around the World in Eighty Days",
+   "authors": [
+    "Jules Verne, George M. Towle"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 131
+  },
+  {
+   "id": 35,
+   "title": "The Time Machine",
+   "authors": [
+    "H. G. Wells"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 56
+  },
+  {
+   "id": 24022,
+   "title": "A Christmas Carol",
+   "authors": [
+    "Charles Dickens, Arthur Rackham"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 792
+  },
+  {
+   "id": 1400,
+   "title": "Great Expectations",
+   "authors": [
+    "Charles Dickens"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 25
+  },
+  {
+   "id": 1260,
+   "title": "Jane Eyre: An Autobiography",
+   "authors": [
+    "Charlotte Brontë, F. H. Townsend"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 13
+  },
+  {
+   "id": 768,
+   "title": "Wuthering Heights",
+   "authors": [
+    "Emily Brontë"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 36
+  },
+  {
+   "id": 345,
+   "title": "Dracula",
+   "authors": [
+    "Bram Stoker"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 6
+  },
+  {
+   "id": 1184,
+   "title": "The Count of Monte Cristo",
+   "authors": [
+    "Alexandre Dumas, Auguste Maquet"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 21
+  },
+  {
+   "id": 135,
+   "title": "Les Misérables",
+   "authors": [
+    "Victor Hugo, Isabel Florence Hapgood"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 81
+  },
+  {
+   "id": 2600,
+   "title": "War and Peace",
+   "authors": [
+    "Leo Tolstoy, Aylmer Maude, Louise Maude"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 29
+  },
+  {
+   "id": 2554,
+   "title": "Crime and Punishment",
+   "authors": [
+    "Fyodor Dostoyevsky, Constance Garnett"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 15
+  },
+  {
+   "id": 2500,
+   "title": "Siddhartha",
+   "authors": [
+    "Hermann Hesse"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 211
+  },
+  {
+   "id": 58585,
+   "title": "The Prophet",
+   "authors": [
+    "Kahlil Gibran"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 129
+  },
+  {
+   "id": 2680,
+   "title": "Meditations",
+   "authors": [
+    "Emperor of Rome Marcus Aurelius"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 20
+  },
+  {
+   "id": 132,
+   "title": "The Art of War",
+   "authors": [
+    "Sunzi, Lionel Giles"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 75
+  },
+  {
+   "id": 174,
+   "title": "The Picture of Dorian Gray",
+   "authors": [
+    "Oscar Wilde"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 12
+  },
+  {
+   "id": 2701,
+   "title": "Moby Dick; Or, The Whale",
+   "authors": [
+    "Herman Melville"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 3
+  },
+  {
+   "id": 996,
+   "title": "Don Quixote",
+   "authors": [
+    "Miguel de Cervantes Saavedra, John Ormsby"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 87
+  },
+  {
+   "id": 67907,
+   "title": "Robinson Crusoe, Told to the Children by John Lang",
+   "authors": [
+    "Daniel Defoe, John Lang, Louey Chisholm"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 0
+  },
+  {
+   "id": 65473,
+   "title": "Gulliver's Travels",
+   "authors": [
+    "Jonathan Swift, Milo Winter"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "classics",
+   "rank": 0
+  },
+  {
+   "id": 11,
+   "title": "Alice's Adventures in Wonderland",
+   "authors": [
+    "Lewis Carroll"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "children",
+   "rank": 4
+  },
+  {
+   "id": 120,
+   "title": "Treasure Island",
+   "authors": [
+    "Robert Louis Stevenson, Louis Rhead"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "children",
+   "rank": 44
+  },
+  {
+   "id": 16,
+   "title": "Peter Pan",
+   "authors": [
+    "J. M. Barrie"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "children",
+   "rank": 70
+  },
+  {
+   "id": 113,
+   "title": "The Secret Garden",
+   "authors": [
+    "Frances Hodgson Burnett"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "children",
+   "rank": 109
+  },
+  {
+   "id": 45,
+   "title": "Anne of Green Gables",
+   "authors": [
+    "L. M. Montgomery"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "children",
+   "rank": 52
+  },
+  {
+   "id": 271,
+   "title": "Black Beauty",
+   "authors": [
+    "Anna Sewell"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "children",
+   "rank": 224
+  },
+  {
+   "id": 46409,
+   "title": "Heidi",
+   "authors": [
+    "Johanna Spyri, Alice Carsey, Mabel Abbott"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "children",
+   "rank": 1548
+  },
+  {
+   "id": 2591,
+   "title": "Grimms' Fairy Tales",
+   "authors": [
+    "Jacob Grimm, Wilhelm Grimm"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "children",
+   "rank": 50
+  },
+  {
+   "id": 1597,
+   "title": "Andersen's Fairy Tales",
+   "authors": [
+    "H. C. Andersen"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "children",
+   "rank": 219
+  },
+  {
+   "id": 11339,
+   "title": "Aesop's Fables; a new translation",
+   "authors": [
+    "Aesop, G. K. Chesterton, Arthur Rackham"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "children",
+   "rank": 178
+  },
+  {
+   "id": 74,
+   "title": "The Adventures of Tom Sawyer, Complete",
+   "authors": [
+    "Mark Twain"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "children",
+   "rank": 27
+  },
+  {
+   "id": 55,
+   "title": "The Wonderful Wizard of Oz",
+   "authors": [
+    "L. Frank Baum"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "children",
+   "rank": 38
+  },
+  {
+   "id": 500,
+   "title": "The Adventures of Pinocchio",
+   "authors": [
+    "Carlo Collodi, Carol Della Chiesa"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "children",
+   "rank": 328
+  },
+  {
+   "id": 289,
+   "title": "The Wind in the Willows",
+   "authors": [
+    "Kenneth Grahame"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "children",
+   "rank": 144
+  },
+  {
+   "id": 2781,
+   "title": "Just so stories",
+   "authors": [
+    "Rudyard Kipling"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "children",
+   "rank": 357
+  },
+  {
+   "id": 11757,
+   "title": "The Velveteen Rabbit",
+   "authors": [
+    "Margery Williams Bianco"
+   ],
+   "languages": [
+    "en"
+   ],
+   "shelf": "children",
+   "rank": 584
+  }
+ ]
+}
