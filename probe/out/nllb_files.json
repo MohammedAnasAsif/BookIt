@@ -1,0 +1,166 @@
+[
+ {
+  "name": ".gitattributes",
+  "size": 1830
+ },
+ {
+  "name": "README.md",
+  "size": 4801
+ },
+ {
+  "name": "config.json",
+  "size": 873
+ },
+ {
+  "name": "generation_config.json",
+  "size": 189
+ },
+ {
+  "name": "onnx/decoder_model.onnx",
+  "size": 1860454885
+ },
+ {
+  "name": "onnx/decoder_model_bnb4.onnx",
+  "size": 1168344350
+ },
+ {
+  "name": "onnx/decoder_model_fp16.onnx",
+  "size": 930453274
+ },
+ {
+  "name": "onnx/decoder_model_int8.onnx",
+  "size": 1515755203
+ },
+ {
+  "name": "onnx/decoder_model_merged.onnx",
+  "size": 1865158686
+ },
+ {
+  "name": "onnx/decoder_model_merged_bnb4.onnx",
+  "size": 1168915076
+ },
+ {
+  "name": "onnx/decoder_model_merged_fp16.onnx",
+  "size": 931025511
+ },
+ {
+  "name": "onnx/decoder_model_merged_int8.onnx",
+  "size": 1516432837
+ },
+ {
+  "name": "onnx/decoder_model_merged_q4.onnx",
+  "size": 1181496152
+ },
+ {
+  "name": "onnx/decoder_model_merged_q4f16.onnx",
+  "size": 641649334
+ },
+ {
+  "name": "onnx/decoder_model_merged_quantized.onnx",
+  "size": 475505771
+ },
+ {
+  "name": "onnx/decoder_model_merged_uint8.onnx",
+  "size": 1516432902
+ },
+ {
+  "name": "onnx/decoder_model_q4.onnx",
+  "size": 1180926290
+ },
+ {
+  "name": "onnx/decoder_model_q4f16.onnx",
+  "size": 641063897
+ },
+ {
+  "name": "onnx/decoder_model_quantized.onnx",
+  "size": 470533055
+ },
+ {
+  "name": "onnx/decoder_model_uint8.onnx",
+  "size": 1515755268
+ },
+ {
+  "name": "onnx/decoder_with_past_model.onnx",
+  "size": 1759606543
+ },
+ {
+  "name": "onnx/decoder_with_past_model_bnb4.onnx",
+  "size": 1153955682
+ },
+ {
+  "name": "onnx/decoder_with_past_model_fp16.onnx",
+  "size": 879951078
+ },
+ {
+  "name": "onnx/decoder_with_past_model_int8.onnx",
+  "size": 1490336684
+ },
+ {
+  "name": "onnx/decoder_with_past_model_q4.onnx",
+  "size": 1164964950
+ },
+ {
+  "name": "onnx/decoder_with_past_model_q4f16.onnx",
+  "size": 626734069
+ },
+ {
+  "name": "onnx/decoder_with_past_model_quantized.onnx",
+  "size": 445006987
+ },
+ {
+  "name": "onnx/decoder_with_past_model_uint8.onnx",
+  "size": 1490336738
+ },
+ {
+  "name": "onnx/encoder_model.onnx",
+  "size": 1658468942
+ },
+ {
+  "name": "onnx/encoder_model_bnb4.onnx",
+  "size": 1139440339
+ },
+ {
+  "name": "onnx/encoder_model_fp16.onnx",
+  "size": 829418829
+ },
+ {
+  "name": "onnx/encoder_model_int8.onnx",
+  "size": 415346576
+ },
+ {
+  "name": "onnx/encoder_model_q4.onnx",
+  "size": 1148876935
+ },
+ {
+  "name": "onnx/encoder_model_q4f16.onnx",
+  "size": 612305403
+ },
+ {
+  "name": "onnx/encoder_model_quantized.onnx",
+  "size": 419120483
+ },
+ {
+  "name": "onnx/encoder_model_uint8.onnx",
+  "size": 415346625
+ },
+ {
+  "name": "quantize_config.json",
+  "size": 3258
+ },
+ {
+  "name": "sentencepiece.bpe.model",
+  "size": 4852054
+ },
+ {
+  "name": "special_tokens_map.json",
+  "size": 3548
+ },
+ {
+  "name": "tokenizer.json",
+  "size": 17331224
+ },
+ {
+  "name": "tokenizer_config.json",
+  "size": 544
+ }
+]

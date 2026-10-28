@@ -1,0 +1,266 @@
+[0;93m2026-10-28 06:49:33.651580329 [W:onnxruntime:Default, device_discovery.cc:95 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename "5620e0c7-8062-4dce-aeb7-520c7ef76171" did not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+files [
+ {
+  "name": ".gitattributes",
+  "size": 1830
+ },
+ {
+  "name": "README.md",
+  "size": 4801
+ },
+ {
+  "name": "config.json",
+  "size": 873
+ },
+ {
+  "name": "generation_config.json",
+  "size": 189
+ },
+ {
+  "name": "onnx/decoder_model.onnx",
+  "size": 1860454885
+ },
+ {
+  "name": "onnx/decoder_model_bnb4.onnx",
+  "size": 1168344350
+ },
+ {
+  "name": "onnx/decoder_model_fp16.onnx",
+  "size": 930453274
+ },
+ {
+  "name": "onnx/decoder_model_int8.onnx",
+  "size": 1515755203
+ },
+ {
+  "name": "onnx/decoder_model_merged.onnx",
+  "size": 1865158686
+ },
+ {
+  "name": "onnx/decoder_model_merged_bnb4.onnx",
+  "size": 1168915076
+ },
+ {
+  "name": "onnx/decoder_model_merged_fp16.onnx",
+  "size": 931025511
+ },
+ {
+  "name": "onnx/decoder_model_merged_int8.onnx",
+  "size": 1516432837
+ },
+ {
+  "name": "onnx/decoder_model_merged_q4.onnx",
+  "size": 1181496152
+ },
+ {
+  "name": "onnx/decoder_model_merged_q4f16.onnx",
+  "size": 641649334
+ },
+ {
+  "name": "onnx/decoder_model_merged_quantized.onnx",
+  "size": 475505771
+ },
+ {
+  "name": "onnx/decoder_model_merged_uint8.onnx",
+  "size": 1516432902
+ },
+ {
+  "name": "onnx/decoder_model_q4.onnx",
+  "size": 1180926290
+ },
+ {
+  "name": "onnx/decoder_model_q4f16.onnx",
+  "size": 641063897
+ },
+ {
+  "name": "onnx/decoder_model_quantized.onnx",
+  "size": 470533055
+ },
+ {
+  "name": "onnx/decoder_model_uint8.onnx",
+  "size": 1515755268
+ },
+ {
+  "name": "onnx/decoder_with_past_model.onnx",
+  "size": 1759606543
+ },
+ {
+  "name": "onnx/decoder_with_past_model_bnb4.onnx",
+  "size": 1153955682
+ },
+ {
+  "name": "onnx/decoder_with_past_model_fp16.onnx",
+  "size": 879951078
+ },
+ {
+  "name": "onnx/decoder_with_past_model_int8.onnx",
+  "size": 1490336684
+ },
+ {
+  "name": "onnx/decoder_with_past_model_q4.onnx",
+  "size": 1164964950
+ },
+ {
+  "name": "onnx/decoder_with_past_model_q4f16.onnx",
+  "size": 626734069
+ },
+ {
+  "name": "onnx/decoder_with_past_model_quantized.onnx",
+  "size": 445006987
+ },
+ {
+  "name": "onnx/decoder_with_past_model_uint8.onnx",
+  "size": 1490336738
+ },
+ {
+  "name": "onnx/encoder_model.onnx",
+  "size": 1658468942
+ },
+ {
+  "name": "onnx/encoder_model_bnb4.onnx",
+  "size": 1139440339
+ },
+ {
+  "name": "onnx/encoder_model_fp16.onnx",
+  "size": 829418829
+ },
+ {
+  "name": "onnx/encoder_model_int8.onnx",
+  "size": 415346576
+ },
+ {
+  "name": "onnx/encoder_model_q4.onnx",
+  "size": 1148876935
+ },
+ {
+  "name": "onnx/encoder_model_q4f16.onnx",
+  "size": 612305403
+ },
+ {
+  "name": "onnx/encoder_model_quantized.onnx",
+  "size": 419120483
+ },
+ {
+  "name": "onnx/encoder_model_uint8.onnx",
+  "size": 415346625
+ },
+ {
+  "name": "quantize_config.json",
+  "size": 3258
+ },
+ {
+  "name": "sentencepiece.bpe.model",
+  "size": 4852054
+ },
+ {
+  "name": "special_tokens_map.json",
+  "size": 3548
+ },
+ {
+  "name": "tokenizer.json",
+  "size": 17331224
+ },
+ {
+  "name": "tokenizer_config.json",
+  "size": 544
+ }
+]
+{
+ "model_type": "BPE",
+ "model_keys": [
+  "type",
+  "dropout",
+  "unk_token",
+  "continuing_subword_prefix",
+  "end_of_word_suffix",
+  "fuse_unk",
+  "byte_fallback",
+  "vocab",
+  "merges"
+ ],
+ "unk_id": null,
+ "byte_fallback": false,
+ "vocab_len": 256204,
+ "vocab_head": [
+  [
+   "<s>",
+   0
+  ],
+  [
+   "<pad>",
+   1
+  ],
+  [
+   "</s>",
+   2
+  ],
+  [
+   "<unk>",
+   3
+  ],
+  [
+   "an",
+   4
+  ],
+  [
+   "▁n",
+   5
+  ],
+  [
+   "▁m",
+   6
+  ],
+  [
+   "▁t",
+   7
+  ],
+  [
+   "▁k",
+   8
+  ],
+  [
+   "▁a",
+   9
+  ],
+  [
+   "▁s",
+   10
+  ],
+  [
+   "en",
+   11
+  ]
+ ],
+ "merges_len": 514098,
+ "merges_head": [
+  "a n",
+  "▁ n",
+  "▁ m",
+  "▁ t",
+  "▁ k"
+ ],
+ "normalizer": {
+  "type": "Sequence",
+  "normalizers": [
+   {
+    "type": "Precompiled",
+    "precompiled_charsmap": "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gAkAAIRlAAD9GwCAzNAHAMzwBwAFHACAkYkAAMxMBgDNBAYAzHAGAM10BgDMQAcAmy0PAMyoBwDNrAcAhg0AAIdVDwCEQQ8ACQsAgIIBDACDVQ8AgDUBAIHZAQCkDACAj+kAAIztAACSDACA3R0AgIv1AACIbQ8AiQ0AAA8LAIC0CwCAgiUAAE0MAICBQQAAUwwAgBUeAIANHgCAJR4AgB0eAIAtHgCABR4AgIApAACBKQAA/AsAgA0cAICEeQAAFRwAgIFNAQCAoQEAGAsAgKP9DwDMOAIAzUgDAB0cAICBWQAAzXwCAMykDQAkCwCAWQwAgKjJDwCHOQAA1wkAgImhDwADCwCAkREAAJ4MAIDaCQCAmQsAgF8MAICAuQ8AgbkPANUdAICDjQ8A9gsAgCUcAICEBQAALRwAgB4LAIA1HACAKgsAgIGdDwCHIQAAh7UPAMyoAgDN6AIAzLQMAM3cDACmzQAAp8UAAE0cAICPgQ8AjIkPAKPlAAAwCwCAPRwAgDwLAICxyQAAhwUAAFUcAIBFHACAhz0AAF0cAIBxDACANgsAgKMFDwCB+QAAzKgDAGUcAIBICwCAjEkAAKPxAABtHACAdwwAgEILAICnlQAAfRwAgHUcAIDMrAMAzcgAAN0JAICHaQAA4AkAgIG9AACCeQAA4wkAgIe5AQBOCwCAkaUAAIEdAACdHACAVAsAgIgFAAClHACAm5EAAFoLAIDmCQCAjJEBANILAIDGCwCAwAsAgMwLAICDRQAAgrkBAIG5AQCApQEAPR4AgIZxAABgCwCAhEkAAIsVAACKPQAAiTkAAIhFAACP+QAAZgsAgLoLAICMBQAAp1EBAKZJAQBlDACAsHkAAKNZAQCMqQAAgKkAAIGpAACBlQAAgJUAAK1xAQBrDACAogsAgISNAABNHgCARR4AgKMhAABdHgCAVR4AgGUeAICBbQAAgG0AALEFAQCkOQAANR4AgIUcAIBsCwCAqAUAAJUcAICNHACArQkAAMywAQCBvQMAgL0DAIPNAwCtHACAtRwAgL0cAIDMvAEAzYQBAInpAwDMHAEAgdkCAIDFAgDNOAEAzDwBAMxoAgDNRAIAg00AAMUcAICH2QAAhy0AAIBFAACBEQAAggUAAHILAIDVHACAzRwAgN0cAIDMOAIAiBUAAIjhAACAbQAAgTkAAMyEAgDNUAEAo0UDAIQ5AQDlHACA7RwAgMzcAwDNSAIAbR4AgOkJAIB4CwCAhR4AgKoMAICBbQAA9RwAgH4LAICj0QAAfR4AgHUeAIDMiAQAgXUAAIB1AACBCwCAo7UAAMwABADNVAIA/RwAgIcLAICETQEAjQsAgAUdAIANHQCAzNAOAMwsAQDMAAUAzVwFAOwJAIDvCQCAzJgOAIHBAADMzA8AzDwOAMwIAQDNnA4AzNQPAM14DwDMPA4AzTgOAIHlAQCA5QEAg+UBAILlAQDUCQCAhOUBAIfhAQBBHQCAiaUBAIjZAQCByQcAOR0AgFEdAIBJHQCAzDQBAPUJAICA3QAAgekAAEMKAICD/QAAgM0AAIH5AACBEQcAaR0AgGEdAICJ0QAAzCgBAHkdAIBxHQCA4QsAgMw0AQDbCwCAgF0AAIFlAACjAQEAg2EAAIFxAACASQAAMR0AgBoMAICrCwCAiVUAACwMAIAyDACAWR0AgIEdAIDBGgCATwoAgIIdAACDeQcAgBkHAIEZBwCGIQAAhykAAISRBwDyCQCAimkAALHZBgCIaQAAifUHAEkKAICP3QcAjNkHAIkMAID4CQCAKR0AgPsJAICRoQcAgEEHAIFBBwCHBQAAyRoAgIKRBwDRGgCA2RoAgKOVBgCGhQcAp+0AAMyQAgDN4AUAsekAAKPBAABVCgCAWwoAgGEKAIBnCgCA/gkAgKVlBwDhGgCAzLgDAKhVBwDpGgCAbQoAgPEaAIABGwCACRsAgPkaAIABCgCAo60AAAQKAICMJQYABwoAgIxNAACpHQCAgm0AAIE9BgCCAQYAgWUAAKEdAICHZQAAuR0AgIcRBgCHrQEAsR0AgMxQAgDNxAIAgeEBAIDJAQCD4QEAkYkAAID9AQCB1QEAmR0AgIydAQCJNQAAcwoAgIB1AACBXQAAhi0AAIc1AACEfQAAERsAgIKFAQCDfQAAgJ0BAIGRAQAZGwCAj+kAAIzhAAB5CgCAfwoAgAoKAICIDQAAifkAAKc5AQCRHQCAiwoAgDgMAICjJQEAPgwAgLBZAACJHQCAggUAAMEdAICtFQEAjwwAgDEbAICGBQAAhQoAgCEbAIApGwCAp2kAAIANAQCBAQEAhzEAAKNJAACxGQEAzBACADkbAIAODACAkQoAgK1RAADM1AEAzfgBAKhBAABBGwCAzTgBAMw8AQCB7QMAlwoAgJ0KAICMDQAA7QsAgKMKAICBxQMAzGgCAKkKAICCxQMASRsAgITJAwCHKQAAhjEAAFkbAICCbQAAgAwAgFEbAICHYQAAYRsAgGkbAIAVHQCAzKgDAM2sAgCB+QAAiC0AAA0KAIAQCgCAEwoAgIw1AAC1CgCAuwoAgLHVAADBCgCAeRsAgMkdAICxCwCAzDABAEQMAIBKDACA0R0AgMwEAQDHCgCAcRsAgKelAADTCgCAo40AAMwUAgCAuQAAgbkAAKeFAAAIDACAgmUAAIEbAICMNQAA8wsAgMzsHADN/AMAiRsAgK6tAADZCgCAkRsAgMzABgDN0AYAsL0BAMyQBwDfCgCAgckBAMwYHQDNIAIAhBEAAOsKAIDNuAYAzKwGAKEbAIDlCgCAgSkAALEbAICpGwCAo+0BAMxAHQDN[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer NllbTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+[1;31m2026-10-28 06:49:51.283153836 [E:onnxruntime:, sequential_executor.cc:677 ExecuteKernel] Non-zero status code returned while running Reshape node. Name:'/model/decoder/layers.0/encoder_attn/Reshape_4' Status Message: /onnxruntime_src/onnxruntime/core/providers/cpu/tensor/reshape_helper.h:33 onnxruntime::ReshapeHelper::ReshapeHelper(const onnxruntime::TensorShape&, onnxruntime::TensorShapeVector&, bool) i < input_shape.NumDimensions() was false. The dimension with value zero exceeds the dimension size of the input tensor.
+[m
+[1;31m2026-10-28 06:49:51.283224653 [E:onnxruntime:, sequential_executor.cc:677 ExecuteKernel] Non-zero status code returned while running If node. Name:'optimum::if' Status Message: Non-zero status code returned while running Reshape node. Name:'/model/decoder/layers.0/encoder_attn/Reshape_4' Status Message: /onnxruntime_src/onnxruntime/core/providers/cpu/tensor/reshape_helper.h:33 onnxruntime::ReshapeHelper::ReshapeHelper(const onnxruntime::TensorShape&, onnxruntime::TensorShapeVector&, bool) i < input_shape.NumDimensions() was false. The dimension with value zero exceeds the dimension size of the input tensor.
+[m
+
+Traceback (most recent call last):
+  File "/home/runner/work/BookIt/BookIt/tools/probe/nllb_probe.py", line 163, in <module>
+    greedy(sentences["eng_Latn"][0], "eng_Latn", "hin_Deva"),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/BookIt/BookIt/tools/probe/nllb_probe.py", line 145, in greedy
+    res = decs.run(None, feeds)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py", line 395, in run
+    return self._sess.run(output_names, input_feed, run_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+onnxruntime.capi.onnxruntime_pybind11_state.Fail: [ONNXRuntimeError] : 1 : FAIL : Non-zero status code returned while running If node. Name:'optimum::if' Status Message: Non-zero status code returned while running Reshape node. Name:'/model/decoder/layers.0/encoder_attn/Reshape_4' Status Message: /onnxruntime_src/onnxruntime/core/providers/cpu/tensor/reshape_helper.h:33 onnxruntime::ReshapeHelper::ReshapeHelper(const onnxruntime::TensorShape&, onnxruntime::TensorShapeVector&, bool) i < input_shape.NumDimensions() was false. The dimension with value zero exceeds the dimension size of the input tensor.
+
