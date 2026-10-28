@@ -44,12 +44,12 @@ class NllbTokenizer {
     final cache = File('${tokenizerJson.path}.bin');
     if (await cache.exists()) {
       try {
-        return fromCompactBytes(await cache.readAsBytes());
+        return NllbTokenizer.fromCompactBytes(await cache.readAsBytes());
       } catch (_) {
         // fall through and rebuild
       }
     }
-    final tok = fromJsonString(await tokenizerJson.readAsString());
+    final tok = NllbTokenizer.fromJsonString(await tokenizerJson.readAsString());
     try {
       await cache.writeAsBytes(tok.toCompactBytes(), flush: true);
     } catch (_) {}

@@ -100,7 +100,7 @@ class TextSegmenter {
     return parts;
   }
 
-  /// Characters the NLLB vocabulary does not know (they would become <unk>)
+  /// Characters the NLLB vocabulary does not know (they would become `<unk>`)
   /// are replaced by close equivalents before translation.
   static String prepareForModel(String s) => s
       .replaceAll(RegExp('[\u201C\u201D\u201E\u201F\u00AB\u00BB\u2033]'), '"')

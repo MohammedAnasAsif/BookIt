@@ -81,6 +81,7 @@ Future<void> exportEpub(BuildContext context, Book book, {String? lang}) async {
     );
     final suffix = lang == null ? '' : '-${languageByCode(lang)?.name.toLowerCase().replaceAll(RegExp('[^a-z]'), '') ?? lang}';
     final name = '${_safeName(book.title)}$suffix.epub';
+    if (!context.mounted) return;
     await _saveBytes(context, name, bytes);
   } catch (e) {
     if (context.mounted) showMessage(context, 'Could not export: $e');
@@ -106,6 +107,7 @@ Future<void> exportEdition(BuildContext context, Book book, String lang) async {
       coverExtension: book.coverFile?.split('.').last,
     ).encode();
     final l = languageByCode(lang);
+    if (!context.mounted) return;
     await _saveBytes(context, '${_safeName(book.title)}.${l?.iso1 ?? lang}.bookit', bytes);
   } catch (e) {
     if (context.mounted) showMessage(context, 'Could not export: $e');
@@ -120,9 +122,9 @@ String _safeName(String s) {
 Future<void> _saveBytes(BuildContext context, String name, Uint8List bytes) async {
   String? path;
   if (Platform.isAndroid || Platform.isIOS) {
-    path = await FilePicker.platform.saveFile(fileName: name, bytes: bytes);
+    path = await FilePicker.saveFile(fileName: name, bytes: bytes);
   } else {
-    path = await FilePicker.platform.saveFile(fileName: name);
+    path = await FilePicker.saveFile(fileName: name);
     if (path != null) await File(path).writeAsBytes(bytes);
   }
   if (path != null && context.mounted) showMessage(context, 'Saved $name');
@@ -131,7 +133,7 @@ Future<void> _saveBytes(BuildContext context, String name, Uint8List bytes) asyn
 /// Opens a file picker and imports an EPUB, TXT or .bookit file.
 Future<void> importBook(BuildContext context) async {
   final library = context.read<LibraryStore>();
-  final result = await FilePicker.platform.pickFiles(
+  final result = await FilePicker.pickFiles(
     type: FileType.any,
     allowMultiple: false,
   );
