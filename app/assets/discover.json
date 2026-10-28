@@ -76,19 +76,19 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL17356883W",
-   "title": "Red Queen",
-   "author": "Victoria Aveyard",
-   "year": 2015,
-   "cover": 7434883,
-   "reason": "weekly"
-  },
-  {
    "key": "/works/OL19761410W",
    "title": "The Laws of Human Nature",
    "author": "Robert Greene",
    "year": 2018,
    "cover": 10170095,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL17356883W",
+   "title": "Red Queen",
+   "author": "Victoria Aveyard",
+   "year": 2015,
+   "cover": 7434883,
    "reason": "weekly"
   },
   {
@@ -212,14 +212,6 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL1968364W",
-   "title": "The Art of Seduction",
-   "author": "Robert Greene",
-   "year": 2001,
-   "cover": 917840,
-   "reason": "weekly"
-  },
-  {
    "key": "/works/OL5720023W",
    "title": "Twilight",
    "author": "Stephenie Meyer",
@@ -236,19 +228,19 @@
    "reason": "weekly"
   },
   {
+   "key": "/works/OL1968364W",
+   "title": "The Art of Seduction",
+   "author": "Robert Greene",
+   "year": 2001,
+   "cover": 917840,
+   "reason": "weekly"
+  },
+  {
    "key": "/works/OL25436364W",
    "title": "The Mountain Is You",
    "author": "Brianna Wiest",
    "year": 2020,
    "cover": 13838236,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL43426400W",
-   "title": "Sunrise on the Reaping",
-   "author": "Suzanne Collins",
-   "year": 2025,
-   "cover": 14847912,
    "reason": "weekly"
   },
   {
@@ -260,14 +252,6 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL25291486W",
-   "title": "Read People Like a Book",
-   "author": "Patrick King",
-   "year": 2020,
-   "cover": 11983442,
-   "reason": "weekly"
-  },
-  {
    "key": "/works/OL17713267W",
    "title": "Deep Work",
    "author": "Cal Newport",
@@ -276,11 +260,35 @@
    "reason": "weekly"
   },
   {
+   "key": "/works/OL43426400W",
+   "title": "Sunrise on the Reaping",
+   "author": "Suzanne Collins",
+   "year": 2025,
+   "cover": 14847912,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL25291486W",
+   "title": "Read People Like a Book",
+   "author": "Patrick King",
+   "year": 2020,
+   "cover": 11983442,
+   "reason": "weekly"
+  },
+  {
    "key": "/works/OL22454503W",
    "title": "Until Love Sets Us Apart",
    "author": "Aditya Nighhot",
    "year": 2018,
    "cover": 10466612,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL20068530W",
+   "title": "Verity",
+   "author": "Colleen Hoover",
+   "year": 2018,
+   "cover": 8747160,
    "reason": "weekly"
   },
   {
@@ -300,11 +308,11 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL20068530W",
-   "title": "Verity",
-   "author": "Colleen Hoover",
-   "year": 2018,
-   "cover": 8747160,
+   "key": "/works/OL17603394W",
+   "title": "Double Down",
+   "author": "Jeff Kinney",
+   "year": 2007,
+   "cover": 7888937,
    "reason": "weekly"
   },
   {
@@ -324,35 +332,11 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL17603394W",
-   "title": "Double Down",
-   "author": "Jeff Kinney",
-   "year": 2007,
-   "cover": 7888937,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL1878267W",
-   "title": "Emotional Intelligence",
-   "author": "Daniel Goleman",
-   "year": 1995,
-   "cover": 1359485,
-   "reason": "weekly"
-  },
-  {
    "key": "/works/OL43254128W",
    "title": "The Art of Being Alone",
    "author": "Renuka Gavrani",
    "year": 2023,
    "cover": 15052166,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL29226517W",
-   "title": "Fourth Wing",
-   "author": "Rebecca Yarros",
-   "year": 2023,
-   "cover": 14407898,
    "reason": "weekly"
   },
   {
@@ -369,6 +353,22 @@
    "author": "J. K. Rowling",
    "year": 1998,
    "cover": 15158664,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL1878267W",
+   "title": "Emotional Intelligence",
+   "author": "Daniel Goleman",
+   "year": 1995,
+   "cover": 1359485,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL29226517W",
+   "title": "Fourth Wing",
+   "author": "Rebecca Yarros",
+   "year": 2023,
+   "cover": 14407898,
    "reason": "weekly"
   },
   {
@@ -396,11 +396,11 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL82536W",
-   "title": "Harry Potter and the Prisoner of Azkaban",
-   "author": "J. K. Rowling",
-   "year": 1999,
-   "cover": 10580435,
+   "key": "/works/OL257943W",
+   "title": "A Game of Thrones",
+   "author": "George R. R. Martin",
+   "year": 1996,
+   "cover": 9269962,
    "reason": "weekly"
   },
   {
@@ -412,19 +412,11 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL257943W",
-   "title": "A Game of Thrones",
-   "author": "George R. R. Martin",
-   "year": 1996,
-   "cover": 9269962,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL38382569W",
-   "title": "I Don't Love You Anymore",
-   "author": "Rithvik Singh",
-   "year": 2024,
-   "cover": 15116470,
+   "key": "/works/OL82536W",
+   "title": "Harry Potter and the Prisoner of Azkaban",
+   "author": "J. K. Rowling",
+   "year": 1999,
+   "cover": 10580435,
    "reason": "weekly"
   },
   {
@@ -436,11 +428,11 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL4461578W",
-   "title": "Trading in the zone",
-   "author": "Mark Douglas",
-   "year": 2001,
-   "cover": 460625,
+   "key": "/works/OL38382569W",
+   "title": "I Don't Love You Anymore",
+   "author": "Rithvik Singh",
+   "year": 2024,
+   "cover": 15116470,
    "reason": "weekly"
   },
   {
@@ -452,11 +444,11 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL28952677W",
-   "title": "Icebreaker",
-   "author": "Hannah Grace",
-   "year": 2020,
-   "cover": 13180728,
+   "key": "/works/OL4461578W",
+   "title": "Trading in the zone",
+   "author": "Mark Douglas",
+   "year": 2001,
+   "cover": 460625,
    "reason": "weekly"
   },
   {
@@ -468,6 +460,14 @@
    "reason": "weekly"
   },
   {
+   "key": "/works/OL28952677W",
+   "title": "Icebreaker",
+   "author": "Hannah Grace",
+   "year": 2020,
+   "cover": 13180728,
+   "reason": "weekly"
+  },
+  {
    "key": "/works/OL25515697W",
    "title": "Twisted Games",
    "author": "Ana Huang",
@@ -476,11 +476,11 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL27400524W",
-   "title": "Textbook of Medical Physiology_3rd Updated Edition",
-   "author": "G.K. Pal",
-   "year": 2019,
-   "cover": 13299767,
+   "key": "/works/OL27409542W",
+   "title": "Girl in the Glass Case",
+   "author": "Devashish Sardana",
+   "year": 2022,
+   "cover": 14643025,
    "reason": "weekly"
   }
  ],
