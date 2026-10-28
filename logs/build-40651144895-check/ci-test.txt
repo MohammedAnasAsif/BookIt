@@ -1,0 +1,24 @@
+00:00 +0: loading /home/runner/work/BookIt/BookIt/app/test/paginator_test.dart
+00:00 +0: /home/runner/work/BookIt/BookIt/app/test/paginator_test.dart: every character appears exactly once across pages
+00:00 +0 ~1: /home/runner/work/BookIt/BookIt/app/test/paginator_test.dart: every character appears exactly once across pages
+00:00 +1 ~1: /home/runner/work/BookIt/BookIt/app/test/paginator_test.dart: pages fit in the height
+00:00 +2 ~1: /home/runner/work/BookIt/BookIt/app/test/paginator_test.dart: pageFor finds the page of a block
+00:01 +3 ~1: /home/runner/work/BookIt/BookIt/app/test/text_and_format_test.dart: TextSegmenter splits sentences and keeps abbreviations together
+00:01 +4 ~1: /home/runner/work/BookIt/BookIt/app/test/text_and_format_test.dart: TextSegmenter handles closing quotes and Indic danda
+00:01 +5 ~1: /home/runner/work/BookIt/BookIt/app/test/text_and_format_test.dart: TextSegmenter splits very long sentences
+00:01 +6 ~1: /home/runner/work/BookIt/BookIt/app/test/text_and_format_test.dart: TextSegmenter replaces characters unknown to the model
+00:01 +7 ~1: /home/runner/work/BookIt/BookIt/app/test/text_and_format_test.dart: TextSegmenter joins without spaces for Chinese/Japanese/Thai
+00:01 +8 ~1: /home/runner/work/BookIt/BookIt/app/test/text_and_format_test.dart: Languages every language code exists in the NLLB vocabulary
+00:01 +9 ~1: /home/runner/work/BookIt/BookIt/app/test/text_and_format_test.dart: Languages maps Gutenberg language codes
+00:01 +10 ~1: /home/runner/work/BookIt/BookIt/app/test/text_and_format_test.dart: EPUB writing then parsing an EPUB keeps chapters and blocks
+00:01 +11 ~1: /home/runner/work/BookIt/BookIt/app/test/text_and_format_test.dart: EPUB translated EPUB uses the translation text and language
+00:01 +12 ~1: /home/runner/work/BookIt/BookIt/app/test/text_and_format_test.dart: EPUB splits chapters at table-of-contents anchors inside one file
+00:01 +13 ~1: /home/runner/work/BookIt/BookIt/app/test/text_and_format_test.dart: TXT detects chapters and unwraps lines
+00:01 +14 ~1: /home/runner/work/BookIt/BookIt/app/test/text_and_format_test.dart: Edition round trip keeps content and translation
+00:01 +15 ~1: /home/runner/work/BookIt/BookIt/app/test/tokenizer_test.dart: NllbTokenizer (setUpAll)
+00:02 +15 ~1: /home/runner/work/BookIt/BookIt/app/test/tokenizer_test.dart: NllbTokenizer matches reference token ids
+00:02 +16 ~1: /home/runner/work/BookIt/BookIt/app/test/tokenizer_test.dart: NllbTokenizer broad agreement on book text
+00:02 +17 ~1: /home/runner/work/BookIt/BookIt/app/test/tokenizer_test.dart: NllbTokenizer decode round trip
+00:02 +18 ~1: /home/runner/work/BookIt/BookIt/app/test/tokenizer_test.dart: NllbTokenizer compact cache gives identical results
+00:03 +19 ~1: /home/runner/work/BookIt/BookIt/app/test/tokenizer_test.dart: NllbTokenizer (tearDownAll)
+00:03 +19 ~1: All tests passed!
