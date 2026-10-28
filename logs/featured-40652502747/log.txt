@@ -1,0 +1,15 @@
+retry Gitanjali The read operation timed out
+retry The Home and the World HTTP Error 503: Service Unavailable
+retry Stray Birds The read operation timed out
+retry The Hungry Stones HTTP Error 503: Service Unavailable
+retry The Hungry Stones HTTP Error 503: Service Unavailable
+retry The Hungry Stones HTTP Error 503: Service Unavailable
+retry The Hungry Stones HTTP Error 503: Service Unavailable
+NOT FOUND: The Hungry Stones
+retry Kim The read operation timed out
+retry Kim HTTP Error 503: Service Unavailable
+retry Kim HTTP Error 503: Service Unavailable
+retry Kim HTTP Error 503: Service Unavailable
+NOT FOUND: Kim
+retry The Jungle Book The read operation timed out
+retry Just So Stories The read operation timed out

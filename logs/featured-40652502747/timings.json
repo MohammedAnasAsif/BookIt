@@ -1,0 +1,29 @@
+{
+ "gutendex_popular": {
+  "seconds": 62.31,
+  "bytes": 58296
+ },
+ "gutendex_search": {
+  "seconds": 49.99,
+  "bytes": 56455
+ },
+ "gutendex_topic": {
+  "error": "The read operation timed out"
+ },
+ "gutenberg_opds_search": {
+  "seconds": 0.17,
+  "bytes": 62371
+ },
+ "gutenberg_opds_popular": {
+  "seconds": 0.17,
+  "bytes": 56476
+ },
+ "gutenberg_opds_book": {
+  "seconds": 0.11,
+  "bytes": 12483
+ },
+ "community_catalog": {
+  "seconds": 0.09,
+  "bytes": 67
+ }
+}

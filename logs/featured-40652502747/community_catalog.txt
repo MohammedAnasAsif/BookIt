@@ -1,0 +1,5 @@
+{
+  "format": "bookit-catalog",
+  "version": 1,
+  "editions": []
+}
