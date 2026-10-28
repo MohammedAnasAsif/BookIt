@@ -1,0 +1,30 @@
+{
+ "pg_catalog_csv": {
+  "s": 2.06,
+  "bytes": 21271171
+ },
+ "opds_popular": {
+  "s": 0.39,
+  "bytes": 56476
+ },
+ "opds_popular_p2": {
+  "s": 0.41,
+  "bytes": 56781
+ },
+ "opds_book": {
+  "s": 0.28,
+  "bytes": 12483
+ },
+ "gutendex_search": {
+  "s": 25.18,
+  "error": "The read operation timed out"
+ },
+ "cover": {
+  "s": 0.35,
+  "bytes": 42234
+ },
+ "epub": {
+  "s": 1.81,
+  "bytes": 24864457
+ }
+}
