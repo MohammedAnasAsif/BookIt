@@ -13,26 +13,49 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: probe
+  cancel-in-progress: true
+
 jobs:
   probe:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - python: "3.10"
+            ort: "onnxruntime==1.15.1"
+            extra: "numpy<2"
+            name: ort115
+          - python: "3.12"
+            ort: "onnxruntime"
+            extra: "torch --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple"
+            name: ortlatest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: ${{ matrix.python }}
       - name: Install
-        run: pip install -q "transformers>=4.44" sentencepiece protobuf huggingface_hub onnxruntime numpy 2>&1 | tail -3
-      - name: Probe
-        run: set -o pipefail; python tools/probe/nllb_probe.py 2>&1 | tee tools/probe/out-log.txt
+        run: |
+          pip install -q "transformers>=4.44,<5" sentencepiece protobuf huggingface_hub "${{ matrix.ort }}" 2>&1 | tail -3
+          pip install -q ${{ matrix.extra }} 2>&1 | tail -3
+      - name: Decoder probe
+        run: set -o pipefail; python tools/probe/decoder_probe.py 2>&1 | tee tools/probe/out/decoder-log-${{ matrix.name }}.txt
+      - name: Tokenizer probe
+        if: matrix.name == 'ortlatest'
+        run: set -o pipefail; python tools/probe/nllb_probe.py 2>&1 | tail -40 | tee tools/probe/out/nllb-log.txt
       - name: Publish results to ci-logs branch
         if: always()
         run: |
-          mkdir -p /tmp/pub && cp -r tools/probe/out /tmp/pub/ 2>/dev/null || true
-          cp tools/probe/out-log.txt /tmp/pub/ 2>/dev/null || true
+          mkdir -p /tmp/pub && cp -r tools/probe/out/* /tmp/pub/ 2>/dev/null || true
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git fetch origin ci-logs || true
-          if git rev-parse --verify origin/ci-logs >/dev/null 2>&1; then git checkout -B ci-logs origin/ci-logs; else git checkout --orphan ci-logs && git rm -rf -q . ; fi
-          rm -rf probe && mkdir -p probe && cp -r /tmp/pub/* probe/
-          git add -A probe && git commit -qm "probe ${{ github.run_id }}" && git push origin ci-logs
+          for attempt in 1 2 3 4 5; do
+            git fetch -q origin ci-logs && git checkout -q -B ci-logs origin/ci-logs || { git checkout -q --orphan ci-logs && git rm -rf -q . ; }
+            mkdir -p probe/out && cp -r /tmp/pub/* probe/out/
+            git add -A probe && git commit -qm "probe ${{ matrix.name }} ${{ github.run_id }}" || exit 0
+            git push -q origin ci-logs && exit 0
+            sleep $((attempt * 3)); git reset -q --hard
+          done
