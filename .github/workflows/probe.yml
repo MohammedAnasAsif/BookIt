@@ -44,7 +44,7 @@ jobs:
           python -c "import numpy, onnxruntime; print('numpy', numpy.__version__, 'ort', onnxruntime.__version__)"
       - name: Catalog sources
         if: matrix.name == 'ortlatest'
-        run: python tools/probe/catalog_sources.py
+        run: python tools/probe/fiction_sources.py
       - name: Decoder probe
         if: false
         run: set -o pipefail; python tools/probe/decoder_probe.py 2>&1 | tee tools/probe/out/decoder-log-${{ matrix.name }}.txt
