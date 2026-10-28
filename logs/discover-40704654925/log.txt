@@ -1,0 +1,20 @@
+trending: 145
+bestseller not found An Unequal Defense
+bestseller not found A Man Called Ove
+bestsellers: 38
+free fiction ok: Little Brother CC BY-NC-SA 3.0 311914 no cover
+skip (licence not suitable): Homeland by-nc-nd
+skip (licence not suitable): Down and Out in the Magic Kingdom None
+skip (licence not suitable): Makers None
+free fiction ok: For the Win CC BY-NC-SA 3.0 388680 no cover
+skip (licence not suitable): Pirate Cinema by-nc-nd
+skip (licence not suitable): Eastern Standard Tribe None
+skip (licence not suitable): Someone Comes to Town, Someone Leaves Town None
+free fiction ok: Overclocked CC BY-NC-SA 2.5 42025 no cover
+skip (licence not suitable): Blindsight None
+skip (licence not suitable): Starfish None
+skip (licence not suitable): Maelstrom None
+standard ebooks: 1529
+  cover size marcus-aurelius_meditations_george-long 548257
+  cover size laozi_tao-te-ching_james-legge 707373
+  cover size anton-chekhov_short-fiction_constance-garnett 395002
