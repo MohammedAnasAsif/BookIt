@@ -10,6 +10,7 @@ Runs in CI (needs internet). Produces:
 """
 import json
 import os
+import re
 import sys
 import time
 
@@ -48,7 +49,11 @@ summary = {
     "merges_len": len(model.get("merges", []) or []),
     "merges_head": (model.get("merges") or [])[:5],
     "normalizer": tj.get("normalizer") and {k: (v if k != "precompiled_charsmap" else "<%d chars>" % len(v or "")) for k, v in tj["normalizer"].items()},
-    "normalizer_full_type": json.dumps(tj.get("normalizer"))[:3000],
+    "normalizer_list": [
+        {k: (v if k != "precompiled_charsmap" else "<%d chars>" % len(v or "")) for k, v in n.items()}
+        for n in (tj.get("normalizer") or {}).get("normalizers", [tj.get("normalizer") or {}])
+    ],
+    "lang_codes": [t["content"] for t in tj.get("added_tokens", []) if re.match(r"^[a-z]{3}_[A-Z][a-z]{3}$", t["content"])],
     "pre_tokenizer": tj.get("pre_tokenizer"),
     "post_processor": tj.get("post_processor"),
     "decoder": tj.get("decoder"),
@@ -97,6 +102,19 @@ for lang, items in sentences.items():
         })
 dump("token_fixtures.json", {"lang_ids": {l: tok.convert_tokens_to_ids(l) for l in ["eng_Latn", "hin_Deva", "tam_Taml", "fra_Latn", "zho_Hans", "urd_Arab"]}, "items": fixtures})
 
+# Broad tokenizer fixtures from a public-domain novel (Project Gutenberg #1342)
+import urllib.request
+try:
+    raw = urllib.request.urlopen("https://www.gutenberg.org/cache/epub/1342/pg1342.txt", timeout=60).read().decode("utf-8")
+    body = raw[raw.find("Chapter I."):][:400000]
+    paras = [" ".join(p.split()) for p in body.split("\n\n")]
+    paras = [p for p in paras if 20 < len(p) < 600][:400]
+    tok.src_lang = "eng_Latn"
+    broad = [{"text": p, "ids": tok(p)["input_ids"]} for p in paras]
+    dump("broad_fixtures_eng.json", broad)
+except Exception as e:
+    print("broad fixtures failed", e)
+
 # Decode fixtures: ids -> text
 dec = []
 for ids in [[256047, 9038, 2], tok("नमस्ते दुनिया, यह एक परीक्षण है।")["input_ids"]]:
@@ -128,7 +146,7 @@ def greedy(text, src, tgt, max_len=200):
     past_names = [n for n in names if n.startswith("past_key_values")]
     out_names = [o.name for o in decs.get_outputs()]
     heads = 16
-    past = {n: np.zeros((1, heads, 1, 64), dtype=np.float32) for n in past_names}
+    past = {n: np.zeros((1, heads, 0, 64), dtype=np.float32) for n in past_names}
     tgt_id = tok.convert_tokens_to_ids(tgt)
     out = [2, tgt_id]
     step_input = out[:]
