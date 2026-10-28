@@ -311,8 +311,6 @@ class NllbTokenizer {
       if (_specialIds.contains(id)) continue;
       sb.write(_idToPiece[id]);
     }
-    var s = sb.toString().replaceAll(_space, ' ');
-    if (s.startsWith(' ')) s = s.substring(1);
-    return s;
+    return sb.toString().replaceAll(_space, ' ').trim();
   }
 }
