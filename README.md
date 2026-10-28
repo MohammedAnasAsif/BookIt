@@ -11,6 +11,12 @@ BookIt is a Kindle-style reading app with a built-in library of 78,000+ free cla
 
 No accounts, no API keys, no subscriptions, no ads. Nothing you read is sent anywhere.
 
+| Home | Free library | Reading a book translated into Tamil, on the device |
+| --- | --- | --- |
+| ![Home screen](docs/screenshots/home.png) | ![Free library](docs/screenshots/store.png) | ![Reader showing a Tamil translation](docs/screenshots/reader-tamil.png) |
+
+<sub>Screenshots are taken automatically by CI from the real Windows build. The Tamil page is BookIt's sample story, translated on the machine by the app itself.</sub>
+
 ## Download
 
 Go to **[Releases](https://github.com/MohammedAnasAsif/BookIt/releases)**:
