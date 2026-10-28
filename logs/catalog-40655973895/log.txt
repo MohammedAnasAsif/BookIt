@@ -1,0 +1,60 @@
+downloading catalog…
+79674 rows
+2000 ranked books
+78423 books, 6.5 MB json, gz -> app/assets/catalog.json.gz
+categories: [('Novels', 23994), ('British Literature', 9907), ('Adventure', 8357), ('American Literature', 7772), ('Children & Young Adult Reading', 6821), ('History - Modern (1750+)', 6239), ('Biographies', 6199), ('Historical Novels', 5441), ('Essays, Letters & Speeches', 5396), ('History - American', 4987), ('Humour', 4886), ('Poetry', 4852), ('Short Stories', 4634), ('Science-Fiction & Fantasy', 4230), ('French Literature', 4208), ('History - European', 4181), ('Religion/Spirituality', 4159), ('Travel Writing', 3839), ('History - Other', 3502), ('Mythology, Legends & Folklore', 3429), ('Philosophy & Ethics', 3422), ('History - Warfare', 3292), ('History - British', 3225), ('Plays/Films/Dramas', 2955), ('Romance', 2764), ('How To ...', 2363), ('Crime, Thrillers and Mystery', 2232), ('Nature/Gardening/Animals', 1999), ('History - Religious', 1982), ('German Literature', 1967), ('Art', 1867), ('Classics of Literature', 1848), ('Archaeology & Anthropology', 1842), ('History - Early Modern (c. 1450-1750)', 1641), ('Journals', 1586), ('Science - Biology', 1556), ('Politics', 1473), ('History - Ancient', 1389), ('Teaching & Education', 1293), ('Health & Medicine', 1145), ('Encyclopedias/Dictionaries/Reference', 1127), ('Science - Earth/Agricultural/Farming', 1020), ('Engineering & Technology', 1002), ('History - Royalty', 949), ('History - Medieval/Middle Ages', 939), ('Sociology', 818), ('Journalism/Media/Writing', 812), ('Architecture', 665), ('Law & Criminology', 625), ('Language & Communication', 624), ('Sports/Hobbies', 623), ('Gender & Sexuality Studies', 607), ('Psychiatry/Psychology', 594), ('Music', 585), ('Science - Physics', 579), ('Parenthood & Family Relations', 541), ('Environmental Issues', 536), ('Russian Literature', 477), ('Cooking & Drinking', 460), ('Reports & Conference Proceedings', 436)]
+shelf counts: Counter({'N': 33098, 'H': 23514, 'C': 9999, 'A': 8944, 'F': 8193, 'T': 7439, 'P': 5505, 'U': 5157, 'S': 4836, 'Y': 3777, 'R': 3724, 'D': 3249, 'M': 3057, 'I': 1813})
+india       7164 #656   Gitanjali — Rabindranath Tagore, W. B. Yea
+india       7166 #0     The Home and the World — Rabindranath Tagore, Surendran
+india       6686 #0     The gardener — Rabindranath Tagore
+india       6524 #849   Stray Birds — Rabindranath Tagore, Willy Pog
+india       2518 #0     The Hungry Stones, and Other Stories — Rabindranath Tagore
+india       2226 #1165  Kim — Rudyard Kipling
+india        236 #108   The Jungle Book — Rudyard Kipling
+india       7128 #1825  Indian Fairy Tales — Joseph Jacobs, John Dickson Ba
+india       6145 #0     Tales of the Punjab: Folklore of India — Flora Annie Webster Steel, Ric
+india       2388 #272   The Song Celestial; Or, Bhagavad-Gîtâ (from the Ma — Edwin Arnold
+india       8920 #0     The Light of Asia — Edwin Arnold
+india      11310 #0     Hindu Tales from the Sanskrit — N. D'Anvers, Siddha Mohana Mit
+classics    1342 #1     Pride and Prejudice — Jane Austen
+classics    1661 #5     The Adventures of Sherlock Holmes — Arthur Conan Doyle
+classics      84 #2     Frankenstein; or, The modern Prometheus — Mary Wollstonecraft Shelley
+classics   37106 #24    Little Women; Or, Meg, Jo, Beth, and Amy — Louisa May Alcott, Frank T. Me
+classics     103 #131   Around the World in Eighty Days — Jules Verne, George M. Towle
+classics      35 #56    The Time Machine — H. G. Wells
+classics      46 #47    A Christmas Carol in Prose; Being a Ghost Story of — Charles Dickens, John Leech
+classics    1400 #25    Great Expectations — Charles Dickens
+classics    1260 #13    Jane Eyre: An Autobiography — Charlotte Brontë, F. H. Townse
+classics     768 #36    Wuthering Heights — Emily Brontë
+classics     345 #6     Dracula — Bram Stoker
+classics    1184 #21    The Count of Monte Cristo — Alexandre Dumas, Auguste Maque
+classics     135 #81    Les Misérables — Victor Hugo, Isabel Florence H
+classics    2600 #29    War and Peace — Leo Tolstoy, Aylmer Maude, Lou
+classics    2554 #15    Crime and Punishment — Fyodor Dostoyevsky, Constance 
+classics    2500 #211   Siddhartha — Hermann Hesse
+classics   58585 #129   The Prophet — Kahlil Gibran
+classics    2680 #20    Meditations — Emperor of Rome Marcus Aureliu
+classics     132 #75    The Art of War — Sunzi, Lionel Giles
+classics     174 #12    The Picture of Dorian Gray — Oscar Wilde
+classics    2701 #3     Moby Dick; Or, The Whale — Herman Melville
+classics     996 #87    Don Quixote — Miguel de Cervantes Saavedra, 
+classics     521 #126   The Life and Adventures of Robinson Crusoe — Daniel Defoe
+classics     829 #92    Gulliver's Travels into Several Remote Nations of  — Jonathan Swift
+children      11 #4     Alice's Adventures in Wonderland — Lewis Carroll
+children     120 #44    Treasure Island — Robert Louis Stevenson, Louis 
+children      16 #70    Peter Pan — J. M. Barrie
+children     113 #109   The Secret Garden — Frances Hodgson Burnett
+children      45 #52    Anne of Green Gables — L. M. Montgomery
+children     271 #224   Black Beauty — Anna Sewell
+children   46409 #1548  Heidi — Johanna Spyri, Alice Carsey, M
+children    2591 #50    Grimms' Fairy Tales — Jacob Grimm, Wilhelm Grimm
+children    1597 #219   Andersen's Fairy Tales — H. C. Andersen
+children   11339 #178   Aesop's Fables; a new translation — Aesop, G. K. Chesterton, Arthu
+children      74 #27    The Adventures of Tom Sawyer, Complete — Mark Twain
+children      55 #38    The Wonderful Wizard of Oz — L. Frank Baum
+children     500 #328   The Adventures of Pinocchio — Carlo Collodi, Carol Della Chi
+children     289 #144   The Wind in the Willows — Kenneth Grahame
+children    2781 #357   Just so stories — Rudyard Kipling
+children     902 #164   The Happy Prince, and Other Tales — Oscar Wilde
+children   11757 #584   The Velveteen Rabbit — Margery Williams Bianco
+53 featured
