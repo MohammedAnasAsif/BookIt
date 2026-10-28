@@ -1,0 +1,46 @@
+# Rebuilds the Discover shelves (trending, bestsellers, free modern fiction,
+# Standard Ebooks) every week. See tools/build_discover.py.
+name: Discover shelves
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "41 2 * * 1"
+  push:
+    branches: [main]
+    paths:
+      - tools/build_discover.py
+      - .github/workflows/discover.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: discover
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pandoc
+        run: sudo apt-get install -y -qq pandoc >/dev/null && pandoc --version | head -1
+      - name: Build shelves
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
+        run: python tools/build_discover.py app/assets
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add catalog/discover.json app/assets/discover.json
+          git diff --cached --quiet || (git commit -m "Update Discover shelves" && git pull --rebase -q && git push -q)
+      - name: Publish logs
+        if: always()
+        run: bash .github/scripts/publish-logs.sh "discover-${{ github.run_id }}" discover-log/log.txt
