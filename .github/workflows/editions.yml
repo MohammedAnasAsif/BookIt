@@ -1,0 +1,147 @@
+name: Starter editions
+
+# Translates a set of short public-domain classics into Indian languages and
+# publishes them as ready-to-read community editions (the `editions` release
+# plus catalog/editions.json). Run it by hand from the Actions tab.
+
+on:
+  workflow_dispatch:
+    inputs:
+      books:
+        description: "Gutenberg numbers, comma separated (empty = starter set)"
+        required: false
+        default: ""
+      langs:
+        description: "Language codes, comma separated (empty = hin,tam,ben,tel,mar)"
+        required: false
+        default: ""
+      beams:
+        description: "Beam size (1 = fastest, 2 = better)"
+        required: false
+        default: "2"
+
+permissions:
+  contents: write
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      books: ${{ steps.p.outputs.books }}
+      langs: ${{ steps.p.outputs.langs }}
+    steps:
+      - id: p
+        env:
+          BOOKS: ${{ inputs.books }}
+          LANGS: ${{ inputs.langs }}
+        run: |
+          # Short, much-loved classics (all public domain).
+          default_books="11,7164,236,16,35,46,902,11339,2591,1597,2781,120,55,289,113,7128,2500,1661,84,1342"
+          default_langs="hin_Deva,tam_Taml,ben_Beng,tel_Telu,mar_Deva"
+          b="${BOOKS:-$default_books}"; l="${LANGS:-$default_langs}"
+          echo "books=$(echo "$b" | python3 -c 'import sys,json;print(json.dumps([int(x) for x in sys.stdin.read().split(",") if x.strip()]))')" >> "$GITHUB_OUTPUT"
+          echo "langs=$(echo "$l" | python3 -c 'import sys,json;print(json.dumps([x.strip() for x in sys.stdin.read().split(",") if x.strip()]))')" >> "$GITHUB_OUTPUT"
+
+      # Download the model once; the translation jobs reuse this cache.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/cache@v4
+        id: hf
+        with:
+          path: ~/.cache/huggingface
+          key: hf-nllb-600m-v1
+      - if: steps.hf.outputs.cache-hit != 'true'
+        run: |
+          pip install --quiet torch --index-url https://download.pytorch.org/whl/cpu
+          pip install --quiet "transformers>=4.40,<5" sentencepiece
+          python -c "from transformers import AutoModelForSeq2SeqLM as M, AutoTokenizer as T; n='facebook/nllb-200-distilled-600M'; T.from_pretrained(n); M.from_pretrained(n)"
+
+      - name: Make sure the editions release exists
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view editions -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || \
+            gh release create editions -R "$GITHUB_REPOSITORY" --title "Community editions" \
+              --notes "Ready-to-read translated editions of public-domain books. BookIt downloads these for you; you don't need to download them here." --latest=false
+
+  translate:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        book: ${{ fromJson(needs.plan.outputs.books) }}
+        lang: ${{ fromJson(needs.plan.outputs.langs) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: |
+          pip install --quiet torch --index-url https://download.pytorch.org/whl/cpu
+          pip install --quiet "transformers>=4.40,<5" sentencepiece beautifulsoup4 lxml
+      - uses: actions/cache/restore@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-nllb-600m-v1
+      - name: Translate
+        run: |
+          mkdir -p out
+          python tools/translate_book.py --gutenberg ${{ matrix.book }} --to ${{ matrix.lang }} \
+            --beams ${{ inputs.beams || '2' }} --batch 16 --out out --entry-out out/entry.json
+      - name: Upload to the editions release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          f=$(ls out/*.bookit)
+          for i in 1 2 3; do gh release upload editions "$f" --clobber -R "$GITHUB_REPOSITORY" && break; sleep 10; done
+          # Use the name GitHub actually gave the asset.
+          name=$(basename "$f")
+          python3 - "$name" <<'EOF'
+          import json, sys
+          e = json.load(open("out/entry.json"))
+          e["url"] = "https://github.com/MohammedAnasAsif/BookIt/releases/download/editions/" + sys.argv[1]
+          json.dump(e, open("out/entry.json", "w"), ensure_ascii=False)
+          EOF
+      - uses: actions/upload-artifact@v4
+        with:
+          name: entry-${{ matrix.book }}-${{ matrix.lang }}
+          path: out/entry.json
+
+  catalog:
+    needs: translate
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: entry-*
+          path: entries
+      - name: Add the new editions to catalog/editions.json
+        run: |
+          python3 - <<'EOF'
+          import glob, json
+          p = "catalog/editions.json"
+          cat = json.load(open(p, encoding="utf-8"))
+          by_id = {e["id"]: e for e in cat.get("editions", [])}
+          for f in glob.glob("entries/*/entry.json"):
+              e = json.load(open(f, encoding="utf-8"))
+              by_id[e["id"]] = e
+          cat["editions"] = sorted(by_id.values(), key=lambda e: (e["lang"], e["title"]))
+          json.dump(cat, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+          open(p, "a").write("\n")
+          print(len(cat["editions"]), "editions")
+          EOF
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add catalog/editions.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Add starter community editions"
+          for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep 5; done

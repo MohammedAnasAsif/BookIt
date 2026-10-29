@@ -183,6 +183,13 @@ def parse_epub(data):
         cover_item = manifest.get(meta_cover.get("content"))
     if cover_item is not None and cover_item.get("media-type", "").startswith("image/"):
         cover = (z.read(resolve(cover_item["href"])), cover_item["href"].rsplit(".", 1)[-1])
+    # Project Gutenberg's header and licence pages are left out of editions:
+    # the public-domain text may be shared freely without them.
+    def boiler(ch):
+        t = ch["title"].lower()
+        return ("project gutenberg" in t or "gutenberg licen" in t
+                or t.startswith("*** start of") or t.startswith("*** end of"))
+    out.chapters = [c for c in out.chapters if not boiler(c)]
     content = {"format": "bookit-content", "version": 1, "title": meta("title") or "Untitled",
                "author": ", ".join(c.get_text(strip=True) for c in opf.find_all("creator")),
                "language": meta("language"), "chapters": out.chapters}
@@ -224,10 +231,12 @@ def prepare(s):
 # --------------------------------------------------------------------------- engines
 
 class NllbEngine:
-    def __init__(self, model, src, tgt, device):
+    def __init__(self, model, src, tgt, device, beams=4):
         import torch
         from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
         self.torch = torch
+        self.beams = beams
+        torch.set_num_threads(max(1, os.cpu_count() or 1))
         self.tok = AutoTokenizer.from_pretrained(model, src_lang=src)
         self.model = AutoModelForSeq2SeqLM.from_pretrained(model).to(device).eval()
         if device == "cuda":
@@ -239,7 +248,7 @@ class NllbEngine:
         enc = self.tok([prepare(s) for s in sentences], return_tensors="pt", padding=True, truncation=True,
                        max_length=256).to(self.device)
         with self.torch.no_grad():
-            out = self.model.generate(**enc, forced_bos_token_id=self.tgt_id, num_beams=4,
+            out = self.model.generate(**enc, forced_bos_token_id=self.tgt_id, num_beams=self.beams,
                                       max_new_tokens=int(enc["input_ids"].shape[1] * 2 + 16))
         return self.tok.batch_decode(out, skip_special_tokens=True)
 
@@ -281,20 +290,22 @@ def main():
     ap.add_argument("--engine", choices=["nllb", "indictrans2"], default="nllb")
     ap.add_argument("--model", default=None, help="Hugging Face model id (default depends on engine)")
     ap.add_argument("--batch", type=int, default=16)
+    ap.add_argument("--beams", type=int, default=4, help="beam size (1 = fastest)")
+    ap.add_argument("--entry-out", default=None, help="also write the catalog entry to this JSON file")
     ap.add_argument("--out", default="editions")
     args = ap.parse_args()
 
     import torch
     device = "cuda" if torch.cuda.is_available() else "cpu"
     if args.gutenberg:
-        data = fetch(f"https://www.gutenberg.org/ebooks/{args.gutenberg}.epub3.images")
+        data = fetch(f"https://www.gutenberg.org/cache/epub/{args.gutenberg}/pg{args.gutenberg}.epub")
     else:
         data = open(args.epub, "rb").read()
     content, cover = parse_epub(data)
-    print(f"{content['title']} — {len(content['chapters'])} chapters", file=sys.stderr)
+    print(f"{content['title']} - {len(content['chapters'])} chapters", file=sys.stderr)
 
     if args.engine == "nllb":
-        engine = NllbEngine(args.model or "facebook/nllb-200-distilled-600M", args.src, args.to, device)
+        engine = NllbEngine(args.model or "facebook/nllb-200-distilled-600M", args.src, args.to, device, args.beams)
     else:
         engine = IndicTrans2Engine(args.model, args.src, args.to, device)
 
@@ -352,6 +363,8 @@ def main():
              "url": f"https://github.com/MohammedAnasAsif/BookIt/releases/download/editions/{os.path.basename(path)}",
              "cover": f"https://www.gutenberg.org/cache/epub/{args.gutenberg}/pg{args.gutenberg}.cover.medium.jpg"
              if args.gutenberg else None}
+    if args.entry_out:
+        json.dump(entry, open(args.entry_out, "w", encoding="utf-8"), ensure_ascii=False)
     print(f"Wrote {path}")
     print("Catalog entry for catalog/editions.json:")
     print(json.dumps(entry, ensure_ascii=False, indent=2))
