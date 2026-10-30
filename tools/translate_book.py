@@ -169,6 +169,19 @@ def parse_epub(data):
             target = posixpath.normpath(posixpath.join(nav_dir, a["href"]))
             f, _, frag = target.partition("#")
             toc.setdefault(f, {}).setdefault(frag, " ".join(a.get_text().split()))
+    if not toc:
+        # EPUB 2 table of contents (toc.ncx), used by Project Gutenberg.
+        ncx = next((i for i in manifest.values() if i.get("media-type") == "application/x-dtbncx+xml"), None)
+        if ncx is not None:
+            doc = BeautifulSoup(read(resolve(ncx["href"])), "xml")
+            ncx_dir = posixpath.dirname(resolve(ncx["href"]))
+            for np in doc.find_all("navPoint"):
+                label, content = np.find("text"), np.find("content")
+                if label is None or content is None or not content.get("src"):
+                    continue
+                target = posixpath.normpath(posixpath.join(ncx_dir, urllib.parse.unquote(content["src"])))
+                f, _, frag = target.partition("#")
+                toc.setdefault(f, {}).setdefault(frag, " ".join(label.get_text().split()))
     out = ContentBuilder()
     for item in spine:
         if "html" not in item.get("media-type", ""):
