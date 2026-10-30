@@ -1,0 +1,78 @@
+Grimms' Fairy Tales - 65 chapters: Grimms’ Fairy Tales; CONTENTS; THE BROTHERS GRIMM FAIRY TALES; THE GOLDEN BIRD; HANS IN LUCK; JORINDA AND JORINDEL; THE TRAVELLING MUSICIANS; OLD SULTAN; THE STRAW, THE COAL, AND THE BEAN; BRIAR ROSE; THE DOG AND THE SPARROW; THE TWELVE DANCING PRINCESSES
+/home/runner/work/BookIt/BookIt/tools/translate_book.py:269: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10. 
+For migrations of users: 
+1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead 
+2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e) 
+3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e) 
+see https://github.com/pytorch/ao/issues/2259 for more details
+  self.model = torch.quantization.quantize_dynamic(self.model, {torch.nn.Linear}, dtype=torch.qint8)
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/torch/ao/nn/quantized/modules/utils.py:72: UserWarning: torch.quantize_per_tensor, torch.quantize_per_channel and other quantized tensor creation functions that produce tensors with dtype torch.quint8, torch.qint8, and torch.qint32 are deprecated and will be removed in a future PyTorch release. Please see https://github.com/pytorch/pytorch/issues/184982 for more information. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/quantized/Quantizer.cpp:111.)
+  qweight = torch.quantize_per_tensor(
+
+3/1038 paragraphs
+19/1038 paragraphs
+35/1038 paragraphs
+51/1038 paragraphs
+67/1038 paragraphs
+68/1038 paragraphs
+70/1038 paragraphs
+75/1038 paragraphs
+79/1038 paragraphs
+84/1038 paragraphs
+88/1038 paragraphs
+91/1038 paragraphs
+94/1038 paragraphs
+96/1038 paragraphs
+98/1038 paragraphs
+99/1038 paragraphs
+102/1038 paragraphs
+103/1038 paragraphs
+108/1038 paragraphs
+113/1038 paragraphs
+120/1038 paragraphs
+125/1038 paragraphs
+129/1038 paragraphs
+131/1038 paragraphs
+133/1038 paragraphs
+134/1038 paragraphs
+137/1038 paragraphs
+140/1038 paragraphs
+144/1038 paragraphs
+145/1038 paragraphs
+148/1038 paragraphs
+152/1038 paragraphs
+156/1038 paragraphs
+157/1038 paragraphs
+157/1038 paragraphs
+157/1038 paragraphs
+158/1038 paragraphs
+159/1038 paragraphs
+165/1038 paragraphs
+167/1038 paragraphs
+171/1038 paragraphs
+172/1038 paragraphs
+177/1038 paragraphs
+181/1038 paragraphs
+182/1038 paragraphs
+185/1038 paragraphs
+188/1038 paragraphs
+190/1038 paragraphs
+193/1038 paragraphs
+310/1038 paragraphs
+486/1038 paragraphs
+644/1038 paragraphs
+832/1038 paragraphs
+978/1038 paragraphs
+Catalog entry for catalog/editions.json:
+{
+  "id": "pg2591-mar_Deva",
+  "title": "Grimms' Fairy Tales",
+  "author": "Jacob Grimm, Wilhelm Grimm",
+  "lang": "mar_Deva",
+  "sourceLang": "eng_Latn",
+  "gutenbergId": 2591,
+  "engine": "nllb-200-distilled-600M",
+  "size": 489157,
+  "url": "https://github.com/MohammedAnasAsif/BookIt/releases/download/editions/grimms-fairy-tales.mar_Deva.bookit",
+  "cover": "https://www.gutenberg.org/cache/epub/2591/pg2591.cover.medium.jpg"
+}
