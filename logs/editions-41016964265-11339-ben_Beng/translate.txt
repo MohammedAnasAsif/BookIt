@@ -1,0 +1,78 @@
+Aesop's Fables; a new translation - 297 chapters: AESOP'S FABLES; A NEW TRANSLATION BY; V. S. VERNON JONES; WITH AN INTRODUCTION BY; G. K. CHESTERTON; AND ILLUSTRATIONS BY; ARTHUR RACKHAM 1912 EDITION; INTRODUCTION; CONTENTS; LIST OF ILLUSTRATIONS; IN COLOUR; IN BLACK AND WHITE
+/home/runner/work/BookIt/BookIt/tools/translate_book.py:269: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10. 
+For migrations of users: 
+1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead 
+2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e) 
+3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e) 
+see https://github.com/pytorch/ao/issues/2259 for more details
+  self.model = torch.quantization.quantize_dynamic(self.model, {torch.nn.Linear}, dtype=torch.qint8)
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/torch/ao/nn/quantized/modules/utils.py:72: UserWarning: torch.quantize_per_tensor, torch.quantize_per_channel and other quantized tensor creation functions that produce tensors with dtype torch.quint8, torch.qint8, and torch.qint32 are deprecated and will be removed in a future PyTorch release. Please see https://github.com/pytorch/pytorch/issues/184982 for more information. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/quantized/Quantizer.cpp:111.)
+  qweight = torch.quantize_per_tensor(
+
+1/1098 paragraphs
+2/1098 paragraphs
+3/1098 paragraphs
+4/1098 paragraphs
+5/1098 paragraphs
+6/1098 paragraphs
+8/1098 paragraphs
+10/1098 paragraphs
+12/1098 paragraphs
+13/1098 paragraphs
+16/1098 paragraphs
+32/1098 paragraphs
+48/1098 paragraphs
+64/1098 paragraphs
+80/1098 paragraphs
+96/1098 paragraphs
+112/1098 paragraphs
+128/1098 paragraphs
+144/1098 paragraphs
+160/1098 paragraphs
+176/1098 paragraphs
+192/1098 paragraphs
+208/1098 paragraphs
+224/1098 paragraphs
+240/1098 paragraphs
+256/1098 paragraphs
+272/1098 paragraphs
+288/1098 paragraphs
+301/1098 paragraphs
+302/1098 paragraphs
+316/1098 paragraphs
+332/1098 paragraphs
+348/1098 paragraphs
+364/1098 paragraphs
+369/1098 paragraphs
+371/1098 paragraphs
+374/1098 paragraphs
+377/1098 paragraphs
+380/1098 paragraphs
+383/1098 paragraphs
+385/1098 paragraphs
+387/1098 paragraphs
+390/1098 paragraphs
+393/1098 paragraphs
+395/1098 paragraphs
+397/1098 paragraphs
+399/1098 paragraphs
+401/1098 paragraphs
+405/1098 paragraphs
+514/1098 paragraphs
+642/1098 paragraphs
+775/1098 paragraphs
+902/1098 paragraphs
+1026/1098 paragraphs
+Catalog entry for catalog/editions.json:
+{
+  "id": "pg11339-ben_Beng",
+  "title": "Aesop's Fables; a new translation",
+  "author": "Aesop",
+  "lang": "ben_Beng",
+  "sourceLang": "eng_Latn",
+  "gutenbergId": 11339,
+  "engine": "nllb-200-distilled-600M",
+  "size": 246965,
+  "url": "https://github.com/MohammedAnasAsif/BookIt/releases/download/editions/aesop-s-fables-a-new-translation.ben_Beng.bookit",
+  "cover": "https://www.gutenberg.org/cache/epub/11339/pg11339.cover.medium.jpg"
+}
