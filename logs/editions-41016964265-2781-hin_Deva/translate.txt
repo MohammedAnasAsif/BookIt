@@ -1,0 +1,74 @@
+Just so stories - 15 chapters: JUST SO STORIES; Contents; HOW THE WHALE GOT HIS THROAT; HOW THE CAMEL GOT HIS HUMP; NOW this is the next tale, and it tells how the Camel got his big hump.; HOW THE RHINOCEROS GOT HIS SKIN; HOW THE LEOPARD GOT HIS SPOTS; THE ELEPHANT’S CHILD; THE SING-SONG OF OLD MAN KANGAROO; THE BEGINNING OF THE ARMADILLOS; HOW THE FIRST LETTER WAS WRITTEN; HOW THE ALPHABET WAS MADE
+/home/runner/work/BookIt/BookIt/tools/translate_book.py:269: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10. 
+For migrations of users: 
+1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead 
+2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e) 
+3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e) 
+see https://github.com/pytorch/ao/issues/2259 for more details
+  self.model = torch.quantization.quantize_dynamic(self.model, {torch.nn.Linear}, dtype=torch.qint8)
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/torch/ao/nn/quantized/modules/utils.py:72: UserWarning: torch.quantize_per_tensor, torch.quantize_per_channel and other quantized tensor creation functions that produce tensors with dtype torch.quint8, torch.qint8, and torch.qint32 are deprecated and will be removed in a future PyTorch release. Please see https://github.com/pytorch/pytorch/issues/184982 for more information. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/quantized/Quantizer.cpp:111.)
+  qweight = torch.quantize_per_tensor(
+
+2/699 paragraphs
+16/699 paragraphs
+23/699 paragraphs
+30/699 paragraphs
+37/699 paragraphs
+38/699 paragraphs
+47/699 paragraphs
+57/699 paragraphs
+65/699 paragraphs
+71/699 paragraphs
+75/699 paragraphs
+77/699 paragraphs
+81/699 paragraphs
+86/699 paragraphs
+96/699 paragraphs
+102/699 paragraphs
+110/699 paragraphs
+114/699 paragraphs
+122/699 paragraphs
+129/699 paragraphs
+134/699 paragraphs
+136/699 paragraphs
+139/699 paragraphs
+150/699 paragraphs
+163/699 paragraphs
+175/699 paragraphs
+181/699 paragraphs
+190/699 paragraphs
+197/699 paragraphs
+199/699 paragraphs
+209/699 paragraphs
+223/699 paragraphs
+236/699 paragraphs
+243/699 paragraphs
+245/699 paragraphs
+251/699 paragraphs
+258/699 paragraphs
+262/699 paragraphs
+270/699 paragraphs
+277/699 paragraphs
+283/699 paragraphs
+288/699 paragraphs
+292/699 paragraphs
+297/699 paragraphs
+305/699 paragraphs
+313/699 paragraphs
+316/699 paragraphs
+320/699 paragraphs
+326/699 paragraphs
+551/699 paragraphs
+Catalog entry for catalog/editions.json:
+{
+  "id": "pg2781-hin_Deva",
+  "title": "Just so stories",
+  "author": "Rudyard Kipling",
+  "lang": "hin_Deva",
+  "sourceLang": "eng_Latn",
+  "gutenbergId": 2781,
+  "engine": "nllb-200-distilled-600M",
+  "size": 178924,
+  "url": "https://github.com/MohammedAnasAsif/BookIt/releases/download/editions/just-so-stories.hin_Deva.bookit",
+  "cover": "https://www.gutenberg.org/cache/epub/2781/pg2781.cover.medium.jpg"
+}
