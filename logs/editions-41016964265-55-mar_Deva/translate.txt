@@ -1,0 +1,75 @@
+The Wonderful Wizard of Oz - 28 chapters: The Wonderful Wizard of Oz; Contents; Introduction; The Wonderful Wizard of Oz; Chapter I The Cyclone; Chapter II The Council with the Munchkins; Chapter III How Dorothy Saved the Scarecrow; Chapter IV The Road Through the Forest; Chapter V The Rescue of the Tin Woodman; Chapter VI The Cowardly Lion; Chapter VII The Journey to the Great Oz; Chapter VIII The Deadly Poppy Field
+/home/runner/work/BookIt/BookIt/tools/translate_book.py:269: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10. 
+For migrations of users: 
+1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead 
+2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e) 
+3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e) 
+see https://github.com/pytorch/ao/issues/2259 for more details
+  self.model = torch.quantization.quantize_dynamic(self.model, {torch.nn.Linear}, dtype=torch.qint8)
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/torch/ao/nn/quantized/modules/utils.py:72: UserWarning: torch.quantize_per_tensor, torch.quantize_per_channel and other quantized tensor creation functions that produce tensors with dtype torch.quint8, torch.qint8, and torch.qint32 are deprecated and will be removed in a future PyTorch release. Please see https://github.com/pytorch/pytorch/issues/184982 for more information. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/quantized/Quantizer.cpp:111.)
+  qweight = torch.quantize_per_tensor(
+
+3/1163 paragraphs
+12/1163 paragraphs
+21/1163 paragraphs
+29/1163 paragraphs
+34/1163 paragraphs
+35/1163 paragraphs
+38/1163 paragraphs
+44/1163 paragraphs
+51/1163 paragraphs
+56/1163 paragraphs
+61/1163 paragraphs
+66/1163 paragraphs
+74/1163 paragraphs
+80/1163 paragraphs
+87/1163 paragraphs
+96/1163 paragraphs
+104/1163 paragraphs
+113/1163 paragraphs
+116/1163 paragraphs
+122/1163 paragraphs
+129/1163 paragraphs
+138/1163 paragraphs
+144/1163 paragraphs
+152/1163 paragraphs
+160/1163 paragraphs
+169/1163 paragraphs
+173/1163 paragraphs
+181/1163 paragraphs
+189/1163 paragraphs
+194/1163 paragraphs
+200/1163 paragraphs
+209/1163 paragraphs
+211/1163 paragraphs
+221/1163 paragraphs
+229/1163 paragraphs
+240/1163 paragraphs
+248/1163 paragraphs
+255/1163 paragraphs
+258/1163 paragraphs
+264/1163 paragraphs
+271/1163 paragraphs
+280/1163 paragraphs
+287/1163 paragraphs
+294/1163 paragraphs
+306/1163 paragraphs
+311/1163 paragraphs
+312/1163 paragraphs
+317/1163 paragraphs
+325/1163 paragraphs
+639/1163 paragraphs
+1004/1163 paragraphs
+Catalog entry for catalog/editions.json:
+{
+  "id": "pg55-mar_Deva",
+  "title": "The Wonderful Wizard of Oz",
+  "author": "L. Frank Baum",
+  "lang": "mar_Deva",
+  "sourceLang": "eng_Latn",
+  "gutenbergId": 55,
+  "engine": "nllb-200-distilled-600M",
+  "size": 232869,
+  "url": "https://github.com/MohammedAnasAsif/BookIt/releases/download/editions/the-wonderful-wizard-of-oz.mar_Deva.bookit",
+  "cover": "https://www.gutenberg.org/cache/epub/55/pg55.cover.medium.jpg"
+}
