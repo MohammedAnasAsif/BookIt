@@ -90,9 +90,11 @@ jobs:
           key: hf-nllb-600m-v1
       - name: Translate
         run: |
-          mkdir -p out
-          python tools/translate_book.py --gutenberg ${{ matrix.book }} --to ${{ matrix.lang }} \
-            --beams ${{ inputs.beams || '2' }} --batch 16 --out out --entry-out out/entry.json
+          mkdir -p out logs
+          set -o pipefail
+          python -u tools/translate_book.py --gutenberg ${{ matrix.book }} --to ${{ matrix.lang }} \
+            --beams ${{ inputs.beams || '2' }} --batch 16 --out out --entry-out out/entry.json 2>&1 \
+            | tr '\r' '\n' | awk 'NR<=60 || /paragraphs/ && NR%50==0 || !/paragraphs/' | tee logs/translate.txt
       - name: Upload to the editions release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -107,6 +109,9 @@ jobs:
           e["url"] = "https://github.com/MohammedAnasAsif/BookIt/releases/download/editions/" + sys.argv[1]
           json.dump(e, open("out/entry.json", "w"), ensure_ascii=False)
           EOF
+      - name: Publish log
+        if: failure()
+        run: bash .github/scripts/publish-logs.sh "editions-${{ github.run_id }}-${{ matrix.book }}-${{ matrix.lang }}" logs/translate.txt
       - uses: actions/upload-artifact@v4
         with:
           name: entry-${{ matrix.book }}-${{ matrix.lang }}
