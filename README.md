@@ -42,6 +42,10 @@ No accounts, no API keys, no subscriptions, no ads. Nothing you read is sent any
 | --- | --- | --- |
 | ![Home screen with reading streak](docs/screenshots/home.png) | ![Reader showing Tamil translation with the English original under each paragraph](docs/screenshots/bilingual.png) | ![Quote card](docs/screenshots/quote.png) |
 
+| Menus in Tamil (and Hindi, Bengali, Telugu, Marathi) | Your reading week | Free library |
+| --- | --- | --- |
+| ![Home screen with Tamil menus](docs/screenshots/home-tamil-menus.png) | ![Reading streak card](docs/screenshots/streak.png) | ![Free library](docs/screenshots/store.png) |
+
 <sub>Screenshots are taken automatically by CI from the real Windows build. The Tamil text is BookIt's sample story, translated on the machine by the app itself.</sub>
 
 ## Download
@@ -134,11 +138,13 @@ app/                         Flutter app (Android + Windows)
   lib/translation/engine/    NLLB tokenizer (pure Dart), ONNX Runtime model, sentence splitting
   lib/translation/           background translation worker and job queue
   lib/ui/                    screens; lib/ui/reader/ is the paginated reader
+  lib/l10n/                  menu translations (hi, bn, ta, te, mr)
 catalog/editions.json        community library index
 tools/build_catalog.py       builds the bundled Gutenberg catalog and featured shelves
 tools/build_discover.py      builds the weekly Discover shelves (catalog/discover.json)
 tools/translate_book.py      batch translation for the community library
 tools/engine_reference.py    reference data for the engine test
+tools/make_demo_gif.py       builds docs/demo.gif from CI screenshots
 .github/workflows/           builds, engine test, developer probes
 ```
 

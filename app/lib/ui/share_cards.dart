@@ -90,7 +90,7 @@ class QuoteCard extends StatelessWidget {
                   main.dispose();
                   if (orig != null) {
                     final o = TextPainter(
-                      text: TextSpan(text: orig, style: TextStyle(fontSize: size * 0.55, height: 1.4, fontStyle: FontStyle.italic)),
+                      text: TextSpan(text: orig, style: TextStyle(fontSize: (size * 0.6).clamp(10.5, 14.0), height: 1.4, fontStyle: FontStyle.italic)),
                       textDirection: TextDirection.ltr,
                     )..layout(maxWidth: width);
                     h += 10 + o.height;
@@ -113,7 +113,7 @@ class QuoteCard extends StatelessWidget {
                     const SizedBox(height: 10),
                     Text(orig,
                         style: TextStyle(
-                            fontSize: size * 0.55,
+                            fontSize: (size * 0.6).clamp(10.5, 14.0),
                             height: 1.4,
                             color: _ink.withValues(alpha: 0.55),
                             fontStyle: FontStyle.italic)),

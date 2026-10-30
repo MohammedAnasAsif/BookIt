@@ -61,7 +61,7 @@ def draw_caption(draw, text, y, h):
 
     runs = []
     for ch in text:
-        s = script(ch) or (runs[-1][0] if runs and ch in " ,'" and runs[-1][0] != "latin" else "latin")
+        s = script(ch) or "latin"
         if runs and runs[-1][0] == s:
             runs[-1][1] += ch
         else:
