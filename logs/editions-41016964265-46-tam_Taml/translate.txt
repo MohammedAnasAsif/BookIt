@@ -1,0 +1,74 @@
+A Christmas Carol in Prose; Being a Ghost Story of Christmas - 23 chapters: There are several editions of this ebook in the Project Gutenberg collection. Va; A CHRISTMAS CAROL; IN PROSE; A Ghost Story of Christmas; CHARLES DICKENS; WITH ILLUSTRATIONS BY JOHN LEECH; PREFACE; CONTENTS; ILLUSTRATIONS; STAVE ONE.; MARLEY’S GHOST.; Marley’s Ghost
+/home/runner/work/BookIt/BookIt/tools/translate_book.py:269: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10. 
+For migrations of users: 
+1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead 
+2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e) 
+3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e) 
+see https://github.com/pytorch/ao/issues/2259 for more details
+  self.model = torch.quantization.quantize_dynamic(self.model, {torch.nn.Linear}, dtype=torch.qint8)
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/torch/ao/nn/quantized/modules/utils.py:72: UserWarning: torch.quantize_per_tensor, torch.quantize_per_channel and other quantized tensor creation functions that produce tensors with dtype torch.quint8, torch.qint8, and torch.qint32 are deprecated and will be removed in a future PyTorch release. Please see https://github.com/pytorch/pytorch/issues/184982 for more information. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/quantized/Quantizer.cpp:111.)
+  qweight = torch.quantize_per_tensor(
+
+7/763 paragraphs
+8/763 paragraphs
+10/763 paragraphs
+12/763 paragraphs
+13/763 paragraphs
+14/763 paragraphs
+19/763 paragraphs
+21/763 paragraphs
+32/763 paragraphs
+33/763 paragraphs
+36/763 paragraphs
+39/763 paragraphs
+43/763 paragraphs
+48/763 paragraphs
+53/763 paragraphs
+58/763 paragraphs
+66/763 paragraphs
+75/763 paragraphs
+83/763 paragraphs
+90/763 paragraphs
+98/763 paragraphs
+102/763 paragraphs
+111/763 paragraphs
+115/763 paragraphs
+120/763 paragraphs
+125/763 paragraphs
+131/763 paragraphs
+139/763 paragraphs
+150/763 paragraphs
+158/763 paragraphs
+166/763 paragraphs
+172/763 paragraphs
+181/763 paragraphs
+187/763 paragraphs
+195/763 paragraphs
+203/763 paragraphs
+209/763 paragraphs
+210/763 paragraphs
+211/763 paragraphs
+217/763 paragraphs
+228/763 paragraphs
+233/763 paragraphs
+242/763 paragraphs
+251/763 paragraphs
+258/763 paragraphs
+262/763 paragraphs
+268/763 paragraphs
+270/763 paragraphs
+278/763 paragraphs
+494/763 paragraphs
+Catalog entry for catalog/editions.json:
+{
+  "id": "pg46-tam_Taml",
+  "title": "A Christmas Carol in Prose; Being a Ghost Story of Christmas",
+  "author": "Charles Dickens",
+  "lang": "tam_Taml",
+  "sourceLang": "eng_Latn",
+  "gutenbergId": 46,
+  "engine": "nllb-200-distilled-600M",
+  "size": 209377,
+  "url": "https://github.com/MohammedAnasAsif/BookIt/releases/download/editions/a-christmas-carol-in-prose-being-a-ghost-story-of-christmas.tam_Taml.bookit",
+  "cover": "https://www.gutenberg.org/cache/epub/46/pg46.cover.medium.jpg"
+}
