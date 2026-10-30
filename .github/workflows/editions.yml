@@ -93,7 +93,7 @@ jobs:
           mkdir -p out logs
           set -o pipefail
           python -u tools/translate_book.py --gutenberg ${{ matrix.book }} --to ${{ matrix.lang }} \
-            --beams ${{ inputs.beams || '2' }} --batch 16 --out out --entry-out out/entry.json 2>&1 \
+            --beams ${{ inputs.beams || '2' }} --int8 --batch 16 --out out --entry-out out/entry.json 2>&1 \
             | tr '\r' '\n' | awk 'NR<=60 || /paragraphs/ && NR%50==0 || !/paragraphs/' | tee logs/translate.txt
       - name: Upload to the editions release
         env:
@@ -110,7 +110,7 @@ jobs:
           json.dump(e, open("out/entry.json", "w"), ensure_ascii=False)
           EOF
       - name: Publish log
-        if: failure()
+        if: always()
         run: bash .github/scripts/publish-logs.sh "editions-${{ github.run_id }}-${{ matrix.book }}-${{ matrix.lang }}" logs/translate.txt
       - uses: actions/upload-artifact@v4
         with:

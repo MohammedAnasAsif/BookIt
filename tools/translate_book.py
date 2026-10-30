@@ -31,6 +31,7 @@ import os
 import posixpath
 import re
 import sys
+import time
 import urllib.parse
 import urllib.request
 import zipfile
@@ -240,7 +241,7 @@ def prepare(s):
 # --------------------------------------------------------------------------- engines
 
 class NllbEngine:
-    def __init__(self, model, src, tgt, device, beams=4):
+    def __init__(self, model, src, tgt, device, beams=4, int8=False):
         import torch
         from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
         self.torch = torch
@@ -250,6 +251,9 @@ class NllbEngine:
         self.model = AutoModelForSeq2SeqLM.from_pretrained(model).to(device).eval()
         if device == "cuda":
             self.model = self.model.half()
+        elif int8:
+            # 8-bit weights, like the model the app uses: about twice as fast on a CPU.
+            self.model = torch.quantization.quantize_dynamic(self.model, {torch.nn.Linear}, dtype=torch.qint8)
         self.device, self.tgt_id = device, self.tok.convert_tokens_to_ids(tgt)
         self.name = model.split("/")[-1]
 
@@ -300,11 +304,13 @@ def main():
     ap.add_argument("--model", default=None, help="Hugging Face model id (default depends on engine)")
     ap.add_argument("--batch", type=int, default=16)
     ap.add_argument("--beams", type=int, default=4, help="beam size (1 = fastest)")
+    ap.add_argument("--int8", action="store_true", help="8-bit weights on CPU (faster, like the app's model)")
     ap.add_argument("--entry-out", default=None, help="also write the catalog entry to this JSON file")
     ap.add_argument("--out", default="editions")
     args = ap.parse_args()
 
     import torch
+    started = time.time()
     device = "cuda" if torch.cuda.is_available() else "cpu"
     if args.gutenberg:
         data = fetch(f"https://www.gutenberg.org/cache/epub/{args.gutenberg}/pg{args.gutenberg}.epub")
@@ -317,7 +323,7 @@ def main():
         sys.exit("No text found in this book")
 
     if args.engine == "nllb":
-        engine = NllbEngine(args.model or "facebook/nllb-200-distilled-600M", args.src, args.to, device, args.beams)
+        engine = NllbEngine(args.model or "facebook/nllb-200-distilled-600M", args.src, args.to, device, args.beams, args.int8)
     else:
         engine = IndicTrans2Engine(args.model, args.src, args.to, device)
 
@@ -377,7 +383,7 @@ def main():
              if args.gutenberg else None}
     if args.entry_out:
         json.dump(entry, open(args.entry_out, "w", encoding="utf-8"), ensure_ascii=False)
-    print(f"Wrote {path}")
+    print(f"Wrote {path} in {(time.time() - started) / 60:.1f} min ({total} paragraphs)")
     print("Catalog entry for catalog/editions.json:")
     print(json.dumps(entry, ensure_ascii=False, indent=2))
 
