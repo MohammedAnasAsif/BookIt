@@ -1,0 +1,56 @@
+# Runs the Android app on an emulator: opens each main screen, takes
+# screenshots and fails if the app crashes. (Translation itself is tested on
+# Windows; the emulator can't run the phone build of the translation engine.)
+name: Android emulator test
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - app/lib/**
+      - app/android/**
+      - app/pubspec.yaml
+      - .github/workflows/android-test.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: android-test
+  cancel-in-progress: true
+
+jobs:
+  emulator:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - name: Build APK for the emulator
+        working-directory: app
+        run: flutter pub get && flutter build apk --release --target-platform android-x64
+      - name: Run on the emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: google_apis
+          profile: pixel_6
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          script: bash .github/scripts/android-smoke.sh app/build/app/outputs/flutter-apk/app-release.apk
+      - name: Publish results
+        if: always()
+        run: bash .github/scripts/publish-logs.sh "android-${{ github.run_id }}" android-shots/*

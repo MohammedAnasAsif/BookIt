@@ -2,20 +2,47 @@
 
 <h1 align="center">BookIt</h1>
 
-<p align="center"><b>A free, open-source e-reader that translates books into your language — on your own device.</b><br>
-Android · Windows · 200 languages, including 20 Indian languages · works offline</p>
+<p align="center"><b>Read any book in your own language — free, offline, on your phone or PC.</b><br>
+A Kindle-style e-reader that translates whole books into Hindi, Tamil, Bengali, Telugu, Marathi and 200 languages, right on your device.</p>
+
+<p align="center">
+  <a href="https://github.com/MohammedAnasAsif/BookIt/releases/latest"><img alt="Download" src="https://img.shields.io/github/v/release/MohammedAnasAsif/BookIt?label=download&color=E39B2D&style=for-the-badge"></a>
+  <a href="https://github.com/MohammedAnasAsif/BookIt/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/MohammedAnasAsif/BookIt/total?color=1F2A44&style=for-the-badge"></a>
+  <a href="https://github.com/MohammedAnasAsif/BookIt/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/MohammedAnasAsif/BookIt?color=1F2A44&style=for-the-badge"></a>
+  <br>
+  <img alt="Android and Windows" src="https://img.shields.io/badge/Android%20%7C%20Windows-supported-1F2A44">
+  <a href="https://github.com/MohammedAnasAsif/BookIt/actions/workflows/build.yml"><img alt="Build" src="https://github.com/MohammedAnasAsif/BookIt/actions/workflows/build.yml/badge.svg"></a>
+  <a href="LICENSE"><img alt="Licence" src="https://img.shields.io/github/license/MohammedAnasAsif/BookIt"></a>
+</p>
+
+<p align="center"><img src="docs/demo.gif" width="760" alt="BookIt: choose a book, translate it into Tamil, read it side by side with the original"></p>
+
+<p align="center"><b>⭐ If BookIt helps you or someone you know read more, please star the repo — it's how other readers find it.</b></p>
 
 ---
 
-BookIt is a Kindle-style reading app with a built-in library of 78,000+ free classics. Pick any book, tap **Translate**, choose Tamil, Hindi, Bengali, Telugu, Marathi, Urdu or any of 90+ other languages, and BookIt translates the book **on your phone or PC** and saves it. After that you can read it anytime, without internet.
+BookIt is a reading app with a built-in library of 78,000+ free books. Pick any book, tap **Translate**, choose your language, and BookIt translates the whole book **on your phone or PC** and keeps it. After that you can read it anytime, without internet. It can also read the book aloud to you.
 
 No accounts, no API keys, no subscriptions, no ads. Nothing you read is sent anywhere.
 
-| Home | Free library | Reading a book translated into Tamil, on the device |
-| --- | --- | --- |
-| ![Home screen](docs/screenshots/home.png) | ![Free library](docs/screenshots/store.png) | ![Reader showing a Tamil translation](docs/screenshots/reader-tamil.png) |
+## Why BookIt?
 
-<sub>Screenshots are taken automatically by CI from the real Windows build. The Tamil page is BookIt's sample story, translated on the machine by the app itself.</sub>
+| | **BookIt** | Most e-reader apps |
+| --- | :---: | :---: |
+| Translate a **whole book** into Tamil, Hindi, Bengali… | ✅ on your device | ❌ a word or sentence at a time, online |
+| Read the translation **offline**, forever | ✅ | ❌ |
+| 78,000+ free books built in, plus trending picks | ✅ | some |
+| **Bilingual view** — original under each translated paragraph | ✅ | ❌ |
+| **Read aloud** in the book's language | ✅ device voices | some |
+| Menus in Hindi, Tamil, Bengali, Telugu, Marathi | ✅ | rarely |
+| Account, ads or tracking | ❌ none | usually |
+| Price | **Free & open source** | free app, paid books |
+
+| Home | Bilingual reading (Tamil + English) | Share a passage |
+| --- | --- | --- |
+| ![Home screen with reading streak](docs/screenshots/home.png) | ![Reader showing Tamil translation with the English original under each paragraph](docs/screenshots/bilingual.png) | ![Quote card](docs/screenshots/quote.png) |
+
+<sub>Screenshots are taken automatically by CI from the real Windows build. The Tamil text is BookIt's sample story, translated on the machine by the app itself.</sub>
 
 ## Download
 
@@ -34,17 +61,21 @@ The `latest` pre-release is rebuilt automatically from the newest code.
 
 ## Features
 
-- **Free library** — the whole Project Gutenberg catalog (78,000+ public-domain books) is built into the app, so browsing and search by shelf (Indian, novels, adventure, children, poetry…) and language are instant, even offline. One tap downloads a book.
-- **Trending now & bestsellers** — see what readers everywhere are picking up this week (from Open Library) and popular modern books, with links to buy them or borrow them from a library. Searching for a book that isn't free shows where to get it.
-- **Free modern fiction** — novels their authors chose to share under Creative Commons licences (each licence is checked automatically), e.g. Cory Doctorow's *Little Brother*.
+- **Free library** — the whole Project Gutenberg catalog (78,000+ public-domain books) is built into the app, so browsing and search by shelf (Indian, novels, adventure, children, poetry…) and language are instant, even offline. One tap opens a book.
+- **Ready-made translations** — popular classics (Alice in Wonderland, The Jungle Book, Gitanjali, Sherlock Holmes, Pride and Prejudice and more) already translated into Hindi, Tamil, Bengali, Telugu and Marathi. Download and read in seconds.
+- **Trending now & bestsellers** — see what readers everywhere are picking up this week (from Open Library) and popular modern books, with links to buy them or borrow them from a library.
+- **Free modern fiction** — novels their authors chose to share under Creative Commons licences, e.g. Cory Doctorow's *Little Brother*.
 - **Beautiful classics** — 1,500+ carefully edited public-domain books from [Standard Ebooks](https://standardebooks.org).
 - **Your own books** — open DRM-free EPUB and TXT files, or `.bookit` editions shared by others.
-- **Kindle-style reader** — real pages with tap zones and swipes, serif/sans fonts, text size, spacing, margins, justified text, white / sepia / gray / dark / black themes, chapter slider, table of contents, bookmarks, reading progress. Keyboard and mouse-wheel page turns on Windows.
-- **Translate any book** — into 90+ languages including Hindi, Bengali, Telugu, Marathi, Tamil, Urdu, Gujarati, Kannada, Malayalam, Odia, Punjabi, Assamese, Maithili, Sanskrit, Nepali, Sindhi, Kashmiri, Manipuri, Santali, and most European and world languages.
-- **Start reading right away** — the chapter you are reading is translated first; untranslated paragraphs show in lighter text and switch over as they are ready. Translation resumes where it stopped.
-- **Switch anytime** between the original and the translation on the same page.
-- **Share translations** — save any translation as an EPUB for other e-readers, or as a `.bookit` edition to share or contribute to the community library.
-- **Community library** — books already translated by others appear on the home screen, ready to download instantly.
+- **Kindle-style reader** — real pages with tap zones and swipes, fonts, text size, spacing, margins, white / sepia / gray / dark / black themes, chapter slider, contents, bookmarks, progress. Keyboard and mouse-wheel page turns on Windows.
+- **Translate any book** — into 200 languages including Hindi, Bengali, Telugu, Marathi, Tamil, Urdu, Gujarati, Kannada, Malayalam, Odia, Punjabi, Assamese, Maithili, Sanskrit, Nepali, Sindhi, Kashmiri, Manipuri, Santali, and most European and world languages.
+- **Start reading right away** — the chapter you are reading is translated first; untranslated paragraphs show in lighter text and switch over as they are ready.
+- **Bilingual view** — show the original under each translated paragraph. Great for learning a language.
+- **Read aloud** — BookIt reads the page to you in the book's language using your device's voices and turns pages by itself.
+- **Reading streaks** — daily goal, streak and a weekly chart on Home. Share your reading week as an image.
+- **Share a quote** — long-press a page to turn a passage (with its original) into a beautiful image for WhatsApp or Instagram.
+- **Menus in your language** — English, हिन्दी, বাংলা, தமிழ், తెలుగు, मराठी.
+- **Share translations** — save any translation as an EPUB for other e-readers, or as a `.bookit` edition for the community library.
 
 ## How translation works
 
@@ -115,10 +146,12 @@ tools/engine_reference.py    reference data for the engine test
 
 - Android foreground service so translation continues with the app in the background
 - Optional higher-quality packs (IndicTrans2 for Indian languages; larger NLLB models on PCs)
-- PDF import, highlights and notes, dictionary lookup, text-to-speech
-- More pre-translated classics in Indian languages
+- PDF import, highlights and notes, dictionary lookup
+- More pre-translated books and more menu languages (Kannada, Malayalam, Gujarati, Urdu…) — help wanted!
 
-Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
+Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). Translating the app's menus into your language is a great first contribution: copy `app/lib/l10n/hi.dart`, translate the right-hand side, and open a pull request.
+
+<p align="center"><b>⭐ Star BookIt</b> to help more people read in their own language.</p>
 
 ## Credits and licences
 
