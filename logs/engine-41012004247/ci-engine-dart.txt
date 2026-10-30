@@ -1,0 +1,13 @@
+00:00 +0: loading /home/runner/work/BookIt/BookIt/app/test/tokenizer_test.dart
+00:00 +0: /home/runner/work/BookIt/BookIt/app/test/tokenizer_test.dart: NllbTokenizer (setUpAll)
+00:01 +0: /home/runner/work/BookIt/BookIt/app/test/engine_test.dart: translates like the reference implementation
+00:01 +1: /home/runner/work/BookIt/BookIt/app/test/engine_test.dart: translates like the reference implementation
+00:01 +1: /home/runner/work/BookIt/BookIt/app/test/tokenizer_test.dart: NllbTokenizer broad agreement on book text
+tokenizer agreement: 603/603 = 100.00%
+00:01 +2: /home/runner/work/BookIt/BookIt/app/test/engine_test.dart: translates like the reference implementation
+00:01 +3: /home/runner/work/BookIt/BookIt/app/test/engine_test.dart: translates like the reference implementation
+00:01 +4: /home/runner/work/BookIt/BookIt/app/test/engine_test.dart: translates like the reference implementation
+batch 1: exact 32/32, 13.0 tokens/s
+batch 4: exact 22/32, 28.6 tokens/s
+batch 8: exact 20/32, 50.5 tokens/s
+01:19 +5: All tests passed!
