@@ -1,5 +1,18 @@
 {
  "format": "bookit-catalog",
  "version": 1,
- "editions": []
+ "editions": [
+  {
+   "id": "pg902-tam_Taml",
+   "title": "The Happy Prince, and Other Tales",
+   "author": "Oscar Wilde",
+   "lang": "tam_Taml",
+   "sourceLang": "eng_Latn",
+   "gutenbergId": 902,
+   "engine": "nllb-200-distilled-600M",
+   "size": 114696,
+   "url": "https://github.com/MohammedAnasAsif/BookIt/releases/download/editions/the-happy-prince-and-other-tales.tam_Taml.bookit",
+   "cover": "https://www.gutenberg.org/cache/epub/902/pg902.cover.medium.jpg"
+  }
+ ]
 }
