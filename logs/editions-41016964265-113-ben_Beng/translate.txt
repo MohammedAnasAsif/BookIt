@@ -1,0 +1,79 @@
+The Secret Garden - 30 chapters: The Secret Garden; THE SECRET GARDEN; Contents; CHAPTER I. THERE IS NO ONE LEFT; CHAPTER II. MISTRESS MARY QUITE CONTRARY; CHAPTER III. ACROSS THE MOOR; CHAPTER IV. MARTHA; CHAPTER V. THE CRY IN THE CORRIDOR; CHAPTER VI. “THERE WAS SOMEONE CRYING—THERE WAS!”; CHAPTER VII. THE KEY TO THE GARDEN; CHAPTER VIII. THE ROBIN WHO SHOWED THE WAY; CHAPTER IX. THE STRANGEST HOUSE ANYONE EVER LIVED IN
+/home/runner/work/BookIt/BookIt/tools/translate_book.py:269: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10. 
+For migrations of users: 
+1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead 
+2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e) 
+3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e) 
+see https://github.com/pytorch/ao/issues/2259 for more details
+  self.model = torch.quantization.quantize_dynamic(self.model, {torch.nn.Linear}, dtype=torch.qint8)
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/torch/ao/nn/quantized/modules/utils.py:72: UserWarning: torch.quantize_per_tensor, torch.quantize_per_channel and other quantized tensor creation functions that produce tensors with dtype torch.quint8, torch.qint8, and torch.qint32 are deprecated and will be removed in a future PyTorch release. Please see https://github.com/pytorch/pytorch/issues/184982 for more information. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/quantized/Quantizer.cpp:111.)
+  qweight = torch.quantize_per_tensor(
+
+1/2190 paragraphs
+4/2190 paragraphs
+13/2190 paragraphs
+22/2190 paragraphs
+31/2190 paragraphs
+32/2190 paragraphs
+35/2190 paragraphs
+39/2190 paragraphs
+44/2190 paragraphs
+48/2190 paragraphs
+50/2190 paragraphs
+54/2190 paragraphs
+57/2190 paragraphs
+63/2190 paragraphs
+67/2190 paragraphs
+74/2190 paragraphs
+78/2190 paragraphs
+82/2190 paragraphs
+87/2190 paragraphs
+90/2190 paragraphs
+98/2190 paragraphs
+103/2190 paragraphs
+110/2190 paragraphs
+115/2190 paragraphs
+117/2190 paragraphs
+120/2190 paragraphs
+125/2190 paragraphs
+132/2190 paragraphs
+137/2190 paragraphs
+145/2190 paragraphs
+153/2190 paragraphs
+155/2190 paragraphs
+162/2190 paragraphs
+166/2190 paragraphs
+169/2190 paragraphs
+177/2190 paragraphs
+182/2190 paragraphs
+188/2190 paragraphs
+191/2190 paragraphs
+197/2190 paragraphs
+203/2190 paragraphs
+208/2190 paragraphs
+215/2190 paragraphs
+221/2190 paragraphs
+230/2190 paragraphs
+234/2190 paragraphs
+237/2190 paragraphs
+243/2190 paragraphs
+247/2190 paragraphs
+465/2190 paragraphs
+762/2190 paragraphs
+1090/2190 paragraphs
+1379/2190 paragraphs
+1683/2190 paragraphs
+1948/2190 paragraphs
+Catalog entry for catalog/editions.json:
+{
+  "id": "pg113-ben_Beng",
+  "title": "The Secret Garden",
+  "author": "Frances Hodgson Burnett",
+  "lang": "ben_Beng",
+  "sourceLang": "eng_Latn",
+  "gutenbergId": 113,
+  "engine": "nllb-200-distilled-600M",
+  "size": 408192,
+  "url": "https://github.com/MohammedAnasAsif/BookIt/releases/download/editions/the-secret-garden.ben_Beng.bookit",
+  "cover": "https://www.gutenberg.org/cache/epub/113/pg113.cover.medium.jpg"
+}
