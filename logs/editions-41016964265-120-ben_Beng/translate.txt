@@ -1,0 +1,77 @@
+Treasure Island - 44 chapters: TREASURE ISLAND; Illustrated by Louis Rhead; TREASURE ISLAND; TREASURE ISLAND; PART ONE—The Old Buccaneer; I The Old Sea-dog at the “Admiral Benbow”; II Black Dog Appears and Disappears; III The Black Spot; IV The Sea-chest; V The Last of the Blind Man; VI The Captain’s Papers; PART TWO—The Sea-cook
+/home/runner/work/BookIt/BookIt/tools/translate_book.py:269: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10. 
+For migrations of users: 
+1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead 
+2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e) 
+3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e) 
+see https://github.com/pytorch/ao/issues/2259 for more details
+  self.model = torch.quantization.quantize_dynamic(self.model, {torch.nn.Linear}, dtype=torch.qint8)
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/torch/ao/nn/quantized/modules/utils.py:72: UserWarning: torch.quantize_per_tensor, torch.quantize_per_channel and other quantized tensor creation functions that produce tensors with dtype torch.quint8, torch.qint8, and torch.qint32 are deprecated and will be removed in a future PyTorch release. Please see https://github.com/pytorch/pytorch/issues/184982 for more information. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/quantized/Quantizer.cpp:111.)
+  qweight = torch.quantize_per_tensor(
+
+2/1550 paragraphs
+12/1550 paragraphs
+21/1550 paragraphs
+30/1550 paragraphs
+39/1550 paragraphs
+46/1550 paragraphs
+51/1550 paragraphs
+52/1550 paragraphs
+54/1550 paragraphs
+61/1550 paragraphs
+64/1550 paragraphs
+67/1550 paragraphs
+71/1550 paragraphs
+80/1550 paragraphs
+87/1550 paragraphs
+93/1550 paragraphs
+101/1550 paragraphs
+110/1550 paragraphs
+117/1550 paragraphs
+121/1550 paragraphs
+129/1550 paragraphs
+133/1550 paragraphs
+137/1550 paragraphs
+143/1550 paragraphs
+149/1550 paragraphs
+153/1550 paragraphs
+160/1550 paragraphs
+166/1550 paragraphs
+173/1550 paragraphs
+174/1550 paragraphs
+177/1550 paragraphs
+182/1550 paragraphs
+191/1550 paragraphs
+196/1550 paragraphs
+203/1550 paragraphs
+205/1550 paragraphs
+213/1550 paragraphs
+222/1550 paragraphs
+228/1550 paragraphs
+235/1550 paragraphs
+240/1550 paragraphs
+245/1550 paragraphs
+251/1550 paragraphs
+261/1550 paragraphs
+269/1550 paragraphs
+276/1550 paragraphs
+282/1550 paragraphs
+287/1550 paragraphs
+293/1550 paragraphs
+524/1550 paragraphs
+834/1550 paragraphs
+1133/1550 paragraphs
+1381/1550 paragraphs
+Catalog entry for catalog/editions.json:
+{
+  "id": "pg120-ben_Beng",
+  "title": "Treasure Island",
+  "author": "Robert Louis Stevenson",
+  "lang": "ben_Beng",
+  "sourceLang": "eng_Latn",
+  "gutenbergId": 120,
+  "engine": "nllb-200-distilled-600M",
+  "size": 388357,
+  "url": "https://github.com/MohammedAnasAsif/BookIt/releases/download/editions/treasure-island.ben_Beng.bookit",
+  "cover": "https://www.gutenberg.org/cache/epub/120/pg120.cover.medium.jpg"
+}
