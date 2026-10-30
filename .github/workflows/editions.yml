@@ -71,7 +71,7 @@ jobs:
     timeout-minutes: 350
     strategy:
       fail-fast: false
-      max-parallel: 20
+      max-parallel: 15
       matrix:
         book: ${{ fromJson(needs.plan.outputs.books) }}
         lang: ${{ fromJson(needs.plan.outputs.langs) }}
