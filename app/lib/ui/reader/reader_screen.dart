@@ -7,15 +7,21 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/languages.dart';
+import '../../data/engagement.dart';
 import '../../data/library_store.dart';
+import '../../data/reading_stats.dart';
 import '../../data/settings_store.dart';
 import '../../models/book.dart';
 import '../../models/book_content.dart';
 import '../../translation/translation_data.dart';
 import '../../translation/translation_service.dart';
+import '../../l10n/strings.dart';
 import '../book_actions.dart';
+import '../engagement_ui.dart';
+import '../share_cards.dart';
 import '../widgets/format.dart';
 import 'paginator.dart';
+import 'read_aloud.dart';
 import 'reader_sheets.dart';
 
 /// Kindle-style paginated reader with tap zones, themes and a switch between
@@ -55,6 +61,9 @@ class _ReaderScreenState extends State<ReaderScreen> {
   bool _menu = false;
   int _direction = 1;
   final _focus = FocusNode();
+  late final ReadingStats _stats;
+  final _aloud = ReadAloud();
+  bool _readingAloud = false;
 
   Book get book => widget.book;
 
@@ -66,6 +75,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
     _chapter = book.position.chapter;
     _anchorBlock = book.position.block;
     _anchorFraction = book.position.fraction;
+    _stats = context.read<ReadingStats>()..startSession();
     _load();
     if (Platform.isAndroid || Platform.isIOS) {
       SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
@@ -77,6 +87,8 @@ class _ReaderScreenState extends State<ReaderScreen> {
     _relayoutTimer?.cancel();
     _saveTimer?.cancel();
     _savePosition();
+    _aloud.stop();
+    _stats.endSession();
     _focus.dispose();
     if (Platform.isAndroid || Platform.isIOS) {
       SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
@@ -148,20 +160,32 @@ class _ReaderScreenState extends State<ReaderScreen> {
     );
   }
 
+  bool get _bilingual => _lang != null && context.read<SettingsStore>().bilingual;
+
   List<DisplayBlock> _displayBlocks(int chapter) {
     final content = _content!;
     final blocks = content.chapters[chapter].blocks;
     final t = _translation;
+    final both = _bilingual;
     return [
       for (var b = 0; b < blocks.length; b++)
         if (_lang == null)
-          DisplayBlock(blocks[b].kind, blocks[b].text)
-        else if (t?.text(chapter, b) case final tr?)
-          DisplayBlock(blocks[b].kind, tr)
-        else
+          DisplayBlock(blocks[b].kind, blocks[b].text, source: b)
+        else if (t?.text(chapter, b) case final tr?) ...[
+          DisplayBlock(blocks[b].kind, tr, source: b),
+          if (both && tr.trim() != blocks[b].text.trim() && blocks[b].kind != BlockKind.separator)
+            DisplayBlock(blocks[b].kind, blocks[b].text, source: b, secondary: true),
+        ] else
           DisplayBlock(blocks[b].kind, blocks[b].text,
+              source: b,
               pending: !blocks[b].noTranslate && blocks[b].text.trim().isNotEmpty && !hasNoLetters(blocks[b].text)),
     ];
+  }
+
+  /// Index in [_blocks] of the main text of book block [source].
+  int _displayIndex(int source) {
+    final i = _blocks.indexWhere((b) => b.source == source && !b.secondary);
+    return i < 0 ? 0 : i;
   }
 
   int _signature(int chapter) {
@@ -173,7 +197,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
   void _layout(Size size, ReaderStyle style, {bool force = false}) {
     final sig = _signature(_chapter);
     final key = '$_chapter|${size.width.toStringAsFixed(0)}x${size.height.toStringAsFixed(0)}|'
-        '${style.fontSize}|${style.lineHeight}|${style.fontFamily}|${style.justify}|$_lang|${style.direction}';
+        '${style.fontSize}|${style.lineHeight}|${style.fontFamily}|${style.justify}|$_lang|${style.direction}|$_bilingual';
     final translationChanged = sig != _translatedSignature;
     if (!force && key == _layoutKey && !translationChanged) return;
     if (!force && key == _layoutKey && translationChanged) {
@@ -194,7 +218,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
     _pages = Paginator.paginate(_blocks, size, style);
     _page = _anchorFraction < 0
         ? _pages.length - 1
-        : Paginator.pageFor(_pages, _blocks, _anchorBlock, _anchorFraction);
+        : Paginator.pageFor(_pages, _blocks, _displayIndex(_anchorBlock), _anchorFraction);
     _page = _page.clamp(0, _pages.length - 1);
     _setAnchorFromPage();
   }
@@ -206,14 +230,49 @@ class _ReaderScreenState extends State<ReaderScreen> {
       return;
     }
     final s = _pages[_page].slices.first;
-    final len = displayText(_blocks[s.block]).length;
-    _anchorBlock = s.block;
-    _anchorFraction = len == 0 ? 0 : s.start / len;
+    final b = _blocks[s.block];
+    final len = displayText(b).length;
+    _anchorBlock = b.source < 0 ? s.block : b.source;
+    // A page that starts with an original-language line belongs to the end
+    // of the translated paragraph above it.
+    _anchorFraction = b.secondary ? 0.999 : (len == 0 ? 0 : s.start / len);
+  }
+
+  /// Book blocks shown on the current page (main text only).
+  List<int> get _sourcesOnPage {
+    if (_pages.isEmpty) return const [];
+    final out = <int>[];
+    for (final s in _pages[_page.clamp(0, _pages.length - 1)].slices) {
+      final b = _blocks[s.block];
+      final src = b.source < 0 ? s.block : b.source;
+      if (!out.contains(src)) out.add(src);
+    }
+    return out;
+  }
+
+  /// Counts reading time and notices when the book is finished.
+  void _turned() {
+    _stats.pageTurned();
+    final content = _content;
+    if (content == null) return;
+    if (_chapter == content.chapters.length - 1 && _page >= _pages.length - 1 && _stats.markFinished(book.id)) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _celebrateFinished();
+      });
+    }
+  }
+
+  Future<void> _celebrateFinished() async {
+    final engagement = context.read<Engagement>();
+    await showFinishedDialog(context, book.title, _stats);
+    if (!mounted) return;
+    if (engagement.celebrate()) await showStarPrompt(context);
   }
 
   // ------------------------------------------------------------ navigation
 
-  void _next() {
+  void _next({bool auto = false}) {
+    if (!auto && _readingAloud) _stopAloud();
     final content = _content;
     if (content == null) return;
     if (_page < _pages.length - 1) {
@@ -222,6 +281,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
         _page++;
         _setAnchorFromPage();
       });
+      _turned();
     } else if (_chapter < content.chapters.length - 1) {
       setState(() {
         _direction = 1;
@@ -230,14 +290,20 @@ class _ReaderScreenState extends State<ReaderScreen> {
         _anchorFraction = 0;
         _layoutKey = '';
       });
+      _stats.pageTurned();
       _prioritize();
     } else {
-      showMessage(context, 'You have reached the end of the book.');
+      if (_stats.markFinished(book.id)) {
+        _celebrateFinished();
+      } else {
+        showMessage(context, tr('You have reached the end of the book.'));
+      }
     }
     _scheduleSave();
   }
 
   void _previous() {
+    if (_readingAloud) _stopAloud();
     if (_content == null) return;
     if (_page > 0) {
       setState(() {
@@ -245,6 +311,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
         _page--;
         _setAnchorFromPage();
       });
+      _stats.pageTurned();
     } else if (_chapter > 0) {
       setState(() {
         _direction = -1;
@@ -306,11 +373,126 @@ class _ReaderScreenState extends State<ReaderScreen> {
     _scheduleSave();
   }
 
+  // ------------------------------------------------------------ read aloud
+
+  void _stopAloud() {
+    _aloud.stop();
+    if (mounted) setState(() => _readingAloud = false);
+  }
+
+  Future<void> _toggleReadAloud() async {
+    if (_readingAloud) return _stopAloud();
+    final lang = languageByCode(_lang ?? book.sourceLang);
+    if (lang == null) return;
+    final locale = await _aloud.voiceFor(lang);
+    if (!mounted) return;
+    if (locale == null) {
+      await showNoVoiceDialog(context, lang.nativeName);
+      return;
+    }
+    setState(() {
+      _readingAloud = true;
+      _menu = false;
+    });
+    while (mounted && _readingAloud && _pages.isNotEmpty) {
+      final page = _pages[_page.clamp(0, _pages.length - 1)];
+      final pieces = <String>[];
+      var waiting = false;
+      for (final sl in page.slices) {
+        final b = _blocks[sl.block];
+        if (b.secondary || b.kind == BlockKind.separator) continue;
+        if (b.pending) {
+          waiting = true;
+          continue;
+        }
+        pieces.add(displayText(b).substring(sl.start, sl.end));
+      }
+      if (waiting && pieces.isEmpty) {
+        // This page isn't translated yet: wait for it, if it's being translated.
+        final job = context.read<TranslationService>().job(book.id, _lang!);
+        if (job == null || !job.active) {
+          showMessage(context, tr('This part is not translated yet.'));
+          break;
+        }
+        await Future<void>.delayed(const Duration(seconds: 3));
+        continue;
+      }
+      final finished = await _aloud.speakAll(locale, pieces);
+      if (!finished || !mounted || !_readingAloud) break;
+      final before = '$_chapter/$_page';
+      _next(auto: true);
+      await Future<void>.delayed(const Duration(milliseconds: 400));
+      if (before == '$_chapter/$_page') break; // end of the book
+    }
+    if (mounted && _readingAloud) _stopAloud();
+  }
+
+  // ------------------------------------------------------------ quotes
+
+  Future<void> _shareQuote() async {
+    final content = _content;
+    if (content == null) return;
+    final blocks = content.chapters[_chapter].blocks;
+    final items = <(String, String?)>[];
+    for (final src in _sourcesOnPage) {
+      if (src >= blocks.length || blocks[src].kind == BlockKind.separator) continue;
+      final shown = _blocks[_displayIndex(src)];
+      if (shown.text.trim().length < 15) continue;
+      final original = _lang != null && !shown.pending ? blocks[src].text : null;
+      items.add((shown.text, original == shown.text ? null : original));
+    }
+    if (items.isEmpty) {
+      showMessage(context, tr('There is no passage on this page to share.'));
+      return;
+    }
+    setState(() => _menu = false);
+    var choice = items.first;
+    if (items.length > 1) {
+      final picked = await showModalBottomSheet<(String, String?)>(
+        context: context,
+        showDragHandle: true,
+        isScrollControlled: true,
+        builder: (context) => SafeArea(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(maxHeight: MediaQuery.sizeOf(context).height * 0.7),
+            child: ListView(shrinkWrap: true, children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 8),
+                child: Text(tr('Choose a passage to share'), style: Theme.of(context).textTheme.titleMedium),
+              ),
+              for (final it in items)
+                ListTile(
+                  leading: const Icon(Icons.format_quote),
+                  title: Text(it.$1, maxLines: 4, overflow: TextOverflow.ellipsis),
+                  onTap: () => Navigator.pop(context, it),
+                ),
+            ]),
+          ),
+        ),
+      );
+      if (picked == null || !mounted) return;
+      choice = picked;
+    }
+    final lang = languageByCode(_lang);
+    await showShareCard(
+      context,
+      QuoteCard(
+        text: choice.$1,
+        original: choice.$2,
+        title: book.title,
+        author: book.author,
+        languageName: lang == null ? null : '${lang.nativeName} · ${tr('translated with BookIt')}',
+      ),
+      fileName: 'bookit-quote.png',
+      text: '“${choice.$1.length > 200 ? '${choice.$1.substring(0, 200)}…' : choice.$1}” — ${book.title}\n\n$kShareLine',
+    );
+  }
+
   // ------------------------------------------------------------ bookmarks
 
   Bookmark? get _bookmarkHere {
     if (_pages.isEmpty) return null;
-    final blocksOnPage = _pages[_page].slices.map((s) => s.block).toSet();
+    final blocksOnPage = _sourcesOnPage.toSet();
     for (final b in _bookmarks) {
       if (b.position.chapter == _chapter && blocksOnPage.contains(b.position.block)) return b;
     }
@@ -479,7 +661,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: hMargin),
               child: Row(children: [
-                Text('Page ${_page + 1} of ${_pages.length}', style: TextStyle(color: rt.muted, fontSize: 12)),
+                Text(tr('Page {n} of {total}', {'n': _page + 1, 'total': _pages.length}), style: TextStyle(color: rt.muted, fontSize: 12)),
                 const Spacer(),
                 if (chapterPending) ...[
                   SizedBox(
@@ -527,6 +709,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
                 setState(() => _menu = true);
               }
             },
+            onLongPress: _shareQuote,
             onHorizontalDragEnd: (d) {
               final v = d.primaryVelocity ?? 0;
               final rtl = style.direction == TextDirection.rtl;
@@ -536,6 +719,34 @@ class _ReaderScreenState extends State<ReaderScreen> {
           ),
         ),
       ),
+      if (_readingAloud && !_menu)
+        Positioned(
+          left: 0,
+          right: 0,
+          bottom: 40,
+          child: SafeArea(
+            child: Center(
+              child: Material(
+                color: Theme.of(context).colorScheme.inverseSurface,
+                shape: const StadiumBorder(),
+                elevation: 4,
+                child: InkWell(
+                  customBorder: const StadiumBorder(),
+                  onTap: _stopAloud,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 9),
+                    child: Row(mainAxisSize: MainAxisSize.min, children: [
+                      Icon(Icons.graphic_eq, size: 18, color: Theme.of(context).colorScheme.onInverseSurface),
+                      const SizedBox(width: 8),
+                      Text(tr('Reading aloud · tap to stop'),
+                          style: TextStyle(color: Theme.of(context).colorScheme.onInverseSurface)),
+                    ]),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
       if (_menu) ..._menuOverlay(settings, content, job, chapterPending),
     ]);
   }
@@ -564,7 +775,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
                 ),
                 TextButton.icon(
                   icon: const Icon(Icons.translate, size: 18),
-                  label: Text(lang?.nativeName ?? 'Original'),
+                  label: Text(lang?.nativeName ?? tr('Original')),
                   onPressed: () async {
                     final choice = await showEditionPicker(context, book, _lang);
                     if (choice == null) return;
@@ -578,12 +789,12 @@ class _ReaderScreenState extends State<ReaderScreen> {
                   },
                 ),
                 IconButton(
-                  tooltip: 'Bookmark this page',
+                  tooltip: tr('Bookmark this page'),
                   icon: Icon(_bookmarkHere != null ? Icons.bookmark : Icons.bookmark_border),
                   onPressed: _toggleBookmark,
                 ),
                 IconButton(
-                  tooltip: 'Contents',
+                  tooltip: tr('Contents'),
                   icon: const Icon(Icons.toc),
                   onPressed: () async {
                     final target = await showContentsSheet(
@@ -635,13 +846,43 @@ class _ReaderScreenState extends State<ReaderScreen> {
                             final ok = await translateBook(context, book, lang: lang);
                             if (ok != null) setState(() {});
                           },
-                          child: const Text('Translate'),
+                          child: Text(tr('Translate')),
                         ),
                     ]),
                   ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: Row(children: [
+                    ActionChip(
+                      avatar: Icon(_readingAloud ? Icons.stop : Icons.headphones, size: 18),
+                      label: Text(_readingAloud ? tr('Stop reading') : tr('Read aloud')),
+                      onPressed: _toggleReadAloud,
+                    ),
+                    const SizedBox(width: 8),
+                    if (_lang != null) ...[
+                      FilterChip(
+                        avatar: const Icon(Icons.subject, size: 18),
+                        label: Text(tr('Show original too')),
+                        selected: settings.bilingual,
+                        onSelected: (v) => setState(() {
+                          settings.update((s) => s.bilingual = v);
+                          _layoutKey = '';
+                        }),
+                      ),
+                      const SizedBox(width: 8),
+                    ],
+                    ActionChip(
+                      avatar: const Icon(Icons.format_quote, size: 18),
+                      label: Text(tr('Share a quote')),
+                      onPressed: _shareQuote,
+                    ),
+                  ]),
+                ),
+                const SizedBox(height: 4),
                 Row(children: [
                   IconButton(
-                    tooltip: 'Previous chapter',
+                    tooltip: tr('Previous chapter'),
                     icon: const Icon(Icons.skip_previous),
                     onPressed: _chapter > 0 ? () => goToChapter(_chapter - 1) : null,
                   ),
@@ -656,18 +897,19 @@ class _ReaderScreenState extends State<ReaderScreen> {
                     ),
                   ),
                   IconButton(
-                    tooltip: 'Next chapter',
+                    tooltip: tr('Next chapter'),
                     icon: const Icon(Icons.skip_next),
                     onPressed: _chapter < content.chapters.length - 1 ? () => goToChapter(_chapter + 1) : null,
                   ),
                   IconButton(
-                    tooltip: 'Text settings',
+                    tooltip: tr('Text settings'),
                     icon: const Icon(Icons.text_fields),
                     onPressed: () => showReaderSettings(context),
                   ),
                 ]),
                 Text(
-                  'Chapter ${_chapter + 1} of ${content.chapters.length} · ${percent(_progress)} of book',
+                  tr('Chapter {n} of {total} · {p} of book',
+                      {'n': _chapter + 1, 'total': content.chapters.length, 'p': percent(_progress)}),
                   style: theme.textTheme.bodySmall,
                 ),
               ]),

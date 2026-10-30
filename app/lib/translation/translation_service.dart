@@ -5,9 +5,9 @@ import 'dart:isolate';
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
-import 'package:wakelock_plus/wakelock_plus.dart';
 
 import '../core/app_paths.dart';
+import '../core/keep_awake.dart';
 import '../core/downloader.dart';
 import '../data/library_store.dart';
 import '../models/book.dart';
@@ -90,6 +90,9 @@ class TranslationService extends ChangeNotifier {
 
   /// When true, sentences are translated one at a time (more accurate, slower).
   bool accurate = false;
+
+  /// Called when a whole book has finished translating.
+  void Function(JobProgress job)? onBookTranslated;
 
   PackState packState = PackState.notInstalled;
   int packReceived = 0;
@@ -298,13 +301,7 @@ class TranslationService extends ChangeNotifier {
   }
 
   void _updateWakelock() {
-    try {
-      if (_running != null) {
-        WakelockPlus.enable();
-      } else {
-        WakelockPlus.disable();
-      }
-    } catch (_) {}
+    KeepAwake.set('translation', _running != null);
   }
 
   Future<void> _launch(JobProgress job) async {
@@ -375,6 +372,7 @@ class TranslationService extends ChangeNotifier {
         job.status = (msg['complete'] as bool) ? JobStatus.done : JobStatus.paused;
         job.message = '';
         _finish(r);
+        if (job.status == JobStatus.done) onBookTranslated?.call(job);
       case 'error':
         job.status = JobStatus.error;
         job.message = msg['message'] as String;

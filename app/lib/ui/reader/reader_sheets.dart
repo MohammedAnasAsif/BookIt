@@ -7,6 +7,7 @@ import '../../data/settings_store.dart';
 import '../../models/book.dart';
 import '../../translation/translation_service.dart';
 import '../widgets/format.dart';
+import '../../l10n/strings.dart';
 
 const kOriginal = '__original__';
 const kTranslateNew = '__translate__';
@@ -47,9 +48,9 @@ Future<void> showReaderSettings(BuildContext context) {
           row(
             'Font',
             SegmentedButton<ReaderFont>(
-              segments: const [
-                ButtonSegment(value: ReaderFont.serif, label: Text('Serif', style: TextStyle(fontFamily: 'serif'))),
-                ButtonSegment(value: ReaderFont.sans, label: Text('Sans')),
+              segments: [
+                ButtonSegment(value: ReaderFont.serif, label: Text(tr('Serif'), style: TextStyle(fontFamily: 'serif'))),
+                ButtonSegment(value: ReaderFont.sans, label: Text(tr('Sans'))),
               ],
               selected: {s.font},
               showSelectedIcon: false,
@@ -74,10 +75,10 @@ Future<void> showReaderSettings(BuildContext context) {
           row(
             'Margins',
             SegmentedButton<double>(
-              segments: const [
-                ButtonSegment(value: 12, label: Text('Narrow')),
-                ButtonSegment(value: 24, label: Text('Normal')),
-                ButtonSegment(value: 44, label: Text('Wide')),
+              segments: [
+                ButtonSegment(value: 12, label: Text(tr('Narrow'))),
+                ButtonSegment(value: 24, label: Text(tr('Normal'))),
+                ButtonSegment(value: 44, label: Text(tr('Wide'))),
               ],
               selected: {
                 [12.0, 24.0, 44.0].reduce((a, b) => (a - s.margin).abs() < (b - s.margin).abs() ? a : b)
@@ -120,7 +121,7 @@ Future<void> showReaderSettings(BuildContext context) {
                           ),
                         ),
                         alignment: Alignment.center,
-                        child: Text('Aa', style: TextStyle(color: t.text, fontFamily: 'serif', fontSize: 16)),
+                        child: Text(tr('Aa'), style: TextStyle(color: t.text, fontFamily: 'serif', fontSize: 16)),
                       ),
                       const SizedBox(height: 4),
                       Text(t.label, style: theme.textTheme.labelSmall),
@@ -150,7 +151,7 @@ Future<String?> showEditionPicker(BuildContext context, Book book, String? curre
       return ListView(shrinkWrap: true, padding: const EdgeInsets.only(bottom: 24), children: [
         ListTile(
           leading: const Icon(Icons.menu_book),
-          title: Text('Original${source != null ? ' · ${source.nativeName}' : ''}'),
+          title: Text('${tr('Original')}${source != null ? ' · ${source.nativeName}' : ''}'),
           trailing: current == null ? const Icon(Icons.check) : null,
           onTap: () => Navigator.pop(context, kOriginal),
         ),
@@ -174,7 +175,7 @@ Future<String?> showEditionPicker(BuildContext context, Book book, String? curre
         const Divider(),
         ListTile(
           leading: const Icon(Icons.add),
-          title: const Text('Translate into another language…'),
+          title: Text(tr('Translate into another language…')),
           onTap: () => Navigator.pop(context, kTranslateNew),
         ),
       ]);
@@ -216,10 +217,10 @@ Future<ReadingPosition?> showContentsSheet(
                 ),
               ),
               bookmarks.isEmpty
-                  ? const Center(
+                  ? Center(
                       child: Padding(
                         padding: EdgeInsets.all(32),
-                        child: Text('No bookmarks yet. Tap the bookmark icon while reading to add one.',
+                        child: Text(tr('No bookmarks yet. Tap the bookmark icon while reading to add one.'),
                             textAlign: TextAlign.center),
                       ),
                     )

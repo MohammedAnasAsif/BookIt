@@ -72,6 +72,16 @@ jobs:
           Get-ChildItem -Path $env:APPDATA -Recurse -Filter tam_Taml.json -ErrorAction SilentlyContinue | Select-Object -First 1 | Copy-Item -Destination e2e/tam_Taml.json
           Get-ChildItem -Path $env:APPDATA -Recurse -Filter translation_jobs.json -ErrorAction SilentlyContinue | Select-Object -First 1 | Copy-Item -Destination e2e/translation_jobs.json
           Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue
+          if ($done) {
+            # The new features, shown with the real Tamil translation.
+            foreach ($d in @('bilingual', 'quote', 'readerMenu')) {
+              Start-Sleep -Seconds 2
+              $q = Start-Process $exe -ArgumentList "--demo=$d" -PassThru
+              Start-Sleep -Seconds 12
+              Shot "after-$d"
+              Stop-Process -Id $q.Id -Force -ErrorAction SilentlyContinue
+            }
+          }
           "done=$done minutes=$([math]::Round(((Get-Date) - $start).TotalMinutes, 1))" | Out-File e2e/result.txt
           Get-Content e2e/result.txt
           if (-not $done) { exit 1 }

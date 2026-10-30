@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../translation/translation_service.dart';
 import 'format.dart';
+import '../../l10n/strings.dart';
 
 /// Makes sure the translation model is on the device. Shows an explanation
 /// and the download progress. Returns true when the model is ready.
@@ -40,7 +41,7 @@ class _ModelDialogState extends State<_ModelDialog> {
     final downloading = s.packState == PackState.downloading;
     return AlertDialog(
       icon: const Icon(Icons.translate, size: 36),
-      title: const Text('One-time download'),
+      title: Text(tr('One-time download')),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +52,7 @@ class _ModelDialogState extends State<_ModelDialog> {
             'translating and reading work without internet, for free.',
           ),
           const SizedBox(height: 12),
-          Text('Use Wi-Fi if you can. You can keep using the app while it downloads.',
+          Text(tr('Use Wi-Fi if you can. You can keep using the app while it downloads.'),
               style: theme.textTheme.bodySmall),
           if (downloading) ...[
             const SizedBox(height: 20),
@@ -72,14 +73,14 @@ class _ModelDialogState extends State<_ModelDialog> {
             onPressed: () {
               s.cancelPackDownload();
             },
-            child: const Text('Stop'),
+            child: Text(tr('Stop')),
           ),
           FilledButton.tonal(
             onPressed: () => Navigator.pop(context, false),
-            child: const Text('Continue in background'),
+            child: Text(tr('Continue in background')),
           ),
         ] else ...[
-          TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('Not now')),
+          TextButton(onPressed: () => Navigator.pop(context, false), child: Text(tr('Not now'))),
           FilledButton(
             onPressed: () => s.downloadPack(),
             child: Text(s.packError != null ? 'Try again' : 'Download'),

@@ -7,6 +7,7 @@ import '../translation/translation_service.dart';
 import 'book_actions.dart';
 import 'widgets/book_cover.dart';
 import 'widgets/format.dart';
+import '../l10n/strings.dart';
 
 /// A book in the library: read, translate, manage translations, export.
 class BookDetailsScreen extends StatelessWidget {
@@ -20,7 +21,7 @@ class BookDetailsScreen extends StatelessWidget {
     final book = library.byId(bookId);
     final theme = Theme.of(context);
     if (book == null) {
-      return Scaffold(appBar: AppBar(), body: const Center(child: Text('This book is no longer in your library.')));
+      return Scaffold(appBar: AppBar(), body: Center(child: Text(tr('This book is no longer in your library.'))));
     }
     final source = languageByCode(book.sourceLang);
     final langs = library.translationLangs(book.id).toList()..sort();
@@ -37,11 +38,11 @@ class BookDetailsScreen extends StatelessWidget {
                   final ok = await showDialog<bool>(
                     context: context,
                     builder: (_) => AlertDialog(
-                      title: const Text('Remove this book?'),
-                      content: const Text('The book and its translations will be deleted from this device.'),
+                      title: Text(tr('Remove this book?')),
+                      content: Text(tr('The book and its translations will be deleted from this device.')),
                       actions: [
-                        TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('Cancel')),
-                        FilledButton(onPressed: () => Navigator.pop(context, true), child: const Text('Remove')),
+                        TextButton(onPressed: () => Navigator.pop(context, false), child: Text(tr('Cancel'))),
+                        FilledButton(onPressed: () => Navigator.pop(context, true), child: Text(tr('Remove'))),
                       ],
                     ),
                   );
@@ -54,9 +55,9 @@ class BookDetailsScreen extends StatelessWidget {
                   }
               }
             },
-            itemBuilder: (_) => const [
-              PopupMenuItem(value: 'export', child: Text('Save original as EPUB')),
-              PopupMenuItem(value: 'delete', child: Text('Remove from library')),
+            itemBuilder: (_) => [
+              PopupMenuItem(value: 'export', child: Text(tr('Save original as EPUB'))),
+              PopupMenuItem(value: 'delete', child: Text(tr('Remove from library'))),
             ],
           ),
         ],
@@ -75,11 +76,11 @@ class BookDetailsScreen extends StatelessWidget {
                 if (book.author.isNotEmpty) Text(book.author, style: theme.textTheme.titleSmall),
                 const SizedBox(height: 8),
                 Text('Original language: ${source?.name ?? book.sourceLang}', style: theme.textTheme.bodySmall),
-                Text('${percent(book.position.progress)} read', style: theme.textTheme.bodySmall),
+                Text(tr('{p} read', {'p': percent(book.position.progress)}), style: theme.textTheme.bodySmall),
                 const SizedBox(height: 12),
                 FilledButton.icon(
                   icon: const Icon(Icons.menu_book),
-                  label: const Text('Read original'),
+                  label: Text(tr('Read original')),
                   onPressed: () => openReader(context, book, original: true),
                 ),
               ]),
@@ -87,10 +88,10 @@ class BookDetailsScreen extends StatelessWidget {
           ]),
           const SizedBox(height: 28),
           Row(children: [
-            Expanded(child: Text('Translations', style: theme.textTheme.titleMedium)),
+            Expanded(child: Text(tr('Translations'), style: theme.textTheme.titleMedium)),
             TextButton.icon(
               icon: const Icon(Icons.add),
-              label: const Text('Translate'),
+              label: Text(tr('Translate')),
               onPressed: () => translateBook(context, book),
             ),
           ]),
@@ -165,7 +166,7 @@ class _TranslationTile extends StatelessWidget {
             ),
             FilledButton.tonal(
               onPressed: () => openReader(context, book, lang: lang),
-              child: const Text('Read'),
+              child: Text(tr('Read')),
             ),
             PopupMenuButton<String>(
               onSelected: (v) async {
@@ -183,11 +184,11 @@ class _TranslationTile extends StatelessWidget {
                 }
               },
               itemBuilder: (_) => [
-                if (running) const PopupMenuItem(value: 'pause', child: Text('Pause translation')),
-                if (!running && !done) const PopupMenuItem(value: 'resume', child: Text('Continue translating')),
-                const PopupMenuItem(value: 'epub', child: Text('Save as EPUB')),
-                const PopupMenuItem(value: 'share', child: Text('Share as BookIt edition')),
-                const PopupMenuItem(value: 'delete', child: Text('Delete translation')),
+                if (running) PopupMenuItem(value: 'pause', child: Text(tr('Pause translation'))),
+                if (!running && !done) PopupMenuItem(value: 'resume', child: Text(tr('Continue translating'))),
+                PopupMenuItem(value: 'epub', child: Text(tr('Save as EPUB'))),
+                PopupMenuItem(value: 'share', child: Text(tr('Share as BookIt edition'))),
+                PopupMenuItem(value: 'delete', child: Text(tr('Delete translation'))),
               ],
             ),
           ]),

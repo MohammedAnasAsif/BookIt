@@ -19,6 +19,7 @@ import '../translation/translation_service.dart';
 import 'reader/reader_screen.dart';
 import 'widgets/language_picker.dart';
 import 'widgets/model_download.dart';
+import '../l10n/strings.dart';
 
 /// Shows what went wrong, with the technical details available to copy.
 Future<void> showErrorDialog(BuildContext context, String title, Object error) {
@@ -41,9 +42,9 @@ Future<void> showErrorDialog(BuildContext context, String title, Object error) {
       actions: [
         TextButton(
           onPressed: () => Clipboard.setData(ClipboardData(text: '$title\n$text')),
-          child: const Text('Copy details'),
+          child: Text(tr('Copy details')),
         ),
-        FilledButton(onPressed: () => Navigator.pop(context), child: const Text('OK')),
+        FilledButton(onPressed: () => Navigator.pop(context), child: Text(tr('OK'))),
       ],
     ),
   );
@@ -73,10 +74,10 @@ Future<String?> translateBook(BuildContext context, Book book, {Language? lang})
   final settings = context.read<SettingsStore>();
   final service = context.read<TranslationService>();
   lang ??= await pickLanguage(context,
-      title: 'Translate into…', exclude: book.sourceLang, selected: settings.preferredLang);
+      title: tr('Translate into…'), exclude: book.sourceLang, selected: settings.preferredLang);
   if (lang == null || !context.mounted) return null;
   if (lang.code == book.sourceLang) {
-    showMessage(context, 'This book is already in ${lang.name}.');
+    showMessage(context, tr('This book is already in {lang}.', {'lang': lang.name}));
     return null;
   }
   settings.update((s) => s.preferredLang ??= lang!.code);
@@ -92,8 +93,9 @@ Future<String?> translateBook(BuildContext context, Book book, {Language? lang})
   showMessage(
     context,
     service.packState == PackState.installed
-        ? 'Translating into ${lang.name}. Start reading now — pages switch to ${lang.nativeName} as they are ready.'
-        : 'Translation into ${lang.name} will start as soon as the download finishes.',
+        ? tr('Translating into {lang}. Start reading now — pages switch to {native} as they are ready.',
+            {'lang': lang.name, 'native': lang.nativeName})
+        : tr('Translation into {lang} will start as soon as the download finishes.', {'lang': lang.name}),
   );
   return lang.code;
 }
@@ -175,15 +177,15 @@ Future<void> importBook(BuildContext context) async {
   final file = await openFile(
     acceptedTypeGroups: mobile
         ? const <XTypeGroup>[]
-        : const [
-            XTypeGroup(label: 'Books (EPUB, TXT, BookIt)', extensions: ['epub', 'txt', 'bookit']),
+        : [
+            XTypeGroup(label: tr('Books (EPUB, TXT, BookIt)'), extensions: ['epub', 'txt', 'bookit']),
           ],
   );
   if (file == null || !context.mounted) return;
-  showMessage(context, 'Adding book…');
+  showMessage(context, tr('Adding book…'));
   try {
     final book = await library.importBytes(file.name, await file.readAsBytes());
-    if (context.mounted) showMessage(context, 'Added “${book.title}” to your library');
+    if (context.mounted) showMessage(context, tr('Added “{title}” to your library', {'title': book.title}));
   } catch (e) {
     if (context.mounted) showMessage(context, e is FormatException ? e.message : 'Could not open this file: $e');
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/languages.dart';
+import '../../l10n/strings.dart';
 
 /// Bottom sheet listing every language, Indian languages first, searchable by
 /// English or native name. Returns the chosen [Language].
@@ -55,7 +56,7 @@ class _LanguageSheetState extends State<_LanguageSheet> {
             child: TextField(
               autofocus: false,
               decoration: InputDecoration(
-                hintText: 'Search languages',
+                hintText: tr('Search languages'),
                 prefixIcon: const Icon(Icons.search),
                 filled: true,
                 border: OutlineInputBorder(borderRadius: BorderRadius.circular(28), borderSide: BorderSide.none),

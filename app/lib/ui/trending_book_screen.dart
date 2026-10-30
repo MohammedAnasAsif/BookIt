@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../data/discover.dart';
 import 'book_actions.dart';
 import 'widgets/book_cover.dart';
+import '../l10n/strings.dart';
 
 /// A popular book sold by its publisher: shows where to buy or borrow it, and
 /// how to add your own copy to BookIt.
@@ -76,14 +77,14 @@ class TrendingBookScreen extends StatelessWidget {
                 const SizedBox(height: 8),
                 FilledButton.tonalIcon(
                   icon: const Icon(Icons.add),
-                  label: const Text('I have this book — add it to BookIt'),
+                  label: Text(tr('I have this book — add it to BookIt')),
                   onPressed: () => importBook(context),
                 ),
               ]),
             ),
           ),
           const SizedBox(height: 20),
-          Text('Book details and cover from Open Library.', textAlign: TextAlign.center, style: theme.textTheme.bodySmall),
+          Text(tr('Book details and cover from Open Library.'), textAlign: TextAlign.center, style: theme.textTheme.bodySmall),
         ],
       ),
     );

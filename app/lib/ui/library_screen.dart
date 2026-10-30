@@ -9,6 +9,7 @@ import 'book_actions.dart';
 import 'book_details_screen.dart';
 import 'widgets/book_cover.dart';
 import 'widgets/format.dart';
+import '../l10n/strings.dart';
 
 enum _Sort { recent, title, author }
 
@@ -52,10 +53,10 @@ class _LibraryScreenState extends State<LibraryScreen> {
         title: _searching
             ? TextField(
                 autofocus: true,
-                decoration: const InputDecoration(hintText: 'Search your books', border: InputBorder.none),
+                decoration: InputDecoration(hintText: tr('Search your books'), border: InputBorder.none),
                 onChanged: (v) => setState(() => _query = v),
               )
-            : const Text('Library'),
+            : Text(tr('Library')),
         actions: [
           IconButton(
             tooltip: _searching ? 'Close search' : 'Search your books',
@@ -71,14 +72,14 @@ class _LibraryScreenState extends State<LibraryScreen> {
             onPressed: () => setState(() => _grid = !_grid),
           ),
           PopupMenuButton<_Sort>(
-            tooltip: 'Sort',
+            tooltip: tr('Sort'),
             icon: const Icon(Icons.sort),
             initialValue: _sort,
             onSelected: (s) => setState(() => _sort = s),
-            itemBuilder: (_) => const [
-              PopupMenuItem(value: _Sort.recent, child: Text('Recent')),
-              PopupMenuItem(value: _Sort.title, child: Text('Title')),
-              PopupMenuItem(value: _Sort.author, child: Text('Author')),
+            itemBuilder: (_) => [
+              PopupMenuItem(value: _Sort.recent, child: Text(tr('Recent'))),
+              PopupMenuItem(value: _Sort.title, child: Text(tr('Title'))),
+              PopupMenuItem(value: _Sort.author, child: Text(tr('Author'))),
             ],
           ),
         ],
@@ -86,33 +87,33 @@ class _LibraryScreenState extends State<LibraryScreen> {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => importBook(context),
         icon: const Icon(Icons.add),
-        label: const Text('Add a book'),
+        label: Text(tr('Add a book')),
       ),
       body: Column(children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
           child: Row(children: [
             FilterChip(
-              label: const Text('All'),
+              label: Text(tr('All')),
               selected: !_translatedOnly,
               onSelected: (_) => setState(() => _translatedOnly = false),
             ),
             const SizedBox(width: 8),
             FilterChip(
               avatar: const Icon(Icons.translate, size: 16),
-              label: const Text('Translated'),
+              label: Text(tr('Translated')),
               selected: _translatedOnly,
               onSelected: (_) => setState(() => _translatedOnly = true),
             ),
             const Spacer(),
-            Text('${books.length} books', style: Theme.of(context).textTheme.bodySmall),
+            Text(tr('{n} books', {'n': books.length}), style: Theme.of(context).textTheme.bodySmall),
           ]),
         ),
         if (library.pending.isNotEmpty)
           for (final p in library.pending.entries)
             ListTile(
               leading: const SizedBox(width: 24, height: 24, child: CircularProgressIndicator(strokeWidth: 2)),
-              title: const Text('Downloading book…'),
+              title: Text(tr('Downloading book…')),
               subtitle: LinearProgressIndicator(value: p.value > 0 ? p.value : null),
             ),
         Expanded(
@@ -239,7 +240,7 @@ class _GridItem extends StatelessWidget {
           const SizedBox(height: 6),
           Text(book.title, maxLines: 2, overflow: TextOverflow.ellipsis, style: theme.textTheme.bodyMedium),
           if (job != null)
-            Text('Translating ${percent(job.fraction)}', style: theme.textTheme.labelSmall)
+            Text(tr('Translating {p}', {'p': percent(job.fraction)}), style: theme.textTheme.labelSmall)
           else
             _LangBadges(book: book),
         ]),

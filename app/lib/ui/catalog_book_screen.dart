@@ -10,6 +10,7 @@ import '../models/book.dart';
 import 'book_actions.dart';
 import 'book_details_screen.dart';
 import 'widgets/book_cover.dart';
+import '../l10n/strings.dart';
 
 /// Details of a free book from the catalog, before it is downloaded.
 class CatalogBookScreen extends StatefulWidget {
@@ -29,7 +30,7 @@ class _CatalogBookScreenState extends State<CatalogBookScreen> {
     try {
       return await library.addFromCatalog(widget.book, temporary: temporary);
     } catch (e) {
-      if (mounted) await showErrorDialog(context, 'Could not get this book', e);
+      if (mounted) await showErrorDialog(context, tr('Could not get this book'), e);
       return null;
     } finally {
       if (mounted) setState(() => _busy = false);
@@ -74,34 +75,34 @@ class _CatalogBookScreenState extends State<CatalogBookScreen> {
                 if (_busy || progress != null) ...[
                   LinearProgressIndicator(value: (progress ?? 0) > 0 ? progress : null),
                   const SizedBox(height: 8),
-                  const Center(child: Text('Getting the book…')),
+                  Center(child: Text(tr('Getting the book…'))),
                 ] else if (owned != null) ...[
                   FilledButton.icon(
                     icon: const Icon(Icons.menu_book),
-                    label: const Text('Read'),
+                    label: Text(tr('Read')),
                     onPressed: () => openReader(context, owned),
                   ),
                   const SizedBox(height: 10),
                   if (owned.temporary)
                     OutlinedButton.icon(
                       icon: const Icon(Icons.library_add),
-                      label: const Text('Save to my library'),
+                      label: Text(tr('Save to my library')),
                       onPressed: () async {
                         await library.keep(owned);
-                        if (context.mounted) showMessage(context, 'Saved to your library — available offline');
+                        if (context.mounted) showMessage(context, tr('Saved to your library — available offline'));
                       },
                     )
                   else
                     OutlinedButton.icon(
                       icon: const Icon(Icons.info_outline),
-                      label: const Text('Translations & details'),
+                      label: Text(tr('Translations & details')),
                       onPressed: () => Navigator.of(context)
                           .push(MaterialPageRoute(builder: (_) => BookDetailsScreen(bookId: owned.id))),
                     ),
                 ] else ...[
                   FilledButton.icon(
                     icon: const Icon(Icons.menu_book),
-                    label: const Text('Read now'),
+                    label: Text(tr('Read now')),
                     onPressed: () async {
                       final book = await _download(temporary: true);
                       if (book != null && context.mounted) await openReader(context, book, original: true);
@@ -111,7 +112,7 @@ class _CatalogBookScreenState extends State<CatalogBookScreen> {
                   if (canTranslateToPreferred) ...[
                     FilledButton.tonalIcon(
                       icon: const Icon(Icons.translate),
-                      label: Text('Read in ${preferred.nativeName}'),
+                      label: Text(tr('Read in {lang}', {'lang': preferred.nativeName})),
                       onPressed: () async {
                         final book = await _download();
                         if (book == null || !context.mounted) return;
@@ -123,18 +124,18 @@ class _CatalogBookScreenState extends State<CatalogBookScreen> {
                   ],
                   OutlinedButton.icon(
                     icon: const Icon(Icons.library_add),
-                    label: const Text('Save to my library'),
+                    label: Text(tr('Save to my library')),
                     onPressed: () async {
                       final book = await _download();
                       if (book != null && context.mounted) {
-                        showMessage(context, 'Saved “${book.title}” — available offline in your library');
+                        showMessage(context, tr('Saved “{title}” — available offline in your library', {'title': book.title}));
                       }
                     },
                   ),
                   const SizedBox(height: 6),
                   TextButton.icon(
                     icon: const Icon(Icons.language),
-                    label: const Text('Translate into another language…'),
+                    label: Text(tr('Translate into another language…')),
                     onPressed: () async {
                       final book = await _download();
                       if (book == null || !context.mounted) return;
@@ -144,7 +145,7 @@ class _CatalogBookScreenState extends State<CatalogBookScreen> {
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    '“Read now” opens the book right away. Save it to keep it in your library.',
+                    tr('“Read now” opens the book right away. Save it to keep it in your library.'),
                     textAlign: TextAlign.center,
                     style: theme.textTheme.bodySmall,
                   ),

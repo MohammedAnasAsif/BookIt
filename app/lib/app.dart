@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
+import 'data/engagement.dart';
 import 'data/library_store.dart';
 import 'models/book.dart';
 import 'data/settings_store.dart';
@@ -8,7 +10,11 @@ import 'data/catalog.dart';
 import 'data/discover.dart';
 import 'ui/trending_book_screen.dart';
 import 'demo.dart';
+import 'data/reading_stats.dart';
 import 'ui/book_actions.dart';
+import 'ui/share_cards.dart';
+import 'core/languages.dart';
+import 'ui/engagement_ui.dart';
 import 'ui/catalog_book_screen.dart';
 import 'translation/translation_service.dart';
 import 'ui/reader/reader_screen.dart';
@@ -17,6 +23,7 @@ import 'ui/home_screen.dart';
 import 'ui/library_screen.dart';
 import 'ui/settings_screen.dart';
 import 'ui/store_screen.dart';
+import 'l10n/strings.dart';
 
 class BookItColors {
   static const ink = Color(0xFF1F2A44);
@@ -68,13 +75,19 @@ class BookItApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mode = context.select<SettingsStore, ThemeMode>((s) => s.appTheme);
+    final appLang = context.select<SettingsStore, String?>((s) => s.appLanguage);
+    L10n.use(appLang);
     return MaterialApp(
       title: 'BookIt',
       debugShowCheckedModeBanner: false,
       theme: _theme(Brightness.light),
       darkTheme: _theme(Brightness.dark),
       themeMode: mode,
-      home: HomeShell(demo: demo),
+      locale: Locale(L10n.code),
+      supportedLocales: [for (final l in kAppLanguages) Locale(l.$1)],
+      localizationsDelegates: GlobalMaterialLocalizations.delegates,
+      // Rebuild every screen when the menu language changes.
+      home: HomeShell(key: ValueKey(L10n.code), demo: demo),
     );
   }
 }
@@ -97,6 +110,11 @@ class _HomeShellState extends State<HomeShell> {
   @override
   void initState() {
     super.initState();
+    final engagement = context.read<Engagement>();
+    engagement.starPrompt.addListener(_maybeAskForStar);
+    if (widget.demo == null) {
+      Future.delayed(const Duration(seconds: 4), () => engagement.checkForUpdate());
+    }
     final demo = widget.demo;
     if (demo == null) return;
     _index = switch (demo) {
@@ -120,17 +138,56 @@ class _HomeShellState extends State<HomeShell> {
         }
         return;
       }
+      if (demo == DemoScreen.statsCard) {
+        showShareCard(context, StatsCard(stats: context.read<ReadingStats>()), fileName: 'stats.png');
+        return;
+      }
       final book = context.read<LibraryStore>().byId(demoBookId);
       if (book == null) return;
+      if (demo == DemoScreen.bilingual || demo == DemoScreen.quote) {
+        await _demoTranslated(book, demo);
+        return;
+      }
       if (demo == DemoScreen.reader || demo == DemoScreen.readerDark || demo == DemoScreen.readerMenu) {
         Navigator.of(context).push(MaterialPageRoute(
             builder: (_) => ReaderScreen(book: book, startWithMenu: demo == DemoScreen.readerMenu)));
       } else if (demo == DemoScreen.languages) {
-        pickLanguage(context, title: 'Translate into…', exclude: 'eng_Latn', selected: 'tam_Taml');
+        pickLanguage(context, title: tr('Translate into…'), exclude: 'eng_Latn', selected: 'tam_Taml');
       } else if (demo == DemoScreen.translate) {
         _demoTranslate(book);
       }
     });
+  }
+
+  /// CI demos that use the Tamil translation made by the end-to-end test
+  /// (falls back to the original when there is none).
+  Future<void> _demoTranslated(Book book, DemoScreen demo) async {
+    final navigator = Navigator.of(context);
+    final library = context.read<LibraryStore>();
+    final t = await context.read<TranslationService>().translation(book.id, 'tam_Taml');
+    if (!mounted) return;
+    book.readingLang = t == null ? null : 'tam_Taml';
+    if (demo == DemoScreen.bilingual) {
+      await navigator.push(MaterialPageRoute(builder: (_) => ReaderScreen(book: book)));
+      return;
+    }
+    final content = await library.content(book.id);
+    if (!mounted) return;
+    final blocks = content.chapters.first.blocks;
+    final i = blocks.indexWhere((b) => !b.isHeading && b.text.length > 60);
+    if (i < 0) return;
+    final translated = t?.text(0, i);
+    await showShareCard(
+      context,
+      QuoteCard(
+        text: translated ?? blocks[i].text,
+        original: translated == null ? null : blocks[i].text,
+        title: book.title,
+        author: book.author,
+        languageName: translated == null ? null : '${languageByCode('tam_Taml')!.nativeName} · ${tr('translated with BookIt')}',
+      ),
+      fileName: 'quote.png',
+    );
   }
 
   /// CI demos for the free library: open a book page, or "Read now".
@@ -149,7 +206,7 @@ class _HomeShellState extends State<HomeShell> {
       if (!mounted) return;
       await openReader(context, b, original: true);
     } catch (e) {
-      if (mounted) await showErrorDialog(context, 'Could not get this book', e);
+      if (mounted) await showErrorDialog(context, tr('Could not get this book'), e);
     }
   }
 
@@ -163,6 +220,19 @@ class _HomeShellState extends State<HomeShell> {
     book.readingLang = 'tam_Taml';
     if (!mounted) return;
     await navigator.push(MaterialPageRoute(builder: (_) => ReaderScreen(book: book)));
+  }
+
+  @override
+  void dispose() {
+    context.read<Engagement>().starPrompt.removeListener(_maybeAskForStar);
+    super.dispose();
+  }
+
+  void _maybeAskForStar() {
+    final e = context.read<Engagement>();
+    if (!e.starPrompt.value || !mounted) return;
+    e.starPrompt.value = false;
+    showStarPrompt(context);
   }
 
   static const _destinations = [
@@ -211,7 +281,7 @@ class _HomeShellState extends State<HomeShell> {
             ),
             destinations: [
               for (final d in _destinations)
-                NavigationRailDestination(icon: Icon(d.$1), selectedIcon: Icon(d.$2), label: Text(d.$3)),
+                NavigationRailDestination(icon: Icon(d.$1), selectedIcon: Icon(d.$2), label: Text(tr(d.$3))),
             ],
           ),
           const VerticalDivider(width: 1),
@@ -226,7 +296,7 @@ class _HomeShellState extends State<HomeShell> {
         onDestinationSelected: _go,
         destinations: [
           for (final d in _destinations)
-            NavigationDestination(icon: Icon(d.$1), selectedIcon: Icon(d.$2), label: d.$3),
+            NavigationDestination(icon: Icon(d.$1), selectedIcon: Icon(d.$2), label: tr(d.$3)),
         ],
       ),
     );

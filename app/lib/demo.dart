@@ -2,13 +2,14 @@ import 'dart:convert';
 
 import 'core/app_paths.dart';
 import 'data/library_store.dart';
+import 'data/reading_stats.dart';
 import 'data/settings_store.dart';
 import 'models/book.dart';
 import 'models/book_content.dart';
 
 /// Screens that can be opened directly with `--demo=<name>` (used by CI to
 /// take screenshots of the built app).
-enum DemoScreen { home, library, store, settings, reader, readerDark, readerMenu, languages, translate, readNow, bookPage, trending }
+enum DemoScreen { home, library, store, settings, reader, readerDark, readerMenu, languages, translate, readNow, bookPage, trending, bilingual, quote, statsCard }
 
 DemoScreen? parseDemo(List<String> args) {
   for (final a in args) {
@@ -75,7 +76,7 @@ BookContent demoContent() {
 }
 
 /// Adds the sample story to the library (once) and prepares settings for a demo.
-Future<void> seedDemo(DemoScreen demo, LibraryStore library, SettingsStore settings) async {
+Future<void> seedDemo(DemoScreen demo, LibraryStore library, SettingsStore settings, ReadingStats stats) async {
   if (library.byId(demoBookId) == null) {
     final dir = AppPaths.bookDir(demoBookId);
     await dir.create(recursive: true);
@@ -93,8 +94,22 @@ Future<void> seedDemo(DemoScreen demo, LibraryStore library, SettingsStore setti
     await library.load();
   }
   settings.preferredLang ??= 'tam_Taml';
+  // A believable reading week for the streak card.
+  if (!stats.hasAnyReading) {
+    final now = DateTime.now();
+    const minutes = [12, 25, 8, 18, 31, 22, 16];
+    for (var i = 0; i < 7; i++) {
+      stats.secondsByDay[ReadingStats.dayKey(DateTime(now.year, now.month, now.day - 6 + i, 12))] = minutes[i] * 60;
+    }
+    stats.pagesTurned = 412;
+    stats.finishedBooks.addAll(['demo-a', 'demo-b', 'demo-c']);
+  }
+  if (demo == DemoScreen.bilingual) settings.bilingual = true;
   if (demo == DemoScreen.readerDark) settings.readerTheme = ReaderTheme.dark;
-  if (demo == DemoScreen.reader || demo == DemoScreen.readerMenu || demo == DemoScreen.translate) {
+  if (demo == DemoScreen.reader ||
+      demo == DemoScreen.readerMenu ||
+      demo == DemoScreen.translate ||
+      demo == DemoScreen.bilingual) {
     settings.readerTheme = ReaderTheme.sepia;
   }
 }

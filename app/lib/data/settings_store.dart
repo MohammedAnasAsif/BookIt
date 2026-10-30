@@ -43,6 +43,13 @@ class SettingsStore extends ChangeNotifier {
   ReaderFont font = ReaderFont.serif;
   bool justify = true;
 
+  /// Show the original text under each translated paragraph.
+  bool bilingual = false;
+
+  /// Language of the app's menus (`en`, `hi`, `ta`, …), or null to follow
+  /// the device language.
+  String? appLanguage;
+
   /// Translate one sentence at a time: identical to the reference model
   /// output but about 3× slower than batched translation.
   bool accurateTranslation = false;
@@ -62,6 +69,8 @@ class SettingsStore extends ChangeNotifier {
       readerTheme = ReaderTheme.values.asNameMap()[j['readerTheme']] ?? readerTheme;
       font = ReaderFont.values.asNameMap()[j['font']] ?? font;
       justify = (j['justify'] as bool?) ?? justify;
+      bilingual = (j['bilingual'] as bool?) ?? bilingual;
+      appLanguage = j['appLanguage'] as String?;
       accurateTranslation = (j['accurateTranslation'] as bool?) ?? accurateTranslation;
       preferredLang = j['preferredLang'] as String?;
       appTheme = ThemeMode.values.asNameMap()[j['appTheme']] ?? appTheme;
@@ -77,6 +86,8 @@ class SettingsStore extends ChangeNotifier {
         'readerTheme': readerTheme.name,
         'font': font.name,
         'justify': justify,
+        'bilingual': bilingual,
+        'appLanguage': appLanguage,
         'accurateTranslation': accurateTranslation,
         'preferredLang': preferredLang,
         'appTheme': appTheme.name,

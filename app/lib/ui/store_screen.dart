@@ -6,6 +6,7 @@ import '../data/catalog.dart';
 import '../data/discover.dart';
 import 'trending_book_screen.dart';
 import 'home_screen.dart';
+import '../l10n/strings.dart';
 
 /// Bump to move to the store and put the cursor in its search box.
 final storeSearchRequest = ValueNotifier<int>(0);
@@ -176,10 +177,10 @@ class _StoreScreenState extends State<StoreScreen> {
     final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Free books'),
+        title: Text(tr('Free books')),
         actions: [
           PopupMenuButton<String>(
-            tooltip: 'Book language',
+            tooltip: tr('Book language'),
             initialValue: _language,
             onSelected: (v) {
               _language = v;
@@ -210,7 +211,9 @@ class _StoreScreenState extends State<StoreScreen> {
                 focusNode: _searchFocus,
                 textInputAction: TextInputAction.search,
                 decoration: InputDecoration(
-                  hintText: 'Search ${_catalog == null ? '' : '${(_catalog!.books.length ~/ 1000)},000+ '}free books',
+                  hintText: _catalog == null
+                      ? tr('Search free books')
+                      : tr('Search {n},000+ free books', {'n': _catalog!.books.length ~/ 1000}),
                   prefixIcon: const Icon(Icons.search),
                   suffixIcon: _search.text.isEmpty
                       ? null
@@ -261,7 +264,7 @@ class _StoreScreenState extends State<StoreScreen> {
                   child: Text(
                     _search.text.trim().isEmpty
                         ? 'No books here yet.'
-                        : 'No free books match “${_search.text.trim()}”.',
+                        : tr('No free books match “{q}”.', {'q': _search.text.trim()}),
                     textAlign: TextAlign.center,
                     style: theme.textTheme.titleMedium,
                   ),
@@ -288,7 +291,7 @@ class _StoreScreenState extends State<StoreScreen> {
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
                   child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                    Text('Books you can buy or borrow',
+                    Text(tr('Books you can buy or borrow'),
                         style: theme.textTheme.titleLarge?.copyWith(fontFamily: 'serif', fontWeight: FontWeight.w600)),
                     const SizedBox(height: 2),
                     Text(

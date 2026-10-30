@@ -13,9 +13,11 @@ import '../translation/translation_service.dart';
 import 'book_actions.dart';
 import 'book_details_screen.dart';
 import 'catalog_book_screen.dart';
+import 'engagement_ui.dart';
 import 'widgets/book_cover.dart';
 import 'widgets/format.dart';
 import 'widgets/language_picker.dart';
+import '../l10n/strings.dart';
 
 class HomeScreen extends StatefulWidget {
   final VoidCallback onOpenStore;
@@ -63,15 +65,15 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('BookIt'),
         actions: [
           IconButton(
-            tooltip: 'Search free books',
+            tooltip: tr('Search free books'),
             icon: const Icon(Icons.search),
             onPressed: widget.onSearch,
           ),
           TextButton.icon(
             icon: const Icon(Icons.translate, size: 18),
-            label: Text(preferred?.nativeName ?? 'Language'),
+            label: Text(preferred?.nativeName ?? tr('Language')),
             onPressed: () async {
-              final l = await pickLanguage(context, title: 'Your reading language', selected: settings.preferredLang);
+              final l = await pickLanguage(context, title: tr('Your reading language'), selected: settings.preferredLang);
               if (l != null) settings.update((s) => s.preferredLang = l.code);
             },
           ),
@@ -86,9 +88,10 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView(
           padding: const EdgeInsets.only(bottom: 32),
           children: [
+            const UpdateBanner(),
             if (preferred == null) _WelcomeCard(onPick: (l) => settings.update((s) => s.preferredLang = l.code)),
             if (recent.isNotEmpty) ...[
-              _SectionTitle('Continue reading'),
+              _SectionTitle(tr('Continue reading')),
               _ContinueCard(book: recent.first),
               if (recent.length > 1)
                 SizedBox(
@@ -106,30 +109,31 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
             ],
+            const StreakCard(),
             for (final job in service.jobs.where((j) => j.active))
               _TranslationCard(job: job, book: library.byId(job.bookId)),
             if (_discover.trending.isNotEmpty)
               _TrendingShelf(
-                title: 'Trending now',
-                subtitle: 'What readers around the world are picking up this week',
+                title: tr('Trending now'),
+                subtitle: tr('What readers around the world are picking up this week'),
                 books: _discover.trending,
               ),
             if (_discover.freeFiction.isNotEmpty)
               _CatalogShelf(
-                title: 'Free modern fiction',
-                subtitle: 'Novels their authors chose to share for free — read and translate them',
+                title: tr('Free modern fiction'),
+                subtitle: tr('Novels their authors chose to share for free — read and translate them'),
                 books: _discover.freeFiction,
               ),
             if (_discover.bestsellers.isNotEmpty)
               _TrendingShelf(
-                title: 'Bestsellers everyone is talking about',
-                subtitle: 'See where to buy or borrow them',
+                title: tr('Bestsellers everyone is talking about'),
+                subtitle: tr('See where to buy or borrow them'),
                 books: _discover.bestsellers,
               ),
             if (_discover.standardEbooks.isNotEmpty)
               _CatalogShelf(
-                title: 'Beautiful classics',
-                subtitle: 'Carefully edited editions from Standard Ebooks — free',
+                title: tr('Beautiful classics'),
+                subtitle: tr('Carefully edited editions from Standard Ebooks — free'),
                 books: _discover.standardEbooks.take(30).toList(),
               ),
             FutureBuilder<List<CommunityEdition>>(
@@ -142,8 +146,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 }
                 if (eds.isEmpty) return const SizedBox.shrink();
                 return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  _SectionTitle('Ready to read in your language',
-                      subtitle: 'Already translated by the BookIt community — download and read offline'),
+                  _SectionTitle(tr('Ready to read in your language'),
+                      subtitle: tr('Already translated by the BookIt community — download and read offline')),
                   SizedBox(
                     height: 236,
                     child: ListView(
@@ -182,12 +186,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 }
 
                 return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  shelf('Indian classics', 'Tagore, Kipling, folk tales and more — free and public domain',
+                  shelf(tr('Indian classics'), tr('Tagore, Kipling, folk tales and more — free and public domain'),
                       featured.where((f) => f.shelf == 'india')),
-                  shelf('Popular free classics', 'From Project Gutenberg — free and public domain',
+                  shelf(tr('Popular free classics'), tr('From Project Gutenberg — free and public domain'),
                       featured.where((f) => f.shelf == 'classics'),
-                      action: TextButton(onPressed: widget.onOpenStore, child: const Text('See all'))),
-                  shelf('For children', 'Fairy tales, fables and adventures', featured.where((f) => f.shelf == 'children')),
+                      action: TextButton(onPressed: widget.onOpenStore, child: Text(tr('See all')))),
+                  shelf(tr('For children'), tr('Fairy tales, fables and adventures'), featured.where((f) => f.shelf == 'children')),
                 ]);
               },
             ),
@@ -198,10 +202,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(20),
                     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                      Text('How BookIt works', style: theme.textTheme.titleMedium),
+                      Text(tr('How BookIt works'), style: theme.textTheme.titleMedium),
                       const SizedBox(height: 12),
-                      const _Step(n: 1, text: 'Pick any free book from the store (or open your own EPUB).'),
-                      const _Step(n: 2, text: 'Tap “Translate” and choose your language — Tamil, Hindi, Bengali and 90+ more.'),
+                      _Step(n: 1, text: tr('Pick any free book from the store (or open your own EPUB).')),
+                      _Step(n: 2, text: tr('Tap “Translate” and choose your language — Tamil, Hindi, Bengali and 90+ more.')),
                       const _Step(
                           n: 3,
                           text: 'The book is translated on your phone or PC and saved. Read it anytime, even offline.'),
@@ -209,7 +213,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       FilledButton.icon(
                         onPressed: widget.onOpenStore,
                         icon: const Icon(Icons.storefront),
-                        label: const Text('Browse free books'),
+                        label: Text(tr('Browse free books')),
                       ),
                     ]),
                   ),
@@ -288,16 +292,16 @@ class _WelcomeCard extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text('Welcome! Which language do you like to read in?',
+            Text(tr('Welcome! Which language do you like to read in?'),
                 style: theme.textTheme.titleMedium?.copyWith(color: theme.colorScheme.onPrimaryContainer)),
             const SizedBox(height: 12),
             Wrap(spacing: 8, runSpacing: 8, children: [
               for (final l in quick) ActionChip(label: Text(l.nativeName), onPressed: () => onPick(l)),
               ActionChip(
                 avatar: const Icon(Icons.more_horiz, size: 18),
-                label: const Text('More'),
+                label: Text(tr('More')),
                 onPressed: () async {
-                  final l = await pickLanguage(context, title: 'Your reading language');
+                  final l = await pickLanguage(context, title: tr('Your reading language'));
                   if (l != null) onPick(l);
                 },
               ),
@@ -344,12 +348,12 @@ class _ContinueCard extends StatelessWidget {
                       child: Chip(
                         visualDensity: VisualDensity.compact,
                         avatar: const Icon(Icons.translate, size: 16),
-                        label: Text('Reading in ${lang.nativeName}'),
+                        label: Text(tr('Reading in {lang}', {'lang': lang.nativeName})),
                       ),
                     ),
                   LinearProgressIndicator(value: book.position.progress, minHeight: 4, borderRadius: BorderRadius.circular(2)),
                   const SizedBox(height: 6),
-                  Text('${percent(book.position.progress)} read', style: theme.textTheme.bodySmall),
+                  Text(tr('{p} read', {'p': percent(book.position.progress)}), style: theme.textTheme.bodySmall),
                 ]),
               ),
               const Icon(Icons.chevron_right),
@@ -382,7 +386,7 @@ class _TranslationCard extends StatelessWidget {
       child: Card(
         child: ListTile(
           leading: const Icon(Icons.translate),
-          title: Text('Translating “${book!.title}” into ${lang?.nativeName ?? job.lang}',
+          title: Text(tr('Translating “{title}” into {lang}', {'title': book!.title, 'lang': lang?.nativeName ?? job.lang}),
               maxLines: 2, overflow: TextOverflow.ellipsis),
           subtitle: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             const SizedBox(height: 6),
@@ -455,7 +459,7 @@ class _EditionTile extends StatelessWidget {
 
 Future<void> openCommunityEdition(BuildContext context, CommunityEdition e) async {
   final library = context.read<LibraryStore>();
-  showMessage(context, 'Downloading “${e.title}”…');
+  showMessage(context, tr('Downloading “{title}”…', {'title': e.title}));
   try {
     final bytes = await downloadEditionBytes(e.url);
     final book = await library.addEdition(bytes);

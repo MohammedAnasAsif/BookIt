@@ -10,7 +10,13 @@ class DisplayBlock {
   /// True when the reader asked for a translation that isn't ready yet, so the
   /// original text is shown in its place.
   final bool pending;
-  const DisplayBlock(this.kind, this.text, {this.pending = false});
+
+  /// Index of the book block this text comes from (-1: same as its position).
+  final int source;
+
+  /// The original text shown under its translation in bilingual mode.
+  final bool secondary;
+  const DisplayBlock(this.kind, this.text, {this.pending = false, this.source = -1, this.secondary = false});
 }
 
 /// A run of characters of one block placed on a page.
@@ -47,7 +53,17 @@ class ReaderStyle {
     required this.direction,
   });
 
-  TextStyle textStyle(BlockKind kind, {bool pending = false}) {
+  TextStyle textStyle(BlockKind kind, {bool pending = false, bool secondary = false}) {
+    if (secondary) {
+      return TextStyle(
+        fontSize: fontSize * 0.84,
+        height: lineHeight,
+        fontFamily: fontFamily,
+        color: mutedColor,
+        fontStyle: FontStyle.italic,
+        fontWeight: kind == BlockKind.heading1 || kind == BlockKind.heading2 ? FontWeight.w600 : null,
+      );
+    }
     final base = TextStyle(
       fontSize: fontSize,
       height: lineHeight,
@@ -80,8 +96,9 @@ class ReaderStyle {
         _ => 0,
       };
 
-  double spaceBefore(BlockKind kind, bool firstOnPage) {
+  double spaceBefore(BlockKind kind, bool firstOnPage, {bool secondary = false}) {
     if (firstOnPage) return 0;
+    if (secondary) return fontSize * 0.3;
     return switch (kind) {
       BlockKind.heading1 => fontSize * 1.6,
       BlockKind.heading2 || BlockKind.heading3 => fontSize * 1.2,
@@ -118,17 +135,16 @@ class Paginator {
       final block = blocks[bi];
       final text = displayText(block);
       if (text.isEmpty) continue;
-      final ts = style.textStyle(block.kind, pending: block.pending);
+      final ts = style.textStyle(block.kind, pending: block.pending, secondary: block.secondary);
       final width = (size.width - style.indent(block.kind)).clamp(40.0, double.infinity);
-      final isHeading = block.kind == BlockKind.heading1 ||
-          block.kind == BlockKind.heading2 ||
-          block.kind == BlockKind.heading3;
+      final isHeading = !block.secondary &&
+          (block.kind == BlockKind.heading1 || block.kind == BlockKind.heading2 || block.kind == BlockKind.heading3);
       // A new chapter heading never shares the bottom of a page.
-      if (block.kind == BlockKind.heading1 && current.isNotEmpty && used > height * 0.6) newPage();
+      if (isHeading && block.kind == BlockKind.heading1 && current.isNotEmpty && used > height * 0.6) newPage();
 
       var start = 0;
       while (start < text.length) {
-        final before = style.spaceBefore(block.kind, current.isEmpty);
+        final before = style.spaceBefore(block.kind, current.isEmpty, secondary: block.secondary);
         final remaining = height - used - before;
         final tp = TextPainter(
           text: TextSpan(text: text.substring(start), style: ts),
@@ -230,7 +246,8 @@ class PageView2 extends StatelessWidget {
             padding: EdgeInsetsDirectional.only(top: s.spaceBefore, start: style.indent(blocks[s.block].kind)),
             child: Text(
               displayText(blocks[s.block]).substring(s.start, s.end),
-              style: style.textStyle(blocks[s.block].kind, pending: blocks[s.block].pending),
+              style: style.textStyle(blocks[s.block].kind,
+                  pending: blocks[s.block].pending, secondary: blocks[s.block].secondary),
               textAlign: style.align(blocks[s.block].kind),
               textDirection: style.direction,
               textScaler: TextScaler.noScaling,
