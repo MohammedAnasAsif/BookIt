@@ -1,0 +1,76 @@
+Frankenstein; or, The modern Prometheus - 31 chapters: Frankenstein;; or, the Modern Prometheus; CONTENTS; Letter 1; Letter 2; Letter 3; Letter 4; Chapter 1; Chapter 2; Chapter 3; Chapter 4; Chapter 5
+/home/runner/work/BookIt/BookIt/tools/translate_book.py:269: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10. 
+For migrations of users: 
+1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead 
+2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e) 
+3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e) 
+see https://github.com/pytorch/ao/issues/2259 for more details
+  self.model = torch.quantization.quantize_dynamic(self.model, {torch.nn.Linear}, dtype=torch.qint8)
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/torch/ao/nn/quantized/modules/utils.py:72: UserWarning: torch.quantize_per_tensor, torch.quantize_per_channel and other quantized tensor creation functions that produce tensors with dtype torch.quint8, torch.qint8, and torch.qint32 are deprecated and will be removed in a future PyTorch release. Please see https://github.com/pytorch/pytorch/issues/184982 for more information. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/quantized/Quantizer.cpp:111.)
+  qweight = torch.quantize_per_tensor(
+
+1/820 paragraphs
+3/820 paragraphs
+19/820 paragraphs
+32/820 paragraphs
+36/820 paragraphs
+39/820 paragraphs
+43/820 paragraphs
+45/820 paragraphs
+49/820 paragraphs
+51/820 paragraphs
+54/820 paragraphs
+56/820 paragraphs
+63/820 paragraphs
+66/820 paragraphs
+73/820 paragraphs
+77/820 paragraphs
+87/820 paragraphs
+93/820 paragraphs
+96/820 paragraphs
+101/820 paragraphs
+105/820 paragraphs
+106/820 paragraphs
+109/820 paragraphs
+112/820 paragraphs
+114/820 paragraphs
+116/820 paragraphs
+118/820 paragraphs
+120/820 paragraphs
+123/820 paragraphs
+127/820 paragraphs
+130/820 paragraphs
+132/820 paragraphs
+135/820 paragraphs
+138/820 paragraphs
+140/820 paragraphs
+143/820 paragraphs
+146/820 paragraphs
+148/820 paragraphs
+151/820 paragraphs
+153/820 paragraphs
+157/820 paragraphs
+159/820 paragraphs
+161/820 paragraphs
+164/820 paragraphs
+166/820 paragraphs
+169/820 paragraphs
+172/820 paragraphs
+175/820 paragraphs
+179/820 paragraphs
+317/820 paragraphs
+487/820 paragraphs
+685/820 paragraphs
+Catalog entry for catalog/editions.json:
+{
+  "id": "pg84-tel_Telu",
+  "title": "Frankenstein; or, The modern Prometheus",
+  "author": "Mary Wollstonecraft Shelley",
+  "lang": "tel_Telu",
+  "sourceLang": "eng_Latn",
+  "gutenbergId": 84,
+  "engine": "nllb-200-distilled-600M",
+  "size": 414639,
+  "url": "https://github.com/MohammedAnasAsif/BookIt/releases/download/editions/frankenstein-or-the-modern-prometheus.tel_Telu.bookit",
+  "cover": "https://www.gutenberg.org/cache/epub/84/pg84.cover.medium.jpg"
+}
