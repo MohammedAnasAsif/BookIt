@@ -1,0 +1,73 @@
+The Happy Prince, and Other Tales - 8 chapters: The Happy Prince, and Other Tales; The Happy Prince And Other Tales; Contents.; The Happy Prince.; The Nightingale and the Rose.; The Selfish Giant.; The Devoted Friend.; The Remarkable Rocket.
+/home/runner/work/BookIt/BookIt/tools/translate_book.py:269: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10. 
+For migrations of users: 
+1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead 
+2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e) 
+3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e) 
+see https://github.com/pytorch/ao/issues/2259 for more details
+  self.model = torch.quantization.quantize_dynamic(self.model, {torch.nn.Linear}, dtype=torch.qint8)
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/torch/ao/nn/quantized/modules/utils.py:72: UserWarning: torch.quantize_per_tensor, torch.quantize_per_channel and other quantized tensor creation functions that produce tensors with dtype torch.quint8, torch.qint8, and torch.qint32 are deprecated and will be removed in a future PyTorch release. Please see https://github.com/pytorch/pytorch/issues/184982 for more information. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/quantized/Quantizer.cpp:111.)
+  qweight = torch.quantize_per_tensor(
+
+1/443 paragraphs
+17/443 paragraphs
+22/443 paragraphs
+28/443 paragraphs
+37/443 paragraphs
+42/443 paragraphs
+49/443 paragraphs
+55/443 paragraphs
+58/443 paragraphs
+65/443 paragraphs
+69/443 paragraphs
+73/443 paragraphs
+79/443 paragraphs
+84/443 paragraphs
+92/443 paragraphs
+99/443 paragraphs
+105/443 paragraphs
+112/443 paragraphs
+116/443 paragraphs
+123/443 paragraphs
+129/443 paragraphs
+140/443 paragraphs
+149/443 paragraphs
+157/443 paragraphs
+162/443 paragraphs
+169/443 paragraphs
+177/443 paragraphs
+181/443 paragraphs
+188/443 paragraphs
+194/443 paragraphs
+198/443 paragraphs
+201/443 paragraphs
+206/443 paragraphs
+210/443 paragraphs
+217/443 paragraphs
+224/443 paragraphs
+233/443 paragraphs
+239/443 paragraphs
+242/443 paragraphs
+247/443 paragraphs
+257/443 paragraphs
+262/443 paragraphs
+267/443 paragraphs
+278/443 paragraphs
+285/443 paragraphs
+294/443 paragraphs
+302/443 paragraphs
+312/443 paragraphs
+321/443 paragraphs
+Catalog entry for catalog/editions.json:
+{
+  "id": "pg902-tel_Telu",
+  "title": "The Happy Prince, and Other Tales",
+  "author": "Oscar Wilde",
+  "lang": "tel_Telu",
+  "sourceLang": "eng_Latn",
+  "gutenbergId": 902,
+  "engine": "nllb-200-distilled-600M",
+  "size": 114983,
+  "url": "https://github.com/MohammedAnasAsif/BookIt/releases/download/editions/the-happy-prince-and-other-tales.tel_Telu.bookit",
+  "cover": "https://www.gutenberg.org/cache/epub/902/pg902.cover.medium.jpg"
+}
