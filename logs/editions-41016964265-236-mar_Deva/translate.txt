@@ -1,0 +1,76 @@
+The Jungle Book - 16 chapters: THE JUNGLE BOOK; Contents; Mowgli’s Brothers; Hunting-Song of the Seeonee Pack; Kaa’s Hunting; Road-Song of the Bandar-Log; “Tiger! Tiger!”; Mowgli’s Song; The White Seal; Lukannon; “Rikki-Tikki-Tavi”; Darzee’s Chant
+/home/runner/work/BookIt/BookIt/tools/translate_book.py:269: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10. 
+For migrations of users: 
+1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead 
+2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e) 
+3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e) 
+see https://github.com/pytorch/ao/issues/2259 for more details
+  self.model = torch.quantization.quantize_dynamic(self.model, {torch.nn.Linear}, dtype=torch.qint8)
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/torch/ao/nn/quantized/modules/utils.py:72: UserWarning: torch.quantize_per_tensor, torch.quantize_per_channel and other quantized tensor creation functions that produce tensors with dtype torch.quint8, torch.qint8, and torch.qint32 are deprecated and will be removed in a future PyTorch release. Please see https://github.com/pytorch/pytorch/issues/184982 for more information. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/quantized/Quantizer.cpp:111.)
+  qweight = torch.quantize_per_tensor(
+
+4/990 paragraphs
+19/990 paragraphs
+24/990 paragraphs
+31/990 paragraphs
+35/990 paragraphs
+41/990 paragraphs
+47/990 paragraphs
+52/990 paragraphs
+58/990 paragraphs
+63/990 paragraphs
+68/990 paragraphs
+71/990 paragraphs
+78/990 paragraphs
+82/990 paragraphs
+86/990 paragraphs
+94/990 paragraphs
+97/990 paragraphs
+104/990 paragraphs
+107/990 paragraphs
+113/990 paragraphs
+117/990 paragraphs
+124/990 paragraphs
+130/990 paragraphs
+136/990 paragraphs
+142/990 paragraphs
+147/990 paragraphs
+149/990 paragraphs
+154/990 paragraphs
+158/990 paragraphs
+164/990 paragraphs
+166/990 paragraphs
+169/990 paragraphs
+174/990 paragraphs
+178/990 paragraphs
+180/990 paragraphs
+182/990 paragraphs
+187/990 paragraphs
+193/990 paragraphs
+202/990 paragraphs
+210/990 paragraphs
+214/990 paragraphs
+218/990 paragraphs
+222/990 paragraphs
+224/990 paragraphs
+229/990 paragraphs
+234/990 paragraphs
+238/990 paragraphs
+243/990 paragraphs
+248/990 paragraphs
+439/990 paragraphs
+680/990 paragraphs
+925/990 paragraphs
+Catalog entry for catalog/editions.json:
+{
+  "id": "pg236-mar_Deva",
+  "title": "The Jungle Book",
+  "author": "Rudyard Kipling",
+  "lang": "mar_Deva",
+  "sourceLang": "eng_Latn",
+  "gutenbergId": 236,
+  "engine": "nllb-200-distilled-600M",
+  "size": 284102,
+  "url": "https://github.com/MohammedAnasAsif/BookIt/releases/download/editions/the-jungle-book.mar_Deva.bookit",
+  "cover": "https://www.gutenberg.org/cache/epub/236/pg236.cover.medium.jpg"
+}
