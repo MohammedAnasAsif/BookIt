@@ -1,0 +1,78 @@
+Indian Fairy Tales - 75 chapters: Indian Fairy Tales; INDIAN; Fairy Tales; SELECTED AND EDITED BY; JOSEPH JACOBS EDITOR OF "FOLK LORE"; ILLUSTRATED BY; JOHN D. BATTEN; LONDON DAVID NUTT, 270, 271 STRAND 1892; Only One Hundred and Sixty Copies of this Edition on Japanese Vellum Paper have ; The Illustrations in this Book were coloured by hand by Miss Gloria Cardew.; TO; MY DEAR LITTLE PHIL
+/home/runner/work/BookIt/BookIt/tools/translate_book.py:269: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10. 
+For migrations of users: 
+1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead 
+2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e) 
+3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e) 
+see https://github.com/pytorch/ao/issues/2259 for more details
+  self.model = torch.quantization.quantize_dynamic(self.model, {torch.nn.Linear}, dtype=torch.qint8)
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/torch/ao/nn/quantized/modules/utils.py:72: UserWarning: torch.quantize_per_tensor, torch.quantize_per_channel and other quantized tensor creation functions that produce tensors with dtype torch.quint8, torch.qint8, and torch.qint32 are deprecated and will be removed in a future PyTorch release. Please see https://github.com/pytorch/pytorch/issues/184982 for more information. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/quantized/Quantizer.cpp:111.)
+  qweight = torch.quantize_per_tensor(
+
+5/1345 paragraphs
+6/1345 paragraphs
+7/1345 paragraphs
+8/1345 paragraphs
+10/1345 paragraphs
+11/1345 paragraphs
+12/1345 paragraphs
+14/1345 paragraphs
+15/1345 paragraphs
+16/1345 paragraphs
+17/1345 paragraphs
+18/1345 paragraphs
+19/1345 paragraphs
+24/1345 paragraphs
+27/1345 paragraphs
+30/1345 paragraphs
+31/1345 paragraphs
+47/1345 paragraphs
+63/1345 paragraphs
+79/1345 paragraphs
+92/1345 paragraphs
+105/1345 paragraphs
+108/1345 paragraphs
+117/1345 paragraphs
+122/1345 paragraphs
+128/1345 paragraphs
+131/1345 paragraphs
+139/1345 paragraphs
+146/1345 paragraphs
+151/1345 paragraphs
+158/1345 paragraphs
+163/1345 paragraphs
+169/1345 paragraphs
+174/1345 paragraphs
+179/1345 paragraphs
+182/1345 paragraphs
+185/1345 paragraphs
+188/1345 paragraphs
+191/1345 paragraphs
+196/1345 paragraphs
+197/1345 paragraphs
+210/1345 paragraphs
+221/1345 paragraphs
+232/1345 paragraphs
+238/1345 paragraphs
+247/1345 paragraphs
+252/1345 paragraphs
+258/1345 paragraphs
+269/1345 paragraphs
+479/1345 paragraphs
+634/1345 paragraphs
+901/1345 paragraphs
+1197/1345 paragraphs
+1331/1345 paragraphs
+Catalog entry for catalog/editions.json:
+{
+  "id": "pg7128-ben_Beng",
+  "title": "Indian Fairy Tales",
+  "author": "",
+  "lang": "ben_Beng",
+  "sourceLang": "eng_Latn",
+  "gutenbergId": 7128,
+  "engine": "nllb-200-distilled-600M",
+  "size": 357942,
+  "url": "https://github.com/MohammedAnasAsif/BookIt/releases/download/editions/indian-fairy-tales.ben_Beng.bookit",
+  "cover": "https://www.gutenberg.org/cache/epub/7128/pg7128.cover.medium.jpg"
+}
