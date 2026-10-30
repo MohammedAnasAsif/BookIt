@@ -1,0 +1,80 @@
+Pride and Prejudice - 63 chapters: Pride and Prejudice; PRIDE. and PREJUDICE; Chapter I.; I hope Mr. Bingley will like it. CHAPTER II.; He rode a black horse. CHAPTER III.; CHAPTER IV.; CHAPTER V.; CHAPTER VI.; A note for Miss Bennet. CHAPTER VII.; Covering a screen. CHAPTER VIII.; Mrs Bennet and her two youngest girls. CHAPTER IX.; CHAPTER X.
+/home/runner/work/BookIt/BookIt/tools/translate_book.py:269: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10. 
+For migrations of users: 
+1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead 
+2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e) 
+3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e) 
+see https://github.com/pytorch/ao/issues/2259 for more details
+  self.model = torch.quantization.quantize_dynamic(self.model, {torch.nn.Linear}, dtype=torch.qint8)
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/torch/ao/nn/quantized/modules/utils.py:72: UserWarning: torch.quantize_per_tensor, torch.quantize_per_channel and other quantized tensor creation functions that produce tensors with dtype torch.quint8, torch.qint8, and torch.qint32 are deprecated and will be removed in a future PyTorch release. Please see https://github.com/pytorch/pytorch/issues/184982 for more information. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/quantized/Quantizer.cpp:111.)
+  qweight = torch.quantize_per_tensor(
+
+3/2309 paragraphs
+11/2309 paragraphs
+13/2309 paragraphs
+15/2309 paragraphs
+17/2309 paragraphs
+18/2309 paragraphs
+20/2309 paragraphs
+23/2309 paragraphs
+25/2309 paragraphs
+36/2309 paragraphs
+52/2309 paragraphs
+68/2309 paragraphs
+84/2309 paragraphs
+100/2309 paragraphs
+116/2309 paragraphs
+132/2309 paragraphs
+135/2309 paragraphs
+150/2309 paragraphs
+157/2309 paragraphs
+165/2309 paragraphs
+174/2309 paragraphs
+182/2309 paragraphs
+191/2309 paragraphs
+199/2309 paragraphs
+203/2309 paragraphs
+207/2309 paragraphs
+212/2309 paragraphs
+220/2309 paragraphs
+223/2309 paragraphs
+226/2309 paragraphs
+229/2309 paragraphs
+234/2309 paragraphs
+240/2309 paragraphs
+244/2309 paragraphs
+246/2309 paragraphs
+253/2309 paragraphs
+261/2309 paragraphs
+268/2309 paragraphs
+272/2309 paragraphs
+277/2309 paragraphs
+282/2309 paragraphs
+288/2309 paragraphs
+298/2309 paragraphs
+310/2309 paragraphs
+320/2309 paragraphs
+325/2309 paragraphs
+328/2309 paragraphs
+334/2309 paragraphs
+343/2309 paragraphs
+617/2309 paragraphs
+884/2309 paragraphs
+1124/2309 paragraphs
+1355/2309 paragraphs
+1598/2309 paragraphs
+1843/2309 paragraphs
+2117/2309 paragraphs
+Catalog entry for catalog/editions.json:
+{
+  "id": "pg1342-tel_Telu",
+  "title": "Pride and Prejudice",
+  "author": "Jane Austen",
+  "lang": "tel_Telu",
+  "sourceLang": "eng_Latn",
+  "gutenbergId": 1342,
+  "engine": "nllb-200-distilled-600M",
+  "size": 863765,
+  "url": "https://github.com/MohammedAnasAsif/BookIt/releases/download/editions/pride-and-prejudice.tel_Telu.bookit",
+  "cover": "https://www.gutenberg.org/cache/epub/1342/pg1342.cover.medium.jpg"
+}
