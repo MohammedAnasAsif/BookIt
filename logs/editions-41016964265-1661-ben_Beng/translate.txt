@@ -1,0 +1,80 @@
+The Adventures of Sherlock Holmes - 18 chapters: The Adventures of Sherlock Holmes; The Adventures of Sherlock Holmes; Contents; I. A SCANDAL IN BOHEMIA; I.; II.; III.; II. THE RED-HEADED LEAGUE; III. A CASE OF IDENTITY; IV. THE BOSCOMBE VALLEY MYSTERY; V. THE FIVE ORANGE PIPS; VI. THE MAN WITH THE TWISTED LIP
+/home/runner/work/BookIt/BookIt/tools/translate_book.py:269: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10. 
+For migrations of users: 
+1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead 
+2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e) 
+3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e) 
+see https://github.com/pytorch/ao/issues/2259 for more details
+  self.model = torch.quantization.quantize_dynamic(self.model, {torch.nn.Linear}, dtype=torch.qint8)
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/torch/ao/nn/quantized/modules/utils.py:72: UserWarning: torch.quantize_per_tensor, torch.quantize_per_channel and other quantized tensor creation functions that produce tensors with dtype torch.quint8, torch.qint8, and torch.qint32 are deprecated and will be removed in a future PyTorch release. Please see https://github.com/pytorch/pytorch/issues/184982 for more information. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/quantized/Quantizer.cpp:111.)
+  qweight = torch.quantize_per_tensor(
+
+1/2566 paragraphs
+3/2566 paragraphs
+19/2566 paragraphs
+28/2566 paragraphs
+29/2566 paragraphs
+31/2566 paragraphs
+35/2566 paragraphs
+41/2566 paragraphs
+49/2566 paragraphs
+53/2566 paragraphs
+60/2566 paragraphs
+62/2566 paragraphs
+68/2566 paragraphs
+72/2566 paragraphs
+79/2566 paragraphs
+87/2566 paragraphs
+91/2566 paragraphs
+105/2566 paragraphs
+116/2566 paragraphs
+126/2566 paragraphs
+133/2566 paragraphs
+145/2566 paragraphs
+150/2566 paragraphs
+156/2566 paragraphs
+160/2566 paragraphs
+161/2566 paragraphs
+165/2566 paragraphs
+170/2566 paragraphs
+176/2566 paragraphs
+186/2566 paragraphs
+193/2566 paragraphs
+201/2566 paragraphs
+205/2566 paragraphs
+209/2566 paragraphs
+216/2566 paragraphs
+222/2566 paragraphs
+225/2566 paragraphs
+234/2566 paragraphs
+237/2566 paragraphs
+241/2566 paragraphs
+246/2566 paragraphs
+259/2566 paragraphs
+269/2566 paragraphs
+273/2566 paragraphs
+274/2566 paragraphs
+278/2566 paragraphs
+286/2566 paragraphs
+288/2566 paragraphs
+298/2566 paragraphs
+531/2566 paragraphs
+809/2566 paragraphs
+1092/2566 paragraphs
+1417/2566 paragraphs
+1727/2566 paragraphs
+2041/2566 paragraphs
+2342/2566 paragraphs
+Catalog entry for catalog/editions.json:
+{
+  "id": "pg1661-ben_Beng",
+  "title": "The Adventures of Sherlock Holmes",
+  "author": "Arthur Conan Doyle",
+  "lang": "ben_Beng",
+  "sourceLang": "eng_Latn",
+  "gutenbergId": 1661,
+  "engine": "nllb-200-distilled-600M",
+  "size": 547055,
+  "url": "https://github.com/MohammedAnasAsif/BookIt/releases/download/editions/the-adventures-of-sherlock-holmes.ben_Beng.bookit",
+  "cover": "https://www.gutenberg.org/cache/epub/1661/pg1661.cover.medium.jpg"
+}
