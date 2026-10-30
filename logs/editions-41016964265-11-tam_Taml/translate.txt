@@ -1,0 +1,74 @@
+Alice's Adventures in Wonderland - 15 chapters: Alice’s Adventures in Wonderland; THE MILLENNIUM FULCRUM EDITION 3.0; Contents; CHAPTER I. Down the Rabbit-Hole; CHAPTER II. The Pool of Tears; CHAPTER III. A Caucus-Race and a Long Tale; CHAPTER IV. The Rabbit Sends in a Little Bill; CHAPTER V. Advice from a Caterpillar; CHAPTER VI. Pig and Pepper; CHAPTER VII. A Mad Tea-Party; CHAPTER VIII. The Queen’s Croquet-Ground; CHAPTER IX. The Mock Turtle’s Story
+/home/runner/work/BookIt/BookIt/tools/translate_book.py:269: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10. 
+For migrations of users: 
+1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead 
+2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e) 
+3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e) 
+see https://github.com/pytorch/ao/issues/2259 for more details
+  self.model = torch.quantization.quantize_dynamic(self.model, {torch.nn.Linear}, dtype=torch.qint8)
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/torch/ao/nn/quantized/modules/utils.py:72: UserWarning: torch.quantize_per_tensor, torch.quantize_per_channel and other quantized tensor creation functions that produce tensors with dtype torch.quint8, torch.qint8, and torch.qint32 are deprecated and will be removed in a future PyTorch release. Please see https://github.com/pytorch/pytorch/issues/184982 for more information. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/quantized/Quantizer.cpp:111.)
+  qweight = torch.quantize_per_tensor(
+
+2/812 paragraphs
+3/812 paragraphs
+19/812 paragraphs
+28/812 paragraphs
+35/812 paragraphs
+37/812 paragraphs
+38/812 paragraphs
+45/812 paragraphs
+51/812 paragraphs
+53/812 paragraphs
+59/812 paragraphs
+62/812 paragraphs
+65/812 paragraphs
+67/812 paragraphs
+71/812 paragraphs
+74/812 paragraphs
+77/812 paragraphs
+79/812 paragraphs
+84/812 paragraphs
+91/812 paragraphs
+99/812 paragraphs
+109/812 paragraphs
+117/812 paragraphs
+122/812 paragraphs
+127/812 paragraphs
+128/812 paragraphs
+131/812 paragraphs
+135/812 paragraphs
+139/812 paragraphs
+144/812 paragraphs
+151/812 paragraphs
+153/812 paragraphs
+159/812 paragraphs
+165/812 paragraphs
+171/812 paragraphs
+182/812 paragraphs
+191/812 paragraphs
+198/812 paragraphs
+209/812 paragraphs
+217/812 paragraphs
+223/812 paragraphs
+232/812 paragraphs
+239/812 paragraphs
+240/812 paragraphs
+248/812 paragraphs
+254/812 paragraphs
+265/812 paragraphs
+274/812 paragraphs
+284/812 paragraphs
+616/812 paragraphs
+Catalog entry for catalog/editions.json:
+{
+  "id": "pg11-tam_Taml",
+  "title": "Alice's Adventures in Wonderland",
+  "author": "Lewis Carroll",
+  "lang": "tam_Taml",
+  "sourceLang": "eng_Latn",
+  "gutenbergId": 11,
+  "engine": "nllb-200-distilled-600M",
+  "size": 171178,
+  "url": "https://github.com/MohammedAnasAsif/BookIt/releases/download/editions/alice-s-adventures-in-wonderland.tam_Taml.bookit",
+  "cover": "https://www.gutenberg.org/cache/epub/11/pg11.cover.medium.jpg"
+}
