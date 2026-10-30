@@ -1,0 +1,6 @@
+Analyzing app...                                                
+
+   info • Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check • lib/ui/reader/reader_screen.dart:412:21 • use_build_context_synchronously
+   info • Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check • lib/ui/reader/reader_screen.dart:414:23 • use_build_context_synchronously
+
+2 issues found. (ran in 13.0s)
