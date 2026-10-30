@@ -21,6 +21,7 @@ Only translate books that are in the public domain (e.g. Project Gutenberg)
 or that you have the rights to share.
 """
 import argparse
+import warnings
 import base64
 import datetime as dt
 import gzip
@@ -34,7 +35,9 @@ import urllib.parse
 import urllib.request
 import zipfile
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
+
+warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
 UA = "BookIt translate_book.py (https://github.com/MohammedAnasAsif/BookIt)"
 
@@ -63,8 +66,10 @@ class ContentBuilder:
         self.flush()
         self.title = title
 
-    def add(self, kind, text, no_translate=False):
+    def add(self, kind, text, no_translate=False, pg=False):
         b = {"k": kind, "t": text}
+        if pg:
+            b["pg"] = 1  # Project Gutenberg header/licence, left out of editions
         if no_translate or not has_letters(text):
             b["n"] = 1
         self.blocks.append(b)
@@ -99,7 +104,7 @@ def walk(el, out, anchors, ctx="p", boiler=False):
                 t = clean("".join(inline))
                 inline = []
                 if t:
-                    out.add(child_ctx, t, boiler)
+                    out.add(child_ctx, t, boiler, pg=boiler)
                 walk(c, out, anchors, child_ctx, boiler)
             elif name:
                 inline.append(inline_text(c))
@@ -107,7 +112,7 @@ def walk(el, out, anchors, ctx="p", boiler=False):
                 inline.append(str(c))
         t = clean("".join(inline))
         if t:
-            out.add(child_ctx, t, boiler)
+            out.add(child_ctx, t, boiler, pg=boiler)
         return
     ids = [ident] + [d.get("id") for d in el.find_all(True) if d.get("id")]
     for i in ids:
@@ -117,14 +122,14 @@ def walk(el, out, anchors, ctx="p", boiler=False):
     if tag == "pre":
         t = el.get_text().rstrip()
         if t.strip():
-            out.add("pre", t, boiler)
+            out.add("pre", t, boiler, pg=boiler)
         return
     t = clean(inline_text(el))
     if not t:
         return
     kind = {"h1": "h1", "h2": "h1", "h3": "h2", "h4": "h3", "h5": "h3", "h6": "h3",
             "li": "li", "dd": "li", "dt": "li"}.get(tag, ctx)
-    out.add(kind, t, boiler)
+    out.add(kind, t, boiler, pg=boiler)
 
 
 def inline_text(el):
@@ -183,13 +188,17 @@ def parse_epub(data):
         cover_item = manifest.get(meta_cover.get("content"))
     if cover_item is not None and cover_item.get("media-type", "").startswith("image/"):
         cover = (z.read(resolve(cover_item["href"])), cover_item["href"].rsplit(".", 1)[-1])
-    # Project Gutenberg's header and licence pages are left out of editions:
-    # the public-domain text may be shared freely without them.
-    def boiler(ch):
-        t = ch["title"].lower()
-        return ("project gutenberg" in t or "gutenberg licen" in t
-                or t.startswith("*** start of") or t.startswith("*** end of"))
-    out.chapters = [c for c in out.chapters if not boiler(c)]
+    # Project Gutenberg's header and licence text (marked in the HTML) is left
+    # out of editions: the public-domain book may be shared without it.
+    chapters = []
+    for c in out.chapters:
+        blocks = [b for b in c["blocks"] if not b.pop("pg", None)]
+        if any(b["t"].strip() for b in blocks):
+            title = c["title"]
+            if "gutenberg" in title.lower():
+                title = next((b["t"] for b in blocks if b["k"] in ("h1", "h2", "h3")), meta("title") or title)[:80]
+            chapters.append({"title": title, "blocks": blocks})
+    out.chapters = chapters
     content = {"format": "bookit-content", "version": 1, "title": meta("title") or "Untitled",
                "author": ", ".join(c.get_text(strip=True) for c in opf.find_all("creator")),
                "language": meta("language"), "chapters": out.chapters}
@@ -302,7 +311,10 @@ def main():
     else:
         data = open(args.epub, "rb").read()
     content, cover = parse_epub(data)
-    print(f"{content['title']} - {len(content['chapters'])} chapters", file=sys.stderr)
+    print(f"{content['title']} - {len(content['chapters'])} chapters: "
+          + "; ".join(c["title"] for c in content["chapters"][:12]), file=sys.stderr)
+    if not content["chapters"]:
+        sys.exit("No text found in this book")
 
     if args.engine == "nllb":
         engine = NllbEngine(args.model or "facebook/nllb-200-distilled-600M", args.src, args.to, device, args.beams)

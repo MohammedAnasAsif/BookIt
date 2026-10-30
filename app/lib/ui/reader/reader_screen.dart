@@ -409,6 +409,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
       }
       if (waiting && pieces.isEmpty) {
         // This page isn't translated yet: wait for it, if it's being translated.
+        if (!mounted) break;
         final job = context.read<TranslationService>().job(book.id, _lang!);
         if (job == null || !job.active) {
           showMessage(context, tr('This part is not translated yet.'));
