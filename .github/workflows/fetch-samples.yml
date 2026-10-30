@@ -1,0 +1,26 @@
+# Developer tool: copies a few Project Gutenberg EPUBs to the `ci-logs` branch
+# so parsing tools can be tested where gutenberg.org isn't reachable.
+name: Fetch sample books
+
+on:
+  workflow_dispatch:
+    inputs:
+      books:
+        description: "Gutenberg numbers, space separated"
+        default: "902 11 1342 236 7164"
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          BOOKS: ${{ inputs.books }}
+        run: |
+          mkdir -p samples
+          for b in $BOOKS; do curl -sSfL -A "BookIt CI" -o samples/pg$b.epub "https://www.gutenberg.org/cache/epub/$b/pg$b.epub" || echo "failed $b"; done
+          ls -la samples
+          bash .github/scripts/publish-logs.sh "samples" samples/*
