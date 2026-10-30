@@ -1,0 +1,76 @@
+Peter Pan - 20 chapters: Peter Pan; [PETER AND WENDY]; Contents; Chapter I. PETER BREAKS THROUGH; Chapter II. THE SHADOW; Chapter III. COME AWAY, COME AWAY!; Chapter IV. THE FLIGHT; Chapter V. THE ISLAND COME TRUE; Chapter VI. THE LITTLE HOUSE; Chapter VII. THE HOME UNDER THE GROUND; Chapter VIII. THE MERMAIDS’ LAGOON; Chapter IX. THE NEVER BIRD
+/home/runner/work/BookIt/BookIt/tools/translate_book.py:269: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10. 
+For migrations of users: 
+1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead 
+2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e) 
+3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e) 
+see https://github.com/pytorch/ao/issues/2259 for more details
+  self.model = torch.quantization.quantize_dynamic(self.model, {torch.nn.Linear}, dtype=torch.qint8)
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/torch/ao/nn/quantized/modules/utils.py:72: UserWarning: torch.quantize_per_tensor, torch.quantize_per_channel and other quantized tensor creation functions that produce tensors with dtype torch.quint8, torch.qint8, and torch.qint32 are deprecated and will be removed in a future PyTorch release. Please see https://github.com/pytorch/pytorch/issues/184982 for more information. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/quantized/Quantizer.cpp:111.)
+  qweight = torch.quantize_per_tensor(
+
+1/1693 paragraphs
+4/1693 paragraphs
+13/1693 paragraphs
+21/1693 paragraphs
+22/1693 paragraphs
+26/1693 paragraphs
+33/1693 paragraphs
+36/1693 paragraphs
+40/1693 paragraphs
+44/1693 paragraphs
+52/1693 paragraphs
+64/1693 paragraphs
+71/1693 paragraphs
+75/1693 paragraphs
+84/1693 paragraphs
+95/1693 paragraphs
+103/1693 paragraphs
+111/1693 paragraphs
+118/1693 paragraphs
+127/1693 paragraphs
+135/1693 paragraphs
+146/1693 paragraphs
+156/1693 paragraphs
+163/1693 paragraphs
+168/1693 paragraphs
+177/1693 paragraphs
+180/1693 paragraphs
+187/1693 paragraphs
+196/1693 paragraphs
+209/1693 paragraphs
+217/1693 paragraphs
+225/1693 paragraphs
+234/1693 paragraphs
+239/1693 paragraphs
+249/1693 paragraphs
+257/1693 paragraphs
+267/1693 paragraphs
+277/1693 paragraphs
+287/1693 paragraphs
+299/1693 paragraphs
+310/1693 paragraphs
+322/1693 paragraphs
+326/1693 paragraphs
+331/1693 paragraphs
+338/1693 paragraphs
+347/1693 paragraphs
+359/1693 paragraphs
+368/1693 paragraphs
+372/1693 paragraphs
+708/1693 paragraphs
+1119/1693 paragraphs
+1454/1693 paragraphs
+Catalog entry for catalog/editions.json:
+{
+  "id": "pg16-tam_Taml",
+  "title": "Peter Pan",
+  "author": "J. M. Barrie",
+  "lang": "tam_Taml",
+  "sourceLang": "eng_Latn",
+  "gutenbergId": 16,
+  "engine": "nllb-200-distilled-600M",
+  "size": 471152,
+  "url": "https://github.com/MohammedAnasAsif/BookIt/releases/download/editions/peter-pan.tam_Taml.bookit",
+  "cover": "https://www.gutenberg.org/cache/epub/16/pg16.cover.medium.jpg"
+}
