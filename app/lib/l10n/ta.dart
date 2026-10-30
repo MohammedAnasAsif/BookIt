@@ -179,4 +179,8 @@ const taStrings = <String, String>{
   'Continue in background': 'பின்னணியில் தொடர்',
   'Not now': 'இப்போது வேண்டாம்',
   'Home': 'முகப்பு',
+  'Installed · {size} · works offline': 'நிறுவப்பட்டது · {size} · இணையம் இல்லாமல் இயங்கும்',
+  'Downloading {p} ({got} of {size})': 'பதிவிறக்கம் {p} ({size} இல் {got})',
+  'Not downloaded ({size})': 'பதிவிறக்கவில்லை ({size})',
+  'Calculating…': 'கணக்கிடுகிறது…',
 };

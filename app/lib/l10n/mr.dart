@@ -179,4 +179,8 @@ const mrStrings = <String, String>{
   'Continue in background': 'बॅकग्राउंडमध्ये सुरू ठेवा',
   'Not now': 'आत्ता नको',
   'Home': 'होम',
+  'Installed · {size} · works offline': 'इन्स्टॉल केले · {size} · ऑफलाइन चालते',
+  'Downloading {p} ({got} of {size})': 'डाउनलोड होत आहे {p} ({size} पैकी {got})',
+  'Not downloaded ({size})': 'डाउनलोड केलेले नाही ({size})',
+  'Calculating…': 'मोजत आहे…',
 };

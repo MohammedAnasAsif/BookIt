@@ -179,4 +179,8 @@ const bnStrings = <String, String>{
   'Continue in background': 'ব্যাকগ্রাউন্ডে চালিয়ে যান',
   'Not now': 'এখন না',
   'Home': 'হোম',
+  'Installed · {size} · works offline': 'ইনস্টল করা আছে · {size} · অফলাইনে চলে',
+  'Downloading {p} ({got} of {size})': 'ডাউনলোড হচ্ছে {p} ({size}-এর মধ্যে {got})',
+  'Not downloaded ({size})': 'ডাউনলোড হয়নি ({size})',
+  'Calculating…': 'হিসাব করা হচ্ছে…',
 };

@@ -65,8 +65,8 @@ class QuoteCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final quote = _clip(text.trim(), original != null ? 260 : 420);
-    final size = quote.length < 110 ? 25.0 : (quote.length < 220 ? 20.0 : 16.5);
+    final quote = _clip(text.trim(), original != null ? 300 : 480);
+    final orig = original == null ? null : _clip(original!.trim(), 180);
     return SizedBox.fromSize(
       size: _cardSize,
       child: DecoratedBox(
@@ -78,22 +78,49 @@ class QuoteCard extends StatelessWidget {
             const SizedBox(height: 6),
             Text('“', style: TextStyle(fontSize: 64, height: 1, color: _saffron.withValues(alpha: 0.9), fontFamily: _serif())),
             Expanded(
-              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Flexible(
-                  child: Text(quote,
-                      overflow: TextOverflow.fade,
-                      style: TextStyle(fontSize: size, height: 1.45, color: _ink, fontFamily: _serif())),
-                ),
-                if (original != null) ...[
-                  const SizedBox(height: 10),
-                  Flexible(
-                    child: Text(_clip(original!.trim(), 200),
-                        overflow: TextOverflow.fade,
+              child: LayoutBuilder(builder: (context, c) {
+                // Shrink the text until the passage (and its original) fit.
+                final width = c.maxWidth;
+                double heightAt(double size) {
+                  final main = TextPainter(
+                    text: TextSpan(text: quote, style: TextStyle(fontSize: size, height: 1.45, fontFamily: _serif())),
+                    textDirection: TextDirection.ltr,
+                  )..layout(maxWidth: width);
+                  var h = main.height;
+                  main.dispose();
+                  if (orig != null) {
+                    final o = TextPainter(
+                      text: TextSpan(text: orig, style: TextStyle(fontSize: size * 0.55, height: 1.4, fontStyle: FontStyle.italic)),
+                      textDirection: TextDirection.ltr,
+                    )..layout(maxWidth: width);
+                    h += 10 + o.height;
+                    o.dispose();
+                  }
+                  return h;
+                }
+
+                var size = 26.0;
+                while (size > 11 && heightAt(size) > c.maxHeight) {
+                  size -= 1;
+                }
+                return ClipRect(
+                    child: OverflowBox(
+                  alignment: Alignment.topLeft,
+                  maxHeight: double.infinity,
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
+                  Text(quote, style: TextStyle(fontSize: size, height: 1.45, color: _ink, fontFamily: _serif())),
+                  if (orig != null) ...[
+                    const SizedBox(height: 10),
+                    Text(orig,
                         style: TextStyle(
-                            fontSize: 12.5, height: 1.4, color: _ink.withValues(alpha: 0.55), fontStyle: FontStyle.italic)),
-                  ),
-                ],
-              ]),
+                            fontSize: size * 0.55,
+                            height: 1.4,
+                            color: _ink.withValues(alpha: 0.55),
+                            fontStyle: FontStyle.italic)),
+                  ],
+                ]),
+                ));
+              }),
             ),
             const SizedBox(height: 12),
             Text(title,

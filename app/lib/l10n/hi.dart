@@ -179,4 +179,8 @@ const hiStrings = <String, String>{
   'Continue in background': 'बैकग्राउंड में जारी रखें',
   'Not now': 'अभी नहीं',
   'Home': 'होम',
+  'Installed · {size} · works offline': 'इंस्टॉल है · {size} · ऑफ़लाइन चलता है',
+  'Downloading {p} ({got} of {size})': 'डाउनलोड हो रहा है {p} ({size} में से {got})',
+  'Not downloaded ({size})': 'डाउनलोड नहीं हुआ ({size})',
+  'Calculating…': 'गिनती हो रही है…',
 };

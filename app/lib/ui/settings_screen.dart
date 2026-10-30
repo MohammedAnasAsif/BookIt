@@ -48,10 +48,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
         );
 
     final packStatus = switch (service.packState) {
-      PackState.installed => 'Installed · ${formatBytes(ModelPack.totalBytes)} · works offline',
-      PackState.downloading =>
-        'Downloading ${percent(service.packFraction)} (${formatBytes(service.packReceived)} of ${formatBytes(ModelPack.totalBytes)})',
-      PackState.notInstalled => 'Not downloaded (${formatBytes(ModelPack.totalBytes)})',
+      PackState.installed => tr('Installed · {size} · works offline', {'size': formatBytes(ModelPack.totalBytes)}),
+      PackState.downloading => tr('Downloading {p} ({got} of {size})', {
+          'p': percent(service.packFraction),
+          'got': formatBytes(service.packReceived),
+          'size': formatBytes(ModelPack.totalBytes),
+        }),
+      PackState.notInstalled => tr('Not downloaded ({size})', {'size': formatBytes(ModelPack.totalBytes)}),
     };
 
     return Scaffold(
@@ -175,7 +178,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             builder: (_, s) => ListTile(
               leading: const Icon(Icons.storage),
               title: Text(tr('Space used by BookIt')),
-              subtitle: Text(s.hasData ? formatBytes(s.data!) : 'Calculating…'),
+              subtitle: Text(s.hasData ? formatBytes(s.data!) : tr('Calculating…')),
               trailing: IconButton(
                 icon: const Icon(Icons.refresh),
                 onPressed: () => setState(() => _storage = storageUsed()),

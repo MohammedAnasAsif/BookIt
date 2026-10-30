@@ -179,4 +179,8 @@ const teStrings = <String, String>{
   'Continue in background': 'బ్యాక్‌గ్రౌండ్‌లో కొనసాగించు',
   'Not now': 'ఇప్పుడు కాదు',
   'Home': 'హోమ్',
+  'Installed · {size} · works offline': 'ఇన్‌స్టాల్ అయింది · {size} · ఆఫ్‌లైన్‌లో పనిచేస్తుంది',
+  'Downloading {p} ({got} of {size})': 'డౌన్‌లోడ్ అవుతోంది {p} ({size}లో {got})',
+  'Not downloaded ({size})': 'డౌన్‌లోడ్ కాలేదు ({size})',
+  'Calculating…': 'లెక్కిస్తోంది…',
 };
