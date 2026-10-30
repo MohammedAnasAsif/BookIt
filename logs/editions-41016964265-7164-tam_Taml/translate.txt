@@ -1,0 +1,74 @@
+Gitanjali - 107 chapters: Gitanjali; INTRODUCTION; II; III; GITANJALI 1.; 2.; 3.; 4.; 5.; 6.; 7.; 8.
+/home/runner/work/BookIt/BookIt/tools/translate_book.py:269: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10. 
+For migrations of users: 
+1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead 
+2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e) 
+3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e) 
+see https://github.com/pytorch/ao/issues/2259 for more details
+  self.model = torch.quantization.quantize_dynamic(self.model, {torch.nn.Linear}, dtype=torch.qint8)
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/torch/ao/nn/quantized/modules/utils.py:72: UserWarning: torch.quantize_per_tensor, torch.quantize_per_channel and other quantized tensor creation functions that produce tensors with dtype torch.quint8, torch.qint8, and torch.qint32 are deprecated and will be removed in a future PyTorch release. Please see https://github.com/pytorch/pytorch/issues/184982 for more information. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/quantized/Quantizer.cpp:111.)
+  qweight = torch.quantize_per_tensor(
+
+6/427 paragraphs
+8/427 paragraphs
+9/427 paragraphs
+11/427 paragraphs
+12/427 paragraphs
+16/427 paragraphs
+21/427 paragraphs
+26/427 paragraphs
+29/427 paragraphs
+33/427 paragraphs
+37/427 paragraphs
+40/427 paragraphs
+42/427 paragraphs
+45/427 paragraphs
+48/427 paragraphs
+52/427 paragraphs
+56/427 paragraphs
+62/427 paragraphs
+69/427 paragraphs
+73/427 paragraphs
+77/427 paragraphs
+80/427 paragraphs
+84/427 paragraphs
+88/427 paragraphs
+91/427 paragraphs
+95/427 paragraphs
+99/427 paragraphs
+102/427 paragraphs
+106/427 paragraphs
+108/427 paragraphs
+111/427 paragraphs
+114/427 paragraphs
+120/427 paragraphs
+125/427 paragraphs
+127/427 paragraphs
+131/427 paragraphs
+135/427 paragraphs
+138/427 paragraphs
+141/427 paragraphs
+145/427 paragraphs
+153/427 paragraphs
+159/427 paragraphs
+161/427 paragraphs
+164/427 paragraphs
+169/427 paragraphs
+173/427 paragraphs
+178/427 paragraphs
+182/427 paragraphs
+185/427 paragraphs
+338/427 paragraphs
+Catalog entry for catalog/editions.json:
+{
+  "id": "pg7164-tam_Taml",
+  "title": "Gitanjali",
+  "author": "Rabindranath Tagore",
+  "lang": "tam_Taml",
+  "sourceLang": "eng_Latn",
+  "gutenbergId": 7164,
+  "engine": "nllb-200-distilled-600M",
+  "size": 126041,
+  "url": "https://github.com/MohammedAnasAsif/BookIt/releases/download/editions/gitanjali.tam_Taml.bookit",
+  "cover": "https://www.gutenberg.org/cache/epub/7164/pg7164.cover.medium.jpg"
+}
