@@ -1,7 +1,7 @@
 {
  "format": "bookit-discover",
  "version": 1,
- "built": "2026-11-09",
+ "built": "2026-11-16",
  "trending": [
   {
    "key": "/works/OL17930368W",
@@ -28,14 +28,6 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL21640039W",
-   "title": "The Psychology of Money",
-   "author": "Morgan Housel",
-   "year": 2020,
-   "cover": 10389354,
-   "reason": "weekly"
-  },
-  {
    "key": "/works/OL82563W",
    "title": "Harry Potter and the Philosopher's Stone",
    "author": "J. K. Rowling",
@@ -44,19 +36,11 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL5735363W",
-   "title": "The Hunger Games",
-   "author": "Suzanne Collins",
-   "year": 2008,
-   "cover": 12646537,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL27310398W",
-   "title": "Haunting Adeline",
-   "author": "H. D. Carlton",
-   "year": 2021,
-   "cover": 12992962,
+   "key": "/works/OL21640039W",
+   "title": "The Psychology of Money",
+   "author": "Morgan Housel",
+   "year": 2020,
+   "cover": 10389354,
    "reason": "weekly"
   },
   {
@@ -68,11 +52,59 @@
    "reason": "weekly"
   },
   {
+   "key": "/works/OL27310398W",
+   "title": "Haunting Adeline",
+   "author": "H. D. Carlton",
+   "year": 2021,
+   "cover": 12992962,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL5735363W",
+   "title": "The Hunger Games",
+   "author": "Suzanne Collins",
+   "year": 2008,
+   "cover": 12646537,
+   "reason": "weekly"
+  },
+  {
    "key": "/works/OL18108064W",
    "title": "Can't Hurt Me",
    "author": "David Goggins",
    "year": 2018,
    "cover": 8305903,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL19761410W",
+   "title": "The Laws of Human Nature",
+   "author": "Robert Greene",
+   "year": 2018,
+   "cover": 10170095,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL15992072W",
+   "title": "Thinking, Fast and Slow",
+   "author": "Daniel Kahneman",
+   "year": 2011,
+   "cover": 13290711,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL8483260W",
+   "title": "Diary of a Wimpy Kid",
+   "author": "Jeff Kinney",
+   "year": 2007,
+   "cover": 14376136,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL25436364W",
+   "title": "The Mountain Is You",
+   "author": "Brianna Wiest",
+   "year": 2020,
+   "cover": 13838236,
    "reason": "weekly"
   },
   {
@@ -92,35 +124,11 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL19761410W",
-   "title": "The Laws of Human Nature",
-   "author": "Robert Greene",
-   "year": 2018,
-   "cover": 10170095,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL1968364W",
-   "title": "The Art of Seduction",
-   "author": "Robert Greene",
-   "year": 2001,
-   "cover": 917840,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL492658W",
-   "title": "The Lightning Thief",
-   "author": "Rick Riordan",
-   "year": 2005,
-   "cover": 7239831,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL24178205W",
-   "title": "The Love Hypothesis",
-   "author": "Ali Hazelwood",
-   "year": 2021,
-   "cover": 10601402,
+   "key": "/works/OL20646061W",
+   "title": "A Good Girl's Guide to Murder",
+   "author": "Holly Jackson",
+   "year": 2019,
+   "cover": 13156188,
    "reason": "weekly"
   },
   {
@@ -132,115 +140,11 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL15992072W",
-   "title": "Thinking, Fast and Slow",
-   "author": "Daniel Kahneman",
-   "year": 2011,
-   "cover": 13290711,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL19744000W",
-   "title": "嫌われる勇気",
-   "author": "Ichirō Kishimi, Fumitake Koga",
-   "year": 2013,
-   "cover": 10873626,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL25436364W",
-   "title": "The Mountain Is You",
-   "author": "Brianna Wiest",
+   "key": "/works/OL24339237W",
+   "title": "Campus drivers - tome 1 Supermad",
+   "author": "C. S. Quill",
    "year": 2020,
-   "cover": 13838236,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL8483260W",
-   "title": "Diary of a Wimpy Kid",
-   "author": "Jeff Kinney",
-   "year": 2007,
-   "cover": 14376136,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL38128674W",
-   "title": "Lights Out",
-   "author": "Navessa Allen",
-   "year": 2024,
-   "cover": 14641117,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL39181496W",
-   "title": "The Let Them Theory",
-   "author": "Mel Robbins",
-   "year": 2024,
-   "cover": 15165806,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL20646061W",
-   "title": "A Good Girl's Guide to Murder",
-   "author": "Holly Jackson",
-   "year": 2019,
-   "cover": 13156188,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL20068530W",
-   "title": "Verity",
-   "author": "Colleen Hoover",
-   "year": 2018,
-   "cover": 8747160,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL27729743W",
-   "title": "The Housemaid",
-   "author": "Freida McFadden",
-   "year": 2022,
-   "cover": 15105883,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL29226517W",
-   "title": "Fourth Wing",
-   "author": "Rebecca Yarros",
-   "year": 2023,
-   "cover": 14407898,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL17352669W",
-   "title": "A Court of Thorns and Roses",
-   "author": "Sarah J. Maas",
-   "year": 2013,
-   "cover": 15254465,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL24542623W",
-   "title": "Better Than the Movies",
-   "author": "Lynn Painter",
-   "year": 2021,
-   "cover": 11182600,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL17850410W",
-   "title": "The Cruel Prince",
-   "author": "Holly Black",
-   "year": 2018,
-   "cover": 8361789,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL5727686W",
-   "title": "The Power of Now",
-   "author": "Eckhart Tolle",
-   "year": 1997,
-   "cover": 551262,
+   "cover": 10861657,
    "reason": "weekly"
   },
   {
@@ -252,115 +156,27 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL43426400W",
-   "title": "Sunrise on the Reaping",
-   "author": "Suzanne Collins",
-   "year": 2025,
-   "cover": 14847912,
+   "key": "/works/OL39181496W",
+   "title": "The Let Them Theory",
+   "author": "Mel Robbins",
+   "year": 2024,
+   "cover": 15165806,
    "reason": "weekly"
   },
   {
-   "key": "/works/OL257943W",
-   "title": "A Game of Thrones",
-   "author": "George R. R. Martin",
-   "year": 1996,
-   "cover": 9269962,
+   "key": "/works/OL1968364W",
+   "title": "The Art of Seduction",
+   "author": "Robert Greene",
+   "year": 2001,
+   "cover": 917840,
    "reason": "weekly"
   },
   {
-   "key": "/works/OL24456878W",
-   "title": "Psicología oscura",
-   "author": "Steven Turner",
-   "year": 2019,
-   "cover": 11057869,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL43254128W",
-   "title": "The Art of Being Alone",
-   "author": "Renuka Gavrani",
-   "year": 2023,
-   "cover": 15272672,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL17370186W",
-   "title": "A Little Life",
-   "author": "Hanya Yanagihara",
-   "year": 2008,
-   "cover": 12065783,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL16014245W",
-   "title": "Shatter Me",
-   "author": "Tahereh Mafi",
-   "year": 2011,
-   "cover": 6974992,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL18020194W",
-   "title": "It Ends With Us",
-   "author": "Colleen Hoover",
-   "year": 2012,
-   "cover": 10473609,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL28952677W",
-   "title": "Icebreaker",
-   "author": "Hannah Grace",
-   "year": 2020,
-   "cover": 13180728,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL25037516W",
-   "title": "$100M Offers",
-   "author": "Alex Hormozi",
-   "year": 2021,
-   "cover": 11948182,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL34330474W",
-   "title": "Suicide Med",
-   "author": "Freida McFadden",
-   "year": 2014,
-   "cover": 13470475,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL25515697W",
-   "title": "Twisted Games",
-   "author": "Ana Huang",
-   "year": 2021,
-   "cover": 12821465,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL24339237W",
-   "title": "Campus drivers - tome 1 Supermad",
-   "author": "C. S. Quill",
-   "year": 2020,
-   "cover": 10861657,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL5735360W",
-   "title": "Catching Fire",
-   "author": "Suzanne Collins",
-   "year": 2009,
-   "cover": 12646539,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL27297240W",
-   "title": "Hunting Adeline",
-   "author": "H. D. Carlton",
-   "year": 2021,
-   "cover": 14614757,
+   "key": "/works/OL8909610W",
+   "title": "Attitude Is Everything",
+   "author": "Jeff Keller",
+   "year": 1999,
+   "cover": 2094906,
    "reason": "weekly"
   },
   {
@@ -372,6 +188,78 @@
    "reason": "weekly"
   },
   {
+   "key": "/works/OL257943W",
+   "title": "A Game of Thrones",
+   "author": "George R. R. Martin",
+   "year": 1996,
+   "cover": 9269962,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL36168612W",
+   "title": "Noches Blancas",
+   "author": "Fiódor Dostoievski",
+   "year": 2020,
+   "cover": 15152176,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL19744000W",
+   "title": "嫌われる勇気",
+   "author": "Ichirō Kishimi, Fumitake Koga",
+   "year": 2013,
+   "cover": 10873626,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL1037811W",
+   "title": "Wings of Fire",
+   "author": "A. P. J. Abdul Kalam",
+   "year": 1999,
+   "cover": 9153819,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL17370186W",
+   "title": "A Little Life",
+   "author": "Hanya Yanagihara",
+   "year": 2008,
+   "cover": 12065783,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL492658W",
+   "title": "The Lightning Thief",
+   "author": "Rick Riordan",
+   "year": 2005,
+   "cover": 7239831,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL28952677W",
+   "title": "Icebreaker",
+   "author": "Hannah Grace",
+   "year": 2020,
+   "cover": 13180728,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL16014245W",
+   "title": "Shatter Me",
+   "author": "Tahereh Mafi",
+   "year": 2011,
+   "cover": 6974992,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL20068530W",
+   "title": "Verity",
+   "author": "Colleen Hoover",
+   "year": 2018,
+   "cover": 8747160,
+   "reason": "weekly"
+  },
+  {
    "key": "/works/OL22454503W",
    "title": "Until Love Sets Us Apart",
    "author": "Aditya Nighhot",
@@ -380,83 +268,27 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL1878267W",
-   "title": "Emotional Intelligence",
-   "author": "Daniel Goleman",
-   "year": 1995,
-   "cover": 1359485,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL42975424W",
-   "title": "Can We Be Strangers Again?",
-   "author": "Shrijeet Shandilya",
-   "year": 2024,
-   "cover": 15073759,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL34224558W",
-   "title": "Never Lie",
+   "key": "/works/OL27729743W",
+   "title": "The Housemaid",
    "author": "Freida McFadden",
    "year": 2022,
-   "cover": 13198561,
+   "cover": 15105883,
    "reason": "weekly"
   },
   {
-   "key": "/works/OL17075811W",
-   "title": "Sapiens",
-   "author": "Yuval Noah Harari",
-   "year": 2011,
-   "cover": 8634250,
+   "key": "/works/OL5781992W",
+   "title": "The Kite Runner",
+   "author": "Khaled Hosseini",
+   "year": 2003,
+   "cover": 14846827,
    "reason": "weekly"
   },
   {
-   "key": "/works/OL4461578W",
-   "title": "Trading in the zone",
-   "author": "Mark Douglas",
-   "year": 2001,
-   "cover": 460625,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL18203673W",
-   "title": "The Seven Husbands of Evelyn Hugo",
-   "author": "Taylor Jenkins Reid",
-   "year": 2017,
-   "cover": 8354226,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL42430111W",
-   "title": "The Deal",
-   "author": "Elle Kennedy",
-   "year": 2000,
-   "cover": 10201611,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL16444438W",
-   "title": "The Fault in Our Stars",
-   "author": "John Green, Laia Font Mateu",
-   "year": 2010,
-   "cover": 7418786,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL17713267W",
-   "title": "Deep Work",
-   "author": "Cal Newport",
-   "year": 2016,
-   "cover": 7988607,
-   "reason": "weekly"
-  },
-  {
-   "key": "/works/OL15839737W",
-   "title": "The Secret",
-   "author": "Rhonda Byrne",
-   "year": 2000,
-   "cover": 845815,
+   "key": "/works/OL24178205W",
+   "title": "The Love Hypothesis",
+   "author": "Ali Hazelwood",
+   "year": 2021,
+   "cover": 10601402,
    "reason": "weekly"
   },
   {
@@ -468,6 +300,38 @@
    "reason": "weekly"
   },
   {
+   "key": "/works/OL43426400W",
+   "title": "Sunrise on the Reaping",
+   "author": "Suzanne Collins",
+   "year": 2025,
+   "cover": 14847912,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL17713267W",
+   "title": "Deep Work",
+   "author": "Cal Newport",
+   "year": 2016,
+   "cover": 7988607,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL28953746W",
+   "title": "Brain Damage",
+   "author": "Freida McFadden",
+   "year": 2016,
+   "cover": 15263337,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL27968141W",
+   "title": "A Nation of Idiots",
+   "author": "Daksh Tyagi",
+   "year": 2019,
+   "cover": 13186163,
+   "reason": "weekly"
+  },
+  {
    "key": "/works/OL5782000W",
    "title": "A Thousand Splendid Suns",
    "author": "Khaled Hosseini",
@@ -476,11 +340,147 @@
    "reason": "weekly"
   },
   {
-   "key": "/works/OL5781992W",
-   "title": "The Kite Runner",
-   "author": "Khaled Hosseini",
-   "year": 2003,
-   "cover": 14846827,
+   "key": "/works/OL82536W",
+   "title": "Harry Potter and the Prisoner of Azkaban",
+   "author": "J. K. Rowling",
+   "year": 1999,
+   "cover": 10580435,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL9914360W",
+   "title": "The Back of the Napkin",
+   "author": "Dan Roam",
+   "year": 2008,
+   "cover": 2954590,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL29226517W",
+   "title": "Fourth Wing",
+   "author": "Rebecca Yarros",
+   "year": 2023,
+   "cover": 14407898,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL18020194W",
+   "title": "It Ends With Us",
+   "author": "Colleen Hoover",
+   "year": 2012,
+   "cover": 10473609,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL24542623W",
+   "title": "Better Than the Movies",
+   "author": "Lynn Painter",
+   "year": 2021,
+   "cover": 11182600,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL38128674W",
+   "title": "Lights Out",
+   "author": "Navessa Allen",
+   "year": 2024,
+   "cover": 14641117,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL36733687W",
+   "title": "The Deal / The Mistake / The Score / The Goal / The Legacy",
+   "author": "Elle Kennedy",
+   "year": 2021,
+   "cover": 15217419,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL17864836W",
+   "title": "Cadáver exquisito",
+   "author": "Agustina Bazterrica",
+   "year": 2015,
+   "cover": 8169547,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL25291486W",
+   "title": "Read People Like a Book",
+   "author": "Patrick King",
+   "year": 2020,
+   "cover": 11983442,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL5727686W",
+   "title": "The Power of Now",
+   "author": "Eckhart Tolle",
+   "year": 1997,
+   "cover": 551262,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL42975424W",
+   "title": "Can We Be Strangers Again?",
+   "author": "Shrijeet Shandilya",
+   "year": 2024,
+   "cover": 15073759,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL17356883W",
+   "title": "Red Queen",
+   "author": "Victoria Aveyard",
+   "year": 2015,
+   "cover": 7434883,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL1878267W",
+   "title": "Emotional Intelligence",
+   "author": "Daniel Goleman",
+   "year": 1995,
+   "cover": 1359485,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL17850410W",
+   "title": "The Cruel Prince",
+   "author": "Holly Black",
+   "year": 2018,
+   "cover": 8361789,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL17352669W",
+   "title": "A Court of Thorns and Roses",
+   "author": "Sarah J. Maas",
+   "year": 2013,
+   "cover": 15254465,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL5735360W",
+   "title": "Catching Fire",
+   "author": "Suzanne Collins",
+   "year": 2009,
+   "cover": 12646539,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL20234863W",
+   "title": "Girl in Pieces",
+   "author": "Kathleen Glasgow",
+   "year": 2000,
+   "cover": 8888850,
+   "reason": "weekly"
+  },
+  {
+   "key": "/works/OL43254128W",
+   "title": "The Art of Being Alone",
+   "author": "Renuka Gavrani",
+   "year": 2023,
+   "cover": 15272672,
    "reason": "weekly"
   }
  ],
@@ -3148,13 +3148,13 @@
    "cover": "https://raw.githubusercontent.com/standardebooks/hilaire-belloc_the-four-men/master/images/cover.jpg"
   },
   {
-   "id": "jules-verne_the-fur-country_n-danvers",
+   "id": "jules-verne_the-fur-country_nancy-bell",
    "title": "The Fur Country",
    "author": "Jules Verne",
    "stars": 1,
-   "page": "https://standardebooks.org/ebooks/jules-verne/the-fur-country/n-danvers",
-   "epub": "https://standardebooks.org/ebooks/jules-verne/the-fur-country/n-danvers/downloads/jules-verne_the-fur-country_n-danvers.epub?source=download",
-   "cover": "https://raw.githubusercontent.com/standardebooks/jules-verne_the-fur-country_n-danvers/master/images/cover.jpg"
+   "page": "https://standardebooks.org/ebooks/jules-verne/the-fur-country/nancy-bell",
+   "epub": "https://standardebooks.org/ebooks/jules-verne/the-fur-country/nancy-bell/downloads/jules-verne_the-fur-country_nancy-bell.epub?source=download",
+   "cover": "https://raw.githubusercontent.com/standardebooks/jules-verne_the-fur-country_nancy-bell/master/images/cover.jpg"
   },
   {
    "id": "friedrich-nietzsche_the-genealogy-of-morals_horace-b-samuel",
@@ -3938,6 +3938,15 @@
    "page": "https://standardebooks.org/ebooks/etsu-inagaki-sugimoto/a-daughter-of-the-samurai",
    "epub": "https://standardebooks.org/ebooks/etsu-inagaki-sugimoto/a-daughter-of-the-samurai/downloads/etsu-inagaki-sugimoto_a-daughter-of-the-samurai.epub?source=download",
    "cover": "https://raw.githubusercontent.com/standardebooks/etsu-inagaki-sugimoto_a-daughter-of-the-samurai/master/images/cover.jpg"
+  },
+  {
+   "id": "edgar-rice-burroughs_a-fighting-man-of-mars",
+   "title": "A Fighting Man of Mars",
+   "author": "Edgar Rice Burroughs",
+   "stars": 0,
+   "page": "https://standardebooks.org/ebooks/edgar-rice-burroughs/a-fighting-man-of-mars",
+   "epub": "https://standardebooks.org/ebooks/edgar-rice-burroughs/a-fighting-man-of-mars/downloads/edgar-rice-burroughs_a-fighting-man-of-mars.epub?source=download",
+   "cover": "https://raw.githubusercontent.com/standardebooks/edgar-rice-burroughs_a-fighting-man-of-mars/master/images/cover.jpg"
   },
   {
    "id": "captain-charles-johnson_a-general-history-of-the-pirates",
@@ -5587,13 +5596,13 @@
    "cover": "https://raw.githubusercontent.com/standardebooks/james-branch-cabell_figures-of-earth/master/images/cover.jpg"
   },
   {
-   "id": "emile-gaboriau_file-no-113_james-r-osgood-co",
+   "id": "emile-gaboriau_file-no-113_james-r-osgood-and-company",
    "title": "File No. 113",
    "author": "Émile Gaboriau",
    "stars": 0,
-   "page": "https://standardebooks.org/ebooks/emile-gaboriau/file-no-113/james-r-osgood-co",
-   "epub": "https://standardebooks.org/ebooks/emile-gaboriau/file-no-113/james-r-osgood-co/downloads/emile-gaboriau_file-no-113_james-r-osgood-co.epub?source=download",
-   "cover": "https://raw.githubusercontent.com/standardebooks/emile-gaboriau_file-no-113_james-r-osgood-co/master/images/cover.jpg"
+   "page": "https://standardebooks.org/ebooks/emile-gaboriau/file-no-113/james-r-osgood-and-company",
+   "epub": "https://standardebooks.org/ebooks/emile-gaboriau/file-no-113/james-r-osgood-and-company/downloads/emile-gaboriau_file-no-113_james-r-osgood-and-company.epub?source=download",
+   "cover": "https://raw.githubusercontent.com/standardebooks/emile-gaboriau_file-no-113_james-r-osgood-and-company/master/images/cover.jpg"
   },
   {
    "id": "e-e-smith_first-lensman",
@@ -9277,6 +9286,15 @@
    "cover": "https://raw.githubusercontent.com/standardebooks/compton-mackenzie_sinister-street/master/images/cover.jpg"
   },
   {
+   "id": "arthur-conan-doyle_sir-nigel",
+   "title": "Sir Nigel",
+   "author": "Arthur Conan Doyle",
+   "stars": 0,
+   "page": "https://standardebooks.org/ebooks/arthur-conan-doyle/sir-nigel",
+   "epub": "https://standardebooks.org/ebooks/arthur-conan-doyle/sir-nigel/downloads/arthur-conan-doyle_sir-nigel.epub?source=download",
+   "cover": "https://raw.githubusercontent.com/standardebooks/arthur-conan-doyle_sir-nigel/master/images/cover.jpg"
+  },
+  {
    "id": "baroness-orczy_sir-percy-hits-back",
    "title": "Sir Percy Hits Back",
    "author": "Baroness Orczy",
@@ -10166,6 +10184,15 @@
    "page": "https://standardebooks.org/ebooks/horace-walpole/the-castle-of-otranto",
    "epub": "https://standardebooks.org/ebooks/horace-walpole/the-castle-of-otranto/downloads/horace-walpole_the-castle-of-otranto.epub?source=download",
    "cover": "https://raw.githubusercontent.com/standardebooks/horace-walpole_the-castle-of-otranto/master/images/cover.jpg"
+  },
+  {
+   "id": "edgar-rice-burroughs_the-cave-girl",
+   "title": "The Cave Girl",
+   "author": "Edgar Rice Burroughs",
+   "stars": 0,
+   "page": "https://standardebooks.org/ebooks/edgar-rice-burroughs/the-cave-girl",
+   "epub": "https://standardebooks.org/ebooks/edgar-rice-burroughs/the-cave-girl/downloads/edgar-rice-burroughs_the-cave-girl.epub?source=download",
+   "cover": "https://raw.githubusercontent.com/standardebooks/edgar-rice-burroughs_the-cave-girl/master/images/cover.jpg"
   },
   {
    "id": "honore-de-balzac_the-celibates_clara-bell",
@@ -13300,13 +13327,13 @@
    "cover": "https://raw.githubusercontent.com/standardebooks/tom-godwin_the-survivors/master/images/cover.jpg"
   },
   {
-   "id": "jules-verne_the-survivors-of-the-chancellor_ellen-frewer",
+   "id": "jules-verne_the-survivors-of-the-chancellor_ellen-e-frewer",
    "title": "The Survivors of the Chancellor",
    "author": "Jules Verne",
    "stars": 0,
-   "page": "https://standardebooks.org/ebooks/jules-verne/the-survivors-of-the-chancellor/ellen-frewer",
-   "epub": "https://standardebooks.org/ebooks/jules-verne/the-survivors-of-the-chancellor/ellen-frewer/downloads/jules-verne_the-survivors-of-the-chancellor_ellen-frewer.epub?source=download",
-   "cover": "https://raw.githubusercontent.com/standardebooks/jules-verne_the-survivors-of-the-chancellor_ellen-frewer/master/images/cover.jpg"
+   "page": "https://standardebooks.org/ebooks/jules-verne/the-survivors-of-the-chancellor/ellen-e-frewer",
+   "epub": "https://standardebooks.org/ebooks/jules-verne/the-survivors-of-the-chancellor/ellen-e-frewer/downloads/jules-verne_the-survivors-of-the-chancellor_ellen-e-frewer.epub?source=download",
+   "cover": "https://raw.githubusercontent.com/standardebooks/jules-verne_the-survivors-of-the-chancellor_ellen-e-frewer/master/images/cover.jpg"
   },
   {
    "id": "johann-david-wyss_the-swiss-family-robinson_mary-jane-godwin_william-godwin",
@@ -14513,6 +14540,15 @@
    "page": "https://standardebooks.org/ebooks/ella-cheever-thayer/wired-love",
    "epub": "https://standardebooks.org/ebooks/ella-cheever-thayer/wired-love/downloads/ella-cheever-thayer_wired-love.epub?source=download",
    "cover": "https://raw.githubusercontent.com/standardebooks/ella-cheever-thayer_wired-love/master/images/cover.jpg"
+  },
+  {
+   "id": "henry-seton-merriman_with-edged-tools",
+   "title": "With Edged Tools",
+   "author": "Henry Seton Merriman",
+   "stars": 0,
+   "page": "https://standardebooks.org/ebooks/henry-seton-merriman/with-edged-tools",
+   "epub": "https://standardebooks.org/ebooks/henry-seton-merriman/with-edged-tools/downloads/henry-seton-merriman_with-edged-tools.epub?source=download",
+   "cover": "https://raw.githubusercontent.com/standardebooks/henry-seton-merriman_with-edged-tools/master/images/cover.jpg"
   },
   {
    "id": "henryk-sienkiewicz_with-fire-and-sword_jeremiah-curtin",
